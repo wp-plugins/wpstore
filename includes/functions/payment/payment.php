@@ -26,7 +26,7 @@ if($moedaCorrente==""){
 
     global $wpdb;
     $tabela = $wpdb->prefix."";
-    $tabela .=  "wp_store_orders";
+    $tabela .=  "wpstore_orders";
     
     $fivesdrafts = $wpdb->get_results( $wpdb->prepare( "SELECT * FROM  `$tabela` WHERE  `id_usuario`='$idUser' ORDER BY `id`  DESC LIMIT 0,1"  ,1,'') );
     

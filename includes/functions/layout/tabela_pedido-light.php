@@ -40,7 +40,7 @@
         
            
                  $tabela = $wpdb->prefix."";
-                $tabela .=  "wp_store_orders_products";
+                $tabela .=  "wpstore_orders_products";
 
                 $fivesdrafts = $wpdb->get_results( $wpdb->prepare( "SELECT * FROM  `$tabela` WHERE `id_usuario`='$idUser' AND `id_pedido`='$idPedido' ORDER BY `id`  ASC  " ,1,'') );
 

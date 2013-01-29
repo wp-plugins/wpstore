@@ -53,7 +53,7 @@
                  $orderPrint .= $tr . '<form action="'.verifyURL(get_option( 'siteurl' )).'/pedido/?order='.$order.'&operacao=cons" target="tela_operacao" onsubmit="javascript:executar();" method="post">' . "\n";
 
 
-                //echo $tr . '<form action="'.verifyURL(get_option( 'siteurl' )).'/wp-content/plugins/wp_store/includes/functions/payment/Cielo/pages/operacao.php" target="tela_operacao" onsubmit="javascript:executar();" method="post">' . "\n";
+                //echo $tr . '<form action="'.verifyURL(get_option( 'siteurl' )).'/wp-content/plugins/wpstore/includes/functions/payment/Cielo/pages/operacao.php" target="tela_operacao" onsubmit="javascript:executar();" method="post">' . "\n";
 
 
     		    $orderPrint .=  $tr . '<input type="hidden" name="numeroPedido" value="' . $objPedido->dadosPedidoNumero . '"/>' . "\n";

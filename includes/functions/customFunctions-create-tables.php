@@ -2,18 +2,18 @@
 
 //CREATE TABLES ----------------------------------------------------------------
    
-   global $wp_store_version;
-   $wp_store_version = "1";
+   global $wpstore_version;
+   $wpstore_version = "1";
    
    //verify update version 
    
    function shopPlugin_update_db_check() {
-       global $wp_store_version;
-       if (get_option('wp_store_version') != $wp_store_version) {
+       global $wpstore_version;
+       if (get_option('wpstore_version') != $wpstore_version) {
  
-           update_option("wp_store_version", $wp_store_version);
+           update_option("wpstore_version", $wpstore_version);
            
-           wp_store_createTable();
+           wpstore_createTable();
        }
    }
          
@@ -21,7 +21,7 @@
    add_action('plugins_loaded', 'shopPlugin_update_db_check');
  
    
-   function wp_store_createTable(){
+   function wpstore_createTable(){
 
         //create table ---------------------------------------------
 
@@ -31,7 +31,7 @@
           require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
 
    
-          $table_name1 = $wpdb->prefix ."wp_store_orders"; 
+          $table_name1 = $wpdb->prefix ."wpstore_orders"; 
 
           $sql = "CREATE TABLE " . $table_name1 . " (
           	  id mediumint(9) NOT NULL AUTO_INCREMENT,
@@ -50,7 +50,7 @@
           dbDelta($sql);
           
           
-            $table_name2 = $wpdb->prefix ."wp_store_stock";
+            $table_name2 = $wpdb->prefix ."wpstore_stock";
                                        
           
           
@@ -75,7 +75,7 @@
                  
                  
                  
-                 $table_name = $wpdb->prefix ."wp_store_orders_address"; 
+                 $table_name = $wpdb->prefix ."wpstore_orders_address"; 
 
                   $sql3 = "CREATE TABLE " . $table_name . " (
                   	  id mediumint(9) NOT NULL AUTO_INCREMENT,
@@ -96,7 +96,7 @@
                   
                   
                   
-                  $table_name = $wpdb->prefix ."wp_store_orders_products"; 
+                  $table_name = $wpdb->prefix ."wpstore_orders_products"; 
 
                    $sql3 = "CREATE TABLE " . $table_name . " (
                    	  id mediumint(9) NOT NULL AUTO_INCREMENT,
@@ -120,7 +120,7 @@
 
 
 
-                   $table_name = $wpdb->prefix  ."wp_store_orders_comments"; 
+                   $table_name = $wpdb->prefix  ."wpstore_orders_comments"; 
 
                      $sql4 = "CREATE TABLE " . $table_name . " (
                      	  id mediumint(9) NOT NULL AUTO_INCREMENT,
@@ -142,7 +142,7 @@
 
 
 
-                     $table_name = $wpdb->prefix  ."wp_store_contacts"; 
+                     $table_name = $wpdb->prefix  ."wpstore_contacts"; 
 
                           $sql5 = "CREATE TABLE " . $table_name . " (
                           	  id mediumint(9) NOT NULL AUTO_INCREMENT,
@@ -161,7 +161,7 @@
                           
                           
 
-                          $table_name = $wpdb->prefix  ."wp_store_descontos"; 
+                          $table_name = $wpdb->prefix  ."wpstore_descontos"; 
 
                                $sql6 = "CREATE TABLE " . $table_name . " (
                                	  id mediumint(9) NOT NULL AUTO_INCREMENT,
@@ -185,7 +185,7 @@
 
    
    //call to function
-  register_activation_hook(__FILE__,'wp_store_createTable');
+  register_activation_hook(__FILE__,'wpstore_createTable');
  
    
   

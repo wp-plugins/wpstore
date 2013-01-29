@@ -56,7 +56,7 @@
 
 
                 $tabela = $wpdb->prefix."";
-                $tabela .=  "wp_store_stock";
+                $tabela .=  "wpstore_stock";
 
                $sql = "SELECT * FROM `$tabela` WHERE  	`idPost` = '$postIDP' AND  `tipoVariacao` = 'cor' ORDER BY `variacaoProduto` ASC  LIMIT 0 , 100";
 
@@ -74,7 +74,7 @@
                
  
                       $tabela = $wpdb->prefix."";
-                      $tabela .=  "wp_store_stock";
+                      $tabela .=  "wpstore_stock";
 
                       $sql = "SELECT * FROM `$tabela` WHERE  	`idPost` = '$postIDP' AND  `tipoVariacao` = 'tamanho'  ORDER BY `variacaoProduto` ASC   LIMIT 0 , 100";
 
@@ -102,7 +102,7 @@
 
 
                               $tabela = $wpdb->prefix."";
-                               $tabela .=  "wp_store_stock";
+                               $tabela .=  "wpstore_stock";
 
                                $sql = "SELECT * FROM `$tabela` WHERE `variacaoProduto` = '$corTamanho'  AND  `tipoVariacao` = '$nome'   ORDER BY `variacaoProduto` ASC   LIMIT 0 , 100";
 

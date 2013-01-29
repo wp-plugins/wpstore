@@ -183,7 +183,7 @@ function  save_stock_produto($post_id ){
              global $wpdb; 
 
               $tabela = $wpdb->prefix."";
-              $tabela .=  "wp_store_stock";
+              $tabela .=  "wpstore_stock";
               
               
             //COR -------------------------------------------
@@ -387,13 +387,13 @@ global $post, $meta_boxes_produtos, $key;
 	
  
 
-<script type="text/javascript" src="<?php echo  plugins_url('wp_store/includes/js/datepicker.js' ,'WP STORE' ); ?>"></script>
+<script type="text/javascript" src="<?php echo  plugins_url('wpstore/includes/js/datepicker.js' ,'WP STORE' ); ?>"></script>
 
-<script type="text/javascript" src="<?php  echo  plugins_url('wp_store/includes/js/jquery.price_format.1.7.js' ,'WP STORE' );  ?>"></script> 
+<script type="text/javascript" src="<?php  echo  plugins_url('wpstore/includes/js/jquery.price_format.1.7.js' ,'WP STORE' );  ?>"></script> 
 
-<link type="text/css" rel="stylesheet" href="<?php  echo  plugins_url('wp_store/includes/js/jquery-miniColors/jquery.miniColors.css' ,'WP STORE' );  ?>" />
+<link type="text/css" rel="stylesheet" href="<?php  echo  plugins_url('wpstore/includes/js/jquery-miniColors/jquery.miniColors.css' ,'WP STORE' );  ?>" />
 
-<script type="text/javascript" src="<?php  echo  plugins_url('wp_store/includes/js/jquery-miniColors/jquery.miniColors.min.js' ,'WP STORE' );  ?>"></script>
+<script type="text/javascript" src="<?php  echo  plugins_url('wpstore/includes/js/jquery-miniColors/jquery.miniColors.min.js' ,'WP STORE' );  ?>"></script>
 
 
 
@@ -467,7 +467,7 @@ $data = get_post_meta($post->ID, $key, true);
       
 
               $tabela = $wpdb->prefix."";
-              $tabela .=  "wp_store_stock";
+              $tabela .=  "wpstore_stock";
 
              $sql = "SELECT * FROM `$tabela` WHERE  	`idPost` = '$post->ID' AND  `tipoVariacao` = 'cor' ORDER BY `showOrder` ASC  LIMIT 0 , 100";
  
@@ -577,7 +577,7 @@ $data = get_post_meta($post->ID, $key, true);
            global $wpdb; 
              
            $tabela = $wpdb->prefix."";
-           $tabela .=  "wp_store_stock";
+           $tabela .=  "wpstore_stock";
        
            $sql = "SELECT * FROM `$tabela` WHERE  	`idPost` = '$post->ID' AND  `tipoVariacao` = 'tamanho'  ORDER BY `showOrder` ASC   LIMIT 0 , 100";
 
@@ -744,7 +744,7 @@ $data = get_post_meta($post->ID, $key, true);
 <script language="javascript" type="text/javascript">
 
 
-         var urlBase = "<?php echo  plugins_url('wp_store/includes/ajax/' ,'WP STORE' ); ?>";
+         var urlBase = "<?php echo  plugins_url('wpstore/includes/ajax/' ,'WP STORE' ); ?>";
          
  
           jQuery("input.cor").miniColors({

@@ -149,7 +149,7 @@ function custom_get_qtd_vendida($postID,$cor,$tamanho){
     
     global $wpdb; 
     $tabela = $wpdb->prefix."";
-    $tabela .=  "wp_store_orders_products";
+    $tabela .=  "wpstore_orders_products";
    
    $cor = str_replace(" ","",$cor);   
     
@@ -192,7 +192,7 @@ function verificarEstoque($postID,$cor,$tamanho){
      };
 
      $tabela = $wpdb->prefix."";
-     $tabela .=  "wp_store_stock";
+     $tabela .=  "wpstore_stock";
        
      $sql = "SELECT `qtdProduto`
      FROM `$tabela`
@@ -220,7 +220,7 @@ function verificarEstoqueTotal($postID,$cor,$tamanho){
      global $wpdb;
      
       $tabela = $wpdb->prefix."";
-      $tabela .=  "wp_store_stock";
+      $tabela .=  "wpstore_stock";
 
 
      
@@ -372,7 +372,7 @@ function get_price_product_variation($postID,$variacao){
     
       global $wpdb; 
       $tabela = $wpdb->prefix."";
-      $tabela .=  "wp_store_stock";
+      $tabela .=  "wpstore_stock";
       
       $sql = "SELECT * FROM `$tabela` WHERE  `idPost` = '$postID' AND  (`variacaoProduto` = '$variacao' )  ORDER BY `variacaoProduto` ASC   LIMIT 0 , 1";
 
@@ -753,7 +753,7 @@ function custom_get_total_price_session_order(){
  
         global $wpdb;
         $tabela = $wpdb->prefix."";
-        $tabela .=  "wp_store_orders";
+        $tabela .=  "wpstore_orders";
                   
         $num = $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(*) FROM  `$tabela` WHERE `id_usuario`='$idUsuario' " ,1,'') );
         
@@ -806,7 +806,7 @@ function custom_get_total_price_session_order(){
             
             global $wpdb;
             $tabela = $wpdb->prefix."";
-            $tabela .=  "wp_store_orders_address";
+            $tabela .=  "wpstore_orders_address";
 
 
               $sql = "INSERT INTO `$tabela` (`id` ,`id_pedido` ,`id_usuario` ,`cep` ,`estado`,`cidade` ,`bairro` ,`endereco` ,`numero`,`complemento`)
@@ -826,7 +826,7 @@ function custom_get_total_price_session_order(){
              
              $tabela = $wpdb->prefix."";
              
-             $tabela .=  "wp_store_orders_products";
+             $tabela .=  "wpstore_orders_products";
               
              $arrayCarrinho = $_SESSION['carrinho']; 
 
@@ -946,7 +946,7 @@ function custom_get_total_products_in_order($idPedido){
     
     $tabela = $wpdb->prefix."";
     
-    $tabela .=  "wp_store_orders_products";
+    $tabela .=  "wpstore_orders_products";
  
     $sql = "SELECT count(*) FROM `$tabela` WHERE `id_pedido` = '$idPedido' ";
     
@@ -966,7 +966,7 @@ function custom_get_total_products_in_order($idPedido){
             
             global $wpdb;
             $tabela = $wpdb->prefix."";
-            $tabela .=  "wp_store_contacts"; 
+            $tabela .=  "wpstore_contacts"; 
             
             
             $sql = "SELECT count(*) FROM `$tabela` WHERE `emailAviso` = '$emailAviso' AND `postIDP` = '$postIDP' AND `variacaoCorP` = '$variacaoCorP' AND `variacaoTamanhoP` = '$variacaoTamanhoP'  ";
@@ -1002,7 +1002,7 @@ function custom_get_total_products_in_order($idPedido){
          
           global $wpdb;
              $tabela = $wpdb->prefix."";
-             $tabela .=  "wp_store_descontos"; 
+             $tabela .=  "wpstore_descontos"; 
          
          
          
@@ -1042,7 +1042,7 @@ function custom_get_total_products_in_order($idPedido){
  function consultaDesconto($oid ){
        global $wpdb;
        $tabela = $wpdb->prefix."";
-       $tabela .=  "wp_store_descontos";
+       $tabela .=  "wpstore_descontos";
  
        $andQuery="";
 
@@ -1094,7 +1094,7 @@ function custom_get_total_products_in_order($idPedido){
          
          global $wpdb;
          $tabela = $wpdb->prefix."";
-         $tabela .=  "wp_store_descontos";
+         $tabela .=  "wpstore_descontos";
          
          $sql = "SELECT  `qtdUsado` FROM `$tabela`  WHERE `numeroCupom`='$numeroCupom' ORDER BY `id` DESC LIMIT 0,1";
          $qtdUsado= intval($wpdb->get_var( $wpdb->prepare( $sql,1,'')));
@@ -1120,7 +1120,7 @@ function custom_get_total_products_in_order($idPedido){
         
          global $wpdb;
          $tabela = $wpdb->prefix."";
-         $tabela .=  "wp_store_descontos";
+         $tabela .=  "wpstore_descontos";
          
          $sql = "SELECT  `qtdUsado` FROM `$tabela`  WHERE `numeroCupom`='$numeroCupom' ORDER BY `id` DESC LIMIT 0,1";
          $qtdUsado= intval($wpdb->get_var( $wpdb->prepare( $sql,1,'')));
@@ -1302,7 +1302,7 @@ function custom_get_total_products_in_order($idPedido){
                      global $wpdb; 
                      
                      $tabela = $wpdb->prefix."";
-                     $tabela .=  "wp_store_stock";
+                     $tabela .=  "wpstore_stock";
                       
                      
                      $sql = "SELECT id
@@ -1388,7 +1388,7 @@ function custom_get_total_products_in_order($idPedido){
              global $wpdb; 
 
              $tabela = $wpdb->prefix."";
-             $tabela .=  "wp_store_stock";
+             $tabela .=  "wpstore_stock";
 
              $order = intval($order); 
              $item = intval($item); 
@@ -1414,7 +1414,7 @@ function custom_get_total_products_in_order($idPedido){
 
                 global $wpdb;
                $tabela = $wpdb->prefix."";
-               $tabela .=  "wp_store_orders";
+               $tabela .=  "wpstore_orders";
               //INICIO Insere  no total de Inscrições da Etapa     
 
               $data = gmdate('d').'/'.gmdate('m').'/'.gmdate('Y');
@@ -1424,12 +1424,12 @@ function custom_get_total_products_in_order($idPedido){
                    };
                    
                    $tabela = $wpdb->prefix."";
-                   $tabela .=  "wp_store_orders";
+                   $tabela .=  "wpstore_orders";
                    
                           $resultQuery = $wpdb->query("UPDATE `$tabela` SET `status_pagto` = '$status' WHERE `id_pedido` = '$orderComplete' ");
 
                           $tabela = $wpdb->prefix."";
-                          $tabela .=  "wp_store_orders_comments";
+                          $tabela .=  "wpstore_orders_comments";
 
                           $sql="INSERT INTO `$tabela` (`id` ,`id_pedido` , `comentario_cliente` ,`comentario_admin` ,`comentario_pagt` ,`status_pagto`,`data`
                           )VALUES (

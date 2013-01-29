@@ -39,7 +39,7 @@ require("../../../../../wp-load.php");
              $contagem = 0;
        
              $tabela = $wpdb->prefix."";
-             $tabela .=  "wp_store_stock";
+             $tabela .=  "wpstore_stock";
 
              $sql = "SELECT * FROM `$tabela` WHERE  `variacaoProduto`='$variacao' ORDER BY `variacaoProduto` ASC";
 

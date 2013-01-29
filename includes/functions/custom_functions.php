@@ -189,15 +189,15 @@ function custom_get_category_id($blog_ID=1,$catName){
  $ajaxFiltro = true;
   $tipoSkinShop = get_option('tipoSkinShop');
  if($tipoSkinShop=="DARK"){
- wp_register_style( 'prefix-style', plugins_url('wp_store/includes/css/general-product-dark.css','WP STORE' ) );
+ wp_register_style( 'prefix-style', plugins_url('wpstore/includes/css/general-product-dark.css','WP STORE' ) );
  }else{
- wp_register_style( 'prefix-style', plugins_url('wp_store/includes/css/general-product-light.css','WP STORE' ) );    
+ wp_register_style( 'prefix-style', plugins_url('wpstore/includes/css/general-product-light.css','WP STORE' ) );    
  }
  wp_enqueue_style( 'prefix-style' );
  
 
 
-   wp_register_style( 'date-pickercss', plugins_url('wp_store/includes/css/ui-lightness/jquery-ui-1.8.20.custom.css','WP STORE' ) ); 
+   wp_register_style( 'date-pickercss', plugins_url('wpstore/includes/css/ui-lightness/jquery-ui-1.8.20.custom.css','WP STORE' ) ); 
    wp_enqueue_style( 'date-pickercss' );
 
 
@@ -209,21 +209,21 @@ function custom_get_category_id($blog_ID=1,$catName){
   
   
   //inserindo JS no header ---------------------------------
-  //wp_register_script( 'jui2', plugins_url('wp_store/includes/js/jquery-ui.js','WP STORE' ), array('jquery') );
+  //wp_register_script( 'jui2', plugins_url('wpstore/includes/js/jquery-ui.js','WP STORE' ), array('jquery') );
   //wp_enqueue_script( 'jui2' );
 
  
 
    
   //inserindo JS no header ---------------------------------
-  wp_register_script( 'validade', plugins_url('wp_store/includes/js/jquery-validade.js','WP STORE' ), array('jquery', 'jquery-ui-core' , 'jquery-ui-datepicker') );
+  wp_register_script( 'validade', plugins_url('wpstore/includes/js/jquery-validade.js','WP STORE' ), array('jquery', 'jquery-ui-core' , 'jquery-ui-datepicker') );
   wp_enqueue_script( 'validade' );
    //FINAL inserindo JS no header ---------------------------------
     
 
 
   /*
-  wp_register_script( 'jui', plugins_url('wp_store/includes/js/datepicker.js','WP STORE' ), array('jquery') );
+  wp_register_script( 'jui', plugins_url('wpstore/includes/js/datepicker.js','WP STORE' ), array('jquery') );
   wp_enqueue_script( 'jui' );
   */
 
@@ -232,7 +232,7 @@ function custom_get_category_id($blog_ID=1,$catName){
 
    
   //inserindo JS no header ---------------------------------
-  wp_register_script( 'prefix-script', plugins_url('wp_store/includes/js/custom.js','WP STORE' ), array('thickbox') );
+  wp_register_script( 'prefix-script', plugins_url('wpstore/includes/js/custom.js','WP STORE' ), array('thickbox') );
   wp_enqueue_script( 'prefix-script' );
    //FINAL inserindo JS no header ---------------------------------
    

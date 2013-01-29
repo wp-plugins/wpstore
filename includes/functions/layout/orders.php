@@ -54,7 +54,7 @@ if($moedaCorrente==""){
 
     global $wpdb;
     $tabela = $wpdb->prefix."";
-    $tabela .=  "wp_store_orders";
+    $tabela .=  "wpstore_orders";
     
     $totalpedidos = 0;
     

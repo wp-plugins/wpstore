@@ -82,7 +82,7 @@ if($txtEscolhaCorProduto==""){
      global $wpdb; 
 
      $tabela = $wpdb->prefix."";
-     $tabela .=  "wp_store_stock";
+     $tabela .=  "wpstore_stock";
  
      $sql = "SELECT * FROM `$tabela` WHERE   `idPost` = '$postID' AND  `tipoVariacao` = 'cor'  ORDER BY `showOrder` ASC   LIMIT 0 , 100";
 
@@ -143,7 +143,7 @@ if($txtEscolhaCorProduto==""){
     
 		         global $wpdb; 
                    $tabela = $wpdb->prefix."";
-                   $tabela .=  "wp_store_stock";
+                   $tabela .=  "wpstore_stock";
                    $sql = "SELECT * FROM `$tabela` WHERE  	`idPost` = '$postID' AND  `tipoVariacao` = 'tamanho'  ORDER BY `showOrder` ASC ";
 
                    $fivesdraftsTamanho = $wpdb->get_results( $sql);
@@ -274,7 +274,7 @@ if($txtEscolhaCorProduto==""){
 		
 		       global $wpdb; 
                $tabela = $wpdb->prefix."";
-               $tabela .=  "wp_store_stock";
+               $tabela .=  "wpstore_stock";
                $sql = "SELECT * FROM `$tabela` WHERE  	`idPost` = '$postID' AND  `tipoVariacao` = 'tamanho'  ORDER BY `showOrder` ASC   LIMIT 0 , 100";
 
                $fivesdraftsTamanho = $wpdb->get_results( $sql);

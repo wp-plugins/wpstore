@@ -10,7 +10,7 @@ if( intval($_REQUEST['idRmv'] )>0 ){
       if(is_admin()){
       global $wpdb;
       $tabela = $wpdb->prefix."";
-      $tabela .=  "wp_store_orders_contacts";
+      $tabela .=  "wpstore_orders_contacts";
       $ID = $_REQUEST['idRmv'];
       $resultQuery = $wpdb->query("DELETE FROM `$tabela` WHERE `id` = '$ID'");
   	  // wp_redirect(verifyURL(get_bloginfo('url')).'/wp-admin/admin.php?page=lista_descontos');
@@ -29,7 +29,7 @@ for ($i=0; $i<=count($_POST['list']);$i++) {
             $tabela = $wpdb->prefix."";
             $tabela2 =  $tabela;
             $tabela3 =  $tabela;
-            $tabela .=  "wp_store_descontos";
+            $tabela .=  "wpstore_descontos";
           
                    
            $resultQuery = $wpdb->query("DELETE FROM `$tabela` WHERE `id` = '$ID'");
@@ -75,7 +75,7 @@ echo "<br/>";
 
    global $wpdb;
    $tabela = $wpdb->prefix."";
-   $tabela .=  "wp_store_descontos";
+   $tabela .=  "wpstore_descontos";
  
    $oid = $_POST['oid'];
  

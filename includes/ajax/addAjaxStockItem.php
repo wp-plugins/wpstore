@@ -46,7 +46,7 @@
                   global $wpdb; 
                   
                   $tabela = $wpdb->prefix."";
-                  $tabela .=  "wp_store_stock";
+                  $tabela .=  "wpstore_stock";
                  
                   $sql = "DELETE FROM `$tabela` WHERE `id` = '$itemID' ";
                  

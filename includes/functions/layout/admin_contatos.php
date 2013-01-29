@@ -5,7 +5,7 @@ if( intval($_REQUEST['idRmv'] )>0 ){
       if(is_admin()){
       global $wpdb;
       $tabela = $wpdb->prefix."";
-      $tabela .=  "wp_store_orders_contacts";
+      $tabela .=  "wpstore_orders_contacts";
       $ID = $_REQUEST['idRmv'];
       $resultQuery = $wpdb->query("DELETE FROM `$tabela` WHERE `id` = '$ID'");
   	  //wp_redirect(verifyURL(get_bloginfo('url')).'/wp-admin/admin.php?page=lista_contatos');
@@ -24,7 +24,7 @@ for ($i=0; $i<=count($_POST['list']);$i++) {
             $tabela = $wpdb->prefix."";
             $tabela2 =  $tabela;
             $tabela3 =  $tabela;
-            $tabela .=  "wp_store_contacts";
+            $tabela .=  "wpstore_contacts";
           
                    
            $resultQuery = $wpdb->query("DELETE FROM `$tabela` WHERE `id` = '$ID'");
@@ -50,7 +50,7 @@ for ($i=0; $i<=count($_POST['list']);$i++) {
 
    global $wpdb;
    $tabela = $wpdb->prefix."";
-   $tabela .=  "wp_store_contacts";
+   $tabela .=  "wpstore_contacts";
  
    $oid = $_POST['oid'];
    $oemail = $_POST['oemail'];

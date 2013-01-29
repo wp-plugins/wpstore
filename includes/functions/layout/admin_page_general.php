@@ -131,7 +131,7 @@ $totalParcela = get_totalParcela();
 
 
 
-	<form action="<?php echo verifyURL(get_option( 'siteurl' )) ."/wp-admin/admin.php?page=wp_store";?>"  method="post" >
+	<form action="<?php echo verifyURL(get_option( 'siteurl' )) ."/wp-admin/admin.php?page=wpstore";?>"  method="post" >
 
 
 

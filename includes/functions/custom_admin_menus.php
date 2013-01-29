@@ -5,11 +5,11 @@
 
    function criarMenuAdmin() {
         
-               add_menu_page(__('WP STORE','menu-wp-store'), __('WP STORE','menu-wp-store'), 'manage_options', 'wp_store', 'custom_criar_pagina_geral');
+               add_menu_page(__('WP STORE','menu-wp-store'), __('WP STORE','menu-wp-store'), 'manage_options', 'wpstore', 'custom_criar_pagina_geral');
                
                
                      add_submenu_page( 
-                             'wp_store', 
+                             'wpstore', 
                              'Produtos',
                              'Adicionar Produto', 
                              '10', // $capability
@@ -18,7 +18,7 @@
                       
                
                add_submenu_page( 
-                   'wp_store', 
+                   'wpstore', 
                    'Produtos',
                    'Listar Produtos', 
                    '10', // $capability
@@ -38,7 +38,7 @@
 
     function criarPedidos() {
          
-          add_submenu_page('wp_store', __('Pedidos','menu-lista-pedidos'), __('PEDIDOS','menu-lista-pedidos'), 'manage_options',  'lista_pedidos', 'custom_criar_pagina_admin_pedidos');
+          add_submenu_page('wpstore', __('Pedidos','menu-lista-pedidos'), __('PEDIDOS','menu-lista-pedidos'), 'manage_options',  'lista_pedidos', 'custom_criar_pagina_admin_pedidos');
      
           
     };
@@ -84,7 +84,7 @@
 
        function criarContatos() {
 
-             add_submenu_page('wp_store', __('Solicitações de Contato','menu-lista-contatos'), __('Contatos','menu-lista-contatos'), 'manage_options',  'lista_contatos', 'custom_criar_pagina_admin_contatos');
+             add_submenu_page('wpstore', __('Solicitações de Contato','menu-lista-contatos'), __('Contatos','menu-lista-contatos'), 'manage_options',  'lista_contatos', 'custom_criar_pagina_admin_contatos');
 
 
        };
@@ -112,7 +112,7 @@
 
              function criarPagePagamentos() {
 
-                   add_submenu_page('wp_store', __('Configurações de Pagamento','menu-lista-descontos'), __('Configurações de Pagamento','menu-lista-pagamentos'), 'manage_options',  'lista_pagamentos', 'custom_criar_pagina_admin_pagamentos');
+                   add_submenu_page('wpstore', __('Configurações de Pagamento','menu-lista-descontos'), __('Configurações de Pagamento','menu-lista-pagamentos'), 'manage_options',  'lista_pagamentos', 'custom_criar_pagina_admin_pagamentos');
 
 
              };
@@ -133,7 +133,7 @@
 
                function criarPageFrete() {
 
-                     add_submenu_page('wp_store', __('Configurações de Frete','menu-lista-frete'), __('Configurações de Frete','menu-lista-frete'), 'manage_options',  'lista_frete', 'custom_criar_pagina_admin_frete');
+                     add_submenu_page('wpstore', __('Configurações de Frete','menu-lista-frete'), __('Configurações de Frete','menu-lista-frete'), 'manage_options',  'lista_frete', 'custom_criar_pagina_admin_frete');
 
 
                };
@@ -160,7 +160,7 @@
 
                      function criarPageDescontos() {
 
-                           add_submenu_page('wp_store', __('Cupom de Descontos','menu-lista-descontos'), __('Cupom de Descontos','menu-lista-descontos'), 'manage_options',  'lista_descontos', 'custom_criar_pagina_admin_descontos');
+                           add_submenu_page('wpstore', __('Cupom de Descontos','menu-lista-descontos'), __('Cupom de Descontos','menu-lista-descontos'), 'manage_options',  'lista_descontos', 'custom_criar_pagina_admin_descontos');
 
 
                      };
@@ -185,7 +185,7 @@
 
                                function criarPageDesign() {
 
-                                     add_submenu_page('wp_store', __('Opções de Design','menu-lista-design'), __('Opções de Design','menu-lista-design'), 'manage_options',  'lista_design', 'custom_criar_pagina_admin_design');
+                                     add_submenu_page('wpstore', __('Opções de Design','menu-lista-design'), __('Opções de Design','menu-lista-design'), 'manage_options',  'lista_design', 'custom_criar_pagina_admin_design');
 
 
                                };
@@ -207,7 +207,7 @@
 
                                      function criarPageSmtp() {
 
-                                           add_submenu_page('wp_store', __('SMTP','menu-lista-smtp'), __('Opções de SMTP','menu-lista-smtp'), 'manage_options',  'lista_smtp', 'custom_criar_pagina_admin_smtp');
+                                           add_submenu_page('wpstore', __('SMTP','menu-lista-smtp'), __('Opções de SMTP','menu-lista-smtp'), 'manage_options',  'lista_smtp', 'custom_criar_pagina_admin_smtp');
 
 
                                      };
@@ -235,7 +235,7 @@
 
                                            function criarPageImpostos() {
 
-                                                 add_submenu_page('wp_store', __('Opções de Impostos e taxas','menu-lista-impostos'), __('Opções de Impostos','menu-lista-impostos'), 'manage_options',  'lista_impostos', 'custom_criar_pagina_admin_impostos');
+                                                 add_submenu_page('wpstore', __('Opções de Impostos e taxas','menu-lista-impostos'), __('Opções de Impostos','menu-lista-impostos'), 'manage_options',  'lista_impostos', 'custom_criar_pagina_admin_impostos');
 
 
                                            };
@@ -258,7 +258,7 @@
 
 
                                                                         function criarPageTranslate() {
-                                                                           add_submenu_page('wp_store', __('Opções de Texto e Tradução','menu-lista-translate'), __('Opções de texto e tradução','menu-lista-translate'), 'manage_options',  'lista_translate', 'custom_criar_pagina_admin_translate');
+                                                                           add_submenu_page('wpstore', __('Opções de Texto e Tradução','menu-lista-translate'), __('Opções de texto e tradução','menu-lista-translate'), 'manage_options',  'lista_translate', 'custom_criar_pagina_admin_translate');
                                                                         };
 
                                                                         function custom_criar_pagina_admin_translate() {

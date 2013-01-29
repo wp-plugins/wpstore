@@ -14,7 +14,7 @@ if( intval($_REQUEST['idRmv'] )>0 ){
       if(is_admin()){
       global $wpdb;
       $tabela = $wpdb->prefix."";
-      $tabela .=  "wp_store_orders_comments";
+      $tabela .=  "wpstore_orders_comments";
       $ID = $_REQUEST['idRmv'];
       $resultQuery = $wpdb->query("DELETE FROM `$tabela` WHERE `id` = '$ID'");
   	  //wp_redirect(verifyURL(get_bloginfo('url')).'/wp-admin/admin.php?page=lista_pedidos');
@@ -33,9 +33,9 @@ for ($i=0; $i<=count($_POST['list']);$i++) {
             $tabela = $wpdb->prefix."";
             $tabela2 =  $tabela;
             $tabela3 =  $tabela;
-            $tabela .=  "wp_store_orders";
-            $tabela2 .=  "wp_store_orders_address";
-            $tabela3 .=  "wp_store_orders_products";
+            $tabela .=  "wpstore_orders";
+            $tabela2 .=  "wpstore_orders_address";
+            $tabela3 .=  "wpstore_orders_products";
                    
                    
            $resultQuery = $wpdb->query("DELETE FROM `$tabela` WHERE `id_pedido` = '$ID'");
@@ -77,7 +77,7 @@ for ($i=0; $i<=count($_POST['list']);$i++) {
 
    global $wpdb;
    $tabela = $wpdb->prefix."";
-   $tabela .=  "wp_store_orders";
+   $tabela .=  "wpstore_orders";
    
    
 
@@ -352,7 +352,7 @@ for ($i=0; $i<=count($_POST['list']);$i++) {
 
 
                                $tabela = $wpdb->prefix."";
-                               $tabela .=  "wp_store_orders_comments";
+                               $tabela .=  "wpstore_orders_comments";
 
                                $fivesdrafts = $wpdb->get_results( $wpdb->prepare( "SELECT * FROM  `$tabela` WHERE `id_pedido`='$idPedido' ORDER BY `id`  ASC  ",1,'' ) );
 
