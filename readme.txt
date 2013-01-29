@@ -1,9 +1,9 @@
 === Plugin Name ===
 
-Contributors: jmorettoni
+Contributors: jmorettoni,ruddycavalcanti
 Plugin Name:Wp Store
 Plugin URI:http://wpstore.com.br 
-Tags: wp,shopping,loja,shop,cart
+Tags:  shopping,loja,shop,e-commerce,loja virtual,loja online
 Author URI: http://profiles.wordpress.org/jmorettoni/
 Author: jmorettoni
 Requires at least: 3.4
