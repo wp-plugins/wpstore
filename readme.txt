@@ -14,7 +14,7 @@ License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html   
 Donate link: http://wpstore.com.br/download   
  
-Crie sua loja virtual com um simples e completo plugin de ecommerce para wordpress. 
+Crie sua loja virtual com um simples e completo plugin de ecommerce para wordpress.
 
 == Description ==   
 
