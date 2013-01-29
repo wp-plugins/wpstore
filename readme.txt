@@ -34,7 +34,9 @@ Instalar o wpStore em seu site wordpress é simples.
 
 3 – Instale e ative o Plugin no wordpress.
 
-4 – Feito. Parabens! Seu plugin foi instalado com sucesso! Se você está usando um de nossos temas, tudo deve estar funcionando corretamente. É hora de começar a explorar o WpStore e se familiarizar com os recursos do sistema , administração de produtos, pedidos e preencher as informações básicas das configurações Gerais no Manual do Administrador e configurar o sistema com os métodos de pagamento que deseja usar, tipos de frete e envio , informações para contato e gestão de produtos.
+4 – Feito. Parabens! Seu plugin foi instalado com sucesso! Se você está usando um de nossos temas, tudo deve estar funcionando corretamente. É hora de começar a explorar o WpStore e se familiarizar com os recursos do sistema , administração de produtos, pedidos e preencher as informações básicas das configurações Gerais no Manual do Administrador e configurar o sistema com os métodos de pagamento que deseja usar, tipos de frete e envio , informações para contato e gestão de produtos.     
+
+ Consulte o manual do administrador para configurar sua loja: http://wpstore.com.br/manual/    
 
 5 – Caso você esteja instalando em um tema próprio veja agora como personalizar seu tema para explorar todas as funcionalidades do wpStore . Não é um bicho de sete cabeças. Enjoy IT! Consulte nosso tópico de Ajuda a Desenvolvedores e quando terminar, não esqueça de nos enviar seu projeto e divulgar seu trabalho colocando em nossa galeria .
 
