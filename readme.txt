@@ -18,8 +18,9 @@ Crie sua loja virtual com um simples e completo plugin de ecommerce para wordpre
 
 == Description ==   
 
-Este plugin adiciona um completo módulo de e-commerce em seu wordpress. Inclui os principais métodos de pagamento do mundo e do brasil (Pagseguro e Cielo ), bem como integração ao calculo de envio de mercadorias via Correios .
---
+Este plugin adiciona um completo módulo de e-commerce em seu wordpress. Inclui os principais métodos de pagamento do mundo e do brasil (Pagseguro e Cielo ),controle de estoque, diversos calculos de frete incluíndo webservice Correios, promoções de frete  cupoms de desconto .
+--          
+
 This plugin Add a complete ecommerce module for wordpress , with global and brazilan payments. 
 
 
@@ -47,6 +48,7 @@ Instalar o wpStore em seu site wordpress é simples.
 Upgrade notices :
 
 == Screenshots ==   
+
 1. screenshot-1.png   
 
 2. screenshot-2.jpg    

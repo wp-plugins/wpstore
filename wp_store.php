@@ -2,14 +2,15 @@
 /*
 Plugin Name: WP STORE
 Plugin URI: http://wpstore.com.br
-Description:  BETA | BUT WORK -  This plugin  Add  a complete ecommerce module for  wordpress  , with global and brazilan payments  .
+Description:  Este plugin adiciona um completo módulo de e-commerce em seu wordpress. Inclui os principais métodos de pagamento do mundo e do brasil (Pagseguro e Cielo ),controle de estoque, diversos calculos de frete incluíndo webservice Correios, promoções de frete  cupoms de desconto .
+--This plugin Add a complete ecommerce module for wordpress , with global and brazilan payments.
 Version: 1.0
 Author: José Morettoni
-Author URI: http://remind.com.br/
+Author URI: http://wpstore.com.br/
 License: GPL2
 */
     /*  
-        Copyright 2012  WP STORE  (email : contatoremind@gmail.com)
+        Copyright 2012  WP STORE  (email : contato@wpstore.com.br)
 
         This program is free software; you can redistribute it and/or modify
         it under the terms of the GNU General Public License, version 2, as 
