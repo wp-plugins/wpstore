@@ -113,11 +113,11 @@ Upgrade notices :
    
 
 == Changelog ==
-Changelog :        
+Log de alterações:   Acesse http://wpstore.com.br      
 
 
 == Frequently Asked Questions ==
-Perguntas Frequentes :
+Perguntas Frequentes : Acesse http://wpstore.com.br
 
    
 == Donations ==    
