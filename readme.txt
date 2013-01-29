@@ -5,7 +5,7 @@ Plugin Name:Wp Store
 Plugin URI:http://wpstore.com.br 
 Tags: wp,shopping,loja,shop,cart
 Author URI: http://profiles.wordpress.org/jmorettoni/
-Author: José Morettoni
+Author: jmorettoni
 Requires at least: 3.4
 Tested up to: 3.5
 Stable tag: 1.0
