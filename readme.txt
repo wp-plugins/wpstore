@@ -45,7 +45,7 @@ Instalar o wpStore em seu site wordpress é simples.
 Upgrade notices :
 
 == Screenshots ==   
-1.
+1. screenshot-1.png
 
 == Changelog ==
 Changelog :        
