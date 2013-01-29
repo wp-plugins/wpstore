@@ -1,6 +1,6 @@
 === Plugin Name ===
 
-Contributors:jmorettoni,ruddycavalcanti
+Contributors: jmorettoni,ruddycavalcanti
 Plugin Name:Wp Store
 Plugin URI:http://wpstore.com.br 
 Tags: wp,shopping,loja,shop,cart
