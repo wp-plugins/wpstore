@@ -116,12 +116,45 @@ Upgrade notices :
 Log de alterações:   Acesse http://wpstore.com.br      
 
 
-== Frequently Asked Questions ==
-Perguntas Frequentes : Acesse http://wpstore.com.br
-1 - Como criar uma lista de produtos?     
-Você pode facilmente criar listagens diferenciadas para seus produtos. WP STORE criar posts personalizados chamados de 'produtos'. Assim para lista-los basta editar sua query wordpress para listar posts e produtos. COnforme exemplo a seguir : 
+== Frequently Asked Questions ==    
 
-query_posts( "post_type=produtos" ); 
+Perguntas Frequentes : Acesse http://wpstore.com.br     
+
+1 - Como criar uma lista de produtos?  
+   
+Você pode facilmente criar listagens diferenciadas para seus produtos. WP STORE criar posts personalizados chamados de 'produtos'. Assim para lista-los basta editar sua query wordpress para listar posts e produtos. Conforme exemplo a seguir : 
+
+<?php query_posts( "post_type=produtos" );  ?>
+
+É muito comum você editar sua pagina category.php para exibir posts ou produtos. Para isto normalmente o indicado é fazer um tipo de listagem para cada tipo. Assim você pode editar o seu artigo category.php da seguinte forma : 
+
+
+<?php if(is_category('blog')) { // se post for categoria blog ?>
+
+	<?php include('category-blog.php'); ?>
+
+<?php } else { ?>
+       
+	<?php   include('category-produtos.php'); ?>
+	
+<?php }; ?>       
+
+
+O mesmo se costuma se aplicar em sua pagina single. Neste caso há uma ligeira modificação :
+
+
+<?php
+
+  
+if(get_post_type() == 'produtos'){
+    include('single-produto.php');
+}else{ 
+    include('single-blog.php');
+};
+
+
+
+?>
 
    
 == Donations ==    
