@@ -130,7 +130,7 @@ query_posts( 'post_type=produtos' );
 
 //php------------- 
 
-É muito comum você editar sua pagina category.php para exibir posts ou produtos. Para isto normalmente o indicado é fazer um tipo de listagem para cada tipo. Assim você pode editar o seu artigo category.php da seguinte forma : 
+É muito comum você editar sua pagina category.php para exibir posts ou produtos. Para isto normalmente o indicado é fazer um tipo de listagem para cada tipo. Assim você pode editar o seu arquivo category.php da seguinte forma : 
 
 //php-------------     
 
