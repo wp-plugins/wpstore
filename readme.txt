@@ -130,7 +130,8 @@ query_posts( 'post_type=produtos' );
 
 É muito comum você editar sua pagina category.php para exibir posts ou produtos. Para isto normalmente o indicado é fazer um tipo de listagem para cada tipo. Assim você pode editar o seu artigo category.php da seguinte forma : 
 
-//php------------- 
+//php-------------     
+
   if(is_category('blog')) {  
 
   include('category-blog.php'); 
@@ -140,17 +141,20 @@ query_posts( 'post_type=produtos' );
    include('category-produtos.php');  
 	
   };   
+
 //php------------- 
 
 O mesmo se costuma se aplicar em sua pagina single. Neste caso há uma ligeira modificação :
 
 
- //php-------------  
+ //php-------------    
+
    if(get_post_type() == 'produtos'){
     include('single-produto.php');
    }else{ 
     include('single-blog.php');
-   }; 
+   };      
+
  //php------------- 
 
    
