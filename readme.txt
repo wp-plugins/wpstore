@@ -1,6 +1,6 @@
 === Plugin Name ===
 
-Contributors: jmorettoni 
+Contributors: jmorettoni,ruddycavalcanti
 Plugin Name:Wp Store
 Plugin URI:http://wpstore.com.br 
 Tags:  shopping,loja,shop,e-commerce,loja virtual,loja online
@@ -22,8 +22,7 @@ Este plugin adiciona um completo módulo de e-commerce em seu wordpress. Inclui 
 --          
 
 This plugin Add a complete ecommerce module for wordpress , with global and brazilan payments. 
- 
-Agradecimento especial a Ruddy Cavalcanti (ruddycavalcanti) . Meu amigo e  parceiro em http://remind.com.br
+
 
 == Installation ==       
   
