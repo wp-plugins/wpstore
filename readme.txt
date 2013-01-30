@@ -137,7 +137,7 @@ Você pode facilmente criar listagens diferenciadas para seus produtos. WP STORE
        
    include('category-produtos.php');  
 	
-<?php }; ?>       
+  }; ?>       
 
 
 O mesmo se costuma se aplicar em sua pagina single. Neste caso há uma ligeira modificação :
