@@ -118,6 +118,10 @@ Log de alterações:   Acesse http://wpstore.com.br
 
 == Frequently Asked Questions ==
 Perguntas Frequentes : Acesse http://wpstore.com.br
+1 - Como criar uma lista de produtos?     
+Você pode facilmente criar listagens diferenciadas para seus produtos. WP STORE criar posts personalizados chamados de 'produtos'. Assim para lista-los basta editar sua query wordpress para listar posts e produtos. COnforme exemplo a seguir : 
+
+query_posts( "post_type=produtos" ); 
 
    
 == Donations ==    
