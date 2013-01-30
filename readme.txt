@@ -122,7 +122,7 @@ Perguntas Frequentes : Acesse http://wpstore.com.br
 
 1 - Como criar uma lista de produtos ou exibir um template especial em minha pagina single?  
    
-Você pode facilmente criar listagens diferenciadas para seus produtos. WP STORE criar posts personalizados chamados de 'produtos'. Assim para lista-los basta editar sua query wordpress para listar posts e produtos. Conforme exemplo a seguir : 
+Você pode facilmente criar listagens diferenciadas para seus produtos. WP STORE criar posts personalizados nomeados de 'produtos'. Assim para lista-los basta editar sua query wordpress para listar posts e produtos. Conforme exemplo a seguir : 
  
 //php-------------
 query_posts( 'post_type=produtos' ); 
