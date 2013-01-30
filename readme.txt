@@ -124,12 +124,12 @@ Perguntas Frequentes : Acesse http://wpstore.com.br
    
 Você pode facilmente criar listagens diferenciadas para seus produtos. WP STORE criar posts personalizados chamados de 'produtos'. Assim para lista-los basta editar sua query wordpress para listar posts e produtos. Conforme exemplo a seguir : 
 
-<?php query_posts( 'post_type=produtos' );  ?>
+`<?php query_posts( 'post_type=produtos' );  ?>`
 
 É muito comum você editar sua pagina category.php para exibir posts ou produtos. Para isto normalmente o indicado é fazer um tipo de listagem para cada tipo. Assim você pode editar o seu artigo category.php da seguinte forma : 
 
 
-<?php if(is_category('blog')) {  
+`<?php if(is_category('blog')) {  
 
   include('category-blog.php'); 
 
@@ -137,13 +137,13 @@ Você pode facilmente criar listagens diferenciadas para seus produtos. WP STORE
        
    include('category-produtos.php');  
 	
-  }; ?>       
+  }; ?>`       
 
 
 O mesmo se costuma se aplicar em sua pagina single. Neste caso há uma ligeira modificação :
 
 
-<?php
+`<?php
 
   
 if(get_post_type() == 'produtos'){
@@ -154,7 +154,7 @@ if(get_post_type() == 'produtos'){
 
 
 
-?>
+?>`
 
    
 == Donations ==    
