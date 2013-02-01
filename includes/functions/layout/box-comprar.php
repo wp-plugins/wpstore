@@ -245,26 +245,7 @@ if($txtEscolhaCorProduto==""){
   
 <div  class="tamanhoSelect2">
 
-    <?php $urlImg =  plugin_dir_url( __FILE__ )."images/camisaMedida.png"; ?>         
-    
-    
-    
-     <?php
-      
-      
-        if($cont==0){ ?>
-        <p> <?php echo $txtEscolhaTamanhoProduto; ?></p>
 
-     
-    
-    <?php   if($exibirTabela=="sim"){     ?>
-               	
-               	 <img class='camisaMedida' src="<?php echo $urlImg; ?>" />
- 
-     <?php  }; ?>
-     
-     
-        <?php };  ?>
         
         
 
@@ -279,7 +260,29 @@ if($txtEscolhaCorProduto==""){
 
                $fivesdraftsTamanho = $wpdb->get_results( $sql);
                
-               $arraySizes = array();$cont = 0;
+               $arraySizes = array();$cont = 0; ?>
+                    
+               
+               
+               <?php $urlImg =  plugin_dir_url( __FILE__ )."images/camisaMedida.png"; ?>         
+
+
+
+                <?php
+                
+                    if(count($fivesdraftsTamanho )>0){ ?>    
+                      
+                   <p> <?php echo $txtEscolhaTamanhoProduto; ?></p>
+                      
+               <?php   if($exibirTabela=="sim"){     ?>
+                               <img class='camisaMedida' src="<?php echo $urlImg; ?>" />
+                 <?php  }; ?>
+                    
+                   <?php };  ?>
+                   
+                   
+               
+               <?php
                foreach ( $fivesdraftsTamanho as $fivesdraftT )  {
                    
                      $arraySizes[] = $fivesdraftT->variacaoProduto;  

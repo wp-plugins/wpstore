@@ -707,9 +707,7 @@ ul.pedidos li {
                 -moz-border-radius: 5px;
                  border-radius: 5px;
                  padding:5px 10px;  
-                 width:150px;
-         	     min-height:30px;
-                 background:#868686;
+                background:#868686;
         	}
         	.button:hover { color:#222; }
 
