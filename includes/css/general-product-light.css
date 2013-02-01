@@ -577,7 +577,7 @@ ul.pedidos li {
 
    
 
-p .btSeguir2 { color:#fff; } 
+ .btSeguir2 { color:#fff; } 
        
         #content #page .checkout p { margin:10px 0 20px 0; }
 
@@ -699,12 +699,17 @@ p .btSeguir2 { color:#fff; }
         	.va-middle {vertical-align: middle !important;}
         	.va-bottom {vertical-align: bottom !important;}
 
-        	.button { display:inline; color:#fff; cursor:pointer;
-        -webkit-border-radius: 5px;
-        -moz-border-radius: 5px;
-        border-radius: 5px;
-        padding:5px 10px; 
-        background:#868686;
+        	.button { 
+        	    display:block; 
+        	    color:#fff; 
+        	    cursor:pointer;  
+        	    -webkit-border-radius: 5px;
+                -moz-border-radius: 5px;
+                 border-radius: 5px;
+                 padding:5px 10px;  
+                 width:150px;
+         	     min-height:30px;
+                 background:#868686;
         	}
         	.button:hover { color:#222; }
 

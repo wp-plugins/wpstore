@@ -270,16 +270,17 @@
                                          jQuery('.btComprar').fadeOut();  
                                      }else{
                                          reloadQtdItems();
-                                         jQuery('p.msg').html(data);
-                                         jQuery('p.msg').fadeIn();
-                                         
+                                        // jQuery('p.msg').html(data);
+                                         //jQuery('p.msg').fadeIn();
+                                          window.location = ""+data; 
                                      };
                        }); 
                   }else{
-                       jQuery('p.msg').html('<span style="color:red">'+msg+'</span>');
-                       jQuery('p.msg').fadeIn();
+                       //jQuery('p.msg').html('<span style="color:red">'+msg+'</span>');
+                       //Query('p.msg').fadeIn(); 
+                        window.location = ""+data; 
                   }; 
-                  
+                 
                   return false;
                   
               });

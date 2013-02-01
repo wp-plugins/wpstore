@@ -15,7 +15,7 @@ $meta_boxes_produtos = array(
  "description" => "É o preço  do produto em moeda corrente ($moedaCorrente ) . Ex:49,00 . "),
 
  "preço Promocional" => array(
- "name" => "specialprice",
+ "name" => "specialprice",  
  "title" => "Preço promocional do produto",
  "description" => "É o preço em promoção do produto em moeda corrente ($moedaCorrente ) . Ex:29,90 . "),
 

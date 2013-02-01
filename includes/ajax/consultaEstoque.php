@@ -78,8 +78,8 @@ if( $qtdStock > 0 ){
                  $arrayCarrinho[$key]['variacaoProduto'] = $variacaoCor;
                  $arrayCarrinho[$key]['qtdProduto'] =  $qtdPrd;
                  $_SESSION['carrinho'] = $arrayCarrinho;
-                 echo ''.$precoAdd.'<span style="color:red">'.$qtdPrd.' - Este produto   foi adicionado recentemente a sua lista.</span><br/><br/><a href="'.get_bloginfo('url').'/checkout/" class="btGO">Seguir para Pagamento</a>  <br/><br/>  <a href="'.get_bloginfo('url').'/carrinho/" class="btGO" >Ver Carrinho</a>';
-         
+                // echo ''.$precoAdd.'<span style="color:red">'.$qtdPrd.' - Este produto   foi adicionado recentemente a sua lista.</span><br/><br/><a href="'.get_bloginfo('url').'/checkout/" class="btGO">Seguir para Pagamento</a>  <br/><br/>  <a href="'.get_bloginfo('url').'/carrinho/" class="btGO" >Ver Carrinho</a>';
+                echo verifyURL( get_permalink( get_idPaginaCarrinho() ) ); 
     }else{
              $countA = $qtdCarrinho+1;
              $arrayCarrinho[$countA]['idPost'] = $postID;
@@ -87,8 +87,8 @@ if( $qtdStock > 0 ){
              $arrayCarrinho[$countA]['variacaoProduto'] = $variacaoCor;
              $arrayCarrinho[$countA]['qtdProduto'] = 1;
              $_SESSION['carrinho'] = $arrayCarrinho;
-              echo ''.$precoAdd.'<span style="color:green">Adicionado com sucesso!</span> <br/><br/><a href="'.get_bloginfo('url').'/checkout/" class="btGO" >Seguir para Pagamento</a> <br/><br/> <a href="'.get_bloginfo('url').'/carrinho/" class="btGO">Ver Carrinho</a>';
-        
+              //echo ''.$precoAdd.'<span style="color:green">Adicionado com sucesso!</span> <br/><br/><a href="'.get_bloginfo('url').'/checkout/" class="btGO" >Seguir para Pagamento</a> <br/><br/> <a href="'.get_bloginfo('url').'/carrinho/" class="btGO">Ver Carrinho</a>';
+              echo verifyURL( get_permalink( get_idPaginaCarrinho() ) );  
     };
     
     

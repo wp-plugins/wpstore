@@ -165,7 +165,17 @@ $htmlVar .="<section class='checkout'>
            
            
            
-            $htmlVar .="  <div class='clear'></div>"; 
+            $htmlVar .="  
+            
+            
+            
+                <div class='clear'></div>
+
+                <p> <span class='btSeguir2 button'>Continuar</span></p>
+                <span class='msg2'></span>
+                
+                
+                <div class='clear'></div>"; 
 
             
             
