@@ -213,7 +213,6 @@
                   
                   var qtdProdutoV = ''+jQuery('#qtdProd').val();
                   
-                  
                   var postIDP = ""+jQuery('#idP').val();
                   
                  /// alert(postIDP); alert(variacaoP);
@@ -227,7 +226,7 @@
                       
                       var vC = parseInt(verificaCor());
                       if(vC>=1){
-                            ativo = ""+jQuery('ul.cores li.ativo').attr('rel'); 
+                            ativo = ""+jQuery('ul.cores li.ativo').attr('rel');    
                             if(ativo=='undefined'){
                                   msg = "Escolha uma cor disponível.";
                              }else{
@@ -270,16 +269,17 @@
                                          jQuery('.btComprar').fadeOut();  
                                      }else{
                                          reloadQtdItems();
-                                        // jQuery('p.msg').html(data);
+                                         //jQuery('p.msg').html(data);
                                          //jQuery('p.msg').fadeIn();
                                           window.location = ""+data; 
                                      };
-                       }); 
-                  }else{
-                       //jQuery('p.msg').html('<span style="color:red">'+msg+'</span>');
-                       //Query('p.msg').fadeIn(); 
-                        window.location = ""+data; 
-                  }; 
+                       });  
+                       
+                  }else{  
+                      jQuery('.msg').html("<span style='color:red'>"+msg+"</span>");
+                      jQuery('.msg').fadeIn();
+                     
+                 }; 
                  
                   return false;
                   
