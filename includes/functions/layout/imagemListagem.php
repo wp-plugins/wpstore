@@ -104,9 +104,10 @@
      $crop = 1;
         
      
-       $image_url =  verifyURL($image_url);  
+       $image_url =   get_image_path(verifyURL($image_url));  
        
-      // echo    $image_url;  
+  
+     //echo    $image_url;  
        
      
      if($print==false){?>

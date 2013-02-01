@@ -55,7 +55,17 @@ function custom_get_category_id($blog_ID=1,$catName){
         }
         /* */
 
-    };
+    };   
+    
+    
+       function get_image_path($src) {
+       global $blog_id;
+       if(isset($blog_id) && $blog_id > 0) {
+        $sub = get_bloginfo('url').'/wp-content'; 
+        $src = str_replace($sub,'',$src);
+       }
+       return $src;
+       }
     
     
     

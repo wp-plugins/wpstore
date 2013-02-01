@@ -1505,7 +1505,19 @@ function custom_get_total_products_in_order($idPedido){
     
     };
     
+         
     
+    
+    
+          function custom_get_logo(){
+		          $logoSiteWPSHOP = get_option('logoSiteWPSHOP');     
+		          if($logoSiteWPSHOP==""){
+		            $logoSiteWPSHOP = get_bloginfo('url').'wp-content/plugins/wpstore/logo.png';  
+		          }
+		          return $logoSiteWPSHOP;
+		     }
+		     
+		     
     
     
     
