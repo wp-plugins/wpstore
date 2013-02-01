@@ -29,10 +29,16 @@
 
 					?>
 
-
-
+       
       <li>
-        <a href="<?php echo $image_url;  ?>">
+        <a href="<?php echo $image_url;   ?>">  
+        
+            <?php
+
+                $image_url =   get_image_path($image_url);  
+
+                ?>
+                
           <img src="<?php bloginfo('template_url'); ?>/timthumb.php?src=<?php echo $image_url; ?>&w=60&h=40&zc=1" width="60" height="40" class="image<?php echo $count; ?>">
         </a>
       </li>
