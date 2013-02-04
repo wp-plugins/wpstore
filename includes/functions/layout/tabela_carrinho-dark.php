@@ -127,7 +127,15 @@ $tabelaVar .= "
                                      $precoAdddArray = explode('(',$precoAdd);
                                      $sinal = $precoAdddArray[0];
                                      $precoAddF= str_replace(')','',$precoAdddArray[1]);
-                                     $precoAddFSoma =  str_replace(',','.',$precoAddF);
+                                  
+                                                          if(strlen($precoAddF)>=6){
+                                                           $precoAddFSoma =  str_replace('.','',$precoAddF);
+                                                           $precoAddFSoma =  str_replace(',','.',$precoAddFSoma );
+                                                           
+                                                           }else{
+                                                           $precoAddFSoma =  str_replace(',','.',$precoAddF);
+                                                           };
+
                              
                                       
                      if($sinal=="-"){
@@ -177,7 +185,7 @@ $tabelaVar .= "
                     <li class='setaDown' rel='$key'  rev='$tabelaVariacao' ></li>
                     </ul>
              
-                     <span class='removeProdCart remover' ><a href='".get_bloginfo('url')."/carrinho/?act=remove&idp=$key'>remover</a></span>
+                     <span class='removeProdCart remover' ><a href='".get_permalink( $idPaginaCarrinho)."?act=remove&idp=$key'>remover</a></span>
                     
                     
                     </td>

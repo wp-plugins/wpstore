@@ -90,7 +90,8 @@ if($moedaCorrente==""){
             foreach ( $fivesdrafts as $fivesdraft ){
 
                 $idPedido = $fivesdraft->id_pedido;
-            	$valor_total = $fivesdraft->valor_total;
+            	$valor_total = $fivesdraft->valor_total;    
+                        
             	$frete = $fivesdraft->frete;
                 $tipo_pagto = $fivesdraft->tipo_pagto;
                 $status_pagto = $fivesdraft->status_pagto;
@@ -103,8 +104,9 @@ if($moedaCorrente==""){
             	//echo "Tipo de pagamento : ".$tipo_pagto."<br/><br/>";
             	//echo "STATUS : ".$status_pagto."<br/><br/>";
 
-            	$totalPagto = custom_get_sum($valor_total,floatVal($frete));
-
+            	$totalPagto = custom_get_sum($valor_total,floatVal($frete));   
+            	
+ 
             	//echo "Observações1 : ".$comentario_cliente."<br/><br/>";
                 //echo "Observações2 : ".$comentario_admin."<br/><br/>";
                 
@@ -151,28 +153,14 @@ if($moedaCorrente==""){
             	 
                      $freteV= str_replace(')','',$precoAdddArray[1]);
                      $freteV =  floatVal(str_replace(',','.',$freteV));
-                   
-                  
-                    
+ 
                    //	$vtf = $vt-$desconto ;
-                   	
-                   	
-                   	 
-                   	$vtf = $vt ;       
-                   	
+              
+                   	$vtf = $vt ;   
+              	
                     $totalPagto = getPriceFormat(custom_get_sum( $vtf,$freteV));
                     
-                    
-                    
-                    
-                    
-                    
-                 
-                    
-                    
-                    
-                    
-                    
+           
                     
                     
                     

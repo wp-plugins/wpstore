@@ -110,7 +110,8 @@ $tabelaVar .= "
                    $preco =  $specialPrice;   
                    }
                    
-                   $precoSoma = $preco;
+                   $precoSoma = $preco;            
+                   
                             if(strlen($precoSoma)>6){
                              $precoSoma= str_replace('.','',$precoSoma );
                               }
@@ -123,15 +124,25 @@ $tabelaVar .= "
                                      $precoAdddArray = explode('(',$precoAdd);
                                      $sinal = $precoAdddArray[0];
                                      $precoAddF= str_replace(')','',$precoAdddArray[1]);
-                                     $precoAddFSoma =  str_replace(',','.',$precoAddF);
+                                                
+                                      
+                                                if(strlen($precoAddF)>=6){
+                                                 $precoAddFSoma =  str_replace('.','',$precoAddF);
+                                                 $precoAddFSoma =  str_replace(',','.',$precoAddFSoma );
+                                                 }else{
+                                                 $precoAddFSoma =  str_replace(',','.',$precoAddF);
+                                                 }; 
+                                                 
+                                                    
+                                      
                              
                                       
                      if($sinal=="-"){
-                     $precoSoma = $precoSoma -  $precoAddFSoma;  
+                     $precoSoma = floatval($precoSoma) -   floatval($precoAddFSoma);  
                      }elseif($sinal=="+"){
-                     $precoSoma = $precoSoma +  $precoAddFSoma;    
+                     $precoSoma =  floatval($precoSoma) +   floatval($precoAddFSoma);    
                      };   
-          
+                    
                    $qtd = intval($item['qtdProduto']);
                    
                    
@@ -149,7 +160,7 @@ $tabelaVar .= "
                 $tabelaVar .= " 
                 <tr>
                 	<td width='1' class='ta-center hide-phone'><a href='".get_permalink($postID)."'>".custom_get_image($postID,50,50,true,false)."</a></td>
-                    <td><a href='".get_permalink($postID)."'>".get_the_title($postID)."</a> (<span class='removeProdCart' ><a href='".get_bloginfo('url')."/carrinho/?act=remove&idp=$key'>remover</a></span>)</td>
+                    <td><a href='".get_permalink($postID)."'>".get_the_title($postID)."</a> (<span class='removeProdCart' ><a href='".get_permalink( $idPaginaCarrinho)."?act=remove&idp=$key'>remover</a></span>)</td>
                     <td class='hide-phone'>$tabelaVariacao $precoAdd </td>
                     <td>
                     

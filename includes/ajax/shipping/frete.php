@@ -39,8 +39,33 @@ foreach($arrayEstadosCidades as $item=>$value){
 
 if(trim($cidade) ==""){
 	$freteGratis = false;
-}
+}       
+
+$msgFreteGratis="";
+$valorPedido = custom_get_total_price_session_order();     
+
+ if(strlen($valorPedido)>=6){
+     $valorPedido =  str_replace('.','',$valorPedido);
+     $valorPedido =  str_replace(',','.',$valorPedido);
+     }else{
+     $valorPedido =  str_replace(',','.',$valorPedido);
+     };
+     
+$simbolo =  get_current_symbol(); 
+$precoPromocao = get_option('valorFreteGratis');
+
+            if(strlen($precoPromocao)>=6){
+             $precoPromocao =  str_replace('.','',$precoPromocao);
+             $precoPromocao =  str_replace(',','.',$precoPromocao );
+             }else{
+             $precoPromocao =  str_replace(',','.',$precoPromocao);
+             };
+             
  
+ if($valorPedido > $precoPromocao &&  $precoPromocao > 0 ){
+     $freteGratis = true; 
+     $msgFreteGratis = "Frete Grátis para pedidos acima de  $simbolo".get_option('valorFreteGratis').". Aproveite!";   
+ }
 
 if($freteGratis == false){ 
  
@@ -116,9 +141,13 @@ if($freteGratis == false){
       }
 
 }else{
-   
+     
+   if($msgFreteGratis ==""){
     echo'<div id="retorno"><span style="color:green">FRETE GRÁTIS PARA SUA REGIÃO. APROVEITE !  </div>';          
-
+   }else{ 
+    echo'<div id="retorno"><span style="color:green">'.$msgFreteGratis.'</div>';   
+   };
+ 
 };
 
 ?>

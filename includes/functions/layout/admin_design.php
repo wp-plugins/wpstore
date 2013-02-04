@@ -43,8 +43,30 @@
                                            add_option('imagemTabelaWPSHOP',$imagemTabela,'','yes'); 
                                            update_option('imagemTabelaWPSHOP',$imagemTabela);
                                            
-                                             
-           
+                                            
+                                            
+                                              $imagemTabela= trim($_POST['imagemTabela']); 
+                                               add_option('imagemTabelaWPSHOP',$imagemTabela,'','yes'); 
+                                               update_option('imagemTabelaWPSHOP',$imagemTabela);
+                                               
+                                                 $imagemTabela= trim($_POST['imagemTabela']); 
+                                                  add_option('imagemTabelaWPSHOP',$imagemTabela,'','yes'); 
+                                                  update_option('imagemTabelaWPSHOP',$imagemTabela);
+                                                  
+                                                    $totalPostListagemPRel= trim($_POST['totalPostListagemPRel']); 
+                                                     add_option('totalPostListagemPRel',$totalPostListagemPRel,'','yes'); 
+                                                     update_option('totalPostListagemPRel',$totalPostListagemPRel); 
+                                  
+                                                
+                                                       $listagemPRelOrder= trim($_POST['listagemPRelOrder']); 
+                                                          add_option('listagemPRelOrder',$listagemPRelOrder,'','yes'); 
+                                                          update_option('listagemPRelOrder',$listagemPRelOrder);
+                                                          
+                                                
+                                                      $listagemPRelOrderby = trim($_POST['listagemPRelOrderby']); 
+                                                       add_option('listagemPRelOrderby ',$listagemPRelOrderby ,'','yes'); 
+                                                         update_option('listagemPRelOrderby ',$listagemPRelOrderby );
+                         
  
     };
 
@@ -59,7 +81,13 @@ $exibeQtdProd = get_option('exibeQtdProd');
 
 
 $imagemTabela =  get_option('imagemTabelaWPSHOP');  
-$exibirTabela =  get_option('exibirTabelaWPSHOP');
+$exibirTabela =  get_option('exibirTabelaWPSHOP');   
+
+
+ 
+   $totalPostListagemPRel  =  get_option('totalPostListagemPRel');    
+   $listagemPRelOrder    = get_option('listagemPRelOrder');  
+   $listagemPRelOrderby   = get_option('listagemPRelOrderby');
 
 ?>
 
@@ -185,7 +213,63 @@ $exibirTabela =  get_option('exibirTabelaWPSHOP');
          <hr/> 
 
 
+      
 
+
+
+
+
+           <h2  style="background:#eee;padding:10px;cursor:pointer" >  4 ) Opções de Listas<span   class="btEditarFrete"   rel="listas" style="font-size:12px"> (Editar)  </span> </h2>
+
+         <div id="listas" style="display:none" class="box" >
+
+               <h2>Listagem Produtos Relacionados</h2>
+
+       
+                    <h3>Quantidade de Posts da listagem Produtos Relacionados</h3>   
+                   <p>Digite o numero correspondente a quantidade de publicações que você quer exibir  na listagem <br/>
+                       <input type="text" id="totalPostListagemPRel" name="totalPostListagemPRel" value="<?php echo $totalPostListagemPRel; ?>"  style="width:40%"/>
+                       <br/>
+                       <span style="font-size:11px">Ex:6. Por padrão o sistema exibirá 9 publicações.</span>
+                     </p>
+
+                     <br/>   
+
+
+
+                       <h3>Ordenar Por</h3>   
+                         <p>Escolha o tipo de ordem para exibição<br/>
+                           <select id='listagemPRelOrderby' name='listagemPRelOrderby' >
+                                 <option <?php if($listagemPRelOrderby=='ID'){ echo 'selected="selected"'; };  ?> >ID</option>  
+                                 <option <?php if($listagemPRelOrderby=='title'){ echo 'selected="selected"'; };  ?>  >title</option>
+                                 <option <?php if($listagemPRelOrderby=='date'){ echo 'selected="selected"'; };  ?>  >date</option>
+                                 <option <?php if($listagemPRelOrderby=='rand'){ echo 'selected="selected"'; };  ?>  >rand</option>
+                                 <option <?php if($listagemPRelOrderby=='comment_count'){ echo 'selected="selected"'; };  ?>  >comment_count</option>
+                           </select>
+
+                         </p>    
+
+                         <h3>Ordem</h3>   
+                             <p>Escolha se a listagem será ascendente ou descendente.<br/>
+                               <select id='listagemPRelOrder' name='listagemPRelOrder' >
+                                     <option <?php if($listagemPRelOrder=='ASC'){ echo 'selected="selected"'; };  ?> >ASC</option>  
+                                     <option <?php if($listagemPRelOrder=='DESC'){ echo 'selected="selected"'; };  ?>  >DESC</option>
+                                 </select>
+                             </p>
+             
+            
+             <input type="submit"  name="submit" value="Gravar"   />
+             
+             
+         </div>
+
+
+
+
+
+                  <hr/>
+                  
+                  
 
 
 

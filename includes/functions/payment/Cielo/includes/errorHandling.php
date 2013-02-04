@@ -103,7 +103,7 @@
 			$error_msg .= "     XML de envio: " . "\n" . $vmPost;
 		
 			// Dispara o erro
-			trigger_error($error_msg, E_USER_ERROR);
+			trigger_error($error_msg, E_USER_ERROR);   die();
 		}
 	}
 	

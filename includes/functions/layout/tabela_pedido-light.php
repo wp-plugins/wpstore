@@ -75,7 +75,16 @@
                             };
                               $precoSoma = str_replace(',','.',$precoSoma);   
                               
-                       $precoAlt = floatval(str_replace(',','.',$precoAlt));   
+                       $precoAlt = floatval(str_replace(',','.',$precoAlt));  
+                       
+                                   if(strlen($precoAlt)>=6){
+                                    $precoAlt =  str_replace('.','',$precoAlt);
+                                    $precoAlt =  str_replace(',','.',$precoAlt); 
+                                    }else{
+                                    $precoAlt =  str_replace(',','.',$precoAlt);
+                                    };
+                                    
+                                     
                                       
                      if($sinal=="-"){
                      $precoSoma = $precoSoma -  $precoAlt;  

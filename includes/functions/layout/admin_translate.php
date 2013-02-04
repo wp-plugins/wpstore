@@ -85,10 +85,7 @@ $txtEscolhaTamanhoProduto = get_option('txtEscolhaTamanhoProdutoWPSHOP');
   
  $txtSelecioneParcela= get_option('txtSelecioneParcelaWPSHOP');   
  
-
-
-
-         $txtProdutosRelacionados    = get_option('txtProdutosRelacionados WPSHOP');   
+ $txtProdutosRelacionados   = get_option('txtProdutosRelacionadosWPSHOP');   
 
 
 ?>

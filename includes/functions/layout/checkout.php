@@ -18,7 +18,7 @@
 $htmlVar .="<div class='pagamento'>
 
 	<div class='title3'>
-			Confirme o Pedido
+			Confirme o Pedido  
 		
 		<span>Total : ".$moedaCorrente."".custom_get_total_price_session_order()."</span>
 	</div>
@@ -67,7 +67,15 @@ $htmlVar .="<div class='pagamento'>
                                                      $precoAdddArray = explode('(',$precoAdd);
                                                      $sinal = $precoAdddArray[0];
                                                      $precoAddF= str_replace(')','',$precoAdddArray[1]);
-                                                     $precoAddFSoma =  str_replace(',','.',$precoAddF);
+                                                   
+                                                             if(strlen($precoAddF)>=6){
+                                                                $precoAddFSoma =  str_replace('.','',$precoAddF);
+                                                                $precoAddFSoma =  str_replace(',','.',$precoAddFSoma );
+                                                                
+                                                             }else{
+                                                             $precoAddFSoma =   str_replace(',','.',$precoAddF);
+                                                             };
+                                                             
 
 
                                      if($sinal=="-"){

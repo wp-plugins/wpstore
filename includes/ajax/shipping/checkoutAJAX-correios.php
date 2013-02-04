@@ -120,8 +120,6 @@ $salvar = false;
 if($freteGratis == false){ 
 
 
-       //$valorSedex = "".calculaFrete('40010',''.$origemCep.'',''.$destinoCep.'',''.$peso.'')."";     
-      //$valorPac =  "".calculaFrete('41106',''.$origemCep.'',''.$destinoCep.'',''.$peso.'')."";   
        $valorSedex = 0.00;     
        $valorPac =  0.00;
        if(floatval($valorSedex)<1 || floatval($valorPac)<1){

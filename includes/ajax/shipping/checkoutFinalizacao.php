@@ -67,7 +67,33 @@ if(trim($cidade) ==""){
 	$freteGratis = false;
 }
 
+  
 
+$msgFreteGratis="";
+$valorPedido = custom_get_total_price_session_order();     
+
+ if(strlen($valorPedido)>=6){
+     $valorPedido =  str_replace('.','',$valorPedido);
+     $valorPedido =  str_replace(',','.',$valorPedido);
+     }else{
+     $valorPedido =  str_replace(',','.',$valorPedido);
+     };
+     
+$simbolo =  get_current_symbol(); 
+$precoPromocao = get_option('valorFreteGratis');
+
+            if(strlen($precoPromocao)>=6){
+             $precoPromocao =  str_replace('.','',$precoPromocao);
+             $precoPromocao =  str_replace(',','.',$precoPromocao );
+             }else{
+             $precoPromocao =  str_replace(',','.',$precoPromocao);
+             };
+             
+ 
+ if($valorPedido > $precoPromocao &&  $precoPromocao > 0 ){
+     $freteGratis = true; 
+     $msgFreteGratis = "Frete Grátis para pedidos acima de  $simbolo".get_option('valorFreteGratis').". Aproveite!";   
+ }
 
  
 
@@ -160,7 +186,16 @@ if($freteGratis == false){
    
       $salvar = true;
       $msg = '1-Cadastrado com Sucesso!';
-      $tipoFrete = "Frete Grátis para sua região";
+      $tipoFrete = "Frete Grátis para sua região";    
+      
+      
+      if($msgFreteGratis ==""){
+        $tipoFrete = "Frete Grátis para sua região";               
+      }else{ 
+        $tipoFrete = "$msgFreteGratis";  
+      };
+      
+      
       
 };
 
@@ -168,12 +203,23 @@ if($freteGratis == false){
 
 
 
-if($salvar==true && $_SESSION['carrinho'] !="" ){
+if($salvar==true && $_SESSION['carrinho'] !="" ){     
+    
+     $emailInc = "";      
      include('saveOrder.php');
      $idPage = get_idPaginaPagamento();
-     $page  = get_permalink($idPage);
-      echo "<script>window.location='$page' </script>"; 
-     echo " $msgF".'****'.$page;
+     $page  = get_permalink($idPage);  
+     
+     $smtpDebug = get_option('smtpDebugWPSHOP');
+     $smtpAtivo = get_option('smtpAtivoWPSHOP');  
+     
+     if($smtpDebug=="Y" && $smtpAtivo=="Y" && $emailInc != "Send" ){ 
+     }else{
+     echo "<script>window.location='$page' </script>";  
+     }
+      
+     //echo " $msgF".'****'.$page;    
+     
 };
 
 

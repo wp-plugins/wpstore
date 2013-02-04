@@ -155,6 +155,20 @@ global $post, $meta_boxes_produtos, $key;
 foreach( $meta_boxes_produtos as $meta_box ) {
   $varUp = $_POST[ $meta_box[ 'name' ] ];
   if($varUp != "" || $meta_box[ 'name' ]=="banner"){
+      
+      if($meta_box[ 'name' ]=='price'){ 
+          $priceCompare =   str_replace('.','', $varUp);
+          $priceCompare =   str_replace(',','', $priceCompare); 
+          update_post_meta( $post_id, 'priceCompare' , $priceCompare );    
+      }
+      
+      if($meta_box[ 'name' ]=='specialprice'){ 
+            $priceCompare =   str_replace('.','', $varUp);
+            $priceCompare =   str_replace(',','', $priceCompare); 
+            update_post_meta( $post_id, 'specialpriceCompare' , $priceCompare );    
+        } 
+      
+      
   update_post_meta( $post_id, $meta_box[ 'name' ] , $varUp );
   };  
   

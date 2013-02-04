@@ -1,5 +1,11 @@
 <?php  
 
+
+      $moedaCorrente  =  get_option('moedaCorrenteWPSHOP');
+         if($moedaCorrente==""){
+             $moedaCorrente = "R$" ; 
+           };  
+      
 $urlImgM =  "".get_option('imagemTabelaWPSHOP');;  
 $exibirTabela =  "".get_option('exibirTabelaWPSHOP');
 
@@ -218,14 +224,20 @@ if($txtEscolhaCorProduto==""){
                                  $qtdReservaUsuario = custom_get_stock_reservaUsuario($postID,$corTamanho);
                                  $qtdProduto = $qtdProduto - $qtdReservaUsuario - $qtdVendida;
                                  //echo "<script>alert('$qtdProduto'); </script>";
+                                 //echo $qtdProduto; 
                                  
-                                 //echo $qtdProduto;
+                                 $sql = "SELECT `precoOperacao` FROM `$tabela` WHERE  	`idPost` = '$postID' AND  `tipoVariacao` = 'tamanhoCor' AND `variacaoProduto` = '$corTamanho'  ORDER BY `showOrder` ASC   LIMIT 0 , 100";
+                                 $precoOperacao =   $wpdb->get_var( $wpdb->prepare(  $sql ,1,'') );
                                  
+                                 $sql = "SELECT `precoAlternativo` FROM `$tabela` WHERE  	`idPost` = '$postID' AND  `tipoVariacao` = 'tamanhoCor' AND `variacaoProduto` = '$corTamanho'  ORDER BY `showOrder` ASC   LIMIT 0 , 100";
+                                  $precoAlternativo =   $wpdb->get_var( $wpdb->prepare(  $sql ,1,'') );  
+                                  
+                                  
                            }
                            
                       ?>
 
-                     <li class="selectVaricaoTamanho" style="position:relative" rel="<?php echo  $tamanho  ; ?>" rev="<?php if( $qtdProduto ==0 && $ilimitado ==false ){ ?>esgotado<?php }; ?>"  ><?php echo  $tamanho  ; ?> <?php if($qtdProduto==0  && $ilimitado ==false ){ ?><span class="esgotado"></span> <?php }; ?></li>
+                     <li class="selectVaricaoTamanho" style="position:relative" rel="<?php echo  $tamanho  ; ?>" rev="<?php if( $qtdProduto ==0 && $ilimitado ==false ){ ?>esgotado<?php }; ?>"   ><?php echo  $tamanho  ; ?>    <?php if($precoAlternativo>0){ ?> <span style="font-size:0.7em">(<?php echo $precoOperacao; ?> <?php echo $moedaCorrente; ?><?php echo $precoAlternativo; ?>)</span> <?php }; ?>  <?php if($qtdProduto==0  && $ilimitado ==false ){ ?><span class="esgotado"></span> <?php }; ?></li>
 
                      <?php }; ?>
                      
@@ -291,12 +303,15 @@ if($txtEscolhaCorProduto==""){
                               $tamAlt  = $fivesdraftT->variacaoProduto;
                               $qtdProduto =  intval($fivesdraftT->qtdProduto);
                               $qtdReservaUsuario = custom_get_stock_reservaUsuario($postID,$tamanho);
-                              $qtdProduto =  $qtdProduto - $qtdReservaUsuario;
-              ?>
+                              $qtdProduto =  $qtdProduto - $qtdReservaUsuario;   
+                              
+                              $precoOperacao =    $fivesdraftT->precoOperacao; 
+                              $precoAlternativo =    $fivesdraftT->precoAlternativo;  
+              ?>              
               
              
  
-             <li class="selectVaricaoTamanho " rel="<?php echo  $tamanho  ; ?>" rev="<?php if( $qtdProduto ==0 && $ilimitado ==false ){ ?>esgotado<?php }; ?>"  ><?php echo  $tamanho  ; ?> <?php if($qtdProduto==0  && $ilimitado ==false ){ ?><span class="esgotado"></span> <?php }; ?></li>
+             <li class="selectVaricaoTamanho" rel="<?php echo  $tamanho  ; ?>" rev="<?php if( $qtdProduto ==0 && $ilimitado ==false ){ ?>esgotado<?php }; ?>"    ><?php echo  $tamanho  ; ?>   <?php if($precoAlternativo>0){ ?> <span style="font-size:0.7em">(<?php echo $precoOperacao; ?> <?php echo $moedaCorrente; ?><?php echo $precoAlternativo; ?>)</span> <?php }; ?>  <?php if($qtdProduto==0  && $ilimitado ==false ){ ?><span class="esgotado"></span> <?php }; ?></li>
           
              <?php $cont+=1; }; ?>
              
@@ -323,10 +338,8 @@ if($txtEscolhaCorProduto==""){
                 $variacaoEscolhida = '';
                 
                 
-                             $moedaCorrente  =  get_option('moedaCorrenteWPSHOP');
-                             if($moedaCorrente==""){
-                               $moedaCorrente = "R$" ; 
-                             };
+                       
+                          
 
                             $preco=custom_get_price($postID); 
                             $precoS = custom_get_specialprice($postID);

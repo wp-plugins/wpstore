@@ -80,17 +80,20 @@ if($moedaCorrente==""){
                         update_option('cidadesFreteGratis',$cidadesFreteGratis); 
                    
                   
-                   
+                        $valorFreteGratis  = trim($_POST['valorFreteGratis']);  
+                                 add_option('valorFreteGratis',$valorFreteGratis,'','yes'); 
+                                 update_option('valorFreteGratis',$valorFreteGratis);              
  
        };
  
-
+$valorFreteGratis = get_option('valorFreteGratis'); 
+  
 $cepOrigemCorreios = get_option('cepOrigemCorreios');
 
 $alturaEmbalagemCorreios  =  get_option('alturaEmbalagemCorreios');
 $larguraEmbalagemCorreios = get_option('larguraEmbalagemCorreios');
 $comprimentoEmbalagemCorreios =get_option('comprimentoEmbalagemCorreios');
- $valorFreteFixo  =get_option('valorFreteFixo');
+$valorFreteFixo  =get_option('valorFreteFixo');
  
     $valorFretePeso1 =get_option('valorFretePeso1');
        $valorFretePeso2 =get_option('valorFretePeso2');
@@ -124,7 +127,10 @@ if(intval($comprimentoEmbalagemCorreios)<=0){
   $comprimentoEmbalagemCorreios  = 9;  
 }
 
-?>
+?>  
+
+
+ <script type="text/javascript" src="<?php  echo  plugins_url('wpstore/includes/js/jquery.price_format.1.7.js' ,'WP STORE' );  ?>"></script> 
 
 
 <h1>Opções De frete e entrega</h1>
@@ -355,7 +361,19 @@ if(intval($comprimentoEmbalagemCorreios)<=0){
                           <label for="cidadesFreteGratis"></label>
                           <textarea id="cidadesFreteGratis" name="cidadesFreteGratis"  style="width:50%" ><?php echo $cidadesFreteGratis; ?></textarea>
                           <br/>
-                          <span style="font-size:10px">Ex: RJ**Niterói,RJ**São Gonçalo,RJ**Rio Bonito,RJ**Maricá,RJ**Itaboraí</span>
+                          <span style="font-size:10px">Ex: RJ**Niterói,RJ**São Gonçalo,RJ**Rio Bonito,RJ**Maricá,RJ**Itaboraí</span> 
+                          
+                          <br/>
+                          <hr/>
+                          
+                          <h2>Frete Grátis para compras acima de determinado valor:</h2>
+                          <p>Digite o valor  da compra mínima para promoção de frete grátis |  UTILIZE  get_option('valorFreteGratis') para colocar o valor em uma variavel de seu site .</p>
+                          <label for="valorFreteGratis"></label>
+                          R$<input text id="valorFreteGratis" name="valorFreteGratis" class='price'  style="width:50%" value='<?php echo $valorFreteGratis; ?>' />
+                          <br/>
+                          <span style="font-size:10px">Ex:1.000,00  </span>
+                          
+                          
                  </div>
 
  
@@ -372,7 +390,15 @@ jQuery('.btEditarFrete').click(function(){
     rel = jQuery(this).attr('rel');
     jQuery('.box').hide();
     jQuery('#'+rel).show();
-});
+});         
+
+
+     jQuery('input.price').priceFormat({
+                       prefix: '',
+                       centsSeparator: ',',
+                       thousandsSeparator: '.'
+        });
+        
 
 </script>
 

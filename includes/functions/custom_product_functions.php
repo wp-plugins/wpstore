@@ -663,7 +663,7 @@ function 	custom_product_relation_single(){
  function custom_get_sum($preco,$frete,$desconto=0.00){
      
                    $precoSoma = $preco;
-                   if(strlen($precoSoma)>6){
+                   if(strlen($precoSoma)>7){
                    $precoSoma= str_replace('.','',$precoSoma );
                    }
                    $precoSoma = str_replace(',','.',$precoSoma);
@@ -709,7 +709,7 @@ function custom_get_total_price_session_order(){
                 }
                 
                 $precoSoma = $preco;
-                         if(strlen($precoSoma)>6){
+                         if(strlen($precoSoma)>=6){
                           $precoSoma= str_replace('.','',$precoSoma );
                            }
                            $precoSoma = str_replace(',','.',$precoSoma);   
@@ -721,8 +721,17 @@ function custom_get_total_price_session_order(){
                                   $precoAdddArray = explode('(',$precoAdd);
                                   $sinal = $precoAdddArray[0];
                                   $precoAddF= str_replace(')','',$precoAdddArray[1]);
+                           
+                                  if(strlen($precoAddF)>=6){
+                                      
+                                       $precoAddFSoma =  str_replace('.','',$precoAddF);
+                                       $precoAddFSoma =  str_replace(',','.',$precoAddFSoma );
+                                      
+                                      
+                                  }else{
                                   $precoAddFSoma =  str_replace(',','.',$precoAddF);
-                          
+                                  };  
+                   
                                    
                   if($sinal=="-"){
                   $precoSoma = $precoSoma -  $precoAddFSoma;  
@@ -923,12 +932,20 @@ function custom_get_total_price_session_order(){
             $orderPrint = "";
             $orderPrintB = "";
             $orderNumZ = $orderNum;
-
-            include('layout/order.php');
+             
+            include('layout/order.php'); 
+            
+            if($order==""){
+                $orderPrint = ""; 
+                $orderPrintB = ""; 
+                $idPedidos = get_idPaginaPedidos(); 
+                $urlPedidos = verifyURL(get_permalink($idPedidos));
+                //wp_redirect($urlPedidos);   
+                return "<script> window.location = '$urlPedidos' </script>";
+            }
 
             if($pagto =="on" ){
-                
-               return  $orderPrint; 
+              return  $orderPrint; 
             }else{
          
               return $orderPrintB;  
@@ -1512,7 +1529,6 @@ function custom_get_total_products_in_order($idPedido){
           function custom_get_logo(){
 		          $logoSiteWPSHOP = get_option('logoSiteWPSHOP');     
 		          if($logoSiteWPSHOP==""){
-		            $logoSiteWPSHOP = get_bloginfo('url').'wp-content/plugins/wpstore/logo.png';  
 		          }
 		          return $logoSiteWPSHOP;
 		     }
@@ -1653,7 +1669,20 @@ function custom_get_total_products_in_order($idPedido){
       };
       return intval($idPagina);
       };
-      //END FIND IDPAGE pedidos-----------------------------
+      //END FIND IDPAGE pedidos-----------------------------     
+      
+      
+      
+            function get_txtComprarBtProduto(){
+                     $txtComprarBtProduto= get_option('txtComprarBtProdutoWPSHOP');   
+                    if( $txtComprarBtProduto==""){
+                       $txtComprarBtProduto= "Comprar"; 
+                    }
+                    return $txtComprarBtProduto;
+             };
+             
+             
+             
      
  
 ?>

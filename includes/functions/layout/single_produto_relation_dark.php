@@ -52,10 +52,27 @@
         
            <?php 
            
-           wp_reset_query();
+           wp_reset_query();  
            
-           query_posts("cat=$categoriaPrincipalID&posts_per_page=3&post_type=produtos&orderby=rand"); 
            
+           $totalPostListagemPRel  =  get_option('totalPostListagemPRel'); 
+           if( $totalPostListagemPRel ==""){     $totalPostListagemPRel = 6;       }   
+             $listagemPRelOrder    = get_option('listagemPRelOrder');   
+               if($listagemPRelOrder==""){$listagemPRelOrder = "DESC"; }; 
+             $listagemPRelOrderby   = get_option('listagemPRelOrderby');
+               if($listagemPRelOrderby==""){$listagemPRelOrderby = "none"; };  
+
+
+
+              query_posts(array(
+              'post_type' => array(  'produtos' ),
+              'cat' => ''.$categoriaPrincipalID,
+              'posts_per_page' =>''.$totalPostListagemPRel ,
+              'order' => ''.$listagemPRelOrder,
+              'orderby'=>''.$listagemPRelOrderby
+              ));
+              
+     
            while ( have_posts() ) : the_post(); 
            
            ?>

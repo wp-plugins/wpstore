@@ -113,13 +113,28 @@ require_once("PHPMailer/class.phpmailer.php");
  
      //instancia a classe
      $mail = new PHPMailer();
-     // enables SMTP debug information (for testing)
-     $mail->SMTPDebug  = 1; 
+ 
      
+      $smtpDebug = get_option('smtpDebugWPSHOP'); 
+     
+      if($smtpDebug =="Y"){
+      // enables SMTP debug information (for testing)
+      $mail->SMTPDebug  = 1;    
+      }else{
+       $mail->SMTPDebug  = 0;    
+      }
+      
+      
+      
+     $smtpAtivo = get_option('smtpAtivoWPSHOP'); 
+     
+     if($smtpAtivo=="Y"){
      //defini que será enviado via SMTP
      $mail->IsSMTP();
      //define que será autenticado
-     $mail->SMTPAuth = true;
+     $mail->SMTPAuth = true;  
+     };
+     
      
      
      
@@ -149,9 +164,12 @@ require_once("PHPMailer/class.phpmailer.php");
      $mail->Subject = utf8_decode($mailSubject);
      //a mensagem que está sendo enviada
      $mail->MsgHTML(utf8_decode($mailBody));
-     //testa se foi enviada ou não
+     //testa se foi enviada ou não  
+     
+       $emailInc = '';
+       
      if($mail->Send()){
-         
+                  $emailInc = 'Send';   
         //echo intval($user->ID);
         // echo 10;
      

@@ -150,8 +150,7 @@
 
 
                       if(  $idUser > 0 && $msgF !=""){
-                          
-                          //echo $idUser;
+                      //echo $idUser;
                       include( $CURRENT_SOURCE_FOLDERB.'/email.php');
                       };
                       
