@@ -188,28 +188,7 @@ ul.pedidos li {
 		.hide{display:none}
 		
 		
-		
-		
-		
-		
-		
-		
-		
-		
-	 
-		 
-
-
-
-
-
-
-
  
-
- 
-
-
  
         #infoPedido p h3{ font-size:1em;margin-top:0px}
         #infoPedido p{ font-size:0.9em;;margin-top:0px}
@@ -228,11 +207,7 @@ ul.pedidos li {
  
  
         #content #page .products { width:600px; float:left;margin-bottom:40px;  margin-top:40px; }
-        #content #page .products  .moreProducts { width:290px; height:180px; margin-bottom:20px; }
-        #content #page .products  .moreProducts .foto { float:left; width:120px;  }
-        #content #page .products  .moreProducts .desc { float:left; width:170px;  }
-        #content #page .products  .moreProducts .desc h3 { font-size:1.2em; text-transform:lowercase;  }
-        #content #page .products  .moreProducts .desc h3  span { font-weight:bold;  } 
+ 
 
 
 

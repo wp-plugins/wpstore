@@ -64,8 +64,14 @@
                                                           
                                                 
                                                       $listagemPRelOrderby = trim($_POST['listagemPRelOrderby']); 
-                                                       add_option('listagemPRelOrderby ',$listagemPRelOrderby ,'','yes'); 
-                                                         update_option('listagemPRelOrderby ',$listagemPRelOrderby );
+                                                       add_option('listagemPRelOrderby',$listagemPRelOrderby ,'','yes'); 
+                                                         update_option('listagemPRelOrderby',$listagemPRelOrderby ); 
+                                                         
+                                                            
+                                                                 $excludeCatsProdRel = trim($_POST['excludeCatsProdRel']); 
+                                                                    add_option('excludeCatsProdRel',$excludeCatsProdRel ,'','yes'); 
+                                                                      update_option('excludeCatsProdRel',$excludeCatsProdRel );    
+                                                         
                          
  
     };
@@ -87,7 +93,9 @@ $exibirTabela =  get_option('exibirTabelaWPSHOP');
  
    $totalPostListagemPRel  =  get_option('totalPostListagemPRel');    
    $listagemPRelOrder    = get_option('listagemPRelOrder');  
-   $listagemPRelOrderby   = get_option('listagemPRelOrderby');
+   $listagemPRelOrderby   = get_option('listagemPRelOrderby');  
+   
+   $excludeCatsProdRel  = get_option('excludeCatsProdRel');  
 
 ?>
 
@@ -225,6 +233,9 @@ $exibirTabela =  get_option('exibirTabelaWPSHOP');
 
                <h2>Listagem Produtos Relacionados</h2>
 
+                     
+       excludeCatsProdRel
+       
        
                     <h3>Quantidade de Posts da listagem Produtos Relacionados</h3>   
                    <p>Digite o numero correspondente a quantidade de publicações que você quer exibir  na listagem <br/>
@@ -255,7 +266,21 @@ $exibirTabela =  get_option('exibirTabelaWPSHOP');
                                      <option <?php if($listagemPRelOrder=='ASC'){ echo 'selected="selected"'; };  ?> >ASC</option>  
                                      <option <?php if($listagemPRelOrder=='DESC'){ echo 'selected="selected"'; };  ?>  >DESC</option>
                                  </select>
-                             </p>
+                             </p>     
+                             
+                             
+                             
+                             
+                                             <h3>Excluir Categorias da listagem  Produtos Relacionados</h3>   
+                                            <p>Digite o numero da categoria, seguido de virgula para separar, caso seja mais de uma<br/>
+                                                <input type="text" id="excludeCatsProdRel" name="excludeCatsProdRel" value="<?php echo $excludeCatsProdRel; ?>"  style="width:40%"/>
+                                                <br/>
+                                                <span style="font-size:11px">Ex:-3,-6,-9</span>
+                                              </p>
+
+                                              <br/>
+                                              
+                                              
              
             
              <input type="submit"  name="submit" value="Gravar"   />
