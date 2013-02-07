@@ -7,7 +7,7 @@
 <?php  $tabelaVar .= " 	    <p class='tituloFrete' ><strong>Frete:</strong> </p>"; ?>
         
         
-              <?php  $idPagina = get_idPaginaCheckout();   ?>
+              <?php $theID = $post->ID; $idPagina = get_idPaginaCheckout();   ?>
              <?php if(is_page($idPagina)){ ?>
             <?php  $tabelaVar .= " 	   <div style='display:none'> "; ?>
              <?php }; ?>
@@ -66,6 +66,10 @@
 
 	
 		<input type='hidden' id='cityEntrega' value='Digite sua Cidade' title='Digite sua Cidade' class='cityEntrega ' />
+        
+
+        <input type='hidden' id='idPrd'   class='idPrd ' value='$theID' />    
+
 
 		<input type='hidden' class='peso' value='";
 		

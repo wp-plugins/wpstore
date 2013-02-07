@@ -41,25 +41,37 @@ if(trim($cidade) ==""){
 	$freteGratis = false;
 }       
 
-$msgFreteGratis="";
-$valorPedido = custom_get_total_price_session_order();     
+$msgFreteGratis=""; 
+
+$valorPedido = custom_get_total_price_session_order();
+
+  
+
 
  if(strlen($valorPedido)>=6){
      $valorPedido =  str_replace('.','',$valorPedido);
      $valorPedido =  str_replace(',','.',$valorPedido);
      }else{
      $valorPedido =  str_replace(',','.',$valorPedido);
-     };
+     }; 
      
-$simbolo =  get_current_symbol(); 
-$precoPromocao = get_option('valorFreteGratis');
+     
+     $idPrd   = $_POST['idPrd']; 
+     $precoProduto =  custom_get_price($idPrd);
+     
+     if($precoProduto>0){
+      $valorPedido =  $precoProduto;
+     }
+     
+     $simbolo =  get_current_symbol(); 
+     $precoPromocao = get_option('valorFreteGratis');
 
             if(strlen($precoPromocao)>=6){
              $precoPromocao =  str_replace('.','',$precoPromocao);
              $precoPromocao =  str_replace(',','.',$precoPromocao );
              }else{
              $precoPromocao =  str_replace(',','.',$precoPromocao);
-             };
+             };   
              
  
  if($valorPedido > $precoPromocao &&  $precoPromocao > 0 ){

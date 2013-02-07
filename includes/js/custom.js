@@ -363,14 +363,15 @@
                          var cepDestino = ""+jQuery('input.cep').val();
                          var peso = ""+jQuery('input.peso').val();
                          var cityUserE = ""+jQuery('input.cityEntrega').val();
-                         
-                         //alert(cepDestino);  alert(peso);  alert(cityUserE);
+                         var idPrdV  =   ""+jQuery('input.idPrd').val();   
+                           
+                         //alert(cepDestino);  alert(peso);  alert(cityUserE);  alert(idPrdV);  
 
                         if(cepDestino != ""+jQuery('input.cep').attr('title') ){
 
                          jQuery('.btCalcularFrete').val('Carregando');
 
-                         jQuery.post(baseUrl+"shipping/frete.php", {CepDestinoR:''+cepDestino+'' ,PesoR:''+peso+'' ,cityUser:''+cityUserE+''} ,
+                         jQuery.post(baseUrl+"shipping/frete.php", {CepDestinoR:''+cepDestino+'' ,PesoR:''+peso+'' ,cityUser:''+cityUserE+'',idPrd:idPrdV} ,
                                     function(data) { 
                                         
                                        // alert(data);
