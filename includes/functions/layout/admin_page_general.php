@@ -165,19 +165,19 @@ $totalParcela = get_totalParcela();
 
  
 <h3>Pagina Carrinho :</h3>
-<p>Escolha o id da pagina de PEDIDO ( CARRINHO ) :   <br/>
-<input type="text" id="idPaginaCarrinho" name="idPaginaCarrinho" value="<?php echo $idPaginaCarrinho; ?>" style="width:20%"/>
+<p>Selecione a pagina de PEDIDO ( CARRINHO ) :   <br/>
+ <?php wp_dropdown_pages("show_option_none=---&id=idPaginaCarrinho&name=idPaginaCarrinho&selected=$idPaginaCarrinho"); ?>  
 <br/>
-<span style="font-size:11px">Digite o ID da pagina ou deixe em branco para não adicionar automáticamente. Neste caso insira o código <strong>get_cart_Table(); </strong>  no   template de pagina que deseja usar ou a expressão <strong>[get_cart_Table] </strong> 
+<span style="font-size:11px">Selecione a pagina ou deixe em branco para não adicionar automáticamente. Neste caso insira o código <strong>get_cart_Table(); </strong>  no   template de pagina que deseja usar ou a expressão <strong>[get_cart_Table] </strong> 
 no content da pagina no wordpress.</span>
 </p>
 
 <br/>
 <h3>Pagina Checkout :</h3>
-<p>Escolha o id da pagina de CHECKOUT ( PAGAMENTO ) :   <br/>
-<input type="text" id="idPaginaCheckout" name="idPaginaCheckout" value="<?php echo $idPaginaCheckout; ?>" style="width:20%"/>
+<p>Selecione  a pagina de CHECKOUT ( PAGAMENTO ) :   <br/>
+ <?php wp_dropdown_pages("show_option_none=---&id=idPaginaCheckout&name=idPaginaCheckout&selected=$idPaginaCheckout"); ?>  
 <br/>
-<span style="font-size:11px">Digite o ID da pagina ou deixe em branco para não adicionar automáticamente. Neste caso insira o código <strong>custom_get_checkout(); </strong>  no   template de pagina que deseja usar ou a expressão <strong>[custom_get_checkout] </strong> 
+<span style="font-size:11px">Selecione a pagina ou deixe em branco para não adicionar automáticamente. Neste caso insira o código <strong>custom_get_checkout(); </strong>  no   template de pagina que deseja usar ou a expressão <strong>[custom_get_checkout] </strong> 
 no content da pagina no wordpress.</span>
 </p>
 
@@ -187,10 +187,10 @@ no content da pagina no wordpress.</span>
 
 <br/>
 <h3>Pagina PAGAR:</h3>
-<p>Escolha o id da pagina de PAGAMENTO ( PAGAMENTO ) :   <br/>
-<input type="text" id="idPaginaPagto" name="idPaginaPagto" value="<?php echo $idPaginaPagto; ?>" style="width:20%"/>
+<p>Selecione a  pagina de PAGAMENTO ( PAGAMENTO ) :   <br/>
+ <?php wp_dropdown_pages("show_option_none=---&id=idPaginaPagto&name=idPaginaPagto&selected=$idPaginaPagto"); ?>  
 <br/>
-<span style="font-size:11px">Digite o ID da pagina ou deixe em branco para não adicionar automáticamente. Neste caso insira o código <strong>get_payment_checkout(); </strong>  no   template de pagina que deseja usar ou a expressão <strong>[get_payment_checkout] </strong> 
+<span style="font-size:11px">Selecione a pagina ou deixe em branco para não adicionar automáticamente. Neste caso insira o código <strong>get_payment_checkout(); </strong>  no   template de pagina que deseja usar ou a expressão <strong>[get_payment_checkout] </strong> 
 no content da pagina no wordpress.</span>
 </p>
 
@@ -200,48 +200,48 @@ no content da pagina no wordpress.</span>
  
 <br/>
 <h3>Pagina Meus Pedidos :</h3>
-<p>Escolha o id da pagina com a listagem dos pedidos de cada usuário( MEUS PEDIDOS ) :   <br/>
-<input type="text" id="idPaginaPedidos" name="idPaginaPedidos" value="<?php echo $idPaginaPedidos; ?>" style="width:20%"/>
+<p>Selecione a pagina com a listagem dos pedidos de cada usuário( MEUS PEDIDOS ) :   <br/>
+ <?php wp_dropdown_pages("show_option_none=---&id=idPaginaPedidos&name=idPaginaPedidos&selected=$idPaginaPedidos"); ?>  
 <br/>
-<span style="font-size:11px">Digite o ID da pagina ou deixe em branco para não adicionar automáticamente. Neste caso insira o código <strong> custom_get_orders_user(); </strong>  no   template de pagina que deseja usar ou a expressão <strong>[custom_get_orders_user] </strong> 
+<span style="font-size:11px">Selecione a pagina ou deixe em branco para não adicionar automáticamente. Neste caso insira o código <strong> custom_get_orders_user(); </strong>  no   template de pagina que deseja usar ou a expressão <strong>[custom_get_orders_user] </strong> 
 no content da pagina no wordpress.</span>
 </p>
 
 
 <br/>
 <h3>Pagina Pedido :</h3>
-<p>Escolha o id da pagina que informa os detalhes do pedido de cada usuário( PEDIDO) :   <br/>
-<input type="text" id="idPaginaPedido" name="idPaginaPedido" value="<?php echo $idPaginaPedido; ?>" style="width:20%"/>
+<p>Selecione a  pagina que informa os detalhes do pedido de cada usuário( PEDIDO) :   <br/>
+ <?php wp_dropdown_pages("show_option_none=---&id=idPaginaPedido&name=idPaginaPedido&selected=$idPaginaPedido"); ?> 
 <br/>
-<span style="font-size:11px">Digite o ID da pagina ou deixe em branco para não adicionar automáticamente. Neste caso insira o código <strong>custom_get_order_user(); </strong>  no   template de pagina que deseja usar ou a expressão <strong>[custom_get_order_user] </strong> 
+<span style="font-size:11px">Selecione a pagina ou deixe em branco para não adicionar automáticamente. Neste caso insira o código <strong>custom_get_order_user(); </strong>  no   template de pagina que deseja usar ou a expressão <strong>[custom_get_order_user] </strong> 
 no content da pagina no wordpress.</span>
 </p>
  
 <br/>
 <h3>Pagina Meus Dados :</h3>
-<p>Escolha o id da pagina que informa os detalhes da conta de cada usuário( MEUS DADOS) :   <br/>
-<input type="text" id="idPaginaPerfil" name="idPaginaPerfil" value="<?php echo $idPaginaPerfil; ?>" style="width:20%"/>
+<p>Selecione a  da pagina que informa os detalhes da conta de cada usuário( MEUS DADOS) :   <br/>
+<?php wp_dropdown_pages("show_option_none=---&id=idPaginaPerfil&name=idPaginaPerfil&selected=$idPaginaPerfil"); ?>  
 <br/>
-<span style="font-size:11px">Digite o ID da pagina ou deixe em branco para não adicionar automáticamente. Neste caso insira o código <strong>get_edit_form_perfil(); </strong>  no   template de pagina que deseja usar ou a expressão <strong>[get_edit_form_perfil] </strong> 
+<span style="font-size:11px">Selecione a pagina ou deixe em branco para não adicionar automáticamente. Neste caso insira o código <strong>get_edit_form_perfil(); </strong>  no   template de pagina que deseja usar ou a expressão <strong>[get_edit_form_perfil] </strong> 
 no content da pagina no wordpress.</span>
 </p>
 
 <br/>
 <h3>Pagina LOGIN :</h3>
-<p>Escolha o id da pagina que será inserido o formulário de LOGIN/CADASTRO ( LOGIN) :   <br/>
-<input type="text" id="idPaginaLogin" name="idPaginaLogin" value="<?php echo $idPaginaLogin; ?>" style="width:20%"/>
+<p>Selecione a pagina que será inserido o formulário de LOGIN/CADASTRO ( LOGIN) :   <br/>
+ <?php wp_dropdown_pages("show_option_none=---&id=idPaginaLogin&name=idPaginaLogin&selected=$idPaginaLogin"); ?>  
 <br/>
-<span style="font-size:11px">Digite o ID da pagina ou deixe em branco para não adicionar automáticamente. Neste caso insira o código <strong>get_Login_form(); </strong>  no   template de pagina que deseja usar ou a expressão <strong>[get_Login_form] </strong> 
+<span style="font-size:11px">Selecione a pagina ou deixe em branco para não adicionar automáticamente. Neste caso insira o código <strong>get_Login_form(); </strong>  no   template de pagina que deseja usar ou a expressão <strong>[get_Login_form] </strong> 
 no content da pagina no wordpress.</span>
 </p><br/>  
 
 
 <br/>
 <h3>Pagina Termos :</h3>
-<p>Escolha o id da pagina que será inserido a politica de trocas, devoluções .... :   <br/>
-<input type="text" id="idPaginaTermos" name="idPaginaTermos" value="<?php echo $idPaginaTermos; ?>" style="width:20%"/>
+<p>Selecione a pagina que será inserido a politica de trocas, devoluções .... :   <br/>
+ <?php wp_dropdown_pages("show_option_none=---&id=idPaginaTermos&name=idPaginaTermos&selected=$idPaginaTermos"); ?>  
 <br/>
-<span style="font-size:11px">Digite o ID da pagina ou deixe em branco para não adicionar automáticamente. Neste caso insira  a expressão <strong>[custom_get_Termos] </strong> 
+<span style="font-size:11px">Selecione a pagina  ou deixe em branco para não adicionar automáticamente. Neste caso insira  a expressão <strong>[custom_get_Termos] </strong> 
 no content da pagina no wordpress.</span>
 </p><br/>
 

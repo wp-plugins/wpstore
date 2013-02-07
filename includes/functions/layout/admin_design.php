@@ -67,10 +67,16 @@
                                                        add_option('listagemPRelOrderby',$listagemPRelOrderby ,'','yes'); 
                                                          update_option('listagemPRelOrderby',$listagemPRelOrderby ); 
                                                          
-                                                            
-                                                                 $excludeCatsProdRel = trim($_POST['excludeCatsProdRel']); 
-                                                                    add_option('excludeCatsProdRel',$excludeCatsProdRel ,'','yes'); 
-                                                                      update_option('excludeCatsProdRel',$excludeCatsProdRel );    
+                                                
+                                                                      
+                                                                        $excludeCatsProdRel = ""; 
+                                                                        if(!empty($_POST['excludeCatsProdRel'])) { 
+                                                                            foreach($_POST['excludeCatsProdRel'] as $check) {  
+                                                                                    $excludeCatsProdRel.=$check.","; 
+                                                                            }  
+                                                                        }
+                                                                        add_option('excludeCatsProdRel',$excludeCatsProdRel ,'','yes'); 
+                                                                        update_option('excludeCatsProdRel',$excludeCatsProdRel );   
                                                          
                          
  
@@ -232,10 +238,7 @@ $exibirTabela =  get_option('exibirTabelaWPSHOP');
          <div id="listas" style="display:none" class="box" >
 
                <h2>Listagem Produtos Relacionados</h2>
-
-                     
-       excludeCatsProdRel
-       
+ 
        
                     <h3>Quantidade de Posts da listagem Produtos Relacionados</h3>   
                    <p>Digite o numero correspondente a quantidade de publicações que você quer exibir  na listagem <br/>
@@ -272,8 +275,28 @@ $exibirTabela =  get_option('exibirTabelaWPSHOP');
                              
                              
                                              <h3>Excluir Categorias da listagem  Produtos Relacionados</h3>   
-                                            <p>Digite o numero da categoria, seguido de virgula para separar, caso seja mais de uma<br/>
-                                                <input type="text" id="excludeCatsProdRel" name="excludeCatsProdRel" value="<?php echo $excludeCatsProdRel; ?>"  style="width:40%"/>
+                                            <p>Selecione as categorias que deseja excluir da listagem de produtos relacionados <br/>
+                                    
+                                                 <?php            
+
+
+                                                          $arrayCats  = explode(',',$excludeCatsProdRel); 
+
+                                                           $categories=  get_categories();      
+
+                                                           foreach($categories as $category){        
+
+
+                                                 ?>
+
+                                               <input type='checkbox'  name='excludeCatsProdRel[]' value='<?php echo $category->term_id; ?>' <?php if(in_array("".$category->term_id, $arrayCats)){ echo "CHECKED"; }; ?>  /> <label for='idsCatExclude'> <?php echo $category->cat_name; ?> </label><br/>
+
+
+                                                 <?php }; ?>
+                                                 
+                                                 
+                                                 
+                                                 
                                                 <br/>
                                                 <span style="font-size:11px">Ex:-3,-6,-9</span>
                                               </p>
