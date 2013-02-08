@@ -106,8 +106,9 @@ $idPaginaCheckout = 0;
                             $ativaRetirada = trim($_POST['ativaRetirada']);
                             
                             $ativaPaypal = trim($_POST['ativaPaypal']); 
-                            $ativaGoogleCk = trim($_POST['ativaGoogleCk']); 
-
+                            $ativaGoogleCk = trim($_POST['ativaGoogleCk']);
+                            $emailPaypal = trim($_POST['emailPaypal']);
+                            $currentCodePaypal  = trim($_POST['currentCodePaypal']);
 
                              add_option('ativaPagseguro',$ativaPagseguro,'','yes'); 
                              update_option('ativaPagseguro',$ativaPagseguro);
@@ -125,7 +126,13 @@ $idPaginaCheckout = 0;
                                   update_option('ativaGoogleCk',$ativaGoogleCk);
                                   
                                      add_option('ativaPaypal',$ativaPaypal,'','yes'); 
-                                       update_option('ativaPaypal',$ativaPaypal);
+                                       update_option('ativaPaypal',$ativaPaypal); 
+                                       
+                                        add_option('emailPaypal',$emailPaypal,'','yes'); 
+                                          update_option('emailPaypal',$emailPaypal);
+                                          
+                                           add_option('currentCodePaypal',$currentCodePaypal,'','yes'); 
+                                             update_option('currentCodePaypal',$currentCodePaypal);
                              
                              
            };
@@ -168,7 +175,10 @@ $indicadorAutorizacaoCielo =  get_option('indicadorAutorizacaoCielo');
            $ativaGoogleCk= get_option('ativaGoogleCk');
            $ativaPaypal= get_option('ativaPaypal'); 
            
+        
 
+$emailPaypal = get_option('emailPaypal');        
+$currentCodePaypal  = get_option('currentCodePaypal');    
 
 ?>
 
@@ -483,9 +493,15 @@ $indicadorAutorizacaoCielo =  get_option('indicadorAutorizacaoCielo');
 <input type="text" id="emailPaypal" name="emailPaypal" value="<?php echo $emailPaypal; ?>" />
 </p>
 
-<p>
-<labe for="chavePaypal">Chave</label>
-<input type="text" id="chavePaypal" name="chavePaypal" value="<?php echo $chavePaypal; ?>" />
+<p> 
+
+<labe for="chavePaypal">Current CODE</label>    
+
+<select  id="currentCodePaypal" name="currentCodePaypal"> 
+<option value="USD" <?php if($currentCodePaypal=="USD"){ echo "SELECTED"; }; ?> >USD - American Dollars</option>
+<option value="BRL" <?php if($currentCodePaypal=="BRL"){ echo "SELECTED"; };  ?> >BRL - Real Brasileiro</option> 
+</select>  
+
 </p>
  
 </div>

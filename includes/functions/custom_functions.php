@@ -407,7 +407,7 @@ function custom_get_category_id($blog_ID=1,$catName){
       
       //CONFIRMA PAYPAL IPN 
       if($_REQUEST['cdp'] !=""){
-       include( 'payment/Paypal/pages/atualiza.php');    
+       include( 'payment/Paypal/pages/IPN/ipn.php');    
       }
       
       };
