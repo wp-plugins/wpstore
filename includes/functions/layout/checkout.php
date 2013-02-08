@@ -232,7 +232,13 @@ $htmlVar .="<section class='checkout'>
                         $ativaPagseguro = get_option('ativaPagseguro');
                         $ativaCielo = get_option('ativaCielo');
                         $ativaDeposito = get_option('ativaDeposito ');
-                        $ativaRetirada= get_option('ativaRetirada');
+                        $ativaRetirada= get_option('ativaRetirada'); 
+                        
+                        
+                        $ativaGoogleCk= get_option('ativaGoogleCk');
+                        $ativaPaypal= get_option('ativaPaypal');
+                        
+                        
                         
              if($ativaCielo=="ativaCielo"){         
                 //if( $current_user->ID==1 || $current_user->ID==4849 ){
@@ -252,7 +258,24 @@ $htmlVar .="<section class='checkout'>
 				   <br/><span style='font-size:10px'>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;Função Crédito , Débito e Boleto</span> 
 				   </div>";
 				   
+			}; 
+			
+			
+		     	if($ativaPaypal=="ativaPaypal"){    
+        		  	$htmlVar .="<br/><hr/><div class='field'><input type='radio' class='tipoPagto'  name='tipoPagto' value='Paypal'> <img src='".$plugin_directory."images/paypal.png' > &nbsp; Paypal
+        				   </div>";
+
+        			};
+			
+			
+			
+			if($ativaGoogleCk=="ativaGoogleCk"){    
+		  	$htmlVar .="<br/><hr/><div class='field'><input type='radio' class='tipoPagto'  name='tipoPagto' value='GoogleCk'> <img src='".$plugin_directory."images/googleCk.png' > &nbsp; Google Ckeckout 
+				   </div>";
+				   
 			};
+			
+			
 			
 			
 			if($ativaDeposito=="ativaDeposito"){    	   

@@ -112,8 +112,21 @@ Upgrade notices :
 31. screenshot-31.png 
    
 
-== Changelog ==
-Log de alterações:   Acesse http://wpstore.com.br      
+== Changelog ==    
+
+1.0 :
+    - wpstore born;    
+
+1.1 :
+    - Change names of plugin in  database   (wp_store to wpstore);
+    - New : Add many admin  options in wpstore admin menu;   
+    - fixed bugs in checkout (promo free shipping, coupons discounts );    
+
+1.2 :
+    - New : Add Google Checkout and Paypal in payment methods;
+    - New : unlimited sub-variations of stock product;  
+    - New : General Control Stock List page   in wpstore admin Menu;
+    - New : Menu; 
 
 
 == Frequently Asked Questions ==    

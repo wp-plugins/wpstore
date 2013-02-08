@@ -38,7 +38,7 @@ echo '<?xml version="1.0"?>';
   <pubDate><?php yoast_rss_date( strtotime($ps[$lastpost]->post_date_gmt) ); ?></pubDate>
   <lastBuildDate><?php yoast_rss_date( strtotime($ps[$lastpost]->post_date_gmt) ); ?></lastBuildDate>  
   
-  <managingEditor>contato@cfcarehospitalar.com.br</managingEditor>    
+  <managingEditor><?php echo get_option('emailAdminWPSHOP'); ?></managingEditor>    
   
    <?php   
    

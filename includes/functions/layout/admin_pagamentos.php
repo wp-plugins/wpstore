@@ -104,6 +104,9 @@ $idPaginaCheckout = 0;
                             $ativaCielo = trim($_POST['ativaCielo']);
                             $ativaDeposito = trim($_POST['ativaDeposito']);
                             $ativaRetirada = trim($_POST['ativaRetirada']);
+                            
+                            $ativaPaypal = trim($_POST['ativaPaypal']); 
+                            $ativaGoogleCk = trim($_POST['ativaGoogleCk']); 
 
 
                              add_option('ativaPagseguro',$ativaPagseguro,'','yes'); 
@@ -116,7 +119,13 @@ $idPaginaCheckout = 0;
                              update_option('ativaDeposito',$ativaDeposito);
 
                              add_option('ativaRetirada',$ativaRetirada,'','yes'); 
-                             update_option('ativaRetirada',$ativaRetirada);
+                             update_option('ativaRetirada',$ativaRetirada);  
+                             
+                                add_option('ativaGoogleCk',$ativaGoogleCk,'','yes'); 
+                                  update_option('ativaGoogleCk',$ativaGoogleCk);
+                                  
+                                     add_option('ativaPaypal',$ativaPaypal,'','yes'); 
+                                       update_option('ativaPaypal',$ativaPaypal);
                              
                              
            };
@@ -154,7 +163,11 @@ $indicadorAutorizacaoCielo =  get_option('indicadorAutorizacaoCielo');
             $ativaPagseguro = get_option('ativaPagseguro');
             $ativaCielo = get_option('ativaCielo');
             $ativaDeposito = get_option('ativaDeposito ');
-            $ativaRetirada= get_option('ativaRetirada');
+            $ativaRetirada= get_option('ativaRetirada');      
+           
+           $ativaGoogleCk= get_option('ativaGoogleCk');
+           $ativaPaypal= get_option('ativaPaypal'); 
+           
 
 
 ?>
@@ -401,7 +414,90 @@ $indicadorAutorizacaoCielo =  get_option('indicadorAutorizacaoCielo');
 </div>
  
  
+<hr/>      
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2  style="background:#eee;padding:10px;cursor:pointer"> 
+
+<input type="checkbox" name="ativaGoogleCk" value="ativaGoogleCk"  <?php  if($ativaGoogleCk =='ativaGoogleCk'){ echo "CHECKED"; }; ?> /> 
+
+5 ) Google Checkout <span   class="btEditarFrete"   rel="google" style="font-size:12px"> (Editar)  </span></h2>
+
+
+<div id="google" style="display:none" class="box" >
+
+<p>Preencha seus dados de integração com Google Checkout :</p>
+
+
+<p>
+<labe for="emailPaypal">Email Cadastro Google Checkout</label>
+<input type="text" id="emailGoogleCk" name="emailGoogleCk" value="<?php echo $emailPaypal; ?>" />
+</p>
+
+<p>
+<labe for="chaveGoogle">Chave</label>
+<input type="text" id="chaveGoogle" name="chaveGoogle" value="<?php echo $chaveGoogle; ?>" />
+</p>
+ 
+
+ 
+
+
+</div>
+
+
+
+
 <hr/>
+
+
+
+
+
+
+
+<h2  style="background:#eee;padding:10px;cursor:pointer"> 
+
+<input type="checkbox" name="ativaPaypal" value="ativaPaypal"  <?php  if($ativaPaypal=='ativaPaypal'){ echo "CHECKED"; }; ?> /> 
+
+6 ) Paypal <span   class="btEditarFrete"   rel="paypal" style="font-size:12px"> (Editar)  </span></h2>
+
+
+<div id="paypal" style="display:none" class="box" >
+
+<p>Preencha seus dados de integração com o paypal :</p>
+
+<p>
+<labe for="emailPaypal">Email Cadastro Paypal</label>
+<input type="text" id="emailPaypal" name="emailPaypal" value="<?php echo $emailPaypal; ?>" />
+</p>
+
+<p>
+<labe for="chavePaypal">Chave</label>
+<input type="text" id="chavePaypal" name="chavePaypal" value="<?php echo $chavePaypal; ?>" />
+</p>
+ 
+</div>
+
+
+
+
+<hr/>
+
+
+
+
 
 
 
