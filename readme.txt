@@ -122,7 +122,7 @@ Upgrade notices :
     - New : Add many admin  options in wpstore admin menu;   
     - fixed bugs in checkout (promo free shipping, coupons discounts );    
 
-1.2 :
+1.2 :  SOON
     - New : Add Google Checkout and Paypal in payment methods;
     - New : unlimited sub-variations of stock product;  
     - New : General Control Stock List page   in wpstore admin Menu;
