@@ -155,7 +155,13 @@ if($moedaCorrente==""){
            include('Payondelevary/Payondelevary_response.php');
          //include('Prebanktransfer/Prebanktransfer_response.php');
 
-   };
+   }elseif($tipo_pagto=="GoogleCK"){ // ----------------- RETIRADA NA LOJA ------------------------
+
+                    include('GoogleCk/GoogleCK_response.php');
+   }elseif($tipo_pagto=="Paypal"){ // ----------------- RETIRADA NA LOJA ------------------------
+
+                   include('Paypal/Paypal_response.php');
+ }
     
        $_SESSION['orderCC'] ="";
   

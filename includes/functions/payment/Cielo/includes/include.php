@@ -68,9 +68,7 @@ function httprequest($paEndereco, $paPost){
 	/*curl_setopt($sessao_curl, CURLOPT_CAINFO, getcwd() .
 	 		"/ssl/VeriSignClass3PublicPrimaryCertificationAuthority-G5.crt");
 	
-			
-	curl_setopt($sessao_curl, CURLOPT_CAINFO, getcwd()."/ssl/cfcarehospitalar.com.br.crt");
-			*/		
+    */		
 				
 	curl_setopt($sessao_curl, CURLOPT_SSLVERSION, 3);
 	

@@ -11,11 +11,7 @@ if($moedaCorrente==""){
     
     
 <?php
-
-//$emailVendedor= $paymentOpts['bankinfo'];
-//$filiacao = $paymentOpts['bank_accountid'];
-$emailVendedor = get_option('emailRedecard');
-$filiacao =  get_option('filicaoRedecard');
+ 
 $idPedido = $idPedido;
 
 $plugin_directory = str_replace('functions/','functions/',plugin_dir_url( __FILE__ ));
