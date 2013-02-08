@@ -3,7 +3,7 @@
 //CREATE TABLES ----------------------------------------------------------------
    
    global $wpstore_version;
-   $wpstore_version = "1.0";
+   $wpstore_version = "1.3";
    
    //verify update version 
    
@@ -105,7 +105,9 @@
                      	  `id` mediumint(9) NOT NULL AUTO_INCREMENT,
                      	  `id_pedido` VARCHAR(155) DEFAULT '' NOT NULL,
                      	  `status_pagto` VARCHAR(1000) DEFAULT '' NOT NULL,
-                     	  `comentario_cliente` VARCHAR(10000) DEFAULT '' NOT NULL,
+                     	  `comentario_cliente` VARCHAR(1000) DEFAULT '' NOT NULL, 
+                     	  `comentario_admin` VARCHAR(1000) DEFAULT '' NOT NULL, 
+                     	  `comentario_pagt` VARCHAR(1000) DEFAULT '' NOT NULL, 
                      	  `data` VARCHAR(10) DEFAULT '' NOT NULL,
                      	  PRIMARY KEY  (`id`)
                      	)  AUTO_INCREMENT=1 ;";

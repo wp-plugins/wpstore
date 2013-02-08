@@ -403,18 +403,12 @@ function custom_get_category_id($blog_ID=1,$catName){
 
 
       function confirmaTransacao(){
-          
-      if($_REQUEST['NUMAUTOR'] !=""){
-          
-         // echo $_REQUEST['NUMAUTOR'];
-          
-         // echo "<br/>".$_REQUEST['MSGRET'];
-         
-         $_SESSION['msgRedecardOK'] = "";
-
-        include( 'payment/Redecard/reciboRedecard.php'); 
-
-      };
+ 
+      
+      //CONFIRMA PAYPAL IPN 
+      if($_REQUEST['cdp'] !=""){
+       include( 'payment/Paypal/pages/atualiza.php');    
+      }
       
       };
 
