@@ -15,7 +15,7 @@ if($moedaCorrente==""){
 $idPedido = $idPedido;
 
 $plugin_directory = str_replace('functions/','functions/',plugin_dir_url( __FILE__ ));
-$imgTopo = "https://cfcarehospitalar.com.br/wp-content/themes/cfcare/images/logo-cf-care.png";
+$imgTopo = "";
  
 $frete="";
 if($tipoFrete=="SEDEX"){	
