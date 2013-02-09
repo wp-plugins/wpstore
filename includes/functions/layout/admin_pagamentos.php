@@ -1,4 +1,11 @@
 <?php
+          
+
+
+
+ $plugin_directory = str_replace('functions/','functions/',plugin_dir_url( __FILE__ ));
+
+
 
 $idPaginaCarrinho = 0;
 $idPaginaCheckout = 0;
@@ -216,7 +223,7 @@ $meuPinMoip = get_option('meuPinMoip');
 
 <h2  style="background:#eee;padding:10px;cursor:pointer" >
 
-<input type="checkbox" name="ativaPagseguro" value="ativaPagseguro"  <?php  if($ativaPagseguro=='ativaPagseguro'){ echo "CHECKED"; }; ?> />  1 ) Pagseguro  <span   class="btEditarFrete"   rel="pagseguro" style="font-size:12px"> (Editar)  </span>  </h2>
+<input type="checkbox" name="ativaPagseguro" value="ativaPagseguro"  <?php  if($ativaPagseguro=='ativaPagseguro'){ echo "CHECKED"; }; ?> />  1 ) <img src='<?php echo $plugin_directory."images/pagseguro.png "; ?>' />  Pagseguro  <span   class="btEditarFrete"   rel="pagseguro" style="font-size:12px"> (Editar)  </span>  </h2>
 
 
 
@@ -241,50 +248,12 @@ $meuPinMoip = get_option('meuPinMoip');
 
 <hr/>
 
-
-
-<?php 
-
-/* //DESATIVADO -----------------
-
-<h2  style="background:#eee;padding:10px;cursor:pointer"> 2 ) RedeCard (locaweb) <span   class="btEditarFrete"   rel="redecard" style="font-size:12px"> (Editar)  </span></h2>
-
-
-<div id="redecard" style="display:none" class="box" >
-
-<p>Preencha seus dados de integração REDECARD (GATEWAY LOCAWEB-REDECARD) :</p>
-
-<p>
-<labe for="emailRedecard">Email vendedor</label>
-<input type="text" id="emailRedecard" name="emailRedecard" value="<?php echo $emailRedecard; ?>" />
-</p>
-
-<p>
-<labe for="filicaoRedecard">Filiação</label>
-<input type="text" id="filicaoRedecard" name="filicaoRedecard" value="<?php echo $filicaoRedecard; ?>" />
-</p>
-
-
-
-<p>
-<labe for="filicaoRedecardGateway">Filiação Gateway de Pagamento</label>
-<input type="text" id="filicaoRedecardGateway" name="filicaoRedecardGateway" value="<?php echo $filicaoRedecardGateway; ?>" />
-</p>
-
-
-</div>
  
-
-<hr/>
-
-<?php */ ?>
-
-
 <h2  style="background:#eee;padding:10px;cursor:pointer"> 
 
 <input type="checkbox" name="ativaCielo" value="ativaCielo"  <?php  if($ativaCielo=='ativaCielo'){ echo "CHECKED"; }; ?> /> 
 
-2 ) Cielo <span   class="btEditarFrete"   rel="cielo" style="font-size:12px"> (Editar)  </span></h2>
+2 ) <img src='<?php echo $plugin_directory."images/cielo.png "; ?>' /> Cielo <span   class="btEditarFrete"   rel="cielo" style="font-size:12px"> (Editar)  </span></h2>
 
 
 <div id="cielo" style="display:none" class="box" >
@@ -357,7 +326,7 @@ $meuPinMoip = get_option('meuPinMoip');
 
 <input type="checkbox" name="ativaMoip" value="ativaMoip"  <?php  if($ativaMoip =='ativaMoip'){ echo "CHECKED"; }; ?> /> 
 
-3 ) Moip <span   class="btEditarFrete"   rel="moip" style="font-size:12px"> (Editar)  </span></h2>
+3 ) <img src='<?php echo $plugin_directory."images/moip.png "; ?>' /> Moip <span   class="btEditarFrete"   rel="moip" style="font-size:12px"> (Editar)  </span></h2>
 
 <div id="moip" style="display:none" class="box" >
 
@@ -397,7 +366,7 @@ $meuPinMoip = get_option('meuPinMoip');
 
 <input type="checkbox" name="ativaPaypal" value="ativaPaypal"  <?php  if($ativaPaypal=='ativaPaypal'){ echo "CHECKED"; }; ?> /> 
 
-4 ) Paypal <span   class="btEditarFrete"   rel="paypal" style="font-size:12px"> (Editar)  </span></h2>
+4 )<img src='<?php echo $plugin_directory."images/paypal.png "; ?>' />  Paypal <span   class="btEditarFrete"   rel="paypal" style="font-size:12px"> (Editar)  </span></h2>
 
 
 <div id="paypal" style="display:none" class="box" >
@@ -436,7 +405,7 @@ $meuPinMoip = get_option('meuPinMoip');
 
 <input type="checkbox" name="ativaDeposito" value="ativaDeposito"  <?php  if($ativaDeposito=='ativaDeposito'){ echo "CHECKED"; }; ?> /> 
 
-5 ) Depósito bancário <span   class="btEditarFrete"   rel="deposito" style="font-size:12px"> (Editar)  </span></h2>
+5 ) <img src='<?php echo $plugin_directory."images/deposito.png "; ?>' /> Depósito bancário <span   class="btEditarFrete"   rel="deposito" style="font-size:12px"> (Editar)  </span></h2>
 
 <div id="deposito" style="display:none" class="box" >
 
@@ -506,7 +475,7 @@ $meuPinMoip = get_option('meuPinMoip');
 
 <input type="checkbox" name="ativaRetirada" value="ativaRetirada"  <?php  if($ativaRetirada=='ativaRetirada'){ echo "CHECKED"; }; ?> /> 
 
-6 ) Retirar na Loja <span   class="btEditarFrete"   rel="retirada" style="font-size:12px"> (Editar)  </span></h2>
+6 ) <img src='<?php echo $plugin_directory."images/retirada.png "; ?>' /> Retirar na Loja <span   class="btEditarFrete"   rel="retirada" style="font-size:12px"> (Editar)  </span></h2>
 
 <div id="retirada" style="display:none" class="box" >
 

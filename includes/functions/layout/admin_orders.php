@@ -4,6 +4,9 @@ if($moedaCorrente==""){
   $moedaCorrente = "R$" ; 
 }
 
+ 
+$plugin_directory = str_replace('functions/','functions/',plugin_dir_url( __FILE__ ));
+
 
 ?>
 
@@ -282,14 +285,30 @@ for ($i=0; $i<=count($_POST['list']);$i++) {
              ?>
 
 
-       	<li style="background:<?php echo $cor; ?>;padding:10px;margin-bottom:5px;" >
+       	<li style="background:<?php echo $cor; ?>;padding:10px;margin-bottom:5px;" >  
+       	
+       	<?php
+       	  if($tipo_pagto=="Depósito"){
+       	      $imgPagto = "".$plugin_directory."images/deposito.png";
+       	  }elseif($tipo_pagto=="Retirar na Loja"){
+       	      $imgPagto = "".$plugin_directory."images/retirada.png"; 
+       	  }elseif($tipo_pagto=="Moip"){
+              $imgPagto = "".$plugin_directory."images/moip.png"; 
+          }elseif($tipo_pagto=="Pagseguro"){
+              $imgPagto = "".$plugin_directory."images/pagseguro.png"; 
+          }elseif($tipo_pagto=="Paypal"){
+              $imgPagto = "".$plugin_directory."images/paypal.png"; 
+          }elseif($tipo_pagto=="Cielo"){
+              $imgPagto = "".$plugin_directory."images/cielo.png"; 
+          }
+       	?>
        	
                <div>
                	      <input type='checkbox' id='check_<?php echo $orderCount ?>'  name='list[]' value='<?php echo $idPedido; ?>'/> 
                        <br/><strong>ID do pedido:</strong> <?php echo $idPedido; ?>
                        <br/><strong>Cliente : </strong>  <?php echo  $nome; ?> 
                        <br/><strong>Data:</strong> <?php echo $dataArray[4]; ?>/<?php echo $dataArray[3]; ?>/<?php echo $dataArray[2]; ?> 
-                       <br/><strong>Tipo de Pagamento:</strong> <?php echo $tipo_pagto; ?> 
+                       <br/><strong>Tipo de Pagamento:</strong><img src='<?php echo $imgPagto; ?>' />  <?php echo $tipo_pagto; ?> 
                        <br/><strong>Quantidade de Produtos:</strong> <?php echo $get_total_Products; ?>
                </div>
                

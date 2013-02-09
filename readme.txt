@@ -122,12 +122,14 @@ Upgrade notices :
     - New : Add many admin  options in wpstore admin menu;   
     - fixed bugs in checkout (promo free shipping, coupons discounts );    
 
-1.2 : 
-    - New : Add MOIP and Paypal in payment methods;
-    - New : unlimited sub-variations of stock product;  
-    - New : General Control Stock List page in wpstore admin Menu;
-    - New : Menu; 
-    - New : Admin Plugin Style;
+1.1.1 : 
+      - New : Add MOIP and Paypal in payment methods;
+      - New : Admin Plugin Style;
+
+1.2 : SOON
+      - New : unlimited sub-variations of stock product;  
+      - New : General Control Stock List page in wpstore admin Menu;
+
 
 
 == Frequently Asked Questions ==    
