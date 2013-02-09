@@ -235,7 +235,7 @@ $htmlVar .="<section class='checkout'>
                         $ativaRetirada= get_option('ativaRetirada'); 
                         
                         
-                        $ativaGoogleCk= get_option('ativaGoogleCk');
+                        $ativaMoip= get_option('ativaMoip');
                         $ativaPaypal= get_option('ativaPaypal');
                         
                         

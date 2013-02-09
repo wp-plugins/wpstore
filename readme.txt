@@ -18,7 +18,7 @@ Crie sua loja virtual com um simples e completo plugin de ecommerce para wordpre
 
 == Description ==   
 
-Este plugin adiciona um completo módulo de e-commerce em seu wordpress. Inclui os principais métodos de pagamento do mundo e do brasil (Paypal,Google Checkout, Pagseguro e Cielo* ),controle de estoque, diversos calculos de frete incluíndo webservice Correios, promoções de frete  cupoms de desconto .
+Este plugin adiciona um completo módulo de e-commerce em seu wordpress. Inclui os principais métodos de pagamento do mundo e do brasil (Paypal,Moip, Pagseguro e Cielo* ),controle de estoque, diversos calculos de frete incluíndo webservice Correios, promoções de frete  cupoms de desconto .
 --          
 
 This plugin Add a complete ecommerce module for wordpress , with global and brazilan payments. 
@@ -122,11 +122,12 @@ Upgrade notices :
     - New : Add many admin  options in wpstore admin menu;   
     - fixed bugs in checkout (promo free shipping, coupons discounts );    
 
-1.2 :  SOON
-    - New : Add Google Checkout and Paypal in payment methods;
+1.2 : 
+    - New : Add MOIP and Paypal in payment methods;
     - New : unlimited sub-variations of stock product;  
-    - New : General Control Stock List page   in wpstore admin Menu;
+    - New : General Control Stock List page in wpstore admin Menu;
     - New : Menu; 
+    - New : Admin Plugin Style;
 
 
 == Frequently Asked Questions ==    
