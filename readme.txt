@@ -134,7 +134,7 @@ Upgrade notices :
 
 == Frequently Asked Questions ==    
 
-Perguntas Frequentes : Acesse http://wpstore.com.br/   
+Perguntas Frequentes : Acesse http://wpstore.com.br/faq/     
 
 1 - Como criar uma lista de produtos ou exibir um template especial em minha pagina single?  
    
