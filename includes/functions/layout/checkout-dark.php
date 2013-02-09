@@ -241,7 +241,28 @@ $htmlVar .="<section class='checkout'>
 				   <br/><span style='font-size:10px'>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;Função Crédito , Débito e Boleto</span> 
 				   </div>";
 				   
-			};
+			};   
+			
+			
+			
+			
+        				if($ativaMoip=="ativaMoip"){    
+            		  	$htmlVar .="<br/><hr/><div class='field'><input type='radio' class='tipoPagto'  name='tipoPagto' value='Moip'> <img src='".$plugin_directory."images/moip.png' > &nbsp; Moip 
+            				   </div>";
+
+            			};
+
+
+
+        		     	if($ativaPaypal=="ativaPaypal"){    
+                		  	$htmlVar .="<br/><hr/><div class='field'><input type='radio' class='tipoPagto'  name='tipoPagto' value='Paypal'> <img src='".$plugin_directory."images/paypal.png' > &nbsp; Paypal
+                				   </div>";
+
+                			};
+
+
+
+
 			
 			
 			if($ativaDeposito=="ativaDeposito"){    	   

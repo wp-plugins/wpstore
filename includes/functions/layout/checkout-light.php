@@ -105,7 +105,21 @@ $htmlVar .="<section class='checkout'>
                
 			<br/><hr/><div class='field'><input type='radio' class='tipoPagto'  name='tipoPagto' value='Pagseguro'> <img src='".$plugin_directory."images/pagseguro.png' > &nbsp; Pagseguro <img src='".$plugin_directory."images/pagseguro2.png' > 
 				   <br/><span style='font-size:10px'>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;Função Crédito , Débito e Boleto</span> 
-				   </div>
+				   </div> 
+				        
+				   
+				   
+   			          <br/><hr/><div class='field'><input type='radio' class='tipoPagto'  name='tipoPagto' value='Moip'> <img src='".$plugin_directory."images/moip.png' > &nbsp; Moip 
+              				   </div>
+              				   
+              				   
+			          <br/><hr/><div class='field'><input type='radio' class='tipoPagto'  name='tipoPagto' value='Paypal'> <img src='".$plugin_directory."images/paypal.png' > &nbsp; Paypal 
+           				   </div>
+           				   
+           			 
+
+                   				   
+                   				   
 				   
 			<br/><hr/>	<div class='field'><input type='radio' class='tipoPagto'  name='tipoPagto' value='Depósito'> <img src='".$plugin_directory."images/deposito.png' > &nbsp; Deposito em conta Corrente    <img src='".$plugin_directory."images/bb.png' width='40'>  <img src='".$plugin_directory."images/itau.png' width='40'>  </div>
 		

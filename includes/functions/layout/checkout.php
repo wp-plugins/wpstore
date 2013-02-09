@@ -261,6 +261,14 @@ $htmlVar .="<section class='checkout'>
 			}; 
 			
 			
+				if($ativaMoip=="ativaMoip"){    
+    		  	$htmlVar .="<br/><hr/><div class='field'><input type='radio' class='tipoPagto'  name='tipoPagto' value='Moip'> <img src='".$plugin_directory."images/moip.png' > &nbsp; Moip 
+    				   </div>";
+
+    			};
+    			
+			
+			
 		     	if($ativaPaypal=="ativaPaypal"){    
         		  	$htmlVar .="<br/><hr/><div class='field'><input type='radio' class='tipoPagto'  name='tipoPagto' value='Paypal'> <img src='".$plugin_directory."images/paypal.png' > &nbsp; Paypal
         				   </div>";
@@ -269,11 +277,7 @@ $htmlVar .="<section class='checkout'>
 			
 			
 			
-			if($ativaGoogleCk=="ativaGoogleCk"){    
-		  	$htmlVar .="<br/><hr/><div class='field'><input type='radio' class='tipoPagto'  name='tipoPagto' value='GoogleCk'> <img src='".$plugin_directory."images/googleCk.png' > &nbsp; Google Ckeckout 
-				   </div>";
-				   
-			};
+		
 			
 			
 			
