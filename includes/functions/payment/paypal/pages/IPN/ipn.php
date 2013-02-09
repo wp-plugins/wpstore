@@ -1,4 +1,9 @@
-<?php
+<?php  
+
+$emailPaypal = get_option('emailPaypal');        
+$currentCodePaypal  = get_option('currentCodePaypal');
+
+
 /**
  *  PHP-PayPal-IPN Example
  *
@@ -41,7 +46,7 @@ When you are testing your IPN script you should be using a PayPal "Sandbox"
 account: https://developer.paypal.com
 When you are ready to go live change use_sandbox to false.
 */
-$listener->use_sandbox = true;
+$listener->use_sandbox = false;
 
 /*
 By default the IpnListener object is going  going to post the data back to PayPal
@@ -111,10 +116,9 @@ if ($verified) {
          exit(0); 
      }   
      */
-      
-
+    
      // 2. Make sure seller email matches your primary account email.      YOUR PRIMARY PAYPAL EMAIL
-     if ($_POST['receiver_email'] != 'seller@paypalsandbox.com') {
+     if ($_POST['receiver_email'] != $emailPaypal) {
          $errmsg .= "'receiver_email' does not match: ";
          $errmsg .= $_POST['receiver_email']."\n";
      }
@@ -131,7 +135,7 @@ if ($verified) {
            
 
      // 4. Make sure the currency code matches     USD,BRL
-     if ($_POST['mc_currency'] != 'USD') {
+     if ($_POST['mc_currency'] != $currentCodePaypal ) {
          $errmsg .= "'mc_currency' does not match: ";
          $errmsg .= $_POST['mc_currency']."\n";
      }

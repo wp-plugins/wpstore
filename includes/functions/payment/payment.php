@@ -146,7 +146,15 @@ if($moedaCorrente==""){
         
         include('Pagseguro/Pagseguro_response.php');
         
-    }elseif($tipo_pagto=="Depósito"){ // ----------------- RETIRADA NA LOJA ------------------------
+    }elseif($tipo_pagto=="Paypal"){ // ----------------- RETIRADA NA LOJA ------------------------
+
+         include('Paypal/Paypal_response.php');         
+         
+   }elseif($tipo_pagto=="GoogleCK"){ // ----------------- RETIRADA NA LOJA ------------------------
+          
+          include('Moip/Moip_response.php');          
+          
+   }elseif($tipo_pagto=="Depósito"){ // ----------------- RETIRADA NA LOJA ------------------------
 
        include('Prebanktransfer/Prebanktransfer_response.php');
 
@@ -155,13 +163,7 @@ if($moedaCorrente==""){
            include('Payondelevary/Payondelevary_response.php');
          //include('Prebanktransfer/Prebanktransfer_response.php');
 
-   }elseif($tipo_pagto=="GoogleCK"){ // ----------------- RETIRADA NA LOJA ------------------------
-
-                    include('GoogleCk/GoogleCK_response.php');
-   }elseif($tipo_pagto=="Paypal"){ // ----------------- RETIRADA NA LOJA ------------------------
-
-                   include('Paypal/Paypal_response.php');
- }
+   }
     
        $_SESSION['orderCC'] ="";
   
