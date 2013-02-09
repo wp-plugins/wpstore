@@ -396,7 +396,7 @@ for ($i=0; $i<=count($_POST['list']);$i++) {
                    <a target="_BLANK" href="<?php echo get_bloginfo('url'); ?>/pedido/?order=<?php echo $idPedido; ?>">Ver Detalhes</a> -
                    <a  class="bttrocar" rel="check_<?php echo $orderCount ?>"  href="#trocarstatus">Mudar Status</a>
                 </div> 
-                
+                 <div class='clear'></div>
               <br/>
               
               <br/>
@@ -507,7 +507,7 @@ for ($i=0; $i<=count($_POST['list']);$i++) {
    
    <div id="trocarstatus"></div>
    
-   <h3> Para editar , Selecione um ou mais pedidos na lista acima .  </h3>
+   <h3>Escolha acima os pedidos que deseja editar  </h3>
 
    <br/>  
 

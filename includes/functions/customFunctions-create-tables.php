@@ -3,7 +3,7 @@
 //CREATE TABLES ----------------------------------------------------------------
    
    global $wpstore_version;
-   $wpstore_version = "1.3";
+   $wpstore_version = "1.1.1";
    
    //verify update version 
    

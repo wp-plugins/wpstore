@@ -12,7 +12,7 @@
 		
 		<div id="lateral">
 			<div class="logo">
-				<img src="<?php echo $plugin_directory; ?>images/logo.png" width="150" height="49" alt="wp store panel" />
+				<a href="http://wpstore.com.br"><img src="<?php echo $plugin_directory; ?>images/logo.png" width="150" height="49" alt="wp store panel" /></a>
 			</div><!-- .logo --> 
 			
 			<?php

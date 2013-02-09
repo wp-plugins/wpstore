@@ -4,7 +4,7 @@ Plugin Name: WP STORE
 Plugin URI: http://wpstore.com.br
 Description:  Este plugin adiciona um completo módulo de e-commerce em seu wordpress. Inclui os principais métodos de pagamento do mundo e do brasil (Pagseguro e Cielo ),controle de estoque, diversos calculos de frete incluíndo webservice Correios, promoções de frete  cupoms de desconto .
 --This plugin Add a complete ecommerce module for wordpress , with global and brazilan payments.
-Version: 1.1
+Version: 1.1.1
 Author: José Morettoni
 Author URI: http://wpstore.com.br/
 License: GPL2
