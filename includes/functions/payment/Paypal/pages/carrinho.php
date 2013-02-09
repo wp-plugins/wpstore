@@ -3,7 +3,7 @@
 
 $emailMoip = get_option('emailMoip');        
  
-
+/* */   
 $txtPrint .='
 
 <form action="https://www.moip.com.br/PagamentoMoIP.do" method="post" target="BLANK"> 
@@ -59,7 +59,8 @@ $txtPrint .='
 
 
 </form>
-';   
- 
+';  
 
+ 
 ?>
+ 
