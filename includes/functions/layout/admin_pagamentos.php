@@ -111,7 +111,9 @@ $idPaginaCheckout = 0;
                             $currentCodePaypal  = trim($_POST['currentCodePaypal']); 
                             
                              $ativaMoip = trim($_POST['ativaMoip']);
-                             $emailMoip = trim($_POST['emailMoip']); 
+                             $emailMoip = trim($_POST['emailMoip']);  
+                             
+                             $meuPinMoip  = trim($_POST['meuPinMoip']);  
 
                              add_option('ativaPagseguro',$ativaPagseguro,'','yes'); 
                              update_option('ativaPagseguro',$ativaPagseguro);
@@ -139,7 +141,11 @@ $idPaginaCheckout = 0;
                                              
                                              
                                              add_option('emailMoip',$emailMoip,'','yes'); 
-                                               update_option('emailMoip',$emailMoip);
+                                             update_option('emailMoip',$emailMoip); 
+                                               
+                                               
+                                             add_option('meuPinMoip',$meuPinMoip,'','yes'); 
+                                             update_option('meuPinMoip',$meuPinMoip);
                              
                              
            };
@@ -189,6 +195,8 @@ $currentCodePaypal  = get_option('currentCodePaypal');
 
 $emailMoip = get_option('emailMoip');        
 $currentCodePaypal  = get_option('currentCodePaypal');
+ 
+$meuPinMoip = get_option('meuPinMoip');    
 
 ?>
 
@@ -351,16 +359,24 @@ $currentCodePaypal  = get_option('currentCodePaypal');
 
 3 ) Moip <span   class="btEditarFrete"   rel="moip" style="font-size:12px"> (Editar)  </span></h2>
 
-
 <div id="moip" style="display:none" class="box" >
 
 <p>Preencha seus dados de integração com o MOIP :</p>
 
-
 <p>
 <labe for="emailPaypal">Email Cadastro Moip</label>
 <input type="text" id="emailMoip" name="emailMoip" value="<?php echo $emailMoip; ?>" />
+</p>  
+
+
+<p>
+<labe for="emailPaypal">Crie uma chave de identificação para a URL de confirmação do Moip</label>
+<input type="text" id="meuPinMoip" name="meuPinMoip" value="<?php echo $meuPinMoip; ?>" />
+<br/><span> Você usará esta chave para certificar que suas mensagens de autenticação são do MOIP.</span>
+<br/>  <?php if($meuPinMoip==""){$meuPinMoip = "suachave"; }; ?>
+<span>Sua url de autenticação  no Moip : http://wpstore.com.br/loja1/?confirmaMoip=<strong><?php echo $meuPinMoip; ?></strong></span>
 </p>
+
  
 </div>
  

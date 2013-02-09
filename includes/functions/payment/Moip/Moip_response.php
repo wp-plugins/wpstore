@@ -103,7 +103,7 @@ $Array[] = array();
         $precoFinal =  $preco - $precoAlt;    
         }
         
-        $totalCompra +=$precoFinal;
+        $totalCompra += $precoFinal+$freteV;
  
    
       $var = str_replace($vowels,".", get_post_meta($idProduto,'weight',true)) ;

@@ -404,11 +404,17 @@ function custom_get_category_id($blog_ID=1,$catName){
 
       function confirmaTransacao(){
  
+        //CONFIRMA PAYPAL IPN 
+        if($_POST['cdp'] !=""){
+        include( 'payment/Paypal/pages/IPN/ipn.php');    
+        }
       
-      //CONFIRMA PAYPAL IPN 
-      if($_REQUEST['cdp'] !=""){
-       include( 'payment/Paypal/pages/IPN/ipn.php');    
-      }
+        //CONFIRMA MOIP RETORNO 
+        $meuPinMoip = trim(get_option('meuPinMoip'));  
+        if($_REQUEST['confirmaMoip'] == $meuPinMoip  && $_REQUEST['confirmaMoip'] !="" ){
+        include( 'payment/Moip/pages/retorno.php');    
+        }
+        
       
       };
 
