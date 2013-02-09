@@ -326,8 +326,8 @@ if($txtEscolhaCorProduto==""){
 		<p class="indisp" style="background:#ddd;padding:10px" >Produto Indisponível.  <br/>
 	    <span style="font-size:0.8em">Avisar quando chegar?</span>
            <br/>
-           Digite seu Nome:<input type="text" id="nomeAviso" value="Digite seu Nome" title="Digite seu Nome" /> <br/>
-   		Email para contato:<input type="text" id="emailAviso" value="Digite seu Email" title="Digite seu Email" />
+           Digite seu Nome:<input type="text" id="nomeAviso2" value="" title="" /> <br/>
+   		   Email para contato:<input type="text" id="emailAviso2" value="" title="" />
    		<br/>
    			<a href="#"  class="btAviso" >Enviar.</a>
 		</p>
@@ -474,7 +474,7 @@ if($txtEscolhaCorProduto==""){
         	               <span style="font-size:0.8em"> <?php echo  $txtprodutoAvisarChegar;      ?> </span>
         	               <br/>
         	               <?php echo $txtprodutoNomeFormContato ?>:<input type="text" id="nomeAviso" value="" title="" /> <br/>
-                   		   <?php echo $txtprodutoEmailFormContato ?>:<<input type="text" id="emailAviso" value="" title="" />
+                   		   <?php echo $txtprodutoEmailFormContato ?>:<input type="text" id="emailAviso" value="" title="" />
                    		<br/>
                    		 <a href="#" class="btAviso" >  <?php echo  $txtprodutoEnviarFormContato;      ?></a>
                    		</p>

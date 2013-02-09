@@ -44,7 +44,60 @@ for ($i=0; $i<=count($_POST['list']);$i++) {
     exit;
           
             
-};
+};   
+
+?>
+
+     
+
+
+
+
+<div id="cabecalho">
+	<ul class="abas">
+		<li>
+			<div class="aba gradient">
+				<span>Opções de Descontos</span>
+			</div>
+		</li>  
+		
+		 <?php /* 
+		<li>
+			<div class="aba gradient">
+				<span>Homepage</span>
+			</div>
+		</li>
+		<li>
+			<div class="aba gradient">
+				<span>Slide Home</span>
+			</div>
+		</li>
+		<li>
+			<div class="aba gradient">
+				<span>Sidebar</span>
+			</div>
+		</li>                   
+		
+					*/ ?>      
+					
+		<div class="clear"></div>
+	</ul>
+</div><!-- #cabecalho -->       
+
+
+
+
+
+<div id="containerAbas">  
+
+
+
+	<div class="conteudo">
+	
+	
+	
+
+<?php
 
  
 if( $_POST['submit']=="Criar Cupom" ){
@@ -59,11 +112,7 @@ if( $_POST['submit']=="Criar Cupom" ){
 
  
 
-
-echo "<br/>";
-   echo "<h1   >" . __( 'Descontos', 'menu-criar-descontos' ) . "</h1>";
-   echo "<br/>";
-   
+ 
    
    ?>
    
@@ -96,152 +145,181 @@ echo "<br/>";
 
 
     
-
- 
-   <section class="order-list">
- 
-   
-   <hr/>
-    
-    
-    <h2 style='background:#eee;padding:10px;cursor:pointer'  >Criar novo Cupom  <span   class="btEditarFrete"   rel="criarNovoD" style="font-size:12px"> (Abrir)  </span> </h2>
-
-   <div id="criarNovoD" style="display:none" class="box" >
-
- 	<form action="<?php echo verifyURL(get_option( 'siteurl' )) ."/wp-admin/admin.php?page=lista_descontos";?>"  method="post" >
-
- 	 <label>Digite o NUMERO DO CUPOM DE DESCONTO : </label>
- 	<input type="text"  name="idCupom"/>  Ex:A001
-
- 	<br/><br/>
-
- 	<label>Tipo do desconto : </label>
-     <select  id="tipoDesconto" name="tipoDesconto">
-     <option value="Percentual">Percentual sobre o total </option>
-      <option value="Valor">Valor Fixo em <?php echo $moedaCorrente; ?></option>
-     </select>
-
-     <br/><br/>
-
-     <label>Digite o percentual ou valor de desconto : </label>
-     <input type="text"  name="valor" /> Ex:1.242,20
-
-
-     <br/><br/>
-
-     <label>Se desejar, digite o numero de vezes correspondente ao limite de uso deste cupom : </label>
-     <input type="text"  name="limite" />Ex:1
-     
-     <br/><br/>
-
-
-     <input type="submit"  name="submit" value="Criar Cupom"/>
-
- 
- 
- 	</form>
-    
-    </div>
-    
-    
-    <hr/>
- 
-    <h2 style='background:#eee;padding:10px;cursor:pointer'  >Lista de Cupoms Cadastrados   <span   class="btEditarFrete"   rel="listarD" style="font-size:12px"> (Abrir)  </span></h2>
-    
-     <div id="listarD" style="display:none" class="box" >
-     
-	<form action="<?php echo verifyURL(get_option( 'siteurl' )) ."/wp-admin/admin.php?page=lista_descontos";?>"  method="post" >
- 
-    	 <label>Digite o NUMERO DO CUPOM DE DESCONTO : </label>
-		<input type="text"  name="oid" value="<?php echo $oid; ?>"/> 
- 
-         <input type="submit"  name="submit" value="Filtrar"/>
-	</form><br/>
-    
-   
-   	
-	
-	<?php 
-	
-	$tipo_pagto = "";
-    
-    
-    if ($fivesdrafts) {
         
-        
-        ?>
  
-	<form action="<?php echo verifyURL(get_option( 'siteurl' )) ."/wp-admin/admin.php?page=lista_descontos";?>"  method="post" >
-	
-	
-	<label>Selecionar Todos:</label><th width="28" ><input name="check" id="check" onClick="return selectCheckBox();"  type="checkbox"></th>
-
-
-   	<ul>
-
-
-   	<?php
-
-        $orderCount = 0;
-
-       foreach ( $fivesdrafts as $fivesdraft ){
-           
-    	 	 		
-           $id = $fivesdraft->id;
-           $numeroCupom = $fivesdraft->numeroCupom;
-       	   $tipoDesconto = $fivesdraft->tipoDesconto;
-       	   $valorDesconto = $fivesdraft->valorDesconto;
-           $limite = $fivesdraft->limite ;
-           $qtdUsada = $fivesdraft->qtdUsado;
  
-           	    if($status_pagto=="PENDENTE"){
-   				$cor = "#fffadf ";
-   				}elseif($status_pagto=="APROVADO"  || $status_pagto=="TRANSPORTADORA"  ||$status_pagto=="SEPARACAO"  || $status_pagto=="ENTREGUE" ){
-   				$cor = "#b2ffc8";
-   				}elseif($status_pagto=="CANCELADO"){
-   				$cor = "#b2ffc8";
-   				}else{
-   				$cor = "#fffadf";
-   				};
-   				
-
-        ?>
  
+ 
+            <div class="bloco"> 
 
-       	<li style="background:<?php echo $cor; ?>;padding:10px;margin-bottom:5px;" >
-       	
+    		<h3> 1)  Criar novo Cupom </h3>
+
+    	              <span class="seta" rel='novoCupom'></span>
+    				   	 <div class="texto" id='novoCupom'>  
+    				   	 
+    				   	 
+    		 
+    		 
+    		                 <form action="<?php echo verifyURL(get_option( 'siteurl' )) ."/wp-admin/admin.php?page=lista_descontos";?>"  method="post" >
+
+                             	 <label>Digite o NUMERO DO CUPOM DE DESCONTO : </label>
+                             	<input type="text"  name="idCupom"/>  Ex:A001
+
+                             	<br/><br/>
+
+                             	<label>Tipo do desconto : </label>
+                                 <select  id="tipoDesconto" name="tipoDesconto">
+                                 <option value="Percentual">Percentual sobre o total </option>
+                                  <option value="Valor">Valor Fixo em <?php echo $moedaCorrente; ?></option>
+                                 </select>
+
+                                 <br/><br/>
+
+                                 <label>Digite o percentual ou valor de desconto : </label>
+                                 <input type="text"  name="valor" /> Ex:1.242,20
+
+
+                                 <br/><br/>
+
+                                 <label>Se desejar, digite o numero de vezes correspondente ao limite de uso deste cupom : </label>
+                                 <input type="text"  name="limite" />Ex:1
+
+                                 <br/><br/>
+
+
+                                 <input type="submit"  name="submit" value="Criar Cupom"/>
+
+
+
+                             	</form>
+                             	
+                             	
+
+
+
+    		   </div><!-- .texto -->
+    			</div><!-- .bloco -->
+    			
+    			
+    			
+    
    
-               	      <input type='checkbox' id='check_<?php echo $id ?>'  name='list[]' value='<?php echo $id; ?>'/>
-                       <br/><strong>Código do Cupom:</strong> <?php echo $numeroCupom ; ?> <br/>
-                      <strong>Tipo de Desconto :</strong><?php echo $tipoDesconto; ?><br/>
-                      <strong>Valor de Desconto :</strong> <?php echo  $valorDesconto; ?> <?php if($tipoDesconto=="Percentual"){ echo "%"; }else{}; ?><br/>
-                      <strong>Limite de Uso:</strong> <?php echo   $limite ; ?> 
-                      <strong>Quantidade Usada:</strong> <?php echo   $qtdUsada ; ?> 
    
-           </li>
-     
-     
-           <?php     
-           
-           $orderCount +=1;
-            };
-            
-            ?>
+   
+   
+   
+   
+   
+                     <div class="bloco"> 
 
-       </ul>
-       
-       
-       <p>Clique abaixo para  deletar os CUPOMS   selecionados acima:</p>
+                		<h3> 2 ) Lista de Cupoms Cadastrados   </h3>
 
-         <input type="submit"  name="submit" value="Deletar" onclick="return recordAction('Delete');" /> 
-
-        </form>
-
-   </div>
+                	                 <span class="seta" rel='cadCupom'></span>
+                				   	 <div class="texto" id='cadCupom'>  
 
 
-       </section>
 
+                                        
+                            
+                                         <form action="<?php echo verifyURL(get_option( 'siteurl' )) ."/wp-admin/admin.php?page=lista_descontos";?>"  method="post" >
+
+                                            	 <label>Digite o NUMERO DO CUPOM DE DESCONTO : </label>
+                                        		<input type="text"  name="oid" value="<?php echo $oid; ?>"/> 
+
+                                                 <input type="submit"  name="submit" value="Filtrar"/>
+                                        	</form><br/>
+
+
+
+
+                                        	<?php 
+
+                                        	$tipo_pagto = "";
+
+
+                                            if ($fivesdrafts) {
+
+
+                                                ?>
+
+                                        	<form action="<?php echo verifyURL(get_option( 'siteurl' )) ."/wp-admin/admin.php?page=lista_descontos";?>"  method="post" >
+
+
+                                        	<label>Selecionar Todos:</label><th width="28" ><input name="check" id="check" onClick="return selectCheckBox();"  type="checkbox"></th>
+
+
+                                           	<ul>
+
+
+                                           	<?php
+
+                                                $orderCount = 0;
+
+                                               foreach ( $fivesdrafts as $fivesdraft ){
+
+
+                                                   $id = $fivesdraft->id;
+                                                   $numeroCupom = $fivesdraft->numeroCupom;
+                                               	   $tipoDesconto = $fivesdraft->tipoDesconto;
+                                               	   $valorDesconto = $fivesdraft->valorDesconto;
+                                                   $limite = $fivesdraft->limite ;
+                                                   $qtdUsada = $fivesdraft->qtdUsado;
+
+                                                   	    if($status_pagto=="PENDENTE"){
+                                           				$cor = "#fffadf ";
+                                           				}elseif($status_pagto=="APROVADO"  || $status_pagto=="TRANSPORTADORA"  ||$status_pagto=="SEPARACAO"  || $status_pagto=="ENTREGUE" ){
+                                           				$cor = "#b2ffc8";
+                                           				}elseif($status_pagto=="CANCELADO"){
+                                           				$cor = "#b2ffc8";
+                                           				}else{
+                                           				$cor = "#fffadf";
+                                           				};
+
+
+                                                ?>
+
+
+                                               	<li style="background:<?php echo $cor; ?>;padding:10px;margin-bottom:5px;" >
+
+
+                                                       	      <input type='checkbox' id='check_<?php echo $id ?>'  name='list[]' value='<?php echo $id; ?>'/>
+                                                               <br/><strong>Código do Cupom:</strong> <?php echo $numeroCupom ; ?> <br/>
+                                                              <strong>Tipo de Desconto :</strong><?php echo $tipoDesconto; ?><br/>
+                                                              <strong>Valor de Desconto :</strong> <?php echo  $valorDesconto; ?> <?php if($tipoDesconto=="Percentual"){ echo "%"; }else{}; ?><br/>
+                                                              <strong>Limite de Uso:</strong> <?php echo   $limite ; ?> 
+                                                              <strong>Quantidade Usada:</strong> <?php echo   $qtdUsada ; ?> 
+
+                                                   </li>
+
+
+                                                   <?php     
+
+                                                   $orderCount +=1;
+                                                    };
+
+                                                    ?>
+
+                                               </ul>
+
+
+                                               <p>Clique abaixo para  deletar os CUPOMS   selecionados acima:</p>
+
+                                                 <input type="submit"  name="submit" value="Deletar" onclick="return recordAction('Delete');" /> 
+
+                                                </form>
+                                                
+                                                
+                                                
+
+
+
+
+                		   </div><!-- .texto -->
+                			</div><!-- .bloco -->
+                			
+                			
+ 
+ 
 
            		<script>  
 
@@ -323,19 +401,64 @@ echo "<br/>";
 		<?php
  
 	   }else{
-		?>
-		    <h2  style="background:#eee;padding:10px;cursor:pointer"  > Não há cupons cadastrados </h2>
+		?>      
+		
+		    <h2  style="background:#eee;padding:10px;cursor:pointer"  > Não há cupons cadastrados </h2>   
+		    
+		    
 	  <?php }; //FINAL PAGINA-------------------------------?>
 	  
 	  
 	  
-	  <script>
 
-        jQuery('.btEditarFrete').click(function(){
-            rel = jQuery(this).attr('rel');
-            jQuery('.box').hide();
-            jQuery('#'+rel).show();
-        });
 
-        </script>
+
+
+        	</div>  
+
+
+        	<?php /*
+        	<div class="conteudo">
+        		Conteúdo da aba 2
+        	</div>
+
+
+        	<div class="conteudo">
+        		Conteúdo da aba 3
+        	</div>    
+
+
+        	<div class="conteudo">
+        		Conteúdo da aba 4
+        	</div>     
+        	*/ ?>
+
+
+
+
+        </div><!-- .content -->
+
+
+
+
+
+
+        </form>
+
+
+
+
+
+         <script>
+
+         jQuery('.seta').click(function(){
+             rel = jQuery(this).attr('rel');
+             jQuery('.texto').hide();
+             jQuery('#'+rel).show();
+         });    
+
+
+
+
+         </script>
 	  

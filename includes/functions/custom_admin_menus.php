@@ -47,11 +47,18 @@
 
     function custom_criar_pagina_geral() {
         
-           echo "<h2>" . __( 'WP STORE', 'menu-criar-pedidos' ) . "</h2>";
+           //echo "<h2>" . __( 'WP STORE', 'menu-criar-pedidos' ) . "</h2>";
       
-            include('layout/admin_page_general.php'); 
             
-           echo "<br/><br/>";
+          
+            include('layout/panel/panel-header.php');
+            
+            include('layout/admin_page_general.php');    
+            
+            include('layout/panel/panel-footer.php');   
+            
+            
+            echo "<br/><br/>";
            
     };
     
@@ -60,7 +67,15 @@
     function custom_criar_pagina_admin_pedidos() {
       
       
-      include('layout/admin_orders.php');
+     
+      
+      
+              include('layout/panel/panel-header.php');
+
+              include('layout/admin_orders.php');    
+
+              include('layout/panel/panel-footer.php');
+              
            
    };
 
@@ -92,7 +107,16 @@
 
 
        function custom_criar_pagina_admin_contatos() {
-          include('layout/admin_contatos.php');
+       
+          
+          
+                  include('layout/panel/panel-header.php');
+
+                    include('layout/admin_contatos.php');         
+
+                    include('layout/panel/panel-footer.php');
+                    
+                    
        };
 
       // FINAL criar MENU PERSONALIZADO  -------------post types (  CONTACTS)
@@ -120,7 +144,15 @@
  
 
              function custom_criar_pagina_admin_pagamentos() {
-                include('layout/admin_pagamentos.php');
+
+                
+                
+                  include('layout/panel/panel-header.php');
+
+                                  include('layout/admin_pagamentos.php');            
+
+                    include('layout/panel/panel-footer.php');
+                    
              };
 
       // FINAL criar MENU PERSONALIZADO  -------------post types (PAYMENTS)
@@ -141,7 +173,14 @@
 
 
                function custom_criar_pagina_admin_frete() {
-                  include('layout/admin_frete.php');
+
+                  
+                                  include('layout/panel/panel-header.php');
+
+                                  include('layout/admin_frete.php');                    
+
+                                  include('layout/panel/panel-footer.php');
+                                  
                };
 
         // FINAL criar MENU PERSONALIZADO  -------------post types ( SHIPPING )
@@ -168,7 +207,16 @@
 
 
                      function custom_criar_pagina_admin_descontos() {
-                        include('layout/admin_descontos.php');
+                   
+                        
+                        
+                        include('layout/panel/panel-header.php');
+
+                             include('layout/admin_descontos.php');                     
+
+                           include('layout/panel/panel-footer.php');
+                           
+                           
                      };
 
               // FINAL criar MENU PERSONALIZADO  -------------post types ( DISCOUNTS)
@@ -193,7 +241,15 @@
 
 
                                function custom_criar_pagina_admin_design() {
-                                  include('layout/admin_design.php');
+                     
+                                  
+                                      include('layout/panel/panel-header.php');
+
+                                       include('layout/admin_design.php');  
+                                       
+                                       include('layout/panel/panel-footer.php');
+                                         
+                                         
                                };
 
                         // FINAL criar MENU PERSONALIZADO  -------------post types         (DESIGN )
@@ -215,7 +271,14 @@
 
 
                                      function custom_criar_pagina_admin_smtp() {
-                                        include('layout/admin_smtp.php');
+                                    
+                                        
+                                                 include('layout/panel/panel-header.php');
+
+                                                  include('layout/admin_smtp.php');     
+
+                                                   include('layout/panel/panel-footer.php');
+                                                   
                                      };
 
                               // FINAL criar MENU PERSONALIZADO  -------------post types         (SECURITY AND SMTP)   
@@ -243,7 +306,14 @@
 
 
                                            function custom_criar_pagina_admin_impostos() {
-                                              include('layout/admin_impostos.php');
+                              
+                                                 include('layout/panel/panel-header.php');
+
+                                                 include('layout/admin_impostos.php');   
+                                                 
+                                                  include('layout/panel/panel-footer.php');
+                                                     
+                                                     
                                            };
 
                                     // FINAL criar MENU PERSONALIZADO  -------------post types         (DESIGN )
@@ -262,8 +332,13 @@
                                                                         };
 
                                                                         function custom_criar_pagina_admin_translate() {
-                                                                           include('layout/admin_translate.php');
-                                                                        };
+                                                                  
+                                                                                      include('layout/panel/panel-header.php');
+
+                                                                                       include('layout/admin_translate.php');  
+                                                                                      
+                                                                                      include('layout/panel/panel-footer.php');
+                                                                         };
 
                                                                  // FINAL criar MENU PERSONALIZADO  -------------post types         (DESIGN )
 

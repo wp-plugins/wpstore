@@ -1,12 +1,10 @@
-<h1>Opções Gerais de administração</h1>
-
 <?php
 
 $idPaginaCarrinho = 0;
 $idPaginaCheckout = 0;
 
 
-     if( $_POST['submit']=="Gravar" ){
+     if( $_POST['submit']=="Salvar" ){
 
         $emailAdmin = trim($_POST['emailAdmin']); 
         add_option('emailAdminWPSHOP',$emailAdmin,'','yes'); 
@@ -127,321 +125,438 @@ $totalParcela = get_totalParcela();
  $googleMarca  =  get_option('googleMarca'); 
  $googleCategorias  =  get_option('googleCategorias'); 
 
-?>
+?>    
 
 
-
-	<form action="<?php echo verifyURL(get_option( 'siteurl' )) ."/wp-admin/admin.php?page=wpstore";?>"  method="post" >
-
-
-
-
-<br/><br/><br/>
-
- 
-<h2  style="background:#eee;padding:10px;cursor:pointer" >1 ) Email do Administrador  <span   class="btEditarFrete"   rel="email" style="font-size:12px"> (Editar)  </span> </h2>
-
-
-<div id="email" style="display:none" class="box" >
-
-
-    <p>Digite o email do administrador : <br/>
-      <input type="text" id="emailAdmin" name="emailAdmin" value="<?php echo $emailAdmin; ?>"  style="width:40%"/>
-      <br/>
-      <span style="font-size:11px">Ex:email@seudominio.com.br</span>
-    </p>
-
-    <br/>  
-
-     <input type="submit"  name="submit" value="Gravar"   />
-
-</div>
-
-<h2  style="background:#eee;padding:10px;cursor:pointer" > 2 ) Paginas de configuração  do Sistema  <span   class="btEditarFrete"   rel="paginas" style="font-size:12px"> (Editar)  </span> </h2>
-<div id="paginas" style="display:none" class="box" >
-
-
-<h3>Ao instalar nosso plugin , automáticamente criamos algumas paginas. Você pode querer remover estas pagina e definir abaixo uma nova estrutura de paginas  para seu sistema de vendas.</h3>
-
- 
-<h3>Pagina Carrinho :</h3>
-<p>Selecione a pagina de PEDIDO ( CARRINHO ) :   <br/>
- <?php wp_dropdown_pages("show_option_none=---&id=idPaginaCarrinho&name=idPaginaCarrinho&selected=$idPaginaCarrinho"); ?>  
-<br/>
-<span style="font-size:11px">Selecione a pagina ou deixe em branco para não adicionar automáticamente. Neste caso insira o código <strong>get_cart_Table(); </strong>  no   template de pagina que deseja usar ou a expressão <strong>[get_cart_Table] </strong> 
-no content da pagina no wordpress.</span>
-</p>
-
-<br/>
-<h3>Pagina Checkout :</h3>
-<p>Selecione  a pagina de CHECKOUT ( PAGAMENTO ) :   <br/>
- <?php wp_dropdown_pages("show_option_none=---&id=idPaginaCheckout&name=idPaginaCheckout&selected=$idPaginaCheckout"); ?>  
-<br/>
-<span style="font-size:11px">Selecione a pagina ou deixe em branco para não adicionar automáticamente. Neste caso insira o código <strong>custom_get_checkout(); </strong>  no   template de pagina que deseja usar ou a expressão <strong>[custom_get_checkout] </strong> 
-no content da pagina no wordpress.</span>
-</p>
-
-<br/>
-
-
-
-<br/>
-<h3>Pagina PAGAR:</h3>
-<p>Selecione a  pagina de PAGAMENTO ( PAGAMENTO ) :   <br/>
- <?php wp_dropdown_pages("show_option_none=---&id=idPaginaPagto&name=idPaginaPagto&selected=$idPaginaPagto"); ?>  
-<br/>
-<span style="font-size:11px">Selecione a pagina ou deixe em branco para não adicionar automáticamente. Neste caso insira o código <strong>get_payment_checkout(); </strong>  no   template de pagina que deseja usar ou a expressão <strong>[get_payment_checkout] </strong> 
-no content da pagina no wordpress.</span>
-</p>
-
-<br/>
-
-
- 
-<br/>
-<h3>Pagina Meus Pedidos :</h3>
-<p>Selecione a pagina com a listagem dos pedidos de cada usuário( MEUS PEDIDOS ) :   <br/>
- <?php wp_dropdown_pages("show_option_none=---&id=idPaginaPedidos&name=idPaginaPedidos&selected=$idPaginaPedidos"); ?>  
-<br/>
-<span style="font-size:11px">Selecione a pagina ou deixe em branco para não adicionar automáticamente. Neste caso insira o código <strong> custom_get_orders_user(); </strong>  no   template de pagina que deseja usar ou a expressão <strong>[custom_get_orders_user] </strong> 
-no content da pagina no wordpress.</span>
-</p>
-
-
-<br/>
-<h3>Pagina Pedido :</h3>
-<p>Selecione a  pagina que informa os detalhes do pedido de cada usuário( PEDIDO) :   <br/>
- <?php wp_dropdown_pages("show_option_none=---&id=idPaginaPedido&name=idPaginaPedido&selected=$idPaginaPedido"); ?> 
-<br/>
-<span style="font-size:11px">Selecione a pagina ou deixe em branco para não adicionar automáticamente. Neste caso insira o código <strong>custom_get_order_user(); </strong>  no   template de pagina que deseja usar ou a expressão <strong>[custom_get_order_user] </strong> 
-no content da pagina no wordpress.</span>
-</p>
- 
-<br/>
-<h3>Pagina Meus Dados :</h3>
-<p>Selecione a  da pagina que informa os detalhes da conta de cada usuário( MEUS DADOS) :   <br/>
-<?php wp_dropdown_pages("show_option_none=---&id=idPaginaPerfil&name=idPaginaPerfil&selected=$idPaginaPerfil"); ?>  
-<br/>
-<span style="font-size:11px">Selecione a pagina ou deixe em branco para não adicionar automáticamente. Neste caso insira o código <strong>get_edit_form_perfil(); </strong>  no   template de pagina que deseja usar ou a expressão <strong>[get_edit_form_perfil] </strong> 
-no content da pagina no wordpress.</span>
-</p>
-
-<br/>
-<h3>Pagina LOGIN :</h3>
-<p>Selecione a pagina que será inserido o formulário de LOGIN/CADASTRO ( LOGIN) :   <br/>
- <?php wp_dropdown_pages("show_option_none=---&id=idPaginaLogin&name=idPaginaLogin&selected=$idPaginaLogin"); ?>  
-<br/>
-<span style="font-size:11px">Selecione a pagina ou deixe em branco para não adicionar automáticamente. Neste caso insira o código <strong>get_Login_form(); </strong>  no   template de pagina que deseja usar ou a expressão <strong>[get_Login_form] </strong> 
-no content da pagina no wordpress.</span>
-</p><br/>  
-
-
-<br/>
-<h3>Pagina Termos :</h3>
-<p>Selecione a pagina que será inserido a politica de trocas, devoluções .... :   <br/>
- <?php wp_dropdown_pages("show_option_none=---&id=idPaginaTermos&name=idPaginaTermos&selected=$idPaginaTermos"); ?>  
-<br/>
-<span style="font-size:11px">Selecione a pagina  ou deixe em branco para não adicionar automáticamente. Neste caso insira  a expressão <strong>[custom_get_Termos] </strong> 
-no content da pagina no wordpress.</span>
-</p><br/>
-
-
-
- <input type="submit"  name="submit" value="Gravar"   />
-</div>
-
-
-
-
-
-
-
-
-
-
-<h2  style="background:#eee;padding:10px;cursor:pointer" > 3 ) Funções e Atalhos  <span   class="btEditarFrete"   rel="funcoes" style="font-size:12px"> (Abrir)  </span> </h2>
-
-<div id="funcoes" style="display:none" class="box" >
-
-
- <h3>custom_get_menu_shop_top();</h3>
- <p>Exibe  o menu fixo de opções do usuário (Carrinho, Dados Gerais, Finalizar Compra , Meus pedidos ). Normalmente usado no arquivo header.php ou sidebar.php </p>
- <hr/>
- 
- 
- <h3> custom_get_image($post->ID,$largura,$altura,$crop,$echo )</h3>
-  <p>Recupera a imagem do produto já com  link e  img . Normalmente usada na pagina Single e nas listagens de produtos.</p>
-  <p>$crop : 1 => para sim , 0 => para não.</p>
-  <p>$echo : true => para imprimir , false => para armazenar em variável.</p>
-  <hr/>
   
 
-   <h3>  custom_product_single(); </h3>
-    <p>Exibe o box de compras disponível para um produto e o botão comprar .  Normalmente usado na pagina single. </p>
-    <hr/>   
+<form action="<?php echo verifyURL(get_option( 'siteurl' )) ."/wp-admin/admin.php?page=wpstore";?>"  method="post" >
+
+
+
+
+<div id="cabecalho">
+	<ul class="abas">
+		<li>
+			<div class="aba gradient">
+				<span>Opções Gerais</span>
+			</div>
+		</li>  
+		
+		 <?php /* 
+		<li>
+			<div class="aba gradient">
+				<span>Homepage</span>
+			</div>
+		</li>
+		<li>
+			<div class="aba gradient">
+				<span>Slide Home</span>
+			</div>
+		</li>
+		<li>
+			<div class="aba gradient">
+				<span>Sidebar</span>
+			</div>
+		</li>                   
+		
+					*/ ?>      
+					
+		<div class="clear"></div>
+	</ul>
+</div><!-- #cabecalho -->       
+
+
+
+
+
+<div id="containerAbas">  
+
+
+
+	<div class="conteudo">
+	
+	
+		<div class="bloco">      
+			
+			<h3>1. Email do administrador</h3>
+			
+			<span class="seta" rel='email'></span>
+			<div class="texto" id='email'>
+				<label for="emailAdm">Digite o email do administrador</label>
+			  <input type="text" id="emailAdmin" name="emailAdmin" value="<?php echo $emailAdmin; ?>"  />                
+			  
+				<p>Ex:email@seudominio.com.br</p>   
+				
+				  <input type="submit"  name="submit" value="Salvar"   />  
+				  
+			</div>
+		</div><!-- .bloco -->
+		
+		
+		
+		        
+		
+		
+		<div class="bloco">
+			<h3>2. Paginas de configuração  do Sistema </h3>
+			
+			<span class="seta" rel='paginas'></span>
+			<div class="texto" id='paginas'>
+			
+			
+			               
+			               
+			               
+			               <p>Ao instalar nosso plugin , automáticamente criamos algumas paginas. Você pode querer remover estas pagina e definir abaixo uma nova estrutura de paginas  para seu sistema de vendas.</p>
+                           
+                            <br/>
+
+                           <h4>Pagina Carrinho :</h4>
+                           <p>Selecione a pagina de PEDIDO ( CARRINHO ) :   <br/>
+                            <?php wp_dropdown_pages("show_option_none=---&id=idPaginaCarrinho&name=idPaginaCarrinho&selected=$idPaginaCarrinho"); ?>  
+                           <br/>
+                           <span style="font-size:11px">Selecione a pagina ou deixe em branco para não adicionar automáticamente. Neste caso insira o código <strong>get_cart_Table(); </strong>  no   template de pagina que deseja usar ou a expressão <strong>[get_cart_Table] </strong> 
+                           no content da pagina no wordpress.</span>
+                           </p>
+
+                           <br/> <br/> 
+                           
+                           <h4>Pagina Checkout :</h4>
+                           <p>Selecione  a pagina de CHECKOUT ( PAGAMENTO ) :   <br/>
+                            <?php wp_dropdown_pages("show_option_none=---&id=idPaginaCheckout&name=idPaginaCheckout&selected=$idPaginaCheckout"); ?>  
+                           <br/>
+                           <span style="font-size:11px">Selecione a pagina ou deixe em branco para não adicionar automáticamente. Neste caso insira o código <strong>custom_get_checkout(); </strong>  no   template de pagina que deseja usar ou a expressão <strong>[custom_get_checkout] </strong> 
+                           no content da pagina no wordpress.</span>
+                           </p>
+
+                           <br/> <br/>  
+                           
+                           <h4>Pagina PAGAR:</h4>
+                           <p>Selecione a  pagina de PAGAMENTO ( PAGAMENTO ) :   <br/>
+                            <?php wp_dropdown_pages("show_option_none=---&id=idPaginaPagto&name=idPaginaPagto&selected=$idPaginaPagto"); ?>  
+                           <br/>
+                           <span style="font-size:11px">Selecione a pagina ou deixe em branco para não adicionar automáticamente. Neste caso insira o código <strong>get_payment_checkout(); </strong>  no   template de pagina que deseja usar ou a expressão <strong>[get_payment_checkout] </strong> 
+                           no content da pagina no wordpress.</span>
+                           </p>
+
+                           <br/>  <br/> 
+                           
+                           <h4>Pagina Meus Pedidos :</h4>
+                           <p>Selecione a pagina com a listagem dos pedidos de cada usuário( MEUS PEDIDOS ) :   <br/>
+                            <?php wp_dropdown_pages("show_option_none=---&id=idPaginaPedidos&name=idPaginaPedidos&selected=$idPaginaPedidos"); ?>  
+                           <br/>
+                           <span style="font-size:11px">Selecione a pagina ou deixe em branco para não adicionar automáticamente. Neste caso insira o código <strong> custom_get_orders_user(); </strong>  no   template de pagina que deseja usar ou a expressão <strong>[custom_get_orders_user] </strong> 
+                           no content da pagina no wordpress.</span>
+                           </p>
+
+
+                           <br/> <br/> 
+                           
+                           <h4>Pagina Pedido :</h4>
+                           <p>Selecione a  pagina que informa os detalhes do pedido de cada usuário( PEDIDO) :   <br/>
+                            <?php wp_dropdown_pages("show_option_none=---&id=idPaginaPedido&name=idPaginaPedido&selected=$idPaginaPedido"); ?> 
+                           <br/>
+                           <span style="font-size:11px">Selecione a pagina ou deixe em branco para não adicionar automáticamente. Neste caso insira o código <strong>custom_get_order_user(); </strong>  no   template de pagina que deseja usar ou a expressão <strong>[custom_get_order_user] </strong> 
+                           no content da pagina no wordpress.</span>
+                           </p>
+
+                           <br/> <br/> 
+                           
+                           <h4>Pagina Meus Dados :</h4>
+                           <p>Selecione a  da pagina que informa os detalhes da conta de cada usuário( MEUS DADOS) :   <br/>
+                           <?php wp_dropdown_pages("show_option_none=---&id=idPaginaPerfil&name=idPaginaPerfil&selected=$idPaginaPerfil"); ?>  
+                           <br/>
+                           <span style="font-size:11px">Selecione a pagina ou deixe em branco para não adicionar automáticamente. Neste caso insira o código <strong>get_edit_form_perfil(); </strong>  no   template de pagina que deseja usar ou a expressão <strong>[get_edit_form_perfil] </strong> 
+                           no content da pagina no wordpress.</span>
+                           </p>
+
+                           <br/> <br/> 
+                           
+                           <h4>Pagina LOGIN :</h4>
+                           <p>Selecione a pagina que será inserido o formulário de LOGIN/CADASTRO ( LOGIN) :   <br/>
+                            <?php wp_dropdown_pages("show_option_none=---&id=idPaginaLogin&name=idPaginaLogin&selected=$idPaginaLogin"); ?>  
+                           <br/>
+                           <span style="font-size:11px">Selecione a pagina ou deixe em branco para não adicionar automáticamente. Neste caso insira o código <strong>get_Login_form(); </strong>  no   template de pagina que deseja usar ou a expressão <strong>[get_Login_form] </strong> 
+                           no content da pagina no wordpress.</span>
+                           </p><br/> <br/> 
+                           
+                           <h4>Pagina Termos :</h4>
+                           <p>Selecione a pagina que será inserido a politica de trocas, devoluções .... :   <br/>
+                            <?php wp_dropdown_pages("show_option_none=---&id=idPaginaTermos&name=idPaginaTermos&selected=$idPaginaTermos"); ?>  
+                           <br/>
+                           <span style="font-size:11px">Selecione a pagina  ou deixe em branco para não adicionar automáticamente. Neste caso insira  a expressão <strong>[custom_get_Termos] </strong> 
+                           no content da pagina no wordpress.</span>
+                           </p><br/>  <br/> 
+
+
+
+                            <input type="submit"  name="submit" value="Salvar"   />
+                            
+                            
+                            
+				
+				
+				
+			</div><!-- .texto -->
+		</div><!-- .bloco -->
+		
+		
+		         
+		
+		
+		
+		
+		
+		
+		<div class="bloco">
+			<h3>3. Funções e Atalhos</h3>
+			
+			  <span class="seta" rel='funcoes'></span>
+				<div class="texto" id='funcoes'>
+				
    
    
-   <h3>  	custom_product_galeria(); </h3>
-    <p>Exibe a galeria de imagens do produtos. </p>
-    <hr/>
-
-
    
-    <h3>custom_product_relation_single();   </h3>
-     <p>Exibe a lista de produtos relacionados a um determinado produto de mesma categoria. </p>
-     <hr/>
-     
    
-     
-    <h3>get_current_symbol(); </h3>    
-
-     <p>Recupera o simbolo cadastrado para a  moeda corrente da loja . Padrão é R$.</p>
-     <hr/>
+                    <h4>custom_get_menu_shop_top();</h4>
+                    <p>Exibe  o menu fixo de opções do usuário (Carrinho, Dados Gerais, Finalizar Compra , Meus pedidos ). Normalmente usado no arquivo header.php ou sidebar.php </p>
+                  <br/><br/>
 
 
-    <h3> custom_get_price($post->ID);  </h3>    
+                    <h4> custom_get_image($post->ID,$largura,$altura,$crop,$echo )</h4>
+                     <p>Recupera a imagem do produto já com  link e  img . Normalmente usada na pagina Single e nas listagens de produtos.</p>
+                     <p>$crop : 1 => para sim , 0 => para não.</p>
+                     <p>$echo : true => para imprimir , false => para armazenar em variável.</p>
+                     <br/><br/>
 
-    <p> Preço normal do produto  </p>
-     <hr/>
+                      <h4>  custom_product_single(); </h4>
+                       <p>Exibe o box de compras disponível para um produto e o botão comprar .  Normalmente usado na pagina single. </p>
+                     <br/><br/>
+                     
+                      <h4>  	custom_product_galeria(); </h4>
+                       <p>Exibe a galeria de imagens do produtos. </p>
+                      <br/><br/>
 
+                       <h4>custom_product_relation_single();   </h4>
+                        <p>Exibe a lista de produtos relacionados a um determinado produto de mesma categoria. </p>
+                      <br/><br/>
 
-    <h3> custom_get_specialprice($post->ID);  </h3>    
+                       <h4>get_current_symbol(); </h4>    
 
-    <p> Preço promocional         </p> 
-     <hr/> 
-     
-     
-     <h3>  verifyURL($url);   </h3>    
+                        <p>Recupera o simbolo cadastrado para a  moeda corrente da loja . Padrão é R$.</p>
+                       <br/><br/>
 
-       <p> caso SSL esteja ativo, substitui http por https .       </p> 
-      
-      <hr/>
-     
-      
-     
-     
-     
-     
-     <p>Veja mais funções no link  <a href="http://wpstore.com.br/ajuda/"><span   class="btEditarFrete"   rel="paginas" style="font-size:12px"><strong>Paginas de configuração do Sistema</strong> </span></a> </p><br/>  
+                       <h4> custom_get_price($post->ID);  </h4>    
 
+                       <p> Preço normal do produto  </p>
+                      <br/><br/>
 
+                       <h4> custom_get_specialprice($post->ID);  </h4>    
 
-
-
-
-</div>
-
-
-
+                       <p> Preço promocional         </p> 
+                       <br/><br/>
 
 
+                        <h4>  verifyURL($url);   </h4>    
+
+                          <p> caso SSL esteja ativo, substitui http por https .       </p> 
+
+                        <br/><br/>
 
 
 
-<h2  style="background:#eee;padding:10px;cursor:pointer" >4 ) Opção para Ativar SSL  <span   class="btEditarFrete"   rel="ssl" style="font-size:12px"> (Editar)  </span> </h2>
-
-<div id="ssl" style="display:none" class="box" >
-<p><input type="checkbox" name="ativarssl"  <?php if($ativarssl=="sim"){ echo "CHECKED"; }; ?> /> Selecione para ativar  url SSL em seu site. Assim seu endereço será (https). Esteja garantido de possuir um certificado SSL para seu domínio.</p>
-<br/> 
-
- <input type="submit"  name="submit" value="Gravar"   />
-</div>
 
 
-<h2  style="background:#eee;padding:10px;cursor:pointer" > 5 ) Simbolo Moeda Corrente  <span   class="btEditarFrete"   rel="moeda" style="font-size:12px"> (Editar)  </span> </h2>
 
-<div id="moeda" style="display:none" class="box" >
+                        <p>Veja mais funções no link  <a href="http://wpstore.com.br/ajuda/"><span   class="btAbrirCaixa"   rel="paginas" style="font-size:12px"><strong>Paginas de configuração do Sistema</strong> </span></a> </p><br/>  
 
 
-<p>Escolha o simbolo da moeda Corrente . (ex:U$) :
-<input type="text" id="moedaCorrente" name="moedaCorrente" value="<?php echo $moedaCorrente; ?>" style="width:20%"/>
-</p><br/>  
 
- <input type="submit"  name="submit" value="Gravar"   />
-</div>
+
+
+			</div>
+		</div><!-- .bloco -->
+		
+		          
+		
+		
+		
+		
+		
+		
+		
+		<div class="bloco">
+			<h3>4. Opção para Ativar SSL </h3>
+			
+			  <span class="seta" rel='ssl'></span>
+				<div class="texto" id='ssl'>
+			
+	  
+	  
+	                <p><input type="checkbox" name="ativarssl"  <?php if($ativarssl=="sim"){ echo "CHECKED"; }; ?> /> Selecione para ativar  url SSL em seu site. Assim seu endereço será (https). Esteja garantido de possuir um certificado SSL para seu domínio.</p>
+                    <br/> 
+
+                     <input type="submit"  name="submit" value="Salvar"   />
+                     
+                     
+                     
+			</div><!-- .texto -->
+		</div><!-- .bloco -->
+		
+		
+	    
+		
+		
+
+		     
+		
+	     
+		<div class="bloco">
+			<h3>5. Moeda COrrente</h3>
+			
+		        <span class="seta" rel='moeda'></span>
+				<div class="texto" id='moeda'>
+	 
+	
+	
+	
+	                <p>Escolha o simbolo da moeda Corrente . (ex:U$) :
+                    <input type="text" id="moedaCorrente" name="moedaCorrente" value="<?php echo $moedaCorrente; ?>" style="width:20%"/>
+                    </p><br/>  
+
+                     <input type="submit"  name="submit" value="Salvar"   />
+                     
+                     
+                     
+			</div><!-- .texto -->
+		</div><!-- .bloco -->   
+	 
+		
+
+
+
+
+			<div class="bloco">
+				<h3>6. Parcelamento</h3>
+
+			        <span class="seta" rel='parcelamento'></span>
+						<div class="texto" id='parcelamento'>
+				
+				
+				
+				                <h4>Parcelamento mínimo</h4>
+                            <p>Valor mínimo para parcelamento (Tabela Pagina produtos) . Exemplo : R$5,00 <br/>
+                               <input type="text" id="parcelaMinima" name="parcelaMinima" value="<?php echo $parcelaMinima; ?>" style="width:20%"/>     
+
+                               </p> <br/><br/>
+                               <h4>Máximo de parcelas</h4>
+                               <p>Total Máximo de Parcelas :
+                                  <input type="text" id="totalParcela" name="totalParcela" value="<?php echo $totalParcela; ?>" style="width:20%"/>
+                                  </p><br/><br/>
+
+                            <input type="submit"  name="submit" value="Salvar"   />
+                            
+                            
+                            
+				</div><!-- .texto -->
+			</div><!-- .bloco -->   
+
+
+
+
+
+                 <div class="bloco">
+					<h3>7. Facebook Login</h3>
+
+				        <span class="seta" rel='facebookLogin'></span>
+							<div class="texto" id='facebookLogin'>
+					
+					
+					              <h4>Facebook APPID</h4>
+                                   <p>sua APPID do facebook :
+                                   <input type="text" id="facebookAPPID" name="facebookAPPID" value="<?php echo $facebookAPPID; ?>" style="width:20%"/>
+                                   </p>   <br/>   <br/> 
+                                   <h4>Facebook API SECRET KEY</h4>
+                                   <p>O código  API SECRET KEY de sua API: 
+                                      <input type="text" id="facebookSecret" name="facebookSecret" value="<?php echo $facebookSecret; ?>" style="width:20%"/>
+                                      </p><br/> <br/> 
+
+                                <input type="submit"  name="submit" value="Salvar"   />
+                                
+                                
+                                
+					</div><!-- .texto -->
+				</div><!-- .bloco -->
+		
+		   
+		
+		
+		
+		
+		               <div class="bloco">
+ 							<h3>8.Google Shop</h3>
+
+ 						        <span class="seta" rel='googleShop'></span>
+        							<div class="texto" id='googleShop'>
+ 							   
+ 							
+ 							
+ 							
+ 							            <h4>Marca Padrão</h4>
+                                         <p>Marca padrão escolhida quando produto não possuir marca cadastrada : </p>     
+                                         <br/>
+                                          <input type="text" id="googleMarca" name="googleMarca" value="<?php echo $googleMarca; ?>" style="width:20%"/> 
+                                         </p>  <br/>  <br/> 
+                                         <h4>Categorias do Google</h4>
+                                         <p>Escolha as categorias correspondentes a seus produtos :     
+                                          <br/>   <br/> 
+                                            <input type="text" id="googleCategorias" name="googleCategorias" value="<?php echo $googleCategorias; ?>" style="width:20%"/>
+                                         </p>
+
+                                         <br/>
+
+                                      <input type="submit"  name="submit" value="Salvar"   />
+                                      
+                                      
+                                      
+ 							</div><!-- .texto -->
+ 						</div><!-- .bloco -->
+ 						
+ 						
+ 						
+		     
+		
+	</div>  
+	
+	
+	<?php /*
+	<div class="conteudo">
+		Conteúdo da aba 2
+	</div>
+	
+	
+	<div class="conteudo">
+		Conteúdo da aba 3
+	</div>    
+	
+	
+	<div class="conteudo">
+		Conteúdo da aba 4
+	</div>     
+	*/ ?>
+	
+	
+	
+	
+</div><!-- .content -->
+
+ 
+
 
 
  
- 
- <h2  style="background:#eee;padding:10px;cursor:pointer" > 6 ) Parcelamento Mínimo <span   class="btEditarFrete"   rel="parcelamento" style="font-size:12px"> (Editar)  </span> </h2>
-
- <div id="parcelamento" style="display:none" class="box" >
-
-      <h3>Parcelamento mínimo</h3>
-  <p>Valor mínimo para parcelamento (Tabela Pagina produtos) . Exemplo : R$5,00 <br/>
-     <input type="text" id="parcelaMinima" name="parcelaMinima" value="<?php echo $parcelaMinima; ?>" style="width:20%"/>     
-     
-     </p> 
-     <h3>Máximo de parcelas</h3>
-     <p>Total Máximo de Parcelas :
-        <input type="text" id="totalParcela" name="totalParcela" value="<?php echo $totalParcela; ?>" style="width:20%"/>
-        </p><br/>
-
-  <input type="submit"  name="submit" value="Gravar"   />
- </div>
-
-
-
-
-
-
- <h2  style="background:#eee;padding:10px;cursor:pointer" > 7 ) Facebook Login <span   class="btEditarFrete"   rel="facebooklogin" style="font-size:12px"> (Editar)  </span> </h2>
-
- <div id="facebooklogin" style="display:none" class="box" >
-
-      <h3>Facebook APPID</h3>
-     <p>sua APPID do facebook :
-     <input type="text" id="facebookAPPID" name="facebookAPPID" value="<?php echo $facebookAPPID; ?>" style="width:20%"/>
-     </p> 
-     <h3>Facebook API SECRET KEY</h3>
-     <p>O código  API SECRET KEY de sua API: 
-        <input type="text" id="facebookSecret" name="facebookSecret" value="<?php echo $facebookSecret; ?>" style="width:20%"/>
-        </p><br/>
-
-  <input type="submit"  name="submit" value="Gravar"   />
- </div>
-
-
-
-
-
-   <h2  style="background:#eee;padding:10px;cursor:pointer" > 8 ) Google SHOP <span   class="btEditarFrete"   rel="googleShop" style="font-size:12px"> (Editar)  </span> </h2>
-
- <div id="googleShop" style="display:none" class="box" >
-
-      <h3>Marca Padrão</h3>
-     <p>Marca padrão escolhida quando produto não possuir marca cadastrada : </p>     
-     <br/>
-      <input type="text" id="googleMarca" name="googleMarca" value="<?php echo $googleMarca; ?>" style="width:20%"/> 
-     </p> 
-     <h3>Categorias do Google</h3>
-     <p>Escolha as categorias correspondentes a seus produtos :     
-      <br/> 
-        <input type="text" id="googleCategorias" name="googleCategorias" value="<?php echo $googleCategorias; ?>" style="width:20%"/>
-     </p>
-     
-     <br/>
-
-  <input type="submit"  name="submit" value="Gravar"   />
- </div>
-
-
-
-
-    
-
-
-
-
- 
- 
- 
- 
- 
- 
-
-
- </form>
+</form>
 
 
 
@@ -449,10 +564,13 @@ no content da pagina no wordpress.</span>
 
  <script>
 
- jQuery('.btEditarFrete').click(function(){
+ jQuery('.seta').click(function(){
      rel = jQuery(this).attr('rel');
-     jQuery('.box').hide();
+     jQuery('.texto').hide();
      jQuery('#'+rel).show();
- });
+ });    
+ 
+ 
+ 
 
  </script>

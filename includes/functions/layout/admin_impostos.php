@@ -1,9 +1,7 @@
-<h1>Opções de Impostos e Taxas</h1>
-
 <?php
  
  
-   if( $_POST['submit']=="Gravar" ){
+   if( $_POST['submit']=="Salvar" ){
          
          $tipoImposto = trim($_POST['tipoImposto']);
          add_option('tipoImposto',$tipoImposto,'','yes'); 
@@ -67,134 +65,216 @@ $impostoNome4 = get_option('impostoNome4');
 $impostoPercetual4 = get_option('impostoPercetual4');
 ?>
 
-<br/><br/><br/>
-
+ 
     
 <form action="<?php echo verifyURL(get_option( 'siteurl' )) ."/wp-admin/admin.php?page=lista_impostos";?>"  method="post" >
 
  
-<h2 style='background:#eee;padding:10px;cursor:pointer'  >1) Adicionar e exibir valor e impostos  <span   class="btEditarFrete"   rel="addImposto" style="font-size:12px"> (Editar) </span></h2>
-
- <div id="addImposto" style="display:none" class="box" >
-  
-    <p><input name="tipoImposto" value="impostoZero" type="radio"  <?php if($tipoImposto=="impostoZero"){ echo "CHECKED"; }; ?>  >Não adicionar impostos   </p>
-
-     <p> <input name="tipoImposto" value="impostoCheckout"  type="radio" <?php if($tipoImposto=="impostoCheckout"){ echo "CHECKED"; }; ?> >Adicionar  Impostos ao valor total  da compra  </p>
-
-   
-</div>
-
-
-
-
-<h2 style='background:#eee;padding:10px;cursor:pointer'  >2) Definir Tributos e Percentuais <span   class="btEditarFrete"   rel="impostoTipo" style="font-size:12px">(Editar)  </span></h2>
-
- <div id="impostoTipo" style="display:none" class="box" >
  
-     <p>Tributo 1 <br/>
-     <input type="text" id="impostoNome1" name="impostoNome1" value="<?php echo $impostoNome1; ?>" style="width:20%"/> 
-     <br/>
-     <span style="font-size:11px">Ex: ICMS,ISS,IPI </strong>  </span>
-     </p> 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <div id="cabecalho">
+ 	<ul class="abas">
+ 		<li>
+ 			<div class="aba gradient">
+ 				<span>Impostos</span>
+ 			</div>
+ 		</li>  
+
+ 		 <?php /* 
+ 		<li>
+ 			<div class="aba gradient">
+ 				<span>Homepage</span>
+ 			</div>
+ 		</li>
+ 		<li>
+ 			<div class="aba gradient">
+ 				<span>Slide Home</span>
+ 			</div>
+ 		</li>
+ 		<li>
+ 			<div class="aba gradient">
+ 				<span>Sidebar</span>
+ 			</div>
+ 		</li>                   
+
+ 					*/ ?>      
+
+ 		<div class="clear"></div>
+ 	</ul>
+ </div><!-- #cabecalho -->       
+
+
+
+
+
+ <div id="containerAbas">  
+
+
+
+ 	<div class="conteudo">
+ 	
+ 	
+ 	
+ 	
+ 	
+ 	
+ 	
+ 	
+ 	
+ 	<div class="bloco">      
+		
+		<h3>1) Adicionar e exibir valor e impostos </h3>
+		
+		<span class="seta" rel='adicionarexibir'></span>
+		<div class="texto" id='adicionarexibir'>
+		
+		    <p><input name="tipoImposto" value="impostoZero" type="radio"  <?php if($tipoImposto=="impostoZero"){ echo "CHECKED"; }; ?>  >Não adicionar impostos   </p>
+
+               <p> <input name="tipoImposto" value="impostoCheckout"  type="radio" <?php if($tipoImposto=="impostoCheckout"){ echo "CHECKED"; }; ?> >Adicionar  Impostos ao valor total  da compra  </p>
+        
+			   
+               <input type="submit"  name="submit" value="Salvar"   />
+		</div>
+	</div><!-- .bloco -->
+	
+	
+	
+	
      
-     <p>Taxa Tributo 1<br/> 
-      <input type="text" id="impostoPercetual1" name="impostoPercetual1" value="<?php echo $impostoPercetual1; ?>" style="width:20%"/>
-      %<br/>
-      <span style="font-size:11px">Ex: 27  - O produto ou carrinho terá seu valor acrescido de acordo com  percentual indicado. </strong>  </span>
-      </p>
-      
-      <hr/>
-      
-      
-      <p>Tributo 2 <br/>
-        <input type="text" id="impostoNome2" name="impostoNome2" value="<?php echo $impostoNome2; ?>" style="width:20%"/> 
-        <br/>
-        <span style="font-size:11px">Ex: ICMS </strong>  </span>
-        </p> 
+ 
+ 	
+ 	<div class="bloco">      
+		
+		<h3>2) Definir Tributos e Percentuais </h3>
+		
+		<span class="seta" rel='definirTrib'></span>
+		<div class="texto" id='definirTrib'>
+		
+		   
+		   
+		    <p>Tributo 1 <br/>
+            <input type="text" id="impostoNome1" name="impostoNome1" value="<?php echo $impostoNome1; ?>" style="width:20%"/> 
+            <br/>
+            <span style="font-size:11px">Ex: ICMS,ISS,IPI </strong>  </span>
+            </p> 
 
-        <p>Taxa Tributo 2<br/>
-         <input type="text" id="impostoPercetual2" name="impostoPercetual2" value="<?php echo $impostoPercetual2; ?>" style="width:20%"/>
-         %<br/>
-         <span style="font-size:11px">Ex: 11   - O produto ou carrinho terá seu valor acrescido de acordo com  percentual indicado. </strong>  </span>
-         </p>
+            <p>Taxa Tributo 1<br/> 
+             <input type="text" id="impostoPercetual1" name="impostoPercetual1" value="<?php echo $impostoPercetual1; ?>" style="width:20%"/>
+             %<br/>
+             <span style="font-size:11px">Ex: 27  - O produto ou carrinho terá seu valor acrescido de acordo com  percentual indicado. </strong>  </span>
+             </p>
 
-         <hr/>
-         
-         
-         <p>Tributo 3 <br/>
-           <input type="text" id="impostoNome3" name="impostoNome3" value="<?php echo $impostoNome3; ?>" style="width:20%"/> 
-           <br/>
-           <span style="font-size:11px">Ex:  ISS </strong>  </span>
-           </p> 
+             <hr/>
 
-           <p>Taxa Tributo 1<br/>
-            <input type="text" id="impostoPercetual3" name="impostoPercetual3" value="<?php echo $impostoPercetual3; ?>" style="width:20%"/>
-            %<br/>
-            <span style="font-size:11px">Ex:9  - O produto ou carrinho terá seu valor acrescido de acordo com  percentual indicado. </strong>  </span>
-            </p>
 
-            <hr/>
-            
-            
-            <p>Tributo 4 <br/>
-              <input type="text" id="impostoNome4" name="impostoNome4" value="<?php echo $impostoNome4; ?>" style="width:20%"/> 
-              <br/>
-              <span style="font-size:11px">Ex:  IPI </strong>  </span>
-              </p> 
+             <p>Tributo 2 <br/>
+               <input type="text" id="impostoNome2" name="impostoNome2" value="<?php echo $impostoNome2; ?>" style="width:20%"/> 
+               <br/>
+               <span style="font-size:11px">Ex: ICMS </strong>  </span>
+               </p> 
 
-              <p>Taxa Tributo 1<br/>
-               <input type="text" id="impostoPercetual4" name="impostoPercetual4" value="<?php echo $impostoPercetual4; ?>" style="width:20%"/>
-              % <br/>
-               <span style="font-size:11px">Ex: 11   - O produto ou carrinho terá seu valor acrescido de acordo com  percentual indicado. </strong>  </span>
-               </p>
+               <p>Taxa Tributo 2<br/>
+                <input type="text" id="impostoPercetual2" name="impostoPercetual2" value="<?php echo $impostoPercetual2; ?>" style="width:20%"/>
+                %<br/>
+                <span style="font-size:11px">Ex: 11   - O produto ou carrinho terá seu valor acrescido de acordo com  percentual indicado. </strong>  </span>
+                </p>
 
-               <hr/>
-      
-     
-</div>
+                <hr/>
+
+
+                <p>Tributo 3 <br/>
+                  <input type="text" id="impostoNome3" name="impostoNome3" value="<?php echo $impostoNome3; ?>" style="width:20%"/> 
+                  <br/>
+                  <span style="font-size:11px">Ex:  ISS </strong>  </span>
+                  </p> 
+
+                  <p>Taxa Tributo 1<br/>
+                   <input type="text" id="impostoPercetual3" name="impostoPercetual3" value="<?php echo $impostoPercetual3; ?>" style="width:20%"/>
+                   %<br/>
+                   <span style="font-size:11px">Ex:9  - O produto ou carrinho terá seu valor acrescido de acordo com  percentual indicado. </strong>  </span>
+                   </p>
+
+                   <hr/>
+
+
+                   <p>Tributo 4 <br/>
+                     <input type="text" id="impostoNome4" name="impostoNome4" value="<?php echo $impostoNome4; ?>" style="width:20%"/> 
+                     <br/>
+                     <span style="font-size:11px">Ex:  IPI </strong>  </span>
+                     </p> 
+
+                     <p>Taxa Tributo 1<br/>
+                      <input type="text" id="impostoPercetual4" name="impostoPercetual4" value="<?php echo $impostoPercetual4; ?>" style="width:20%"/>
+                     % <br/>
+                      <span style="font-size:11px">Ex: 11   - O produto ou carrinho terá seu valor acrescido de acordo com  percentual indicado. </strong>  </span>
+                      </p>
+
+                      <hr/>
+                      
+                      
+                  
+                      <input type="submit"  name="submit" value="Salvar"   />    
+			  
+		</div>
+	</div><!-- .bloco -->
  
 
-<h2 style='background:#eee;padding:10px;cursor:pointer'  >3) Nota Eletrônica <span   class="btEditarFrete"   rel="nota" style="font-size:12px"> (Em desenvolvimento)  </span></h2>
-
- <div id="nota" style="display:none" class="box" >
- 
-
-  <p><input type="checkbox" name="ativarssl"  <?php if($ativarssl=="sim"){ echo "CHECKED"; }; ?> /> 
-  Selecione para ativar emissão de  nota eletrônica</p>
-  <br/>
-  
-  <h4>Configuração</h4>
-  
-  
-  <p>Digite o CNPJ  <br/>
-  <input type="text" id="cnpjNota" name="cnpjNota" value="<?php echo $cnpjNota; ?>" style="width:20%"/>
-  <br/>
-  <span style="font-size:11px">Ex: 0001.105.900.447 </strong>  </span>
-  </p><br/>
-  
-  
-
-</div>
-
-<hr/>
-
-
-
- <input type="submit"  name="submit" value="Gravar"   />
 
 
 </form>
 
        	
        	
-        <script>
 
-        jQuery('.btEditarFrete').click(function(){
-            rel = jQuery(this).attr('rel');
-            jQuery('.box').hide();
-            jQuery('#'+rel).show();
-        });
 
-        </script>
-       	
- 
+      
+	</div>  
+	
+	
+	<?php /*
+	<div class="conteudo">
+		Conteúdo da aba 2
+	</div>
+	
+	
+	<div class="conteudo">
+		Conteúdo da aba 3
+	</div>    
+	
+	
+	<div class="conteudo">
+		Conteúdo da aba 4
+	</div>     
+	*/ ?>
+	
+	
+	
+	
+</div><!-- .content -->
+
+
+
+
+
+
+</form>
+
+
+
+
+
+<script>
+
+jQuery('.seta').click(function(){
+    rel = jQuery(this).attr('rel');
+    jQuery('.texto').hide();
+    jQuery('#'+rel).show();
+});    
+
+</script>

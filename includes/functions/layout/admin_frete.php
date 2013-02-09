@@ -5,7 +5,7 @@ if($moedaCorrente==""){
 }
 
  
-       if( $_POST['submit']=="Gravar" ){
+       if( $_POST['submit']=="Salvar" ){
             
             $cepOrigemCorreios = trim($_POST['cepOrigemCorreios']);
             add_option('cepOrigemCorreios',$cepOrigemCorreios,'','yes'); 
@@ -131,275 +131,401 @@ if(intval($comprimentoEmbalagemCorreios)<=0){
 
 
  <script type="text/javascript" src="<?php  echo  plugins_url('wpstore/includes/js/jquery.price_format.1.7.js' ,'WP STORE' );  ?>"></script> 
-
-
-<h1>Opções De frete e entrega</h1>
-
-<br/><br/><br/>
-
-
+ 
     
 <form action="<?php echo verifyURL(get_option( 'siteurl' )) ."/wp-admin/admin.php?page=lista_frete";?>"  method="post" >
 
 
 
-<p>Método de frete atual : <strong><?php echo $tipoFrete; ?></strong> </p>
-
-<h2    style="background:#eee;padding:10px;cursor:pointer"> 
-<input type="radio" name="tipoFrete" value="gratis" <?php  if($tipoFrete=='gratis'){ echo "CHECKED"; }; ?>  /> 1) Frete Gratis  <span   class="btEditarFrete"   rel="gratis" style="font-size:12px"> (Editar)  </span> </h2>
-
-<div id="gratis" style="display:none" class="box" >
-
-<p>Selecione acima para ativar promoção de frete Grátis </p>
-
-</div>
-
-<hr/>
 
 
+<div id="cabecalho">
+	<ul class="abas">
+		<li>
+			<div class="aba gradient">
+				<span>Configurações de Frete</span>
+			</div>
+		</li>  
+		
+		 <?php /* 
+		<li>
+			<div class="aba gradient">
+				<span>Homepage</span>
+			</div>
+		</li>
+		<li>
+			<div class="aba gradient">
+				<span>Slide Home</span>
+			</div>
+		</li>
+		<li>
+			<div class="aba gradient">
+				<span>Sidebar</span>
+			</div>
+		</li>                   
+		
+					*/ ?>      
+					
+		<div class="clear"></div>
+	</ul>
+</div><!-- #cabecalho -->       
 
 
 
-<h2     style="background:#eee;padding:10px;cursor:pointer">  
-<input type="radio" name="tipoFrete" value="correios"  <?php  if($tipoFrete=='correios'){ echo "CHECKED"; }; ?> /> 2 ) SEDEX / PAC  <span  class="btEditarFrete"  rel="correios" style="font-size:12px"> (Editar)  </span> </h2>
 
-<div id="correios" style="display:none" class="box" >
 
-<h2> 2.1 ) CEP DE ORIGEM </h2>
+<div id="containerAbas">
+ 
 
-<p>Preencha o CEP De origem para calculo de entrega Correiors :</p>
+	<div class="conteudo">    
+	
+	
+	
+	<p>Método de frete atual : <strong><?php echo $tipoFrete; ?></strong> </p>  
+	
+	
+	
 
-<p>
-<label for="emailPagseguro">Cep Origem : </label>
-<input type="text" id="cepOrigemCorreios" name="cepOrigemCorreios" value="<?php echo $cepOrigemCorreios; ?>" />
-<br/>
-<span style="font-size:10px">Sem espaços ou hiffen</span>
-</p>
+        <div class="bloco"> 
+
+		<h3> <input type="radio" name="tipoFrete" value="gratis" <?php  if($tipoFrete=='gratis'){ echo "CHECKED"; }; ?>  /> 1) Frete Gratis  </h3>
+
+	              <span class="seta" rel='gratis'></span>
+				   	 <div class="texto" id='gratis'>
+		 
+		 
+		 
+                         <p>Selecione acima para ativar promoção de frete Grátis </p>
+
+                  <input type="submit"  name="submit" value="Salvar"   />      
+		   </div><!-- .texto -->
+			</div><!-- .bloco -->
+
+
+
+
+               <div class="bloco"> 
+
+    		<h3><input type="radio" name="tipoFrete" value="correios"  <?php  if($tipoFrete=='correios'){ echo "CHECKED"; }; ?> /> 2 ) SEDEX / PAC  </h3>
+
+    	              <span class="seta" rel='correios'></span>
+    				   	 <div class="texto" id='correios'>
+
+
+
+                             <h2> 2.1 ) CEP DE ORIGEM </h2>
+
+                             <p>Preencha o CEP De origem para calculo de entrega Correiors :</p>
+
+                             <p>
+                             <label for="emailPagseguro">Cep Origem : </label>
+                             <input type="text" id="cepOrigemCorreios" name="cepOrigemCorreios" value="<?php echo $cepOrigemCorreios; ?>" />
+                             <br/>
+                             <span style="font-size:10px">Sem espaços ou hiffen</span>
+                             </p>
+
+
+
+                             <h2   class="tipoFrete"  style="background:#eee;padding:10px;cursor:pointer"> 2.2 ) Dimensões de Embalagem  </h2>
+
+                             <p>Preencha as dimensões da Embalagem de entrega :</p>
+
+                             <p>
+                             <label for="alturaEmbalagemCorreios">Altura: </label>
+                             <input type="text" id="alturaEmbalagemCorreios" name="alturaEmbalagemCorreios" value="<?php echo $alturaEmbalagemCorreios; ?>" />
+                             <br/>
+                             <span style="font-size:10px">Minimo Recomendado : 9 </span>
+                             </p>
+
+                             <p>
+                             <label for="larguraEmbalagemCorreios">Largura: </label>
+                             <input type="text" id="larguraEmbalagemCorreios" name="larguraEmbalagemCorreios" value="<?php echo $larguraEmbalagemCorreios; ?>" />
+                             <br/>
+                             <span style="font-size:10px">Minimo Recomendado : 18 </span>
+                             </p>
+
+
+                             <p>
+                             <label for="comprimentoEmbalagemCorreios">Comprimento: </label>
+                             <input type="text" id="comprimentoEmbalagemCorreios" name="comprimentoEmbalagemCorreios" value="<?php echo $comprimentoEmbalagemCorreios; ?>" />
+                             <br/>
+                             <span style="font-size:10px">Minimo Recomendado : 27 </span>
+                             </p>
+                             
+                             
+                             
+                      <input type="submit"  name="submit" value="Salvar"   />            
+
+
+    		   </div><!-- .texto -->
+    			</div><!-- .bloco -->
+ 
+
+
+
+
+ 
+
+          
+
+                <div class="bloco"> 
+
+           		<h3>  <input type="radio" name="tipoFrete" value="fixo" <?php  if($tipoFrete=='fixo'){ echo "CHECKED"; }; ?> />   3) Frete FIXO  </h3>
+
+           	              <span class="seta" rel='fixo'></span>
+           				   	 <div class="texto" id='fixo'>
+
+
+                    
+                                    <p>Digite o valor abaixo see desejar cobrar um valor fixo de frete para cada Venda.</p>
+                                    <label for="valorFreteFixo">Valor fixo para o frete : <?php echo $moedaCorrente; ?></label>
+                                    <input type="text" id="valorFreteFixo" name="valorFreteFixo" value="<?php echo $valorFreteFixo; ?>" />
+                                    <br/>
+                                    <span style="font-size:10px">Ex:10.00</span>
+                                    
+                             <input type="submit"  name="submit" value="Salvar"   />    
+
+           		   </div><!-- .texto -->
+           			</div><!-- .bloco -->
+
+
+
+ 
+
+
+ 
+ 
+ 
+ 
+ 
+              
+ 
+ 
+ 
+                        <div class="bloco"> 
+
+                   		<h3>   <input type="radio" name="tipoFrete" value="pesoBase"  <?php  if($tipoFrete=='pesoBase'){ echo "CHECKED"; }; ?> />   4) Peso como base de frete </h3>
+
+                   	              <span class="seta" rel='pesoBase'></span>
+                   				   	 <div class="texto" id='pesoBase'>
+
+
+
+                                                       <p>Digite o valor do frete de acordo com a faixa de peso.</p>
+
+                                                        <br/>
+                                                         <label for="valorFreteFixo">Peso entre 0 e 1 kg => <?php echo $moedaCorrente; ?></label>
+                                                         <input type="text" id="valorFretePeso1" name="valorFretePeso1" value="<?php echo $valorFretePeso1; ?>" />
+                                                          <br/>
+                                                           <span style="font-size:10px">Ex:10.00</span>
+
+
+                                                          <br/>
+                                                          <label for="valorFreteFixo">Peso entre 1 e 5 kg => <?php echo $moedaCorrente; ?></label>
+                                                          <input type="text" id="valorFretePeso2" name="valorFretePeso2" value="<?php echo $valorFretePeso2; ?>" />
+                                                          <br/>
+                                                           <span style="font-size:10px">Ex:10.00</span>
+
+
+                                                           <br/>
+                                                           <label for="valorFreteFixo">Peso entre 5 e 10 kg => <?php echo $moedaCorrente; ?></label>
+                                                            <input type="text" id="valorFretePeso3" name="valorFretePeso3" value="<?php echo $valorFretePeso3; ?>" />
+                                                             <br/>
+                                                             <span style="font-size:10px">Ex:10.00</span>
+
+                                                              <br/>
+                                                               <label for="valorFreteFixo">Peso entre 10 a 20 kg => <?php echo $moedaCorrente; ?></label>
+                                                               <input type="text" id="valorFretePeso4" name="valorFretePeso4" value="<?php echo $valorFretePeso4; ?>" />
+                                                               <br/>
+                                                               <span style="font-size:10px">Ex:10.00</span>
+
+
+
+                                                              <br/>
+                                                              <label for="valorFreteFixo">Peso entre 20 a 30 kg => <?php echo $moedaCorrente; ?></label>
+                                                              <input type="text" id="valorFretePeso5" name="valorFretePeso5" value="<?php echo $valorFretePeso5; ?>" />
+                                                               <br/>
+                                                               <span style="font-size:10px">Ex:10.00</span>
+
+
+
+                                                               <br/>
+                                                              <label for="valorFreteFixo">Acima de 30 kg => <?php echo $moedaCorrente; ?></label>
+                                                             <input type="text" id="valorFretePeso6" name="valorFretePeso6" value="<?php echo $valorFretePeso6; ?>" />
+                                                              <br/>
+                                                                <span style="font-size:10px">Ex:10.00</span>
+
+                                                 <input type="submit"  name="submit" value="Salvar"   />    
+
+                   		   </div><!-- .texto -->
+                   			</div><!-- .bloco -->
+                   			
+                   			
+                   			
+                   			
  
  
 
-<h2   class="tipoFrete"  style="background:#eee;padding:10px;cursor:pointer"> 2.2 ) Dimensões de Embalagem  </h2>
-
-<p>Preencha as dimensões da Embalagem de entrega :</p>
-
-<p>
-<label for="alturaEmbalagemCorreios">Altura: </label>
-<input type="text" id="alturaEmbalagemCorreios" name="alturaEmbalagemCorreios" value="<?php echo $alturaEmbalagemCorreios; ?>" />
-<br/>
-<span style="font-size:10px">Minimo Recomendado : 9 </span>
-</p>
-
-<p>
-<label for="larguraEmbalagemCorreios">Largura: </label>
-<input type="text" id="larguraEmbalagemCorreios" name="larguraEmbalagemCorreios" value="<?php echo $larguraEmbalagemCorreios; ?>" />
-<br/>
-<span style="font-size:10px">Minimo Recomendado : 18 </span>
-</p>
-
-
-<p>
-<label for="comprimentoEmbalagemCorreios">Comprimento: </label>
-<input type="text" id="comprimentoEmbalagemCorreios" name="comprimentoEmbalagemCorreios" value="<?php echo $comprimentoEmbalagemCorreios; ?>" />
-<br/>
-<span style="font-size:10px">Minimo Recomendado : 27 </span>
-</p>
- 
-
-</div>
-
-<hr/>
-
-
- 
-
-
- <h2  class="tipoFrete"  style="background:#eee;padding:10px;cursor:pointer">  
- <input type="radio" name="tipoFrete" value="fixo" <?php  if($tipoFrete=='fixo'){ echo "CHECKED"; }; ?> />   3) Frete FIXO <span  class="btEditarFrete"   rel="fixo" style="font-size:12px"> (Editar)  </span>  </h2>
- 
- 
- <div style="display:none" class="box" id="fixo" >
-           <p>Digite o valor abaixo see desejar cobrar um valor fixo de frete para cada Venda.</p>
-           <label for="valorFreteFixo">Valor fixo para o frete : <?php echo $moedaCorrente; ?></label>
-           <input type="text" id="valorFreteFixo" name="valorFreteFixo" value="<?php echo $valorFreteFixo; ?>" />
-           <br/>
-           <span style="font-size:10px">Ex:10.00</span>
-  </div>
- 
- <hr/>
- 
- 
- 
- 
- 
- 
- 
-
-  <h2   class="tipoFrete"   style="background:#eee;padding:10px;cursor:pointer" >  
-  <input type="radio" name="tipoFrete" value="pesoBase"  <?php  if($tipoFrete=='pesoBase'){ echo "CHECKED"; }; ?> />   4) Peso como base de frete <span   class="btEditarFrete"   rel="pesoBase" style="font-size:12px"> (Editar)   </span> </h2>
-
-
-
-           <div style="display:none"  id="pesoBase" class="box" >
-           
-           
-                  <p>Digite o valor do frete de acordo com a faixa de peso.</p>
-
-                   <br/>
-                    <label for="valorFreteFixo">Peso entre 0 e 1 kg => <?php echo $moedaCorrente; ?></label>
-                    <input type="text" id="valorFretePeso1" name="valorFretePeso1" value="<?php echo $valorFretePeso1; ?>" />
-                     <br/>
-                      <span style="font-size:10px">Ex:10.00</span>
-  
-  
-                     <br/>
-                     <label for="valorFreteFixo">Peso entre 1 e 5 kg => <?php echo $moedaCorrente; ?></label>
-                     <input type="text" id="valorFretePeso2" name="valorFretePeso2" value="<?php echo $valorFretePeso2; ?>" />
-                     <br/>
-                      <span style="font-size:10px">Ex:10.00</span>
-    
-    
-                      <br/>
-                      <label for="valorFreteFixo">Peso entre 5 e 10 kg => <?php echo $moedaCorrente; ?></label>
-                       <input type="text" id="valorFretePeso3" name="valorFretePeso3" value="<?php echo $valorFretePeso3; ?>" />
-                        <br/>
-                        <span style="font-size:10px">Ex:10.00</span>
-       
-                         <br/>
-                          <label for="valorFreteFixo">Peso entre 10 a 20 kg => <?php echo $moedaCorrente; ?></label>
-                          <input type="text" id="valorFretePeso4" name="valorFretePeso4" value="<?php echo $valorFretePeso4; ?>" />
-                          <br/>
-                          <span style="font-size:10px">Ex:10.00</span>
-
-
-
-                         <br/>
-                         <label for="valorFreteFixo">Peso entre 20 a 30 kg => <?php echo $moedaCorrente; ?></label>
-                         <input type="text" id="valorFretePeso5" name="valorFretePeso5" value="<?php echo $valorFretePeso5; ?>" />
-                          <br/>
-                          <span style="font-size:10px">Ex:10.00</span>
                 
-   
-   
-                          <br/>
-                         <label for="valorFreteFixo">Acima de 30 kg => <?php echo $moedaCorrente; ?></label>
-                        <input type="text" id="valorFretePeso6" name="valorFretePeso6" value="<?php echo $valorFretePeso6; ?>" />
-                         <br/>
-                           <span style="font-size:10px">Ex:10.00</span>
-                                         
-
-
-            </div>
-
-              <hr/>
 
 
 
+                            <div class="bloco"> 
+
+                        		<h3>   <input type="radio" name="tipoFrete"  value="precoBase"  <?php  if($tipoFrete=='precoBase'){ echo "CHECKED"; }; ?>  />    5) Preço como base de frete  </h3>
+
+                        	              <span class="seta" rel='preco'></span>
+                        				   	 <div class="texto" id='preco'>
 
 
 
+                                                            <p>Digite o valor do frete de acordo com a faixa de preço .</p>
 
-             <h2 class="tipoFrete" style="background:#eee;padding:10px;cursor:pointer" >
-               <input type="radio" name="tipoFrete"  value="precoBase"  <?php  if($tipoFrete=='precoBase'){ echo "CHECKED"; }; ?>  />    5) Preço como base de frete <span  class="btEditarFrete" rel="precoBase" style="font-size:12px"> (Editar)  </span></h2>
+                                                             <br/>
+                                                             <label for="valorFreteValor1">Preço entre <?php echo $moedaCorrente; ?>10 e <?php echo $moedaCorrente; ?>100  => <?php echo $moedaCorrente; ?></label>
+                                                             <input type="text" id="valorFreteValor1" name="valorFreteValor1" value="<?php echo $valorFreteValor1; ?>" />
+                                                             <br/>
+                                                             <span style="font-size:10px">Ex:10.00</span>
 
- 
- 
-              <div style="display:none"   id="precoBase" class="box" >
-              
-                <p>Digite o valor do frete de acordo com a faixa de preço .</p>
- 
-                <br/>
-                <label for="valorFreteValor1">Preço entre <?php echo $moedaCorrente; ?>10 e <?php echo $moedaCorrente; ?>100  => <?php echo $moedaCorrente; ?></label>
-                <input type="text" id="valorFreteValor1" name="valorFreteValor1" value="<?php echo $valorFreteValor1; ?>" />
-                <br/>
-                <span style="font-size:10px">Ex:10.00</span>
+                                                             <br/>
+                                                             <label for="valorFreteValor2">Preço entre <?php echo $moedaCorrente; ?>100 e <?php echo $moedaCorrente; ?>200 => <?php echo $moedaCorrente; ?></label>
+                                                             <input type="text" id="valorFreteValor2" name="valorFreteValor2" value="<?php echo $valorFreteValor2; ?>" />
+                                                             <br/>
+                                                             <span style="font-size:10px">Ex:10.00</span>
 
-                <br/>
-                <label for="valorFreteValor2">Preço entre <?php echo $moedaCorrente; ?>100 e <?php echo $moedaCorrente; ?>200 => <?php echo $moedaCorrente; ?></label>
-                <input type="text" id="valorFreteValor2" name="valorFreteValor2" value="<?php echo $valorFreteValor2; ?>" />
-                <br/>
-                <span style="font-size:10px">Ex:10.00</span>
-              
-                <br/>
-                <label for="valorFreteValor3">Preço entre <?php echo $moedaCorrente; ?>200 e <?php echo $moedaCorrente; ?>300  => <?php echo $moedaCorrente; ?></label>
-                <input type="text" id="valorFreteValor3" name="valorFreteValor3" value="<?php echo $valorFreteValor3; ?>" />
-                <br/>
-                <span style="font-size:10px">Ex:10.00</span>
-              
-              
-                
-                <br/>
-                <label for="valorFreteValor34">Preço entre <?php echo $moedaCorrente; ?>300 e <?php echo $moedaCorrente; ?>400  => <?php echo $moedaCorrente; ?></label>
-                <input type="text" id="valorFreteValor4" name="valorFreteValor4" value="<?php echo $valorFreteValor4; ?>" />
-                <br/>
-                <span style="font-size:10px">Ex:10.00</span>
+                                                             <br/>
+                                                             <label for="valorFreteValor3">Preço entre <?php echo $moedaCorrente; ?>200 e <?php echo $moedaCorrente; ?>300  => <?php echo $moedaCorrente; ?></label>
+                                                             <input type="text" id="valorFreteValor3" name="valorFreteValor3" value="<?php echo $valorFreteValor3; ?>" />
+                                                             <br/>
+                                                             <span style="font-size:10px">Ex:10.00</span>
+
+
+
+                                                             <br/>
+                                                             <label for="valorFreteValor34">Preço entre <?php echo $moedaCorrente; ?>300 e <?php echo $moedaCorrente; ?>400  => <?php echo $moedaCorrente; ?></label>
+                                                             <input type="text" id="valorFreteValor4" name="valorFreteValor4" value="<?php echo $valorFreteValor4; ?>" />
+                                                             <br/>
+                                                             <span style="font-size:10px">Ex:10.00</span>
+
+
+                                                              <br/>
+                                                              <label for="valorFreteValor5">Preço entre <?php echo $moedaCorrente; ?>400 e <?php echo $moedaCorrente; ?>500  => <?php echo $moedaCorrente; ?></label>
+                                                              <input type="text" id="valorFreteValor5" name="valorFreteValor5" value="<?php echo $valorFreteValor5; ?>" />
+                                                              <br/>
+                                                              <span style="font-size:10px">Ex:10.00</span>
+
+
+                                                               <br/>
+                                                               <label for="valorFreteValor6">Acima de <?php echo $moedaCorrente; ?>500  => <?php echo $moedaCorrente; ?></label>
+                                                               <input type="text" id="valorFreteValor6" name="valorFreteValor6" value="<?php echo $valorFreteValor6; ?>" />
+                                                               <br/>
+                                                               <span style="font-size:10px">Ex:10.00</span>
+
+                                                          <input type="submit"  name="submit" value="Salvar"   />    
+
+                        		   </div><!-- .texto -->
+                        			</div><!-- .bloco -->
+                        			
+                        			
+                        			
+                        			
+
+
                   
-               
-                 <br/>
-                 <label for="valorFreteValor5">Preço entre <?php echo $moedaCorrente; ?>400 e <?php echo $moedaCorrente; ?>500  => <?php echo $moedaCorrente; ?></label>
-                 <input type="text" id="valorFreteValor5" name="valorFreteValor5" value="<?php echo $valorFreteValor5; ?>" />
-                 <br/>
-                 <span style="font-size:10px">Ex:10.00</span>
-                        
-                        
-                  <br/>
-                  <label for="valorFreteValor6">Acima de <?php echo $moedaCorrente; ?>500  => <?php echo $moedaCorrente; ?></label>
-                  <input type="text" id="valorFreteValor6" name="valorFreteValor6" value="<?php echo $valorFreteValor6; ?>" />
-                  <br/>
-                  <span style="font-size:10px">Ex:10.00</span>
-                  
-               </div>
-      
-               <hr/>
+
+
+
+
+                                    <div class="bloco"> 
+
+                               		<h3>   6) PROMOÇÕES DE FRETE </h3>
+
+                               	              <span class="seta" rel='promoFrete'></span>
+                               				   	 <div class="texto" id='promoFrete'>
+
+
+
+                                                                           <h2>Frete Grátis para Cidades:</h2>
+                                                                              <p>Digite entre Virgulas a lista de UF**CIDADES para promoção de frete grátis.</p>
+                                                                              <label for="cidadesFreteGratis"></label>
+                                                                              <textarea id="cidadesFreteGratis" name="cidadesFreteGratis"  style="width:50%" ><?php echo $cidadesFreteGratis; ?></textarea>
+                                                                              <br/>
+                                                                              <span style="font-size:10px">Ex: RJ**Niterói,RJ**São Gonçalo,RJ**Rio Bonito,RJ**Maricá,RJ**Itaboraí</span> 
+
+                                                                              <br/>
+                                                                              <hr/>
+
+                                                                              <h2>Frete Grátis para compras acima de determinado valor:</h2>
+                                                                              <p>Digite o valor  da compra mínima para promoção de frete grátis |  UTILIZE  get_option('valorFreteGratis') para colocar o valor em uma variavel de seu site .</p>
+                                                                              <label for="valorFreteGratis"></label>
+                                                                              R$<input text id="valorFreteGratis" name="valorFreteGratis" class='price'  style="width:50%" value='<?php echo $valorFreteGratis; ?>' />
+                                                                              <br/>
+                                                                              <span style="font-size:10px">Ex:1.000,00  </span>
+
+
+                                                                <input type="submit"  name="submit" value="Salvar"   />    
+                               		   </div><!-- .texto -->
+                               			</div><!-- .bloco -->
+                               			
+                               			
+                               			
  
-                <h2  class="tipoFrete"  style="background:#eee;padding:10px;cursor:pointer">  
-                   6) PROMOÇÕES DE FRETE <span  class="btEditarFrete"   rel="promo" style="font-size:12px"> (Editar)  </span>  </h2>
-
-
-                <div style="display:none" class="box" id="promo" >
-                          <h2>Frete Grátis para Cidades:</h2>
-                          <p>Digite entre Virgulas a lista de UF**CIDADES para promoção de frete grátis.</p>
-                          <label for="cidadesFreteGratis"></label>
-                          <textarea id="cidadesFreteGratis" name="cidadesFreteGratis"  style="width:50%" ><?php echo $cidadesFreteGratis; ?></textarea>
-                          <br/>
-                          <span style="font-size:10px">Ex: RJ**Niterói,RJ**São Gonçalo,RJ**Rio Bonito,RJ**Maricá,RJ**Itaboraí</span> 
-                          
-                          <br/>
-                          <hr/>
-                          
-                          <h2>Frete Grátis para compras acima de determinado valor:</h2>
-                          <p>Digite o valor  da compra mínima para promoção de frete grátis |  UTILIZE  get_option('valorFreteGratis') para colocar o valor em uma variavel de seu site .</p>
-                          <label for="valorFreteGratis"></label>
-                          R$<input text id="valorFreteGratis" name="valorFreteGratis" class='price'  style="width:50%" value='<?php echo $valorFreteGratis; ?>' />
-                          <br/>
-                          <span style="font-size:10px">Ex:1.000,00  </span>
-                          
-                          
-                 </div>
-
  
-
- <input type="submit"  name="submit" value="Gravar"   />
-
-
 </form>
+         
 
 
-<script>
-
-jQuery('.btEditarFrete').click(function(){
-    rel = jQuery(this).attr('rel');
-    jQuery('.box').hide();
-    jQuery('#'+rel).show();
-});         
 
 
-     jQuery('input.price').priceFormat({
-                       prefix: '',
-                       centsSeparator: ',',
-                       thousandsSeparator: '.'
-        });
-        
 
-</script>
+
+
+  </div>  
+	
+	
+	<?php /*
+	<div class="conteudo">
+		Conteúdo da aba 2
+	</div>
+	
+	
+	<div class="conteudo">
+		Conteúdo da aba 3
+	</div>    
+	
+	
+	<div class="conteudo">
+		Conteúdo da aba 4
+	</div>     
+	*/ ?>
+	
+	
+	
+	
+</div><!-- .content -->
+
+ 
+ 
+
+
+ <script>
+
+ jQuery('.seta').click(function(){
+     rel = jQuery(this).attr('rel');
+     jQuery('.texto').hide();
+     jQuery('#'+rel).show();
+ });    
+ 
+ 
+  
+ jQuery('input.price').priceFormat({
+                   prefix: '',
+                   centsSeparator: ',',
+                   thousandsSeparator: '.'
+    });
+
+
+ </script>
+ 
 
  

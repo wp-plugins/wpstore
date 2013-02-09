@@ -73,11 +73,7 @@ for ($i=0; $i<=count($_POST['list']);$i++) {
 }
 
 
-
-
-   echo "<h2>" . __( 'Lista de Pedidos', 'menu-criar-pedidos' ) . "</h2>";
-   echo "<br/><br/>";
-
+ 
    global $wpdb;
    $tabela = $wpdb->prefix."";
    $tabela .=  "wpstore_orders";
@@ -110,21 +106,75 @@ for ($i=0; $i<=count($_POST['list']);$i++) {
     ?>
 
     
-	<form action="<?php echo verifyURL(get_option( 'siteurl' ))  ."/wp-admin/admin.php?page=lista_pedidos";?>"  method="post" >
 
-
-		<label>Digite o numero do pedido : </label>
-		<input type="text"  name="oid" value="<?php echo $oid; ?>"/> 
-		<label>Digite o E-mail do Usuário : </label>
-		<input type="text"  name="oemail" value="<?php echo $oemail; ?>"/> 
-	
-         <input type="submit"  name="submit" value="Filtrar"/>
-	</form><br/>
-
- 
-   <section class="order-list">
    
-   	
+   
+   
+   
+   
+   
+   
+   
+   
+       <div id="cabecalho">
+       	<ul class="abas">
+       		<li>
+       			<div class="aba gradient">
+       				<span>Controle de Pedidos</span>
+       			</div>
+       		</li>  
+
+       		 <?php /* 
+       		<li>
+       			<div class="aba gradient">
+       				<span>Homepage</span>
+       			</div>
+       		</li>
+       		<li>
+       			<div class="aba gradient">
+       				<span>Slide Home</span>
+       			</div>
+       		</li>
+       		<li>
+       			<div class="aba gradient">
+       				<span>Sidebar</span>
+       			</div>
+       		</li>                   
+
+       					*/ ?>      
+
+       		<div class="clear"></div>
+       	</ul>
+       </div><!-- #cabecalho -->       
+
+
+
+
+
+       <div id="containerAbas">  
+
+
+
+       	<div class="conteudo"> 
+       	
+       	
+       	
+       	
+       	
+       	<form action="<?php echo verifyURL(get_option( 'siteurl' ))  ."/wp-admin/admin.php?page=lista_pedidos";?>"  method="post" >
+
+            <p>Pesquise por :</p>
+     		<label>Nnumero do pedido : </label>
+     		<input type="text"  name="oid" value="<?php echo $oid; ?>"/>  <br/>
+     		<label>ou pelo E-mail do cliente : </label>
+     		<input type="text"  name="oemail" value="<?php echo $oemail; ?>"/> 
+
+              <input type="submit"  name="submit" value="Filtrar"/>
+     	</form><br/>
+
+   
+       		
+ 
 	
 	<?php 
 	
@@ -139,11 +189,11 @@ for ($i=0; $i<=count($_POST['list']);$i++) {
 	<form action="<?php echo verifyURL(get_option( 'siteurl' )) ."/wp-admin/admin.php?page=lista_pedidos";?>"  method="post" >
 	
 	
-	<label>Selecionar Todos:</label><th width="28" ><input name="check" id="check" onClick="return selectCheckBox();"  type="checkbox"></th>
+	<label>Selecionar Todos:</label>
+	
+	<input name="check" id="check" onClick="return selectCheckBox();"  type="checkbox"> 
 
-
-   	<ul>
-
+ 
 
    	<?php
 
@@ -282,29 +332,39 @@ for ($i=0; $i<=count($_POST['list']);$i++) {
              
             
              
-             ?>
-
-
-       	<li style="background:<?php echo $cor; ?>;padding:10px;margin-bottom:5px;" >  
+                   
+                        	  if($tipo_pagto=="Depósito"){
+                        	      $imgPagto = "".$plugin_directory."images/deposito.png";
+                        	  }elseif($tipo_pagto=="Retirar na Loja"){
+                        	      $imgPagto = "".$plugin_directory."images/retirada.png"; 
+                        	  }elseif($tipo_pagto=="Moip"){
+                               $imgPagto = "".$plugin_directory."images/moip.png"; 
+                           }elseif($tipo_pagto=="Pagseguro"){
+                               $imgPagto = "".$plugin_directory."images/pagseguro.png"; 
+                           }elseif($tipo_pagto=="Paypal"){
+                               $imgPagto = "".$plugin_directory."images/paypal.png"; 
+                           }elseif($tipo_pagto=="Cielo"){
+                               $imgPagto = "".$plugin_directory."images/cielo.png"; 
+                           }
+                        	?>    
+             
+ 
        	
-       	<?php
-       	  if($tipo_pagto=="Depósito"){
-       	      $imgPagto = "".$plugin_directory."images/deposito.png";
-       	  }elseif($tipo_pagto=="Retirar na Loja"){
-       	      $imgPagto = "".$plugin_directory."images/retirada.png"; 
-       	  }elseif($tipo_pagto=="Moip"){
-              $imgPagto = "".$plugin_directory."images/moip.png"; 
-          }elseif($tipo_pagto=="Pagseguro"){
-              $imgPagto = "".$plugin_directory."images/pagseguro.png"; 
-          }elseif($tipo_pagto=="Paypal"){
-              $imgPagto = "".$plugin_directory."images/paypal.png"; 
-          }elseif($tipo_pagto=="Cielo"){
-              $imgPagto = "".$plugin_directory."images/cielo.png"; 
-          }
-       	?>
+       	    <div class="bloco" style="background:<?php echo $cor; ?>;padding:10px;margin-bottom:5px;"  >      
+
+    		<h3> <input type='checkbox' id='check_<?php echo $orderCount ?>'  name='list[]' value='<?php echo $idPedido; ?>'/>  <?php echo $idPedido; ?></h3>
+
+    		<span class="seta" rel='box_<?php echo $orderCount ?>'></span>     
+    		
+    		
+    		<div class="texto" id='box_<?php echo $orderCount ?>'>
+    		
+    	    
+       	
+      
        	
                <div>
-               	      <input type='checkbox' id='check_<?php echo $orderCount ?>'  name='list[]' value='<?php echo $idPedido; ?>'/> 
+               	      
                        <br/><strong>ID do pedido:</strong> <?php echo $idPedido; ?>
                        <br/><strong>Cliente : </strong>  <?php echo  $nome; ?> 
                        <br/><strong>Data:</strong> <?php echo $dataArray[4]; ?>/<?php echo $dataArray[3]; ?>/<?php echo $dataArray[2]; ?> 
@@ -314,7 +374,9 @@ for ($i=0; $i<=count($_POST['list']);$i++) {
                
                
                  <div class="clear"></div>
-                 <br/><br/>
+                 <br/><br/>     
+                 
+                 
                 <div>
                    <br/><strong>Status:</strong><?php echo $status_pagto; ?> 
                    <br/><strong>SubTotal:</strong> <?php echo $moedaCorrente; ?><?php echo $valor_total; ?>         
@@ -323,22 +385,21 @@ for ($i=0; $i<=count($_POST['list']);$i++) {
                    <br/> <strong>Desconto:</strong> (-<?php echo $moedaCorrente; ?>  <?php echo $desconto ; ?>)
                     <?php //}; ?>
                   <br/> <strong>Total:</strong> <?php echo $moedaCorrente; ?><?php echo  $totalPagto; ?>  
-                </div>
+                </div>  
+                
               
-              <div class="clear"></div>
+              <div class="clear"></div> 
+              
               <br/><br/>
               
-                <div>
+                <div class='controleStatus'>
                    <a target="_BLANK" href="<?php echo get_bloginfo('url'); ?>/pedido/?order=<?php echo $idPedido; ?>">Ver Detalhes</a> -
-                   
-                 <a  class="bttrocar" rel="check_<?php echo $orderCount ?>"  href="#trocarstatus">Mudar Status</a>
-               
+                   <a  class="bttrocar" rel="check_<?php echo $orderCount ?>"  href="#trocarstatus">Mudar Status</a>
+                </div> 
+                
               <br/>
               
-      
-               
-                   <div>
-    <br/> <br/>
+              <br/>
                   
                    <table width="650" class="table <?php echo $idPedido; ?>">
                    
@@ -348,8 +409,7 @@ for ($i=0; $i<=count($_POST['list']);$i++) {
                                   <td class="ta-left" width="20%"><strong>Data</strong></td>
                                   <td class="ta-left"><strong>Status</strong></td>
                                   <td class="ta-left"><strong>Comentário</strong></td>
-                                  <td class="ta-left"></td>
-                              </tr>
+                               </tr>
                        </thead>
                        
                        
@@ -360,9 +420,7 @@ for ($i=0; $i<=count($_POST['list']);$i++) {
                                            <tr>
                                                <td class="ta-left va-top"><?php echo $dataArray[4]; ?>/<?php echo $dataArray[3]; ?>/<?php echo $dataArray[2]; ?></td>
                                                <td class="ta-left va-top">PENDENTE</td>
-                                               <td class="ta-left va-top">Aguardando confirmação de pagamento. 
-                                       
-                                               </td>
+                                               <td class="ta-left va-top">Aguardando confirmação de pagamento. </td>
                                            
                                            </tr>
                                            
@@ -398,10 +456,8 @@ for ($i=0; $i<=count($_POST['list']);$i++) {
                                        <td class="ta-left va-top"><?php echo  $data ; ?></td>
                                        <td class="ta-left va-top"><?php echo $status_pagto; ?></td>
                                        <td class="ta-left va-top"><?php echo $comentario_cliente; ?>
-                                       
-                                                  (<a  href="<?php echo get_bloginfo('url').'/wp-admin/admin.php?page=lista_pedidos'; ?>&idRmv=<?php echo  $id; ?>">Remover</a>)
-
-                                       </td>
+                                        (<a  href="<?php echo get_bloginfo('url').'/wp-admin/admin.php?page=lista_pedidos'; ?>&idRmv=<?php echo  $id; ?>">Remover</a>)
+                                        </td>
                                    </tr>
 
 
@@ -411,40 +467,31 @@ for ($i=0; $i<=count($_POST['list']);$i++) {
                            
                                 </tbody>
                                </table>
-                               
-                               
-                               
-                           
+                    
+     
 
-                               
-                               
-                               
-                                <script>
-                                  
-                                  jQuery('.verHistorico').click(function(){
-                                      rel = jQuery(this).attr('rel');
-                                      jQuery('.'+rel).fadeIn();
+   		<?php /*
+   		<div class="conteudo">
+   			Conteúdo da aba 2
+   		</div>
 
-                                  });
-                                  
-                                   jQuery('.bttrocar').click(function(){
-                                        rel = jQuery(this).attr('rel');
-                                        jQuery('input#'+rel).attr('checked','checked');
 
-                                    });
-                                  
-                                  
-                                  
-                               </script>
-                           
-                           
-          
-                   </div>
-                   
-                   
-                </div>
-                
-           </li>
+   		<div class="conteudo">
+   			Conteúdo da aba 3
+   		</div>    
+
+
+   		<div class="conteudo">
+   			Conteúdo da aba 4
+   		</div>     
+   		*/ ?>
+
+
+
+         		</div>   <!-- .texto -->
+          	</div><!-- .bloco -->
+          	
+         
      
      
            <?php     
@@ -454,15 +501,13 @@ for ($i=0; $i<=count($_POST['list']);$i++) {
             
             ?>
 
-       </ul>
-
-   </section>
-   
+ 
+ 
    <br/>
    
    <div id="trocarstatus"></div>
    
-   <h3> Para mudar o STATUS , Selecione um ou mais pedidos acima </h3>
+   <h3> Para editar , Selecione um ou mais pedidos na lista acima .  </h3>
 
    <br/>  
 
@@ -480,7 +525,7 @@ for ($i=0; $i<=count($_POST['list']);$i++) {
 
     <br/>
 
-    <p>Preencha abaixo para fazer uma anotação sobre a mundança no status do pedido:</p>
+    <p>Preencha abaixo para fazer uma anotação sobre a mundança no status do pedido. Esta mensagem será encaminhada por email ao cliente.</p>
 
     <textarea name="comentario" id="comentario" style="width:50%;height:150px;" ></textarea>
     <br/>
@@ -490,13 +535,24 @@ for ($i=0; $i<=count($_POST['list']);$i++) {
    <input type="submit"  name="submit" value="Gravar" onclick="return recordAction('Gravar');" />
    <input type="submit"  name="submit" value="Deletar" onclick="return recordAction('Delete');" /> 
 
+          
 
-</form>
 
+
+	</div><!-- .content -->
+
+
+ 
+
+	</form>
+
+ 
+                    
+ 
  
  
            		<script>  
-
+           	  
            	 
            		function checkAll(field){
            		for (i = 0; i < field.length; i++)
@@ -566,9 +622,41 @@ for ($i=0; $i<=count($_POST['list']);$i++) {
            		           };	
            		    };
                return true;
-          };
+          };     
+          
+          
+          
+          
+          
+                 	 jQuery('.seta').click(function(){
+                 	     rel = jQuery(this).attr('rel');
+                 	     jQuery('.texto').hide();
+                 	     jQuery('#'+rel).show();
+                 	 });   
+                 	 
+                 	 
+                 	 
+                 	 
+                 	 
+                 	         jQuery('.verHistorico').click(function(){
+                                   rel = jQuery(this).attr('rel');
+                                   jQuery('.'+rel).fadeIn();
+
+                               });
+                               
+                                jQuery('.bttrocar').click(function(){
+                                     rel = jQuery(this).attr('rel');
+                                     jQuery('input#'+rel).attr('checked','checked');
+
+                                 });
+                      
+
+
+
+
 
        	</script>
+       	
        	
        	
        	

@@ -10,7 +10,7 @@
 $idPaginaCarrinho = 0;
 $idPaginaCheckout = 0;
 
-           if( $_POST['submit']=="Gravar" ){
+           if( $_POST['submit']=="Salvar" ){
                
                
                $emailPagseguro = trim($_POST['emailPagseguro']);
@@ -207,296 +207,394 @@ $meuPinMoip = get_option('meuPinMoip');
 
 ?>
 
-
-<h1>Opções Gerais de Pagamento</h1>
-
-<br/><br/><br/>
-
-
+ 
     
 	<form action="<?php echo verifyURL(get_option( 'siteurl' )) ."/wp-admin/admin.php?page=lista_pagamentos";?>"  method="post" >
 
 
-
-
-
-
-<h2  style="background:#eee;padding:10px;cursor:pointer" >
-
-<input type="checkbox" name="ativaPagseguro" value="ativaPagseguro"  <?php  if($ativaPagseguro=='ativaPagseguro'){ echo "CHECKED"; }; ?> />  1 ) <img src='<?php echo $plugin_directory."images/pagseguro.png "; ?>' />  Pagseguro  <span   class="btEditarFrete"   rel="pagseguro" style="font-size:12px"> (Editar)  </span>  </h2>
-
-
-
-<div id="pagseguro" style="display:none" class="box" >
-
-
-<p>Preencha seus dados do Pagseguro :</p>
-
-<p>
-<label for="emailPagseguro">Pagseguro Email</label>
-<input type="text" id="emailPagseguro" name="emailPagseguro" value="<?php echo $emailPagseguro; ?>" />
-</p>
-
-<p>
-<label for="emailPagseguro">Pagseguro TOKEN </label>
-<input type="text" id="tokenPagseguro" name="tokenPagseguro" value="<?php echo $tokenPagseguro; ?>" />
-</p>
-
-<p>Lembre-se de ATIVAR a opção <strong>Integrações- >Notificações</strong> em sua conta no pagseguro e definir a url de retorno de seu site para :<?php echo get_bloginfo('url'); ?></p>
-
-</div>
-
-<hr/>
-
- 
-<h2  style="background:#eee;padding:10px;cursor:pointer"> 
-
-<input type="checkbox" name="ativaCielo" value="ativaCielo"  <?php  if($ativaCielo=='ativaCielo'){ echo "CHECKED"; }; ?> /> 
-
-2 ) <img src='<?php echo $plugin_directory."images/cielo.png "; ?>' /> Cielo <span   class="btEditarFrete"   rel="cielo" style="font-size:12px"> (Editar)  </span></h2>
-
-
-<div id="cielo" style="display:none" class="box" >
-
-<p>Preencha seus dados de integração com a Cielo :</p>
-
-<p>
-<labe for="emailRedecard">Numero Filiação</label>
-<input type="text" id="filiacaoCielo" name="filiacaoCielo" value="<?php echo $filiacaoCielo; ?>" />
-</p>
-
-<p>
-<labe for="filicaoRedecard">Chave</label>
-<input type="text" id="chaveCielo" name="chaveCielo" value="<?php echo $chaveCielo; ?>" />
-</p>
-
- 
-
-
-<table>
-						<tbody><tr>
-							<td>
-								Parcelamento
-							</td>
-							<td><?php //echo $tipoParcelamentoCielo; ?>
-								<select name="tipoParcelamentoCielo">
-									<option value="2" <? if($tipoParcelamentoCielo=='2'){ echo 'selected="selected" '; }; ?> >Loja</option>
-									<option value="3"  <? if($tipoParcelamentoCielo=='3'){ echo 'selected="selected" '; }; ?> >Administradora</option>
-								</select>
-							</td>
-						</tr>
-						<tr>
-							<td>Capturar Automaticamente?</td>
-							<td><?php //echo $capturarAutomaticamenteCielo; ?>
-								<select name="capturarAutomaticamenteCielo">
-									<option value="true"  <? if($capturarAutomaticamenteCielo=='true'){ echo 'selected="selected" '; }; ?> >Sim</option>
-									<option value="false"  <? if($capturarAutomaticamenteCielo=='false'){ echo 'selected="selected" '; }; ?> >Não</option>
-								</select>
-							</td>
-						</tr>
-						<tr>
-							<td>Autorização Automática</td>
-							<td><?php //echo $indicadorAutorizacaoCielo; ?>
-								<select name="indicadorAutorizacaoCielo">
-									<option value="3" <? if($indicadorAutorizacaoCielo=='3'){ echo 'selected="selected" '; }; ?> >Autorizar Direto</option>
-									<option value="2" <? if($indicadorAutorizacaoCielo=='2'){ echo 'selected="selected" '; }; ?> >Autorizar transação autenticada e não-autenticada</option>
-									<option value="0" <? if($indicadorAutorizacaoCielo=='0'){ echo 'selected="selected" '; }; ?> >Somente autenticar a transação</option>
-									<option value="1" <? if($indicadorAutorizacaoCielo=='1'){ echo 'selected="selected" '; }; ?> >Autorizar transação somente se autenticada</option>
-								</select>
-							</td>
-						</tr>
-					</tbody></table>
-					
-					
-
-
-</div>
-
-
-
-
-<hr/>  
-
     
-
-
-
-
-<h2  style="background:#eee;padding:10px;cursor:pointer"> 
-
-<input type="checkbox" name="ativaMoip" value="ativaMoip"  <?php  if($ativaMoip =='ativaMoip'){ echo "CHECKED"; }; ?> /> 
-
-3 ) <img src='<?php echo $plugin_directory."images/moip.png "; ?>' /> Moip <span   class="btEditarFrete"   rel="moip" style="font-size:12px"> (Editar)  </span></h2>
-
-<div id="moip" style="display:none" class="box" >
-
-<p>Preencha seus dados de integração com o MOIP :</p>
-
-<p>
-<labe for="emailPaypal">Email Cadastro Moip</label>
-<input type="text" id="emailMoip" name="emailMoip" value="<?php echo $emailMoip; ?>" />
-</p>  
-
-
-<p>
-<labe for="emailPaypal">Crie uma chave de identificação para a URL de confirmação do Moip</label>
-<input type="text" id="meuPinMoip" name="meuPinMoip" value="<?php echo $meuPinMoip; ?>" />
-<br/><span> Você usará esta chave para certificar que suas mensagens de autenticação são do MOIP.</span>
-<br/>  <?php if($meuPinMoip==""){$meuPinMoip = "suachave"; }; ?>
-<span>Sua url de autenticação  no Moip : http://wpstore.com.br/loja1/?confirmaMoip=<strong><?php echo $meuPinMoip; ?></strong></span>
-</p>
-
- 
-</div>
- 
-<hr/>
-
-
-
-
-
-
-
-
-
-
-
-
-<h2  style="background:#eee;padding:10px;cursor:pointer"> 
-
-<input type="checkbox" name="ativaPaypal" value="ativaPaypal"  <?php  if($ativaPaypal=='ativaPaypal'){ echo "CHECKED"; }; ?> /> 
-
-4 )<img src='<?php echo $plugin_directory."images/paypal.png "; ?>' />  Paypal <span   class="btEditarFrete"   rel="paypal" style="font-size:12px"> (Editar)  </span></h2>
-
-
-<div id="paypal" style="display:none" class="box" >
-
-<p>Preencha seus dados de integração com o paypal :</p>
-
-<p>
-<labe for="emailPaypal">Email Cadastro Paypal</label>
-<input type="text" id="emailPaypal" name="emailPaypal" value="<?php echo $emailPaypal; ?>" />
-</p>
-
-<p> 
-
-<labe for="chavePaypal">Current CODE</label>    
-
-<select  id="currentCodePaypal" name="currentCodePaypal"> 
-<option value="USD" <?php if($currentCodePaypal=="USD"){ echo "SELECTED"; }; ?> >USD - American Dollars</option>
-<option value="BRL" <?php if($currentCodePaypal=="BRL"){ echo "SELECTED"; };  ?> >BRL - Real Brasileiro</option> 
-</select>  
-
-</p>
- 
-</div>
-
-
-
-
-<hr/>
-
-
-
-
-
-
-<h2  style="background:#eee;padding:10px;cursor:pointer">
-
-<input type="checkbox" name="ativaDeposito" value="ativaDeposito"  <?php  if($ativaDeposito=='ativaDeposito'){ echo "CHECKED"; }; ?> /> 
-
-5 ) <img src='<?php echo $plugin_directory."images/deposito.png "; ?>' /> Depósito bancário <span   class="btEditarFrete"   rel="deposito" style="font-size:12px"> (Editar)  </span></h2>
-
-<div id="deposito" style="display:none" class="box" >
-
-<p>Preencha seus dados bancários para depósito :</p>
-
-
-<p>
-<labe for="depositoNomeCnpj">Nome / CNPJ</label>
-<input type="text" id="depositoNomeCnpj" name="depositoNomeCnpj" value="<?php echo $depositoNomeCnpj; ?>" />
-</p>
-
-
-
-
-<p>
-<labe for="depositoBanco1">Opção Banco 1</label>
-<input type="text" id="depositoBanco1" name="depositoBanco1" value="<?php echo $depositoBanco1; ?>" />
-</p>
-
-<p>
-<labe for="depositoAgencia1">Opção Agência 1</label>
-<input type="text" id="depositoAgencia1" name="depositoAgencia1" value="<?php echo $depositoAgencia1; ?>" />
-</p>
-
-
-<p>
-<labe for="depositoConta1">Opção Conta 1</label>
-<input type="text" id="depositoConta1" name="depositoConta1" value="<?php echo $depositoConta1; ?>" />
-</p>
-
- 
-
-<p>
-<labe for="depositoBanco2">Opção Banco 2</label>
-<input type="text" id="depositoBanco2" name="depositoBanco2" value="<?php echo $depositoBanco2; ?>" />
-</p>
-
-<p>
-<labe for="depositoAgencia2">Opção Agência 2</label>
-<input type="text" id="depositoAgencia2" name="depositoAgencia2" value="<?php echo $depositoAgencia2; ?>" />
-</p>
-
-
-<p>
-<labe for="depositoConta2">Opção Conta 2</label>
-<input type="text" id="depositoConta2" name="depositoConta2" value="<?php echo $depositoConta2; ?>" />
-</p>
-
-
-<p>
-<labe for="depositoMaisInfos">Mais Informações:</label><br/>
-<textarea id="depositoMaisInfos" name="depositoMaisInfos"  style="width:50%" >
-<?php echo $depositoMaisInfos; ?>
-</textarea>
-</p>
-
-
-</div>
-
-
- 
-<hr/>
-
-
-
-<h2  style="background:#eee;padding:10px;cursor:pointer"> 
-
-<input type="checkbox" name="ativaRetirada" value="ativaRetirada"  <?php  if($ativaRetirada=='ativaRetirada'){ echo "CHECKED"; }; ?> /> 
-
-6 ) <img src='<?php echo $plugin_directory."images/retirada.png "; ?>' /> Retirar na Loja <span   class="btEditarFrete"   rel="retirada" style="font-size:12px"> (Editar)  </span></h2>
-
-<div id="retirada" style="display:none" class="box" >
-
-<p>Preencha abaixo os dados e mensagem para reserva com  pagamento e  retirada de produtos na loja  :</p>
  
  
-<p>
-<labe for="enderecoRetirada">Endereço e infos para retirada:</label><br/>
-<textarea id="enderecoRetirada" name="enderecoRetirada"  style="width:50%" >
-<?php echo $enderecoRetirada; ?>
-</textarea>
-</p>
-
-</div>
  
  
-<hr/>      
-
  
  
 
+    <div id="cabecalho">
+    	<ul class="abas">
+    		<li>
+    			<div class="aba gradient">
+    				<span>Configurações de Pagamento</span>
+    			</div>
+    		</li>  
+
+    		 <?php /* 
+    		<li>
+    			<div class="aba gradient">
+    				<span>Homepage</span>
+    			</div>
+    		</li>
+    		<li>
+    			<div class="aba gradient">
+    				<span>Slide Home</span>
+    			</div>
+    		</li>
+    		<li>
+    			<div class="aba gradient">
+    				<span>Sidebar</span>
+    			</div>
+    		</li>                   
+
+    					*/ ?>      
+
+    		<div class="clear"></div>
+    	</ul>
+    </div><!-- #cabecalho -->       
+
+
+
+
+
+    <div id="containerAbas">  
+
+
+
+    	<div class="conteudo">
+
+
+
+
+
+
+
+<div class="bloco"> 
+
+		<h3> 
+		
+        <input type="checkbox" name="ativaPagseguro" value="ativaPagseguro"  <?php  if($ativaPagseguro=='ativaPagseguro'){ echo "CHECKED"; }; ?> />  
+        1 ) <img src='<?php echo $plugin_directory."images/pagseguro.png "; ?>' />  Pagseguro
+        
+        </h3>
+
+	              <span class="seta" rel='Pagseguro'></span>
+				   	 <div class="texto" id='Pagseguro'>
+		   
+		   
+		   
+		   
+                         <p>Preencha seus dados do Pagseguro :</p>
+
+                         <p>
+                         <label for="emailPagseguro">Pagseguro Email</label>
+                         <input type="text" id="emailPagseguro" name="emailPagseguro" value="<?php echo $emailPagseguro; ?>" />
+                         </p>
+
+                         <p>
+                         <label for="emailPagseguro">Pagseguro TOKEN </label>
+                         <input type="text" id="tokenPagseguro" name="tokenPagseguro" value="<?php echo $tokenPagseguro; ?>" />
+                         </p>
+
+                         <p>Lembre-se de ATIVAR a opção <strong>Integrações- >Notificações</strong> em sua conta no pagseguro e definir a url de retorno de seu site para :<?php echo get_bloginfo('url'); ?></p>
+
+
+                 <input type="submit"  name="submit" value="Salvar"   />   
+
+                   
+		   </div><!-- .texto -->
+			</div><!-- .bloco -->
+			
+			
+			
+
+ 
+ 
+ 
+ 
+ <div class="bloco"> 
+
+ 		<h3> <input type="checkbox" name="ativaCielo" value="ativaCielo"  <?php  if($ativaCielo=='ativaCielo'){ echo "CHECKED"; }; ?> /> 
+
+        2 ) <img src='<?php echo $plugin_directory."images/cielo.png "; ?>' /> Cielo </h3>
+
+ 	              <span class="seta" rel='Cielo'></span>
+ 				   	 <div class="texto" id='Cielo'>
+ 		   
+ 		   
+ 		   
+ 		   
+ 		                 <p>Preencha seus dados de integração com a Cielo :</p>
+
+                         <p>
+                         <labe for="emailRedecard">Numero Filiação</label>
+                         <input type="text" id="filiacaoCielo" name="filiacaoCielo" value="<?php echo $filiacaoCielo; ?>" />
+                         </p>
+
+                         <p>
+                         <labe for="filicaoRedecard">Chave</label>
+                         <input type="text" id="chaveCielo" name="chaveCielo" value="<?php echo $chaveCielo; ?>" />
+                         </p>
+
+
+
+
+                         <table>
+                         						<tbody><tr>
+                         							<td>
+                         								Parcelamento
+                         							</td>
+                         							<td><?php //echo $tipoParcelamentoCielo; ?>
+                         								<select name="tipoParcelamentoCielo">
+                         									<option value="2" <? if($tipoParcelamentoCielo=='2'){ echo 'selected="selected" '; }; ?> >Loja</option>
+                         									<option value="3"  <? if($tipoParcelamentoCielo=='3'){ echo 'selected="selected" '; }; ?> >Administradora</option>
+                         								</select>
+                         							</td>
+                         						</tr>
+                         						<tr>
+                         							<td>Capturar Automaticamente?</td>
+                         							<td><?php //echo $capturarAutomaticamenteCielo; ?>
+                         								<select name="capturarAutomaticamenteCielo">
+                         									<option value="true"  <? if($capturarAutomaticamenteCielo=='true'){ echo 'selected="selected" '; }; ?> >Sim</option>
+                         									<option value="false"  <? if($capturarAutomaticamenteCielo=='false'){ echo 'selected="selected" '; }; ?> >Não</option>
+                         								</select>
+                         							</td>
+                         						</tr>
+                         						<tr>
+                         							<td>Autorização Automática</td>
+                         							<td><?php //echo $indicadorAutorizacaoCielo; ?>
+                         								<select name="indicadorAutorizacaoCielo">
+                         									<option value="3" <? if($indicadorAutorizacaoCielo=='3'){ echo 'selected="selected" '; }; ?> >Autorizar Direto</option>
+                         									<option value="2" <? if($indicadorAutorizacaoCielo=='2'){ echo 'selected="selected" '; }; ?> >Autorizar transação autenticada e não-autenticada</option>
+                         									<option value="0" <? if($indicadorAutorizacaoCielo=='0'){ echo 'selected="selected" '; }; ?> >Somente autenticar a transação</option>
+                         									<option value="1" <? if($indicadorAutorizacaoCielo=='1'){ echo 'selected="selected" '; }; ?> >Autorizar transação somente se autenticada</option>
+                         								</select>
+                         							</td>
+                         						</tr>
+                         					</tbody></table>
+                         					
+                         					
+                         					
+
+                   <input type="submit"  name="submit" value="Salvar"   />   
+
+
+ 		   </div><!-- .texto -->
+ 			</div><!-- .bloco -->
+ 			
+ 			
+ 			
+ 
+ 
+ 
+ 
+ 
+ 
+ <div class="bloco"> 
+
+ 		<h3> 
+ 		
+ 		
+        <input type="checkbox" name="ativaMoip" value="ativaMoip"  <?php  if($ativaMoip =='ativaMoip'){ echo "CHECKED"; }; ?> /> 
+
+        3 ) <img src='<?php echo $plugin_directory."images/moip.png "; ?>' /> Moip
+        
+        </h3>
+
+ 	              <span class="seta" rel='Moip'></span>
+ 				   	 <div class="texto" id='Moip'>
+
+
+
+                         <p>Preencha seus dados de integração com o MOIP :</p>
+
+                         <p>
+                         <labe for="emailPaypal">Email Cadastro Moip</label>
+                         <input type="text" id="emailMoip" name="emailMoip" value="<?php echo $emailMoip; ?>" />
+                         </p>  
+
+
+                         <p>
+                         <labe for="emailPaypal">Crie uma chave de identificação para a URL de confirmação do Moip</label>
+                         <input type="text" id="meuPinMoip" name="meuPinMoip" value="<?php echo $meuPinMoip; ?>" />
+                         <br/><span> Você usará esta chave para certificar que suas mensagens de autenticação são do MOIP.</span>
+                         <br/>  <?php if($meuPinMoip==""){$meuPinMoip = "suachave"; }; ?>
+                         <span>Sua url de autenticação  no Moip : http://wpstore.com.br/loja1/?confirmaMoip=<strong><?php echo $meuPinMoip; ?></strong></span>
+                         </p>
+
+
+                  <input type="submit"  name="submit" value="Salvar"   />   
+
+ 		   </div><!-- .texto -->
+ 			</div><!-- .bloco -->
+ 
+ 
+ 
+ 
+
+
+
+
+
+<div class="bloco"> 
+
+		<h3> 4 ) 
+		
+		
+        <input type="checkbox" name="ativaPaypal" value="ativaPaypal"  <?php  if($ativaPaypal =='ativaPaypal'){ echo "CHECKED"; }; ?> />
+        
+        <img src='<?php echo $plugin_directory."images/paypal.png "; ?>' /> Paypal </h3>
+
+	              <span class="seta" rel='Paypal'></span>
+				   	 <div class="texto" id='Paypal'>
+		   	  
+		   	  
+		   	  
+		   	  
+		   	             <p>Preencha seus dados de integração com o paypal :</p>
+
+                         <p>
+                         <labe for="emailPaypal">Email Cadastro Paypal</label>
+                         <input type="text" id="emailPaypal" name="emailPaypal" value="<?php echo $emailPaypal; ?>" />
+                         </p>
+
+                         <p> 
+
+                         <labe for="chavePaypal">Current CODE</label>    
+
+                         <select  id="currentCodePaypal" name="currentCodePaypal"> 
+                         <option value="USD" <?php if($currentCodePaypal=="USD"){ echo "SELECTED"; }; ?> >USD - American Dollars</option>
+                         <option value="BRL" <?php if($currentCodePaypal=="BRL"){ echo "SELECTED"; };  ?> >BRL - Real Brasileiro</option> 
+                         </select>  
+
+                         </p>
+
+
+                    <input type="submit"  name="submit" value="Salvar"   />   
+                   
+		   </div><!-- .texto -->
+			</div><!-- .bloco -->
+			
+			
+ 
+ 
+ 
+
+
+
+ 
+
+
+
+
+
+
+         
+   
+       <div class="bloco"> 
+          
+				<h3> 5 ) 
+				
+				 <input type="checkbox" name="ativaDeposito" value="ativaDeposito"  <?php  if($ativaDeposito=='ativaDeposito'){ echo "CHECKED"; }; ?> /> 
+
+                 <img src='<?php echo $plugin_directory."images/deposito.png "; ?>' /> Depósito bancário
+                
+                </h3>
+
+			              <span class="seta" rel='Deposito'></span>
+   						   	
+   						  <div class="texto" id='Deposito'>
+   						   	 
+			              
+			              
+			              <p>Preencha seus dados bancários para depósito :</p>
+
+
+                          <p>
+                          <labe for="depositoNomeCnpj">Nome / CNPJ</label>
+                          <input type="text" id="depositoNomeCnpj" name="depositoNomeCnpj" value="<?php echo $depositoNomeCnpj; ?>" />
+                          </p>
+
+
+
+
+                          <p>
+                          <labe for="depositoBanco1">Opção Banco 1</label>
+                          <input type="text" id="depositoBanco1" name="depositoBanco1" value="<?php echo $depositoBanco1; ?>" />
+                          </p>
+
+                          <p>
+                          <labe for="depositoAgencia1">Opção Agência 1</label>
+                          <input type="text" id="depositoAgencia1" name="depositoAgencia1" value="<?php echo $depositoAgencia1; ?>" />
+                          </p>
+
+
+                          <p>
+                          <labe for="depositoConta1">Opção Conta 1</label>
+                          <input type="text" id="depositoConta1" name="depositoConta1" value="<?php echo $depositoConta1; ?>" />
+                          </p>
+
+
+
+                          <p>
+                          <labe for="depositoBanco2">Opção Banco 2</label>
+                          <input type="text" id="depositoBanco2" name="depositoBanco2" value="<?php echo $depositoBanco2; ?>" />
+                          </p>
+
+                          <p>
+                          <labe for="depositoAgencia2">Opção Agência 2</label>
+                          <input type="text" id="depositoAgencia2" name="depositoAgencia2" value="<?php echo $depositoAgencia2; ?>" />
+                          </p>
+
+
+                          <p>
+                          <labe for="depositoConta2">Opção Conta 2</label>
+                          <input type="text" id="depositoConta2" name="depositoConta2" value="<?php echo $depositoConta2; ?>" />
+                          </p>
+
+
+                          <p>
+                          <labe for="depositoMaisInfos">Mais Informações:</label><br/>
+                          <textarea id="depositoMaisInfos" name="depositoMaisInfos"  style="width:50%" >
+                          <?php echo $depositoMaisInfos; ?>
+                          </textarea>
+                          </p>
+                          
+                          
+
+                       <input type="submit"  name="submit" value="Salvar"   />   
+
+                             
+				   </div><!-- .texto -->
+					</div><!-- .bloco -->
+   
+   
+
+
+
+
+
+                           <div class="bloco">
+
+
+
+
+                 				<h3> 6 )<input type="checkbox" name="ativaRetirada" value="ativaRetirada"  <?php  if($ativaRetirada=='ativaRetirada'){ echo "CHECKED"; }; ?> />    
+                 				 <img src='<?php echo $plugin_directory."images/retirada.png "; ?>' /> Retirar na Loja </h3>
+
+                 			              <span class="seta" rel='retirada'></span>
+                 						   	 <div class="texto" id='retirada'>
+                 				   	    	 <p>Preencha abaixo os dados e mensagem para reserva com  pagamento e  retirada de produtos na loja  :</p>
+                               	    	 <p>
+                 				      	     <labe for="enderecoRetirada">Endereço e infos para retirada:</label><br/>
+                 				      	 <textarea id="enderecoRetirada" name="enderecoRetirada"  style="width:50%" >
+                 				      	 <?php echo $enderecoRetirada; ?>
+                 				      	 </textarea>
+                 				      	 </p>
+
+                                     <input type="submit"  name="submit" value="Salvar"   />   
+
+
+                 				   </div><!-- .texto -->
+                 					</div><!-- .bloco -->
 
 
 
@@ -509,23 +607,56 @@ $meuPinMoip = get_option('meuPinMoip');
 
 
 
-
- <input type="submit"  name="submit" value="Gravar"   />
+ <input type="submit"  name="submit" value="Salvar"   />
 
 
 </form>
 
 
 
-<script>
 
-jQuery('.btEditarFrete').click(function(){
-    rel = jQuery(this).attr('rel');
-    jQuery('.box').hide();
-    jQuery('#'+rel).show();
-});
 
-</script>
+	</div>  
+	
+	
+	<?php /*
+	<div class="conteudo">
+		Conteúdo da aba 2
+	</div>
+	
+	
+	<div class="conteudo">
+		Conteúdo da aba 3
+	</div>    
+	
+	
+	<div class="conteudo">
+		Conteúdo da aba 4
+	</div>     
+	*/ ?>
+	
+	
+	
+	
+</div><!-- .content -->
+
+ 
+
+
+ <script>
+
+ jQuery('.seta').click(function(){
+     rel = jQuery(this).attr('rel');
+     jQuery('.texto').hide();
+     jQuery('#'+rel).show();
+ });    
+ 
+ 
+ 
+
+ </script>
+ 
+ 
 
 
 
