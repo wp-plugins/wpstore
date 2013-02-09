@@ -150,7 +150,7 @@ if($moedaCorrente==""){
 
          include('Paypal/Paypal_response.php');         
          
-   }elseif($tipo_pagto=="GoogleCK"){ // ----------------- RETIRADA NA LOJA ------------------------
+   }elseif($tipo_pagto=="Moip"){ // ----------------- RETIRADA NA LOJA ------------------------
           
           include('Moip/Moip_response.php');          
           
