@@ -51,7 +51,8 @@ $displayNameUser  = "";
 $frete = "";              
  
 
-
+ $descProdutos = "";
+ $pesoTotal = "";
 
 
 
@@ -140,20 +141,10 @@ $Array[] = array();
             '".$qtd."'               // quantity - required
           ]); ";   
           
-          //0.40 ->PRECO  
-          $precoP = str_replace(',','*',$precoFinal);
-          $precoP = str_replace('.',',',$precoP);
-          $precoP = str_replace('*','.',$precoP); 
-          
-         // $precoP = "0.40";
-          
-        $inputsProdutos .='
-          <input type="hidden" name="item_name_'.$countPrd.'" value="'.$strNew.'">
-          <input type="hidden" name="amount_'.$countPrd.'" value="'.$precoP.'">
-          ';  
- 
-    
-	
+   
+        $descProdutos.= "$strNew ($preco) | ";
+        
+        
 	$freteV = 0;  $countPrd+=1;  
 	 
 }; //End If Pagseguro Add
@@ -191,9 +182,7 @@ $Array[] = array();
     $userTelefone = trim(get_user_meta($idUser,'userTelefone',true));if($userTelefone==""){$userTelefone="";};
     
     $displayNameUser  = utf8_decode(trim(htmlentities(stripslashes($displayNameUser), ENT_QUOTES,'utf-8')));              
- 
-    //echo"Usuário:$nome";      
- 
+   
     $cidade = $userCidade;
     $estado = $userEstado;
 
