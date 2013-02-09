@@ -1,58 +1,62 @@
 <?php
 
 
-$emailPaypal = get_option('emailPaypal');        
-$currentCodePaypal  = get_option('currentCodePaypal');         
-
-//0.40 ->PRECO  
-    $frete = str_replace(',','*', $frete);
-    $frete = str_replace('.',',', $frete);
-    $frete = str_replace('*','.', $frete);
-    
+$emailMoip = get_option('emailMoip');        
+ 
 
 $txtPrint .='
 
-<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="BLANK"> 
+<form action="https://www.moip.com.br/PagamentoMoIP.do" method="post" target="BLANK"> 
     
-<input type="hidden" name="cmd" value="_cart">      
+  
 
-<input type="hidden" name="upload" value="1">       
+<input type="hidden" name="id_carteira" value="'.$emailMoip.'">
+ 
+<input type="hidden" name="valor" value="'.$total.'">   
 
-<input type="hidden" name="business" value="'.$emailPaypal.'">
-<input type="hidden" name="currency_code" value="'.$currentCodePaypal.'">
+<input type="hidden" name="nome" value="'.get_bloginfo('name').'"> 
+
+<input type="hidden" name="descricao" value="'.$descProdutos.'"> 
+
+
+<input type="hidden" name="id_transacao" value="'.$idPedido.'">    
+
+
+<input type="hidden" name="frete" value="1">   
+
+<input type="hidden" name="peso_compra" value="'.$pesoTotal.'">  
+ 
+<INPUT TYPE="hidden" NAME="pagador_nome" VALUE="'.$current_user->user_firstname.' '.$current_user->user_lastname.' ">
+
+<INPUT TYPE="hidden" NAME="pagador_logradouro" VALUE="'.$userEndereco.'">   
+
+<INPUT TYPE="hidden" NAME="pagador_numero" VALUE="'.$userNumero.'">   
+ 
+<INPUT TYPE="hidden" NAME="pagador_complemento" VALUE="'.$userComplemento.'">              
  
 
-'.$inputsProdutos.'
+<INPUT TYPE="hidden" NAME="pagador_bairro" VALUE="'.$userBairro.'">      
 
+<INPUT TYPE="hidden" NAME="pagador_cidade" VALUE="'.$userCidade.'">
+<INPUT TYPE="hidden" NAME="pagador_estado" VALUE="'.$userEstado.'">
+<INPUT TYPE="hidden" NAME="pagador_cep" VALUE="'.$userCep.'"> 
 
-<input type="hidden" name="shipping_1" value="'.$frete.'">
-<input type="hidden" name="shipping_2" value="00.00"> 
+<INPUT TYPE="hidden" NAME="pagador_email" VALUE="'.$userEmail.'">   
+
+<INPUT TYPE="hidden" NAME="pagador_telefone" VALUE="'.$userDDD.' '.$userTelefone.'">  
+
+<INPUT TYPE="hidden" NAME="pagador_celular" VALUE="'.$userDDDCelular.' '.$userCelular.'">  
+
+<INPUT TYPE="hidden" NAME="pagador_cpf" VALUE="'.$userCpf.'"> 
+
+<INPUT TYPE="hidden" NAME="pagador_sexo" VALUE="'.$userSexo.'">   
  
-<input type="hidden" name="lc" value="BR">
-<INPUT TYPE="hidden" name="charset" value="utf-8"> 
- 
-
-<INPUT TYPE="hidden" NAME="first_name" VALUE="'.$current_user->user_firstname.'">
-<INPUT TYPE="hidden" NAME="last_name" VALUE="'.$current_user->user_lastname.'">
-<INPUT TYPE="hidden" NAME="address1" VALUE="'.$userEndereco.'">
-<INPUT TYPE="hidden" NAME="address2" VALUE="'.$userBairro.'">  
-<INPUT TYPE="hidden" NAME="city" VALUE="'.$userCidade.'">
-<INPUT TYPE="hidden" NAME="state" VALUE="'.$userEstado.'">
-<INPUT TYPE="hidden" NAME="zip" VALUE="'.$userCep.'">
-<INPUT TYPE="hidden" NAME="email" VALUE="'.$userEmail.'">
-<INPUT TYPE="hidden" NAME="night_phone_a" VALUE="'.$userDDD.'">
-<INPUT TYPE="hidden" NAME="night_phone_b" VALUE="'.$userTelefone.'">  
-
-
-<INPUT TYPE="hidden" NAME="shopping_url" VALUE="'.get_bloginfo('url').'"> 
-<INPUT TYPE="hidden" NAME="return" VALUE="'.get_bloginfo('url').'"> 
-<INPUT TYPE="hidden" NAME="rm" VALUE="0">    
+<INPUT TYPE="hidden" NAME="pagador_data_nascimento" VALUE="'.$userNascimento.'"> 
 
 <INPUT TYPE="hidden" NAME="notify_url" VALUE="'.get_bloginfo('url').'/?cdp='.$idPedido.'"> 
   
+ <input type="image" name="submit" src="https://static.moip.com.br/imgs/buttons/bt_pagar_c01_e04.png" alt="Pagar com Moip" border="0" />
 
-                                 
-<input type="image" src="https://www.paypal.com/pt_BR/i/btn/btn_xpressCheckout.gif" name="submit" alt="Make payments with PayPal - its fast, free and secure!">
 
 </form>
 ';   
