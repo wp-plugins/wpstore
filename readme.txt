@@ -1,4 +1,4 @@
-=== Plugin Name ===
+=== WP STORE ===
 
 Contributors: jmorettoni,ruddycavalcanti
 Plugin Name:Wp Store
