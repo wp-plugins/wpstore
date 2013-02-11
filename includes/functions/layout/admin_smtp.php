@@ -284,7 +284,7 @@ $smtpDebug= get_option('smtpDebugWPSHOP');
                                                                 			<div class="texto" id='smtpPSmtp'>
 
 
-                                                                                             <label for="valorFreteValor6">Defina o email/usuario do CMTP </label>
+                                                                                             <label for="valorFreteValor6">Defina o email/usuario do SMTP </label>
                                                                                                  <br/>
                                                                                                  <input type="password" id="smtpPass" name="smtpPass" value="<?php echo $smtpPass; ?>"   style="width:40%" />
                                                                                                 <br/>
