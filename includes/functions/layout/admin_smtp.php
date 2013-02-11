@@ -178,7 +178,7 @@ $smtpDebug= get_option('smtpDebugWPSHOP');
 	   
                                        <div class="bloco">      
 
-                                			<h3>3 )  Ativar SMTP DEBUG</h3>
+                                			<h3>3 )  Porta do Servidor</h3>
 
                                 			<span class="seta" rel='ativaSmtpDb'></span>
                                 			<div class="texto" id='ativaSmtpDb'>
