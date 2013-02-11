@@ -6,7 +6,7 @@ Description:  Este plugin adiciona um completo módulo de e-commerce em seu word
 --This plugin Add a complete ecommerce module for wordpress , with global and brazilan payments.
 Version: 1.1.1
 Author: José Morettoni
-Author URI: http://wpstore.com.br/
+Author URI: http://profiles.wordpress.org/jmorettoni/
 License: GPL2
 */
     /*  

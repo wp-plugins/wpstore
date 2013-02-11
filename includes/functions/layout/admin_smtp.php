@@ -113,7 +113,7 @@ $smtpDebug= get_option('smtpDebugWPSHOP');
   
           <div class="bloco">      
 			
-			<h3>1 ) Ativar SMTP</h3>
+			<h3>1 ) Ativar Autênticação SMTP</h3>
 			
 			<span class="seta" rel='ativarSmtp'></span>
 			<div class="texto" id='ativarSmtp'>
@@ -142,40 +142,14 @@ $smtpDebug= get_option('smtpDebugWPSHOP');
             
             
             
-            
-            
-                <div class="bloco">      
-
-        			<h3>2 )  Autênticação SMTP</h3>
-
-        			<span class="seta" rel='autenticaSmtp'></span>
-        			<div class="texto" id='autenticaSmtp'>
-
-
-        		          <label for="valorFreteValor6">Defina se deseja ativar a autênticação SMTP para enviar emails da loja. </label>
-                          <br/>  
-
-                           <select id="smtpAtivo" name="smtpAtivo" >     
-                            <option <?php if($smtpAtivo=='N'){ echo "SELECTED";};  ?> value='N' >Não</option>  
-                            <option <?php if($smtpAtivo=='Y'){ echo "SELECTED";};  ?> value='Y' >Sim</option>
-                           </select>  
-
-                          <br/>
-                          <span style="font-size:10px">Ao ativar o SMTP você torna o envio de seus emails autênticados.</span>
-                   
-                                    				 <br/>  
-          	       <input type="submit"  name="submit" value="Salvar"   />  
-
-                     </div>
-                     </div><!-- .bloco -->
-                    
+      
                     
                     
                     
                     
                     <div class="bloco">      
 
-            			<h3>3 )  Ativar SMTP DEBUG</h3>
+            			<h3>2 )  Ativar SMTP DEBUG</h3>
 
             			<span class="seta" rel='debugSmtp'></span>
             			<div class="texto" id='debugSmtp'>
@@ -204,7 +178,7 @@ $smtpDebug= get_option('smtpDebugWPSHOP');
 	   
                                        <div class="bloco">      
 
-                                			<h3>4 )  Ativar SMTP DEBUG</h3>
+                                			<h3>3 )  Ativar SMTP DEBUG</h3>
 
                                 			<span class="seta" rel='ativaSmtpDb'></span>
                                 			<div class="texto" id='ativaSmtpDb'>
@@ -229,7 +203,7 @@ $smtpDebug= get_option('smtpDebugWPSHOP');
 
                                               <div class="bloco">      
 
-                                        			<h3>5 ) SMTP SECURE</h3>
+                                        			<h3>4 ) SMTP SECURE</h3>
 
                                         			<span class="seta" rel='secureSmtp'></span>
                                         			<div class="texto" id='secureSmtp'>
@@ -253,7 +227,7 @@ $smtpDebug= get_option('smtpDebugWPSHOP');
      
                                                     <div class="bloco">      
 
-                                              			<h3>6 )SMTP HOST</h3>
+                                              			<h3>5 )SMTP HOST</h3>
 
                                               			<span class="seta" rel='hostSmtp'></span>
                                               			<div class="texto" id='hostSmtp'>
@@ -279,7 +253,7 @@ $smtpDebug= get_option('smtpDebugWPSHOP');
 
                                                               <div class="bloco">      
 
-                                                        			<h3>7 ) SMTP USER NAME</h3>
+                                                        			<h3>6 ) SMTP USER NAME</h3>
 
                                                         			<span class="seta" rel='userNSmtp'></span>
                                                         			<div class="texto" id='userNSmtp'>
@@ -304,7 +278,7 @@ $smtpDebug= get_option('smtpDebugWPSHOP');
                     
                                                                      <div class="bloco">      
 
-                                                                			<h3>8 ) SMTP USER PASSWORD</h3>
+                                                                			<h3>7 ) SMTP USER PASSWORD</h3>
 
                                                                 			<span class="seta" rel='smtpPSmtp'></span>
                                                                 			<div class="texto" id='smtpPSmtp'>
@@ -379,6 +353,5 @@ $smtpDebug= get_option('smtpDebugWPSHOP');
 
 
            </script>
-           
            
            
