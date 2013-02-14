@@ -90,7 +90,7 @@ function custom_get_category_id($blog_ID=1,$catName){
 
 
   /* */
-
+ 
 
   add_action('save_post','my_cf_check');
   function my_cf_check($post_id) {
@@ -124,7 +124,19 @@ function custom_get_category_id($blog_ID=1,$catName){
   }
 
   /* */
-
+          
+ 
+ 
+ add_action(  'delete_post' ,'apagarCores'); 
+ add_action('trash_post','apagarCores',1,1);     
+ function   apagarCores($post_id){ 
+     if(!did_action('trash_post')){ 
+        global $wpdb; 
+        $table_name = $wpdb->prefix."wpstore_stock"; 
+        $sql = "DELETE FROM  `$table_name`  WHERE `idPost`='$post_id' "; 
+        $wpdb->query($wpdb->prepare("$sql",'')); 
+     }  
+ };
 
 
   if ( ! function_exists( 'ucc_add_cpts_to_pre_get_posts' ) ) {
