@@ -888,26 +888,21 @@ $data = get_post_meta($post->ID, $key, true);
                 var imagemItem = ""+jQuery('#'+chaveItem+'Imagem').val();
                 
                 var imagemItem = ""+jQuery('#'+chaveItem+'Imagem').val();
-                if(imagemItem=="" || imagemItem=="undefined"){
+                if(imagemItem==""){
                     imagemItem="#F4F4F4";
                 }
-                if( imagemItem=="undefined"){
-                    imagemItem="";
-                }
                var qtdProdV = ""+jQuery('#'+chaveItem+'Qtd').val();
-                  
-                  //  alert(postID);alert(operacaoTipo);alert(nomeItem);  alert(symbolItem);    alert(precoItem);   alert(imagemItem);   alert(qtdProdV);
-              
+        
                jQuery.post(urlBase+"addAjaxStockItem.php", { postIDP:postID, operacaoTipoP:operacaoTipo  ,  nomeItemP:nomeItem , symbolItemP:symbolItem , precoItemP : precoItem , imagemItemP:imagemItem ,  qtdProd:qtdProdV     },
                  function(data) { 
-                             alert(data);
+                   
                           var msgTxt= "";
                           
                           hideCarregador('#carregando'+operacaoTipo);
                           
                            if(data>0){ msgTxt= "Adicionado com Sucesso!"; }
                          
-                          msg(msgTxt); 
+                           //msg(msgTxt); 
   
                            IDITEM = ""+data;
                       
