@@ -124,7 +124,12 @@ Upgrade notices :
 
 1.1.1 : 
       - New : Add MOIP and Paypal in payment methods;
-      - New : Admin Plugin Style;
+      - New : Admin Plugin Style; 
+
+
+1.1.2 : 
+	      - FIXED ERROR : In version 1.1 Collum qtdProduto  in table wpstore_stock  was created with space. This version correct this.
+	  
 
 1.2 : SOON
       - New : unlimited sub-variations of stock product;  

@@ -3,7 +3,7 @@
 //CREATE TABLES ----------------------------------------------------------------
    
    global $wpstore_version;
-   $wpstore_version = "1.1.1";
+   $wpstore_version = "1.1.2";
    
    //verify update version 
    
@@ -127,7 +127,7 @@
                             	  `idPost` VARCHAR(155) DEFAULT '' NOT NULL,
                             	  `tipoVariacao` VARCHAR(155) DEFAULT '' NOT NULL,
                             	 `variacaoProduto` VARCHAR(155) DEFAULT '' NOT NULL,
-                            	 ` qtdProduto` VARCHAR(155) DEFAULT '' NOT NULL,
+                            	 `qtdProduto` VARCHAR(155) DEFAULT '' NOT NULL,
                             	  `precoOperacao` VARCHAR(55) DEFAULT '' NOT NULL,
                             	  `showOrder` VARCHAR(1000) DEFAULT '' NOT NULL,
                             	  `precoAlternativo` VARCHAR(1000) DEFAULT '' NOT NULL,
