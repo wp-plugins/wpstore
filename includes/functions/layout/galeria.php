@@ -31,7 +31,7 @@
 
        
       <li>
-        <a href="<?php echo $image_url;   ?>">  
+        <a href="<?php echo $image_url;   ?>" class='imageBig' >  
         
             <?php
 

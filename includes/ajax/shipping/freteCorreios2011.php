@@ -73,7 +73,8 @@ $tipoPagto = $_POST['varSelectV'];
 $destinoCep = trim($_REQUEST['CepDestinoR']);
 if($destinoCep==""){
 $destinoCep = trim(get_user_meta($idUser,'userCep2',true));
-}
+}   
+
 $destinoCep = str_replace(' ','',$destinoCep);
 
 $valorFreteEnviado = $_POST['radioFrete'];
@@ -86,8 +87,7 @@ $userCidade2 = trim(get_user_meta($idUser,'userCidade2',true));
 };
 
 
-
- $peso = floatval($_REQUEST['PesoR']);
+$peso = floatval($_REQUEST['PesoR']);
 if($peso<=0){
 $peso = floatval($_SESSION['pesoCheckout']);
 }
@@ -106,16 +106,26 @@ $peso  = 30;
    $arrayCidades = array();
    $arrayEstados = array();
 
-   $arrayEstadosCidades = explode(',',$cidadesFreteGratis);
-   foreach($arrayEstadosCidades as $item=>$value){
-       $arrayValue = explode('**',$value);
-       $arrayEstados = trim($arrayValue[0]);
+   $arrayEstadosCidades = explode(',',$cidadesFreteGratis);       
+   
+   foreach($arrayEstadosCidades as $item=>$value){    
+       
+       $arrayValue = explode('**',$value);   
+       
+       $arrayEstados = trim($arrayValue[0]);  
+       
        $arrayCidades = trim($arrayValue[1]); 
 
+       
 
-       if(strtolower($arrayValue[1]) == strtolower($userCidade2)){   
+       $cidadeUser = str_replace(' ','',$arrayValue[1] ); 
+       $cidadPromocao = str_replace(' ','',$userCidade2 );
+
+       if(  modificaAcento(strtolower($cidadeUser)) == modificaAcento(strtolower($cidadPromocao)) ){   
        $freteGratis = true; 
        };
+
+   
 
    }
 

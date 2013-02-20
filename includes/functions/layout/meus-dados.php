@@ -191,8 +191,78 @@
 
                                 	<p class='clearfix'><label for='cidadeUsuario' class='floatDados'> Cidade:</label>
                                 	<input type='text' class='required  geral userData cidadeC' value='$userCidade'  id='cidadeUsuario'   name='cidadeUsuario' /></p>
-                                	<p class='clearfix'> <label for='estadoUsuario' class='floatDados'>Estado:</label>
-                                	<input type='text' class='required  geral userData estadoC' value='$userEstado' id='estadoUsuario' name='estadoUsuario'/></p>
+                                	<p class='clearfix'> <label for='estadoUsuario' class='floatDados'>Estado:</label><br/>  "; 
+                                	
+                                	
+                              
+                                	                  
+                                     	        $htmlVar .= " <select    class='required geral userData estadoC'  id='estadoUsuario' name='estadoUsuario' >   ";
+                                     	       
+                                     	            
+                                     	       $SELECTED = "";   
+                                     	         $htmlVar .=   "<option value=''  $SELECTED >Selecione o estado</option>  " ;     
+                                     	     
+                                     	       if($userEstado=="AC"){$SELECTED = "selected='selected'"; }else{ $SELECTED= ""; };
+                                     	       $htmlVar .=   "<option value='AC'  $SELECTED >Acre</option>  " ; 
+                                     	        if($userEstado=="AL"){$SELECTED = "selected='selected'"; }else{ $SELECTED= ""; }; 
+                                               $htmlVar .=  "<option value='AL' $SELECTED >Alagoas</option>  " ;  
+                                                if($userEstado=="AP"){$SELECTED = "selected='selected'"; }else{ $SELECTED= ""; }; 
+                                                $htmlVar .= "<option value='AP' $SELECTED >Amapá</option>   " ;   
+                                                 if($userEstado=="AM"){$SELECTED = "selected='selected'"; }else{ $SELECTED= ""; }; 
+                                                $htmlVar .=  "<option value='AM' $SELECTED >Amazonas</option>   "; 
+                                                 if($userEstado=="BA"){$SELECTED = "selected='selected'"; }else{ $SELECTED= ""; }; 
+                                               $htmlVar .= "<option value='BA' $SELECTED >Bahia</option> " ;    
+                                                if($userEstado=="CE"){$SELECTED = "selected='selected'"; }else{ $SELECTED= ""; }; 
+                                               $htmlVar .= "<option value='CE' $SELECTED >Ceará</option>   "; 
+                                                if($userEstado=="DF"){$SELECTED = "selected='selected'"; }else{ $SELECTED= ""; }; 
+                                               $htmlVar .= "<option value='DF' $SELECTED >Distrito Federal</option>    "; 
+                                                if($userEstado=="ES"){$SELECTED = "selected='selected'"; }else{ $SELECTED= ""; }; 
+                                               $htmlVar .= "<option value='ES' $SELECTED >Espírito Santo</option> ";   
+                                                if($userEstado=="GO"){$SELECTED = "selected='selected'"; }else{ $SELECTED= ""; }; 
+                                               $htmlVar .= "<option value='GO' $SELECTED >Goiás</option>   ";  
+                                                if($userEstado=="MA"){$SELECTED = "selected='selected'"; }else{ $SELECTED= ""; }; 
+                                                $htmlVar .= "<option value='MA' $SELECTED >Maranhão</option>   " ; 
+                                                 if($userEstado=="MT"){$SELECTED = "selected='selected'"; }else{ $SELECTED= ""; }; 
+                                               $htmlVar .= "<option value='MT' $SELECTED >Mato Grosso</option>   "; 
+                                                if($userEstado=="MS"){$SELECTED = "selected='selected'"; }else{ $SELECTED= ""; }; 
+                                                $htmlVar .=  "<option value='MS' $SELECTED >Mato Grosso do Sul</option>  " ; 
+                                                 if($userEstado=="MG"){$SELECTED = "selected='selected'"; }else{ $SELECTED= ""; }; 
+                                              $htmlVar .= "<option value='MG' $SELECTED >Minas Gerais</option> " ; 
+                                               if($userEstado=="PA"){$SELECTED = "selected='selected'"; }else{ $SELECTED= ""; }; 
+                                              $htmlVar .= "<option value='PA' $SELECTED >Pará</option>     " ;   
+                                               if($userEstado=="PB"){$SELECTED = "selected='selected'"; }else{ $SELECTED= ""; }; 
+                                              $htmlVar .=  "<option value='PB' $SELECTED >Paraíba</option>   "; 
+                                               if($userEstado=="PR"){$SELECTED = "selected='selected'"; }else{ $SELECTED= ""; }; 
+                                             $htmlVar .=  "<option value='PR' $SELECTED >Paraná</option>     " ;  
+                                              if($userEstado=="PE"){$SELECTED = "selected='selected'"; }else{ $SELECTED= ""; }; 
+                                               $htmlVar .=  "<option value='PE' $SELECTED >Pernambuco</option>    " ;   
+                                                if($userEstado=="PI"){$SELECTED = "selected='selected'"; }else{ $SELECTED= ""; }; 
+                                              $htmlVar .=  "<option value='PI' $SELECTED >Piauí</option>    ";  
+                                              
+                                                 if($userEstado=="RJ"){$SELECTED = "selected='selected'"; }else{ $SELECTED= ""; }; 
+                                                   $htmlVar .=  "<option value='RJ' $SELECTED >Rio de Janeiro</option>    ";
+                                              
+                                              
+                                               if($userEstado=="RN"){$SELECTED = "selected='selected'"; }else{ $SELECTED= ""; }; 
+                                              $htmlVar .=  "<option value='RN' $SELECTED >Rio Grande do Norte</option>   "; 
+                                               if($userEstado=="RS"){$SELECTED = "selected='selected'"; }else{ $SELECTED= ""; }; 
+                                              $htmlVar .=  "<option value='RS' $SELECTED >Rio Grande do Sul</option>   ";  
+                                               if($userEstado=="RO"){$SELECTED = "selected='selected'"; }else{ $SELECTED= ""; }; 
+                                              $htmlVar .= "<option value='RO' $SELECTED >Rondônia</option>   ";  
+                                               if($userEstado=="RR"){$SELECTED = "selected='selected'"; }else{ $SELECTED= ""; }; 
+                                            $htmlVar .=  "<option value='RR' $SELECTED >Roraima</option>   ";    
+                                             if($userEstado=="RO"){$SELECTED = "selected='selected'"; }else{ $SELECTED= ""; }; 
+                                           $htmlVar .=  "<option value='RO' $SELECTED >Rondônia</option>   ";    
+                                            if($userEstado=="SC"){$SELECTED = "selected='selected'"; }else{ $SELECTED= ""; }; 
+                                             $htmlVar .=  "<option value='SC' $SELECTED >Santa Catarina</option>  " ;  
+                                              if($userEstado=="SE"){$SELECTED = "selected='selected'"; }else{ $SELECTED= ""; }; 
+                                             $htmlVar .= "<option value='SE' $SELECTED >Sergipe</option>  ";      
+                                              if($userEstado=="TO"){$SELECTED = "selected='selected'"; }else{ $SELECTED= ""; }; 
+                                             $htmlVar .=  "<option value='TO' $SELECTED >Tocantins</option>  "; 
+                                              if($userEstado=="AC"){$SELECTED = "selected='selected'"; }else{ $SELECTED= ""; }; 
+                                                        
+                                                        
+                                     	     $htmlVar .=  " </select>    </p>
                                 	<p class='clearfix'> <label for='cepUsuario' class='floatDados'>Cep:</label>
                                 	<input type='text' class='required  geral userData paisC' value='$userCep' id='cepUsuario' /></p>
                                 	<div class='clear'></div>
@@ -262,9 +332,78 @@
 
                                                  	<p class='clearfix'> <label for='cidadeUsuario2' class='floatDados'>Cidade:</label>
                                                  	<input type='text' class='required geral userData cidadeC' value='$userCidade2'  id='cidadeUsuario2' name='cidadeUsuario2' /></p>
-                                                 	<p class='clearfix'> <label for='estadoUsuario2' class='floatDados'>Estado:</label>
-                                                 	<input type='text' class='required geral userData estadoC' value='$userEstado2'  id='estadoUsuario2' name='estadoUsuario2'/></p>
-                                                 	<p class='clearfix'> <label for='cepUsuario2' class='floatDados'>Cep:</label>
+                                                 	<p class='clearfix'> <label for='estadoUsuario2' class='floatDados'>Estado:</label> <br/>
+                                                 	
+                                                 
+                                                 	       <select    class='required geral userData estadoC'  id='estadoUsuario2' name='estadoUsuario2' >   ";
+                                                 	       
+                                                 	                 
+                                                 	       $SELECTED = "";  
+                                                 	        
+                                                 	       $htmlVar .=   "<option value=''  $SELECTED >Selecione o estado</option>  " ;  
+                                                 	       
+                                                 	       if($userEstado2=="AC"){$SELECTED = "selected='selected'"; }else{ $SELECTED= ""; };
+                                                 	       $htmlVar .=   "<option value='AC'  $SELECTED >Acre</option>  " ; 
+                                                 	        if($userEstado2=="AL"){$SELECTED = "selected='selected'"; }else{ $SELECTED= ""; }; 
+                                                           $htmlVar .=  "<option value='AL' $SELECTED >Alagoas</option>  " ;  
+                                                            if($userEstado2=="AP"){$SELECTED = "selected='selected'"; }else{ $SELECTED= ""; }; 
+                                                            $htmlVar .= "<option value='AP' $SELECTED >Amapá</option>   " ;   
+                                                             if($userEstado2=="AM"){$SELECTED = "selected='selected'"; }else{ $SELECTED= ""; }; 
+                                                            $htmlVar .=  "<option value='AM' $SELECTED >Amazonas</option>   "; 
+                                                             if($userEstado2=="BA"){$SELECTED = "selected='selected'"; }else{ $SELECTED= ""; }; 
+                                                           $htmlVar .= "<option value='BA' $SELECTED >Bahia</option> " ;    
+                                                            if($userEstado2=="CE"){$SELECTED = "selected='selected'"; }else{ $SELECTED= ""; }; 
+                                                           $htmlVar .= "<option value='CE' $SELECTED >Ceará</option>   "; 
+                                                            if($userEstado2=="DF"){$SELECTED = "selected='selected'"; }else{ $SELECTED= ""; }; 
+                                                           $htmlVar .= "<option value='DF' $SELECTED >Distrito Federal</option>    "; 
+                                                            if($userEstado2=="ES"){$SELECTED = "selected='selected'"; }else{ $SELECTED= ""; }; 
+                                                           $htmlVar .= "<option value='ES' $SELECTED >Espírito Santo</option> ";   
+                                                            if($userEstado2=="GO"){$SELECTED = "selected='selected'"; }else{ $SELECTED= ""; }; 
+                                                           $htmlVar .= "<option value='GO' $SELECTED >Goiás</option>   ";  
+                                                            if($userEstado2=="MA"){$SELECTED = "selected='selected'"; }else{ $SELECTED= ""; }; 
+                                                            $htmlVar .= "<option value='MA' $SELECTED >Maranhão</option>   " ; 
+                                                             if($userEstado2=="MT"){$SELECTED = "selected='selected'"; }else{ $SELECTED= ""; }; 
+                                                           $htmlVar .= "<option value='MT' $SELECTED >Mato Grosso</option>   "; 
+                                                            if($userEstado2=="MS"){$SELECTED = "selected='selected'"; }else{ $SELECTED= ""; }; 
+                                                            $htmlVar .=  "<option value='MS' $SELECTED >Mato Grosso do Sul</option>  " ; 
+                                                             if($userEstado2=="MG"){$SELECTED = "selected='selected'"; }else{ $SELECTED= ""; }; 
+                                                          $htmlVar .= "<option value='MG' $SELECTED >Minas Gerais</option> " ; 
+                                                           if($userEstado2=="PA"){$SELECTED = "selected='selected'"; }else{ $SELECTED= ""; }; 
+                                                          $htmlVar .= "<option value='PA' $SELECTED >Pará</option>     " ;   
+                                                           if($userEstado2=="PB"){$SELECTED = "selected='selected'"; }else{ $SELECTED= ""; }; 
+                                                          $htmlVar .=  "<option value='PB' $SELECTED >Paraíba</option>   "; 
+                                                           if($userEstado2=="PR"){$SELECTED = "selected='selected'"; }else{ $SELECTED= ""; }; 
+                                                         $htmlVar .=  "<option value='PR' $SELECTED >Paraná</option>     " ;  
+                                                          if($userEstado2=="PE"){$SELECTED = "selected='selected'"; }else{ $SELECTED= ""; }; 
+                                                           $htmlVar .=  "<option value='PE' $SELECTED >Pernambuco</option>    " ;   
+                                                            if($userEstado2=="PI"){$SELECTED = "selected='selected'"; }else{ $SELECTED= ""; }; 
+                                                          $htmlVar .=  "<option value='PI' $SELECTED >Piauí</option>    ";  
+                                                             
+                                                                if($userEstado2=="RJ"){$SELECTED = "selected='selected'"; }else{ $SELECTED= ""; }; 
+                                                                   $htmlVar .=  "<option value='RJ' $SELECTED >Rio de Janeiro</option>    ";
+                                                     
+                                                     
+                                                           if($userEstado2=="RN"){$SELECTED = "selected='selected'"; }else{ $SELECTED= ""; }; 
+                                                          $htmlVar .=  "<option value='RN' $SELECTED >Rio Grande do Norte</option>   "; 
+                                                           if($userEstado2=="RS"){$SELECTED = "selected='selected'"; }else{ $SELECTED= ""; }; 
+                                                          $htmlVar .=  "<option value='RS' $SELECTED >Rio Grande do Sul</option>   ";  
+                                                           if($userEstado2=="RO"){$SELECTED = "selected='selected'"; }else{ $SELECTED= ""; }; 
+                                                          $htmlVar .= "<option value='RO' $SELECTED >Rondônia</option>   ";  
+                                                           if($userEstado2=="RR"){$SELECTED = "selected='selected'"; }else{ $SELECTED= ""; }; 
+                                                        $htmlVar .=  "<option value='RR' $SELECTED >Roraima</option>   ";    
+                                                         if($userEstado2=="RO"){$SELECTED = "selected='selected'"; }else{ $SELECTED= ""; }; 
+                                                       $htmlVar .=  "<option value='RO' $SELECTED >Rondônia</option>   ";    
+                                                        if($userEstado2=="SC"){$SELECTED = "selected='selected'"; }else{ $SELECTED= ""; }; 
+                                                         $htmlVar .=  "<option value='SC' $SELECTED >Santa Catarina</option>  " ;  
+                                                          if($userEstado2=="SE"){$SELECTED = "selected='selected'"; }else{ $SELECTED= ""; }; 
+                                                         $htmlVar .= "<option value='SE' $SELECTED >Sergipe</option>  ";      
+                                                          if($userEstado2=="TO"){$SELECTED = "selected='selected'"; }else{ $SELECTED= ""; }; 
+                                                         $htmlVar .=  "<option value='TO' $SELECTED >Tocantins</option>  "; 
+                                                          if($userEstado2=="AC"){$SELECTED = "selected='selected'"; }else{ $SELECTED= ""; }; 
+                                                                    
+                                                                    
+                                                 	     $htmlVar .=  " </select>      </p>    
+                                                 	      <p class='clearfix'> <label for='cepUsuario2' class='floatDados'>Cep:</label>
                                                  	<input type='text' class='required geral userData paisC' value='$userCep2'  id='cepUsuario2' name='cepUsuario2' /></p>
                                                  	<div class='clear'></div>
                                             
@@ -328,9 +467,10 @@
                      	
                      <div class='clear'></div>	<br/>
                      	
-                     	 <div class='buttons'>
-                               <div class='right' ><a href='".$pageCheck."' class='button-alt btCalcularFrete'>Seguir para Pagamento</a></div>
-                               <div class='left'><a href='".get_bloginfo('url')."' class='button'>Continuar comprando</a></div>
+                     	 <div class='buttons'> 
+                     	       <div class='right btDir'><a href='".get_bloginfo('url')."' class='button'>Continuar comprando</a></div> 
+                               <div class='left' ><a href='".$pageCheck."' class='button-alt btCalcularFrete'>Seguir para Pagamento</a></div>
+                              
                                <div class='clear'></div>
                          </div>
                          

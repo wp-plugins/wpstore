@@ -133,11 +133,16 @@ foreach($arrayEstadosCidades as $item=>$value){
     $arrayValue = explode('**',$value);
     $arrayEstados = trim($arrayValue[0]);
     $arrayCidades = trim($arrayValue[1]); 
+     
 
 
-    if(strtolower($arrayValue[1]) == strtolower($userCidade2)){   
+    $cidadeUser = str_replace(' ','',$arrayValue[1] ); 
+    $cidadPromocao = str_replace(' ','',$userCidade2 );
+
+    if(  modificaAcento(strtolower($cidadeUser)) == modificaAcento(strtolower($cidadPromocao)) ){   
     $freteGratis = true; 
     };
+  
 
 }
 

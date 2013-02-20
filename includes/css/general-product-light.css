@@ -683,9 +683,10 @@ ul.pedidos li {
 
 
 
-        	.buttons .left {float: left; text-align: left;}
+        	.buttons .left {float: left; text-align: left;font-size:1.2em}
         	.buttons .right {float: right; text-align: right;}
-        	.buttons .center {text-align: center; margin-left: auto; margin-right: auto;}
+        	.buttons .center {text-align: center; margin-left: auto; margin-right: auto;} 
+        	.btDir { margin:0px;padding:0px}
 
 
 

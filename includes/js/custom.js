@@ -54,7 +54,10 @@
 
              	 jQuery('.imagem img').hide();
              	 jQuery('.imagem img').attr('src','');
-              	 jQuery('.imagem img').attr('src',urlItem);
+              	 jQuery('.imagem img').attr('src',urlItem);  
+              	 
+              	 jQuery('a.imageFirst').attr('href',urlItem);   
+              	 
               	 jQuery('.imagem img').fadeIn();
 
  	             return false;
@@ -1077,8 +1080,11 @@
                                    var enderecoUsuarioNumeroV  = ""+arrayData['enderecoUsuarioNumeroV'];
                                    var complementoUsuarioV =  ""+arrayData['complementoUsuarioV'];
                                    var bairroUsuarioV = ""+arrayData['bairroUsuarioV'];
-                                   var cidadeUsuarioV = ""+arrayData['cidadeUsuarioV'];
-                                   var estadoUsuarioV = ""+arrayData['estadoUsuarioV'];
+                                   var cidadeUsuarioV = ""+arrayData['cidadeUsuarioV'];    
+                                   
+                                  // var estadoUsuarioV = ""+arrayData['estadoUsuarioV'];
+                                  var estadoUsuarioV = ""+jQuery("#estadoUsuario option:selected").val();
+                                   
                                    var cepUsuarioV =  ""+arrayData['cepUsuarioV'];
                                    var dddUsuarioV =  ""+arrayData['dddUsuarioV'];
                                    var telefoneUsuarioV= ""+arrayData['telefoneUsuarioV'];
@@ -1090,7 +1096,10 @@
                                       var complementoUsuario2V =  ""+arrayData['complementoUsuario2V'];
                                       var bairroUsuario2V = ""+arrayData['bairroUsuario2V'];
                                       var cidadeUsuario2V = ""+arrayData['cidadeUsuario2V'];
-                                      var estadoUsuario2V = ""+arrayData['estadoUsuario2V'];
+                                      //var estadoUsuario2V = ""+arrayData['estadoUsuario2V']; 
+                                      
+                                      var estadoUsuario2V  =  ""+jQuery("#estadoUsuario2 option:selected").val(); 
+                                      
                                       var cepUsuario2V =  ""+arrayData['cepUsuario2V'];
                                       
 

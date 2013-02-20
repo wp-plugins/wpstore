@@ -331,8 +331,8 @@ $tabelaVar .= "
          
 		                <div class='buttons'>
                               
-                              <div class='right' ><a href='".get_bloginfo('url')."/checkout/' class='button-alt btCalcularFrete  '>Seguir para Pagamento</a></div>
-                              <div class='left' ><a href='".get_bloginfo('url')."' class='button'>Continuar comprando</a></div>
+                              <div class='left' ><a href='".get_bloginfo('url')."/checkout/' class='button-alt btCalcularFrete  '>Seguir para Pagamento</a></div>
+                              <div class='right' ><a href='".get_bloginfo('url')."' class='button'>Continuar comprando</a></div>
                               
                               <div class='clear'></div>
                           </div>

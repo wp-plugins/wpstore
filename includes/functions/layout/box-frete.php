@@ -94,12 +94,15 @@
          
           
           
-         
+         $txtEntrega   = get_option('txtEntregaWPSHOP');
+         if($txtEntrega==""){
+             $txtEntrega = "Entre 1 a 9 dias úteis após a confirmação de pagamento . Para promoção de FRETE GRÁTIS e produtos com mais de 30kg a entrega é feita por transportadora. Neste último caso é aplicada a tarifa SEDEX. ";
+         }  
 		    
 	$tabelaVar .= "</div>
 		
 		
-	 <p><strong>Entrega: </strong>Entre 1 a 9 dias úteis após a confirmação de pagamento .  Para promoção de  FRETE GRÁTIS e produtos com  mais de 30kg a entrega é feita por transportadora. Neste último caso é  aplicada a tarifa SEDEX. </p>";
+	 <p><strong>Entrega: </strong> $txtEntrega </p>";
                      
       if($idTermos != ''){
 	  $tabelaVar .=  "<p><strong>Troca e Devolução : </strong> <a href='".$paginaTermos."'> Fique por dentro </a> </p>";

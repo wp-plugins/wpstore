@@ -373,17 +373,24 @@ if($txtEscolhaCorProduto==""){
                                            <?php }; ?>
                                            
                                            
-                                     <?php $exibeQtdProd = get_option('exibeQtdProd');
-                                          if($exibeQtdProd  =="sim"){ ?>
-                                      <p>Selecione a quantidade de Produtos :  <input type='text' class='somenteNumeros'  name='qtdProd' id='qtdProd' value='1' style='width:30px' /> </p>
-                                      <?php  }; ?>    
+                       
+                       
+                       
+                       
+                                                                                                            <?php $exibeQtdProd = get_option('exibeQtdProd');
+                                                                                                                  if($exibeQtdProd  =="sim"){ ?>
+                                                                                                               <p class='quantidade'> <label for='qtdProd'> <?php echo $txtSelecioneParcela; ?>:</label>  <input type='text' class='somenteNumeros'  name='qtdProd' id='qtdProd' value='1' style='width:30px' /> </p>
+                                                                                                               <?php  }; ?>
 
-                     
-           
-                                          <?php        if($totalParcela !=""){ ?>
-                                      <p class="parc"><strong><?php echo $totalParcela; ?> <?php echo $txtParcelamentoJuros; ?> </strong></p>
-                                           <?php }; ?>
-         
+
+
+
+                                                 <?php        if($totalParcela !="" && $txtParcelamentoJuros !="#"){ ?>
+                                                  <p class="parc"><strong> <?php echo $totalParcela; ?> <?php echo $txtParcelamentoJuros; ?> </strong></p>
+                                                  <?php }; ?>
+
+
+
                              
                              
                            
@@ -436,14 +443,14 @@ if($txtEscolhaCorProduto==""){
                                                                  
                                                                                                    <?php $exibeQtdProd = get_option('exibeQtdProd');
                                                                                                          if($exibeQtdProd  =="sim"){ ?>
-                                                                                                      <p> <?php echo $txtSelecioneParcela; ?> : <input type='text' class='somenteNumeros'  name='qtdProd' id='qtdProd' value='1' style='width:30px' /> </p>
+                                                                                                      <p class='quantidade'> <label for='qtdProd'> <?php echo $txtSelecioneParcela; ?>:</label>  <input type='text' class='somenteNumeros'  name='qtdProd' id='qtdProd' value='1' style='width:30px' /> </p>
                                                                                                       <?php  }; ?>
                                                                  
                                                                  
                                                                  
 
-                                        <?php        if($totalParcela !=""){ ?>
-                                    <p class="parc"><strong> <?php echo $totalParcela; ?> <?php echo $txtParcelamentoJuros; ?> </strong></p>
+                                        <?php        if($totalParcela !="" && $txtParcelamentoJuros !="#"){ ?>
+                                         <p class="parc"><strong> <?php echo $totalParcela; ?> <?php echo $txtParcelamentoJuros; ?> </strong></p>
                                          <?php }; ?>
 
                 

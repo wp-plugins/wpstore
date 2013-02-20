@@ -44,7 +44,7 @@
         <div   class="produtosRecentes listagem" style="height:360px" >
         
            <?php 
-           
+                 $currentId = get_the_id();   
            wp_reset_query();  
            
            
@@ -70,12 +70,16 @@
               
      
            while ( have_posts() ) : the_post(); 
-           
+                 if($currentId!=$post->ID){   
            ?>
      
      	<?php include('listagem.php'); ?>
 
-           <?php endwhile;  
+           <?php
+           
+                 };
+           
+            endwhile;  
            wp_reset_query();
            ?>
 

@@ -61,7 +61,9 @@ $idPaginaCheckout = 0;
                   add_option('txtProdutosRelacionadosWPSHOP',$txtProdutosRelacionados ,'','yes'); 
                   update_option('txtProdutosRelacionadosWPSHOP',$txtProdutosRelacionados);
                   
-            
+                       $txtEntrega = trim($_POST['txtEntrega']); 
+                            add_option('txtEntregaWPSHOP',$txtEntrega ,'','yes'); 
+                            update_option('txtEntregaWPSHOP',$txtEntrega);  
                              
   };
 
@@ -83,7 +85,7 @@ $txtEscolhaTamanhoProduto = get_option('txtEscolhaTamanhoProdutoWPSHOP');
  
  $txtProdutosRelacionados   = get_option('txtProdutosRelacionadosWPSHOP');   
 
-
+ $txtEntrega   = get_option('txtEntregaWPSHOP');
 ?>
  
  
@@ -318,9 +320,20 @@ $txtEscolhaTamanhoProduto = get_option('txtEscolhaTamanhoProdutoWPSHOP');
                         <br/> <br/>
                         
                         
-                        
-                        
+                               <h4>Detalhe Entrega</h4>
 
+                             <label for="valorFreteValor6"> </label>
+                                default :  <strong>Entre 1 a 9 dias úteis após a confirmação de pagamento . Para promoção de FRETE GRÁTIS e produtos com mais de 30kg a entrega é feita por transportadora. Neste último caso é aplicada a tarifa SEDEX. </strong>
+                               <br/>
+                               Substituir por :  <input type="text" id="txtEntrega" name="txtEntrega" value="<?php echo $txtEntrega  ; ?>"  style="width:40%"  />
+                             <br/>
+
+                            <br/> <br/>
+                               
+                                 
+
+
+            
         		</div>
         	</div><!-- .bloco -->
          	

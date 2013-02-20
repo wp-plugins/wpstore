@@ -135,7 +135,7 @@ function custom_get_select_stock_form($postID){
      $qtdProdInit = get_post_meta($post->ID, 'is_check_outofstock', true);
      
       if( $qtdProdInit== '1' ||  $qtdProdInit== ''){
-         if($controle==false){ $qtdStock =  10000; }; 
+         if($controle==false){ $qtdStock =  100000000000000000000000000000; }; 
       }
 
      return $qtdStock;

@@ -24,7 +24,7 @@ $htmlVar .="<div class='pagamento'>
 	</div>
 	
 	
-	<p><a href='".verifyURL(get_bloginfo('url'))."/carrinho/' >Voltar para carrinho</a></p>
+	<p><a href='".verifyURL(get_permalink( get_idPaginaCheckout() ))."' >Clique aqui se deseja  editar seu pedido</a></p>
     
     ";
 	
@@ -112,7 +112,12 @@ $htmlVar .="<div class='pagamento'>
 	                            </div>
 	                           	<div class='precoC'>".$moedaCorrente."".$preco." (".$moedaCorrente."".$precoLinha.") </div>
 	                           	 <div class='clear'></div>
-	                            <hr/>";
+	                            <hr/>
+	                            
+	                            <p><a href='".verifyURL(get_permalink( get_idPaginaCheckout() ))."' >Clique aqui se deseja  editar seu pedido</a></p>
+                                
+                                
+                                ";
 	              };
 
         };
