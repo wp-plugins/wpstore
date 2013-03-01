@@ -248,7 +248,7 @@ $htmlVar .="<section class='checkout'>
              if($ativaCielo=="ativaCielo"){         
                 //if( $current_user->ID==1 || $current_user->ID==4849 ){
                $htmlVar .=" <hr/><br/><div class='field'><input type='radio' class='tipoPagto' name='tipoPagto' value='Cielo' checked='checked'>  <img src='".$plugin_directory."images/cielo.png' > &nbsp; CIELO  <img src='".$plugin_directory."images/mastercard.png' width='40'> <img src='".$plugin_directory."images/visa.png' width='40'> <img src='".$plugin_directory."images/diners.png' width='40'>   <img src='".$plugin_directory."images/elo.png' width='40'> <img src='".$plugin_directory."images/discovery.png' width='40'> 
-               <br/><span style='font-size:10px'> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;Função Crédito e Débito* : Opção Débito disponível para VISA E MASTERCARD.</span>  </div>";
+               <br/><span style='font-size:10px'> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;Função Crédito </span>  </div>";
                //}; 
             }; 
              

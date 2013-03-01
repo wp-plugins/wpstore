@@ -251,9 +251,10 @@
                                               $htmlVar .= "<option value='RO' $SELECTED >Rondônia</option>   ";  
                                                if($userEstado=="RR"){$SELECTED = "selected='selected'"; }else{ $SELECTED= ""; }; 
                                             $htmlVar .=  "<option value='RR' $SELECTED >Roraima</option>   ";    
-                                             if($userEstado=="RO"){$SELECTED = "selected='selected'"; }else{ $SELECTED= ""; }; 
-                                           $htmlVar .=  "<option value='RO' $SELECTED >Rondônia</option>   ";    
-                                            if($userEstado=="SC"){$SELECTED = "selected='selected'"; }else{ $SELECTED= ""; }; 
+
+                                            if($userEstado=="SP"){$SELECTED = "selected='selected'"; }else{ $SELECTED= ""; }; 
+                                             $htmlVar .=  "<option value='SP' $SELECTED >São Paulo</option>  " ;
+                                             if($userEstado=="SC"){$SELECTED = "selected='selected'"; }else{ $SELECTED= ""; }; 
                                              $htmlVar .=  "<option value='SC' $SELECTED >Santa Catarina</option>  " ;  
                                               if($userEstado=="SE"){$SELECTED = "selected='selected'"; }else{ $SELECTED= ""; }; 
                                              $htmlVar .= "<option value='SE' $SELECTED >Sergipe</option>  ";      
@@ -391,8 +392,10 @@
                                                           $htmlVar .= "<option value='RO' $SELECTED >Rondônia</option>   ";  
                                                            if($userEstado2=="RR"){$SELECTED = "selected='selected'"; }else{ $SELECTED= ""; }; 
                                                         $htmlVar .=  "<option value='RR' $SELECTED >Roraima</option>   ";    
-                                                         if($userEstado2=="RO"){$SELECTED = "selected='selected'"; }else{ $SELECTED= ""; }; 
-                                                       $htmlVar .=  "<option value='RO' $SELECTED >Rondônia</option>   ";    
+                                                       
+                                                        if($userEstado2=="SP"){$SELECTED = "selected='selected'"; }else{ $SELECTED= ""; }; 
+                                                         $htmlVar .=  "<option value='SP' $SELECTED >São Paulo</option>  " ;
+                                                         
                                                         if($userEstado2=="SC"){$SELECTED = "selected='selected'"; }else{ $SELECTED= ""; }; 
                                                          $htmlVar .=  "<option value='SC' $SELECTED >Santa Catarina</option>  " ;  
                                                           if($userEstado2=="SE"){$SELECTED = "selected='selected'"; }else{ $SELECTED= ""; }; 
