@@ -396,14 +396,14 @@
                      function somaFrete(){
 
                       jQuery('input.radioFrete').change(function(){
-                          var relV = jQuery(this).attr('id');
-                          var val =  jQuery(this).val().replace(",", ".");
+                          var relV = ""+jQuery(this).attr('id');
+                          var val =  ""+jQuery(this).val().replace(",", ".");
                               val = parseFloat(val);
-                          var subtotal = jQuery('.subtotalCart').text().replace(".", "");
+                          var subtotal = ""+jQuery('.subtotalCart').text().replace(".", "");
                               subtotal = subtotal.replace(",", ".");
                               subtotal = parseFloat(subtotal);
                               
-                          var  descontoCart = jQuery('.descontoCart').text().replace(".", "");
+                          var  descontoCart = ""+jQuery('.descontoCart').text().replace(".", "");
                                descontoCart = descontoCart.replace(",", ".");
                                descontoCart  = parseFloat(descontoCart);
                           
@@ -414,14 +414,14 @@
 
                       });
 
-                               var relV = jQuery('input.radioFrete[checked=checked]').attr('id');
-                               var val =  jQuery('input.radioFrete[checked=checked]').val().replace(",", ".");
+                               var relV = ""+jQuery('input.radioFrete[checked=checked]').attr('id');
+                               var val =  ""+jQuery('input.radioFrete[checked=checked]').val().replace(",", ".");
                                    val = parseFloat(val);
-                               var subtotal = jQuery('.subtotalCart').text().replace(".", "");;
+                               var subtotal = ""+jQuery('.subtotalCart').text().replace(".", "");;
                                    subtotal = subtotal.replace(",", ".");
                                    subtotal = parseFloat(subtotal);
                                    
-                              var  descontoCart = jQuery('.descontoCart').text().replace(".", "");
+                              var  descontoCart = ""+jQuery('.descontoCart').text().replace(".", "");
                                    descontoCart = descontoCart.replace(",", ".");
                                    descontoCart  = parseFloat(descontoCart);
                                    
@@ -491,9 +491,7 @@
             
                jQuery('.btSeguir2').click(function() {
                   
-                                
-                  
-                                resultFrete = ""+jQuery('.resultFrete').text();
+                               resultFrete = ""+jQuery('.resultFrete').text();
                                 
                                 var Self = jQuery('div.block-content').eq(2);
                                 var irpara = parseInt(jQuery('.checkout').offset().top);
@@ -512,15 +510,10 @@
                      
                                      jQuery('html, body').animate({ scrollTop: irpara }, 1000);
                                  
-                                 
-                                 
-               });
+                });
             
-            
-            
-            
-            
-                  jQuery('.btSeguir3').click(function() {
+                 
+                jQuery('.btSeguir3').click(function() {
                       
                                     jQuery('.msg2').html('');
 
@@ -533,10 +526,13 @@
                                     var radioFreteV = ""+jQuery('input[name=radioFrete]:checked').val();
                                     var varSelect =    jQuery("input[name='tipoPagto']:checked").val();
                                     
-                                   // goCheckout( radioFreteV , commentOrder , cidade , varSelect );
-                                    redirectCheckout( radioFreteV , commentOrder , cidade , varSelect );
+                                      goCheckout( radioFreteV , commentOrder , cidade , varSelect );
+                                    //redirectCheckout( radioFreteV , commentOrder , cidade , varSelect );
                   
-                  });
+               });    
+                  
+                  
+                  
             
                   function redirectCheckout(radioFreteV,commentOrder,cidade,varSelect ){
 
