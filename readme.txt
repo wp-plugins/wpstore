@@ -129,7 +129,11 @@ Upgrade notices :
 
 1.1.2 : 
 	      - FIXED ERROR : In version 1.1 Collum qtdProduto  in table wpstore_stock  was created with space. This version correct this.
-	  
+
+
+1.1.4 : 
+			      - Google Analytics Ecommerce 
+			    
 
 1.2 : SOON
       - New : unlimited sub-variations of stock product;  
