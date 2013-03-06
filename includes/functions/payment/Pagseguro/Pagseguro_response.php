@@ -7,7 +7,7 @@ if($moedaCorrente==""){
     
 <?php
 
-
+ $codigoAnalytics =  get_option('codigoAnalytics'); 
 
 $emailVendedor =  get_option('emailPagseguro');
 
@@ -387,13 +387,13 @@ $txtPrint .= " <center> <input type='image' src='https://p.simg.uol.com.br/out/p
 
  
  
- 
+                                    
  
  
          <script type='text/javascript'>
 
            var _gaq = _gaq || [];
-           _gaq.push(['_setAccount', 'UA-6597604-38']);
+           _gaq.push(['_setAccount', '$codigoAnalytics']);
            _gaq.push(['_trackPageview']);
            _gaq.push(['_addTrans',
              '$idPedido',           // order ID - required

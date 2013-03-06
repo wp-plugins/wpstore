@@ -77,7 +77,12 @@ $idPaginaCheckout = 0;
                                                                                                                           $googleMarca= trim($_POST['googleMarca']); 
                                                                                                                                         add_option('googleMarca',$googleMarca,'','yes'); 
                                                                                                                                         update_option('googleMarca',$googleMarca);
-                                                                                                                                        
+                                  
+                                           
+                                        $codigoAnalytics = trim($_POST['codigoAnalytics']); 
+                                        add_option('codigoAnalytics',$codigoAnalytics,'','yes'); 
+                                        update_option('codigoAnalytics',$codigoAnalytics);
+                                                                                                                                                                
                                                                                                                                                       $googleCategorias = trim($_POST['googleCategorias']); 
                                                                                                                                                                     add_option('googleCategorias',$googleCategorias,'','yes'); 
                                                                                                                                                                     update_option('googleCategorias',$googleCategorias);
@@ -124,7 +129,7 @@ $totalParcela = get_totalParcela();
         
  $googleMarca  =  get_option('googleMarca'); 
  $googleCategorias  =  get_option('googleCategorias'); 
-
+  $codigoAnalytics  =  get_option('codigoAnalytics');  
 ?>    
 
 
@@ -501,7 +506,12 @@ $totalParcela = get_totalParcela();
         							<div class="texto" id='googleShop'>
  							   
  							
- 							
+ 							             <h4>Codigo site no analytics  </h4>
+                                         <p>Ex : UA-6sgfdhs4-34tv  </p>    
+                                          
+                                         <br/>
+                                          <input type="text" id="codigoAnalytics" name="codigoAnalytics" value="<?php echo $codigoAnalytics; ?>" style="width:20%"/> 
+                                         </p>  <br/>  <br/>
  							
  							            <h4>Marca Padrão</h4>
                                          <p>Marca padrão escolhida quando produto não possuir marca cadastrada : </p>     

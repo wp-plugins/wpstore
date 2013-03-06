@@ -8,8 +8,8 @@ Author URI: http://profiles.wordpress.org/jmorettoni/
 Author: jmorettoni
 Requires at least: 3.4
 Tested up to: 3.5
-Stable tag: 1.1.2
-Version: 1.1.2   
+Stable tag: 1.1.3
+Version: 1.1.3   
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html   
 Donate link: http://wpstore.com.br/download   

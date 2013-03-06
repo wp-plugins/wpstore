@@ -165,6 +165,10 @@ if($moedaCorrente==""){
 
    }
     
-       $_SESSION['orderCC'] ="";
+       $_SESSION['orderCC'] ="";   
+       
+       if($idUser<=0){
+          echo  "<p>Você precisa estar logado para acessar seus dados.</p>";
+       }
   
 ?>
