@@ -104,7 +104,7 @@
                               $tabela = $wpdb->prefix."";
                                $tabela .=  "wpstore_stock";
 
-                               $sql = "SELECT * FROM `$tabela` WHERE `variacaoProduto` = '$corTamanho'  AND  `tipoVariacao` = '$nome'   ORDER BY `variacaoProduto` ASC   LIMIT 0 , 100";
+                               $sql = "SELECT * FROM `$tabela` WHERE `variacaoProduto` = '$corTamanho'  AND  `tipoVariacao` = '$nome' AND idPost='$postIDP'  ORDER BY `variacaoProduto` ASC  ";
 
                                $fivesdraftsTamanhoCor = $wpdb->get_results( $sql);
 
@@ -115,6 +115,7 @@
                                $valor = "";
                                    
                                foreach ( $fivesdraftsTamanhoCor as $fivesdraftTC ) {
+                                   
                                 $qtd = 0 ;
                                 $idTamanhoCor = intval($fivesdraftTC->id);
                                 $qtd = intval($fivesdraftTC->qtdProduto);
@@ -148,7 +149,7 @@
                                   Nome <?php echo $nome; ?> : <input type='text' name='<?php echo $nome; ?>Nome<?php echo $idTamanhoCor; ?>' id="<?php echo $nome; ?>Nome<?php echo $idTamanhoCor; ?>"  value="<?php echo $corTamanho; ?>" style="width:300px"  readonly="readonly" />  
                                   Diferença de Preço : <select name="<?php echo $nome; ?>Symbol<?php echo $corTamanho; ?>" id="<?php echo $nome; ?>Symbol<?php echo $idTamanhoCor; ?>" ><option>+</option><option <?php if($operacao=="-"){ echo 'selected'; }; ?> >-</option></select>  
                                   <?php echo $moedaCorrente; ?> <input type='text'  class="preco" name='<?php echo $nome; ?>Valor<?php echo $corTamanho; ?>' value="<?php echo $valor; ?>" id="<?php echo $nome; ?>Valor<?php echo $idTamanhoCor; ?>" style="width:60px"/>
-                                  <br/>Quantidade disponível:<input type='text'  class="qtd" name='<?php echo $nome; ?>Qtd<?php echo $corTamanho; ?>' value="<?php echo $qtd; ?>" id="<?php echo $nome; ?>Qtd<?php echo $idTamanhoCor; ?>" style="width:60px"/>
+                                  <br/>Quantidade disponível :<input type='text'  class="qtd" name='<?php echo $nome; ?>Qtd<?php echo $corTamanho; ?>' value="<?php echo $qtd; ?>" id="<?php echo $nome; ?>Qtd<?php echo $idTamanhoCor; ?>" style="width:60px"/>
                                   <input type="button" id="<?php echo $nome; ?>Edit" name="<?php echo $nome; ?>Edit" style="width:110px" value="Atualizar"  class="editITem<?php echo $idTamanhoCor; ?>"  rel='<?php echo $nome; ?>' rev="<?php echo $idTamanhoCor; ?>" />
                                   
                                   
