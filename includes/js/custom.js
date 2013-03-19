@@ -379,7 +379,7 @@
                                         
                                        // alert(data);
                                         jQuery('p.resultFrete').html(data);
-                                        jQuery('.btCalcularFrete').val('Calcular');
+                                        jQuery('.btCalcularFrete').val('Consultar Frete');
                                         somaFrete();
                                
                          });

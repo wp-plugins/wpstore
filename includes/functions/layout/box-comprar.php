@@ -461,19 +461,14 @@ if($txtEscolhaCorProduto==""){
 
                                                        <div class="clear"></div>
 
-
+                                       <div id='boxComprar'></div>
 
                                     <a class="addCarrinho btComprar" href="<?php the_permalink(); ?>"><?php echo   $txtAdicionarBtProduto    ; ?> </a>   
                                     
                                     <a class="comprar btComprar" href="<?php the_permalink(); ?>"><?php echo  $txtComprarBtProduto    ; ?></a>
 
 
-                         
-                         
-                         
-                         
-                         
-  							
+                             
   							
  
         	           <?php }else{ ?>

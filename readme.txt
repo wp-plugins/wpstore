@@ -8,8 +8,8 @@ Author URI: http://profiles.wordpress.org/jmorettoni/
 Author: jmorettoni
 Requires at least: 3.4
 Tested up to: 3.5
-Stable tag: 1.1.3
-Version: 1.1.3   
+Stable tag: 1.1.4
+Version: 1.1.4   
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html   
 Donate link: http://wpstore.com.br/download   
@@ -130,9 +130,11 @@ Upgrade notices :
 1.1.2 : 
 	      - FIXED ERROR : In version 1.1 Collum qtdProduto  in table wpstore_stock  was created with space. This version correct this.
 
-
+1.1.3 : 
+				  - Google Analytics Ecommerce
+					
 1.1.4 : 
-			      - Google Analytics Ecommerce 
+			      - FIXED ERROR CEP / ZIPCODE
 			    
 
 1.2 : SOON

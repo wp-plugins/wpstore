@@ -143,21 +143,36 @@
       
       //SALVANDO NO BANCO DE DADOS A ALTERACAO DO PEDIDO
         if(intval($status) == 1){  //Aguardando Pagamento
-              $msg = "$status - Pagseguro Aguardando Pagamento - $idPedido : $metododePagamento $meiodePagamento - Notificado em:".$date ;
-              alteraPedidoStatus($idPedido,'PENDENTE',$msg,'','');
+              $msg = "$status - Pagseguro Aguardando Pagamento - $idPedido : $metododePagamento $meiodePagamento - Notificado em:".$date ; 
+               
+              $statusPedido = getStatusPedido($idPedido);
+              if($statusPedido != "APROVADO"){
+              alteraPedidoStatus($idPedido,'PENDENTE',$msg,'','');     
+              };
+              
          }elseif(intval($status) ==   2){//'Em análise'
            $msg = " $status - Pagseguro Verificando pagamento - $idPedido : $metododePagamento $meiodePagamento - Notificado em:".$date ;
-           alteraPedidoStatus($idPedido,'VERIFICANDO',$msg,'','');
+               $statusPedido = getStatusPedido($idPedido);
+             if($statusPedido != "APROVADO"){
+               alteraPedidoStatus($idPedido,'VERIFICANDO',$msg,'','');
+                };   
          }elseif(intval($status) == 3){  //Paga
            $msg = "$status - Pagseguro Autoriza Pagamento  - $idPedido : $metododePagamento $meiodePagamento - Notificado em:".$date ;
            calteraPedidoStatus($idPedido,'APROVADO',$msg,'','');
          }elseif(intval($status) == 7 ){//'Cancelada'
            $origemCancelamento = $transaction ->cancellationSource;
            $msg = "$status - Pagseguro Cancela Pagamento  - $idPedido : $metododePagamento $meiodePagamento  |  Origem : $origemCancelamento - Notificado em:".$date;
-           alteraPedidoStatus($idPedido,'CANCELADO',$msg,'','');
+                 $statusPedido = getStatusPedido($idPedido);
+             if($statusPedido != "APROVADO"){
+               alteraPedidoStatus($idPedido,'CANCELADO',$msg,'','');
+           };
          }else{
                $msg = "$status - Pagseguro Aguardando Retorno Pagamento  - $idPedido : $metododePagamento $meiodePagamento - Notificado em:".$date ;
+                 $statusPedido = getStatusPedido($idPedido);
+                 if($statusPedido != "APROVADO"){
                alteraPedidoStatus($idPedido,'PENDENTE',$msg,'','');  
+               };
+        
          };
       //SALVANDO NO BANCO DE DADOS A ALTERACAO DO PEDIDO
      

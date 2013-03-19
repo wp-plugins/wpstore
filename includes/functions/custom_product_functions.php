@@ -1422,7 +1422,21 @@ function custom_get_total_products_in_order($idPedido){
 
     
     
+      
     
+    //GERT STASTUS PEDIDO ---------------------------
+    
+    
+    function getStatusPedido($idPedido){
+        global $wpdb;
+        $tabela = $wpdb->prefix."";
+        $tabela .=  "wpstore_orders";
+        $query = "SELECT `status_pagto`  FROM `$tabela` WHERE   `id_pedido` = '$idPedido' ";
+        $status= $wpdb->get_var($query);
+        return  $status ;
+    };
+    
+    //GET STASTUS PEDIDO -----------------------
     
     
     //FUNCAO ALTERA STATUS PEDIDO --------------------------------------------------------

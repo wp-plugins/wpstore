@@ -22,9 +22,13 @@
 	                    <?php  }; ?>
 	                    
 		                 <?php  $tabelaVar .= " 	  <input type='text' id='cep' name='cep' value='$cepV' title='Digite seu Cep' class='cep'   "; ?>
-		                 <?php if(is_page($idPagina)){    $tabelaVar .= " readonly='readonly'";    }; ?> <?php  $tabelaVar .= " />
-                        <input type='button' class='btCalcularFrete button ' value='calcular' />
-		 	             <div class='clear'></div>
+		                 <?php if(is_page($idPagina)){    $tabelaVar .= " readonly='readonly'";    }; ?> <?php  $tabelaVar .= " />";
+                        
+                         $tabelaVar .= "<input type='button' class='btCalcularFrete button ' value='Consultar Frete' />";    
+                         
+                             
+		 	           
+		 	             $tabelaVar .= "<div class='clear'></div>
     		
     		                "; ?>
     		

@@ -90,7 +90,7 @@
                                              }   
                                              
                                              
-                                             if($valorF > 100000){
+                                            // if($valorF > 100000){
                                              
                                                  if($valorF/7 > 500){	                     
                                                  $txtPrint .="<option value='7'>7 Parcelas</option>";
@@ -108,7 +108,7 @@
                                                    $txtPrint .="<option value='10'>10 Parcelas</option>";
                                                    }	
                                                
-                                               }; // end if compra >100                    
+                                             //  }; // end if compra >100                    
 
 
 
