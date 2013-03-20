@@ -1354,7 +1354,7 @@
                                       jQuery.post(url, { temaV:tema,tamanhoV:tamanho,corV:cor,currentCatV:currentCat } , function(data) {
                                            jQuery('.produtosRecentes').hide();
                                            jQuery('.produtosRecentes').html(data);
-                                           hideBigLoad();
+                                           
                                            jQuery('.produtosRecentes').fadeIn();
                                           
                                        });
@@ -1386,10 +1386,24 @@
                                     }   
                                 }
                             });
-                            //SOMENTE NUMEROS FIELD ----------------------------    
+                            //SOMENTE NUMEROS FIELD ---------------------------- 
+                            
+                            
+                               
                              
-                         
-                         
+                           
+                   
+                   
+                           jQuery('.facebook_connect').click(function(){
+                                    showBigLoad();   
+                           }); 
+                        
+                        
+                           jQuery('.facebook_connect2').click(function(){
+                                         showBigLoad();   
+                            });
+                        
+                              
                          
 
 }); 
