@@ -110,12 +110,12 @@
                                                
                                              //  }; // end if compra >100                    
 
-
+                                                $totalParcela = get_totalParcela();   
 
                                              $txtPrint .="</select> 
 
 
-                                                 *Parcelamento em até 6X sem juros : Somente nas compras cima de  R$10.00  (Parcela mínima de R$5.00)</p>
+                                                 *Parcelamento em até ".$totalParcela."X sem juros : Somente nas compras cima de  R$10.00  (Parcela mínima de R$5.00)</p>
 
                                              </div>
 

@@ -55,6 +55,8 @@
         $userCep2 = trim(get_user_meta($idUser,'userCep2',true));if($userCep2==""){$userCep2="";};
         
         
+        $userCpf = trim(get_user_meta($idUser,'userCpf',true)); 
+       
  
             $nome = "$user_info->user_firstname  $user_info->user_lastname"; 
             if($user_info->display_name !=""){
@@ -141,6 +143,20 @@
  
                                               <p class='clearfix'>  <label for='nascimentoUsuario'  class='floatDados'>Nascimento:</label>
                                               <input type='text' class='userData nascC geral userData' value='$userNascimento'   id='nascimentoUsuario'  name='nascimentoUsuario' /></p>
+                                               
+                                            
+                                            
+                                              
+                                            
+                                            
+                                            
+                                              <p class='clearfix'>  <label for='userCpf'  class='floatDados'>CPF:</label>
+                                              <input type='text'    class='userData required  number' minlength='8'  value='$userCpf'   id='userCpf'  name='userCpf' /></p>
+                                                            
+
+
+                  
+                                            
                                             
                                            
                                         

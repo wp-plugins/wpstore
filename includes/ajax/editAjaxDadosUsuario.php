@@ -21,7 +21,8 @@
               	$estadoUsuario2 = $_REQUEST['estadoUsuario2'];
               	$cepUsuario2 = $_REQUEST['cepUsuario2'];
               	
-              	
+              	$userCpf = $_REQUEST['userCpf'];   
+      
               	$dddUsuario = $_REQUEST['dddUsuario'];
               	$telefoneUsuario = $_REQUEST['telefoneUsuario'];
 
@@ -38,7 +39,16 @@
                    if(intval($current_user->ID)<=0){
                          $msgError =  "Permissão Administrativa negada";
                          echo $msgError;
-                   }else{
+                   }else{   
+                       
+                       
+                        
+                        if($userCpf !="" && $userCpf!="undefined"){
+                             update_user_meta($current_user->ID,'userCpf', $userCpf);
+                             update_user_meta($current_user->ID,'userCpf', $userCpf);
+                          };
+                          
+                          
                        if($nomeUsuario !="" && $nomeUsuario !="undefined"){
                           update_user_meta($current_user->ID,'first_name', $nomeUsuario);
                           update_user_meta($current_user->ID,'display_name', $nomeUsuario);

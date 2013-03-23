@@ -1006,7 +1006,8 @@
 
                                   	 messages:{
                           				    telefoneUsuario: "Digite um número válido. Não utilize espaços antes ou depois do numero.",
-                          					telefoneUsuarioCel: "Digite um número válido. Não utilize espaços antes ou depois do numero.",
+                          					telefoneUsuarioCel: "Digite um número válido. Não utilize espaços antes ou depois do numero.", 
+                          					userCpf: "Digite um número válido. Não utilize espaços,pontos antes ou depois dos numeros.",
 
                           			 }, 
 
@@ -1077,6 +1078,8 @@
                                    var complementoUsuarioV =  ""+arrayData['complementoUsuarioV'];
                                    var bairroUsuarioV = ""+arrayData['bairroUsuarioV'];
                                    var cidadeUsuarioV = ""+arrayData['cidadeUsuarioV'];    
+                                  
+                                   var userCpfV = ""+arrayData['userCpfV'];   
                                    
                                   // var estadoUsuarioV = ""+arrayData['estadoUsuarioV'];
                                   var estadoUsuarioV = ""+jQuery("#estadoUsuario option:selected").val();
@@ -1099,7 +1102,7 @@
                                       var cepUsuario2V =  ""+arrayData['cepUsuario2V'];
                                       
 
-                                   salvarForm(nomeUsuarioV,nascimentoUsuarioV,sexoUsuarioV,enderecoUsuarioV,enderecoUsuarioNumeroV,complementoUsuarioV,bairroUsuarioV,cidadeUsuarioV,estadoUsuarioV,cepUsuarioV,enderecoUsuario2V,enderecoUsuarioNumero2V,complementoUsuario2V,bairroUsuario2V,cidadeUsuario2V,estadoUsuario2V,cepUsuario2V,dddUsuarioV,telefoneUsuarioV,dddUsuarioCelV,telefoneUsuarioCelV);
+                                   salvarForm(nomeUsuarioV,nascimentoUsuarioV,sexoUsuarioV,enderecoUsuarioV,enderecoUsuarioNumeroV,complementoUsuarioV,bairroUsuarioV,cidadeUsuarioV,estadoUsuarioV,cepUsuarioV,enderecoUsuario2V,enderecoUsuarioNumero2V,complementoUsuario2V,bairroUsuario2V,cidadeUsuario2V,estadoUsuario2V,cepUsuario2V,dddUsuarioV,telefoneUsuarioV,dddUsuarioCelV,telefoneUsuarioCelV,userCpfV);
 
                                    //jQuery('#btSalvarDados').remove();
                                   // editOpen = false;
@@ -1107,18 +1110,26 @@
                   };
 
 
-                  function salvarForm(nomeUsuarioV,nascimentoUsuarioV,sexoUsuarioV,enderecoUsuarioV,enderecoUsuarioNumeroV,complementoUsuarioV,bairroUsuarioV,cidadeUsuarioV,estadoUsuarioV,cepUsuarioV,enderecoUsuario2V,enderecoUsuarioNumero2V,complementoUsuario2V,bairroUsuario2V,cidadeUsuario2V,estadoUsuario2V,cepUsuario2V,dddUsuarioV,telefoneUsuarioV,dddUsuarioCelV,telefoneUsuarioCelV){
-                           jQuery(".carregando").fadeIn();
-                           jQuery.post(baseUrl+"editAjaxDadosUsuario.php", {nomeUsuario:nomeUsuarioV,nascimentoUsuario:nascimentoUsuarioV,sexoUsuario:sexoUsuarioV,enderecoUsuario:enderecoUsuarioV,enderecoUsuarioNumero:enderecoUsuarioNumeroV,complementoUsuario:complementoUsuarioV,bairroUsuario:bairroUsuarioV,cidadeUsuario:cidadeUsuarioV,estadoUsuario:estadoUsuarioV,cepUsuario:cepUsuarioV,enderecoUsuario2:enderecoUsuario2V,enderecoUsuarioNumero2:enderecoUsuarioNumero2V,complementoUsuario2:complementoUsuario2V,bairroUsuario2:bairroUsuario2V,cidadeUsuario2:cidadeUsuario2V,estadoUsuario2:estadoUsuario2V,cepUsuario2:cepUsuario2V,dddUsuario:dddUsuarioV,telefoneUsuario:telefoneUsuarioV,dddUsuarioCel:dddUsuarioCelV,telefoneUsuarioCel:telefoneUsuarioCelV },
-                              function(data) { 
+                  function salvarForm(nomeUsuarioV,nascimentoUsuarioV,sexoUsuarioV,enderecoUsuarioV,enderecoUsuarioNumeroV,complementoUsuarioV,bairroUsuarioV,cidadeUsuarioV,estadoUsuarioV,cepUsuarioV,enderecoUsuario2V,enderecoUsuarioNumero2V,complementoUsuario2V,bairroUsuario2V,cidadeUsuario2V,estadoUsuario2V,cepUsuario2V,dddUsuarioV,telefoneUsuarioV,dddUsuarioCelV,telefoneUsuarioCelV,userCpfV){
+                           jQuery(".carregando").fadeIn();   
+                          
+                           jQuery.post(baseUrl+"editAjaxDadosUsuario.php", {nomeUsuario:nomeUsuarioV,nascimentoUsuario:nascimentoUsuarioV,sexoUsuario:sexoUsuarioV,enderecoUsuario:enderecoUsuarioV,enderecoUsuarioNumero:enderecoUsuarioNumeroV,complementoUsuario:complementoUsuarioV,bairroUsuario:bairroUsuarioV,cidadeUsuario:cidadeUsuarioV,estadoUsuario:estadoUsuarioV,cepUsuario:cepUsuarioV,enderecoUsuario2:enderecoUsuario2V,enderecoUsuarioNumero2:enderecoUsuarioNumero2V,complementoUsuario2:complementoUsuario2V,bairroUsuario2:bairroUsuario2V,cidadeUsuario2:cidadeUsuario2V,estadoUsuario2:estadoUsuario2V,cepUsuario2:cepUsuario2V,dddUsuario:dddUsuarioV,telefoneUsuario:telefoneUsuarioV,dddUsuarioCel:dddUsuarioCelV,telefoneUsuarioCel:telefoneUsuarioCelV,userCpf:userCpfV },
+                              
+                              function(data) {  
+                                     
                               jQuery(".carregando").fadeOut();
-                              msgP(data);
+                             
+                              msgP(data); 
+                              
+                              
                               //jQuery('.btEditarDatos').fadeIn();
                               
                                if( cepUsuario2V !='undefined' ){
                                jQuery('input.cep').val(cepUsuario2V);
                                jQuery('.cepEntrega').text(cepUsuario2V);
-                               };
+                               };    
+                               
+                               
                                getEndereco(); 
                                
                                
@@ -1126,12 +1137,12 @@
                                     var checkout = jQuery('#checkout').val();
           		         
           		                        if(checkout=='TRUE'){
-          		                                   var Self = jQuery('div.block-content').eq(1);
+          		                                  var Self = jQuery('div.block-content').eq(1);
                                                   var irpara = parseInt(jQuery('.checkout').offset().top);
                                                   jQuery('html, body').animate({ scrollTop: irpara }, 1000);
                                                   //if(jQuery('.checkout .block .block-content:visible').is(Self)) return;
                                                   jQuery('.checkout .block .block-content:visible').slideUp(300);
-                                   			   Self.slideDown(300);
+                                   			      Self.slideDown(300);
                                                   jQuery('.msg').html('');
                                        };
                                

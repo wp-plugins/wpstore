@@ -34,6 +34,7 @@
         $userEstado2 = trim(get_user_meta($idUser,'userEstado2',true));if($userEstado2==""){$userEstado2="";};
         $userCep2 = trim(get_user_meta($idUser,'userCep2',true));if($userCep2==""){$userCep2="";};
         
+         $userCpf = trim(get_user_meta($idUser,'userCpf',true)); 
         
  
             $nome = "$current_user->user_firstname $current_user->user_lastname";
@@ -76,6 +77,13 @@
                                          	 <input type='text' class='required  email userData cepC geral' value='$userEmail'  id='emailUsuario'  name='emailUsuario'	readonly='readonly' />
                                             <span >  <label for='nascimentoUsuario'>Nascimento:</label></span>
                                          	<input type='text' class='  date userData nascC geral userData' value='$userNascimento'   id='nascimentoUsuario'  name='nascimentoUsuario' />
+                                               
+                                          
+                                         
+                                                <span >  <label for='userCpf'>CPF:</label></span>
+                                             	<input type='text' class='required  number' minlength='8' value='$userCpf'   id='userCpf'  name='userCpf' />
+                                         
+                                         
                                          
                                             <span ><label for='dddUsuarioCel'> DDD</label> - <label for='telefoneUsuarioCel'> Celular:</label></span>
                                          	<input type='text' class='number userData dddC geral userData' value='$userDDDCel' maxlength='2'   id='dddUsuarioCel'  name='dddUsuarioCel' />

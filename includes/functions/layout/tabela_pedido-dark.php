@@ -125,7 +125,7 @@ $orderPrint .= "
                      
                     		<ul class='descDetalhes'>
 								<li><a href='".get_permalink($postID)."' >".get_the_title($postID)."</a></li>
-								<li>$orderPrintiacao</li>
+								<li>$orderPrintiacao $variacao</li>
 								<li>$precoAdd </li>
 							</ul>
 							
