@@ -1007,7 +1007,7 @@
                                   	 messages:{
                           				    telefoneUsuario: "Digite um número válido. Não utilize espaços antes ou depois do numero.",
                           					telefoneUsuarioCel: "Digite um número válido. Não utilize espaços antes ou depois do numero.", 
-                          					userCpf: "Digite um número válido. Não utilize espaços,pontos antes ou depois dos numeros.",
+                          					userCpf: "Digite um número válido. Não utilize espaços, traços ou pontos antes ou depois dos numeros.",
 
                           			 }, 
 
@@ -1256,7 +1256,7 @@
                            jQuery('.'+key).fadeIn();
                            tamanhoOpen = true;
                            }else{
-                          jQuery('.tamanhoSelect .hide').hide(); 
+                           jQuery('.tamanhoSelect .hide').hide(); 
                            tamanhoOpen = false;
                            };
                       });
@@ -1360,14 +1360,13 @@
                                 //alert( currentCat);
                                       url= baseUrl+"consultaFiltroBusca.php";
 
-                                        showBigLoad();
+                                     showBigLoad();
 
                                       jQuery.post(url, { temaV:tema,tamanhoV:tamanho,corV:cor,currentCatV:currentCat } , function(data) {
                                            jQuery('.produtosRecentes').hide();
                                            jQuery('.produtosRecentes').html(data);
-                                           
                                            jQuery('.produtosRecentes').fadeIn();
-                                          
+                                           hideBigLoad(); 
                                        });
                                 
                              

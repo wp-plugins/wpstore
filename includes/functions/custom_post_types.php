@@ -15,7 +15,7 @@
    		'public' => true,
    		'has_archive' => true,
    			'menu_position' => 7,
-   		 		'supports' => array( 'title','excerpt','editor','author','thumbnail' )
+   		 		'supports' => array( 'title','excerpt','editor','author','thumbnail','revisions' )
 
    		)
    	);

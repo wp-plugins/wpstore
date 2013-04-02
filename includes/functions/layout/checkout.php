@@ -24,7 +24,7 @@ $htmlVar .="<div class='pagamento'>
 	</div>
 	
 	
-	<p><a href='".verifyURL(get_permalink( get_idPaginaCheckout() ))."' >Clique aqui se deseja  editar seu pedido</a></p>
+	<p><a href='".verifyURL(get_permalink( get_idPaginaCarrinho() ))."' >Clique aqui se deseja  editar seu pedido</a></p>
     
     ";
 	
@@ -114,7 +114,7 @@ $htmlVar .="<div class='pagamento'>
 	                           	 <div class='clear'></div>
 	                            <hr/>
 	                            
-	                            <p><a href='".verifyURL(get_permalink( get_idPaginaCheckout() ))."' >Clique aqui se deseja  editar seu pedido</a></p>
+	                            <p><a href='".verifyURL(get_permalink( get_idPaginaCarrinho() ))."' >Clique aqui se deseja  editar seu pedido</a></p>
                                 
                                 
                                 ";

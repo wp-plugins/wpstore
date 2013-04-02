@@ -105,7 +105,21 @@
                 ?>
                 
                 
-                <?php
+                <?php   
+                
+                
+                
+                
+                
+                $categories = "<span style='font-size:10px'><strong>Categorias do produto:</strong></span>";
+
+
+                foreach((get_the_category($postID)) as $category) { 
+                    $categories .= "<span style='font-size:10px'>".$category->cat_name.", </span>"; 
+                }
+
+
+
 
                 $orderPrint .="
 
@@ -114,8 +128,8 @@
        
          <tr>
          	<td width='1' class='ta-center hide-phone'><a href='".get_permalink($postID)."'>".custom_get_image($postID,50,50,true,false)."</a></td>
-             <td><a href='".get_permalink($postID)."'>".get_the_title($postID)."</a> </td>
-             <td class='hide-phone'>".$variacao."</td>
+             <td><a href='".get_permalink($postID)."'>".get_the_title($postID)."</a> ($categories ) </td>
+             <td class='hide-phone'>".$variacao."  </td>
              <td>
              $qtdProd 
              </td>

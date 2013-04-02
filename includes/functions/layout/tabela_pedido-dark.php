@@ -115,7 +115,18 @@ $orderPrint .= "
  
                 
                 
-             <?php   
+             <?php       
+             
+             
+              $categories = "<span style='font-size:10px'><strong>Categorias do produto:</strong></span>";
+                             
+    
+              foreach((get_the_category($postID)) as $category) { 
+                  $categories .= "<span style='font-size:10px'>".$category->cat_name.", </span>"; 
+              }
+           
+              
+             
                 $orderPrint .= " 
                 <tr>
               
@@ -127,7 +138,9 @@ $orderPrint .= "
 								<li><a href='".get_permalink($postID)."' >".get_the_title($postID)."</a></li>
 								<li>$orderPrintiacao $variacao</li>
 								<li>$precoAdd </li>
-							</ul>
+							</ul>      
+							
+							<p> $categories</p>
 							
 							<p class='editar'><a href='".get_permalink($postID)."'>mais detalhes</a></p>
 							
