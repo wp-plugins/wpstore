@@ -144,7 +144,7 @@
 
                      $table_name = $wpdb->prefix  ."wpstore_contacts"; 
 
-                          $sql6 = "CREATE TABLE IF NOT EXIST`$table_name` (
+                          $sql6 = "CREATE TABLE IF NOT EXISTS `$table_name` (
                           	  `id` mediumint(9) NOT NULL AUTO_INCREMENT,
                           	  `nomeAviso` VARCHAR(155) DEFAULT '' NOT NULL,
                           	  `emailAviso` VARCHAR(100) DEFAULT '' NOT NULL,
@@ -160,7 +160,7 @@
 
                           $table_name = $wpdb->prefix  ."wpstore_descontos"; 
 
-                               $sql7 = "CREATE TABLE IF NOT EXIST`$table_name` (
+                               $sql7 = "CREATE TABLE IF NOT EXISTS `$table_name` (
                                	  `id` mediumint(9) NOT NULL AUTO_INCREMENT,
                                	  `numeroCupom` VARCHAR(155) DEFAULT '' NOT NULL,
                                	  `tipoDesconto` VARCHAR(100) DEFAULT '' NOT NULL,
