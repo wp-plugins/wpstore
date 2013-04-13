@@ -95,7 +95,18 @@ $htmlVar .="<div class='pagamento'>
                            $textoUnidade = "unidades";
                            if($qtd==1){
                             $textoUnidade = "unidade";    
-                           }
+                           }   
+                           
+                           
+                           
+                           
+                                 $categories = "<span style='font-size:10px'><strong>Categorias do produto:</strong></span>";
+
+
+                                 foreach((get_the_category($postID)) as $category) { 
+                                     $categories .= "<span style='font-size:10px'>".$category->cat_name.", </span>"; 
+                                 }
+                                 
 	
                    $htmlVar .="	<div class='fotosC'>
 	                            ".custom_get_image($postID,150,150,true,false)."
@@ -106,7 +117,8 @@ $htmlVar .="<div class='pagamento'>
 		                        <br/>
 		                       <span>  $tabelaVariacao </span><br/>
 								<span> $precoAdd   </span>
-								
+								  <br/>
+						         $categories 
 								
 		                        <a href='".get_permalink($postID)."'>detalhes</a>
 	                            </div>

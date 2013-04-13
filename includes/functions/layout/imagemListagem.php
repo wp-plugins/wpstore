@@ -103,7 +103,13 @@
      
      $crop = 1;
         
-              $image_url =   verifyURL($image_url) ;   
+     $image_url =   verifyURL($image_url) ;   
+     
+     $id = get_current_blog_id();    
+
+     //if($id>1){
+            $image_url =   get_image_path($image_url);     
+     //};
 
        
   
@@ -114,11 +120,11 @@
          
          <?php if($produto==true  ){ ?>
  
-          <?php         $image_url =   get_image_path($image_url);    $imgPrint .= "<a href='".$image_url."' class='imageBig' ><img  width='$width' class='image notScale $class $class2' src='".verifyURL(get_bloginfo('template_url'))."/timthumb.php?src=".$image_url."&h=$height&w=550&zc=$crop' alt='".get_the_title()."'  width='250'/></a>"; ?>
+          <?php    $imgPrint .= "<a href='".$image_url."' class='imageBig' ><img  width='$width' class='image notScale $class $class2' src='".verifyURL(get_bloginfo('template_url'))."/timthumb.php?src=".$image_url."&h=$height&w=550&zc=$crop' alt='".get_the_title()."'  width='250'/></a>"; ?>
           
           <?php }else{ ?>
   	    
-  	      <?php        $image_url =   get_image_path($image_url);     $imgPrint .= "<a href='".$the_permalink."'><img  width='$width' class='image  $class $class2' src='".verifyURL(get_bloginfo('template_url'))."/timthumb.php?src=".$image_url."&h=$height&w=$width&zc=$crop' alt='".get_the_title()."' /></a>"; ?>
+  	      <?php        $imgPrint .= "<a href='".$the_permalink."'><img  width='$width' class='image  $class $class2' src='".verifyURL(get_bloginfo('template_url'))."/timthumb.php?src=".$image_url."&h=$height&w=$width&zc=$crop' alt='".get_the_title()."' /></a>"; ?>
 
           <?php };  ?>
   	
@@ -136,7 +142,7 @@
           
                          <?php  if( $principal == true){ ?>
               	                      <a href="<?php echo  $the_permalink;  ?>"><img   class="image imageProduto <?php echo $class; ?> <?php echo $class2; ?>" src="<?php echo   $image_url; ?>" alt="<?php the_title(); ?>" /></a> 
-              	             <?php }else{        $image_url =   get_image_path($image_url);     ?>
+              	             <?php }else{         ?>
               	                       <a href="<?php echo  $the_permalink;  ?>"><img  width='<?php echo $width; ?>' class="image <?php echo $class; ?> <?php echo $class2; ?>" src="<?php bloginfo('template_url'); ?>/timthumb.php?src=<?php echo $image_url; ?>&h=<?php echo $height; ?>&w=<?php echo $width; ?>&zc=<?php echo $crop; ?>" alt="<?php the_title(); ?>" /></a>
                             <?php };  ?>
                     

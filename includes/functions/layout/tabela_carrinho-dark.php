@@ -152,13 +152,21 @@ $tabelaVar .= "
                    $subtotal += $qtd*$precoSoma;
                    
                
-              
+                                $categories = "<span style='font-size:10px'><strong>Categorias do produto:</strong></span>";
+
+
+                        foreach((get_the_category($postID)) as $category) { 
+                            $categories .= "<span style='font-size:10px'>".$category->cat_name.", </span>"; 
+                        }
              
                 ?>
                 
                 
              <?php   
-                $tabelaVar .= " 
+                $tabelaVar .= "  
+                
+                       
+					         
                 <tr>
               
                     <td> ".custom_get_image($postID,183,183,true,false)." </td>
@@ -168,9 +176,15 @@ $tabelaVar .= "
                     		<ul class='descDetalhes'>
 								<li><a href='".get_permalink($postID)."' >".get_the_title($postID)."</a></li>
 								<li>$tabelaVariacao</li>
-								<li>$precoAdd </li>
-							</ul>
+								<li>$precoAdd </li>  
+								
 							
+    						         
+							</ul>
+							     
+							
+									<p> $categories</p>         
+									
 							<p class='editar'><a href='".get_permalink($postID)."'>mais detalhes</a></p>
 							
                     

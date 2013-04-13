@@ -12,9 +12,14 @@ if($mail_destino ==""){
 }
  
   
-$emailAdmin =  get_option('emailAdminWPSHOP');
+ $emailAdmin =  get_option('smtpUserWPSHOP');   
+ 
 $emailWpAdmin = $emailAdmin;
-if($emailAdmin==""){
+if($emailAdmin==""){   
+    $emailAdmin =  get_option('emailAdminWPSHOP');
+    $emailWpAdmin = $emailAdmin;
+     
+}elseif($emailAdmin==""){
 $emailAdmin =  get_bloginfo('admin_email');
 $emailWpAdmin = $emailAdmin;
 };
@@ -36,9 +41,9 @@ $urlWpAdmin = get_bloginfo('siteurl');
 $assunto= "$assuntoEmail";
 $assunto2= "$assuntoEmail2";
  
-$plugin_directory = str_replace('ajax/','',plugin_dir_url( __FILE__ ));
+  $plugin_directory = str_replace('ajax/','',plugin_dir_url( __FILE__ ));
  
-$msg = "
+  $msg = "
     <html>
     <head>
     <meta http-equiv='Content-Type' content='text/html;'>
@@ -63,7 +68,7 @@ $msg = "
   $msg .= "$mensagemEmail";
   $msg2 .= "$mensagemEmail2";
   
- $footerb = "<a title='footer-newsletter' href='".get_bloginfo('url')."'>
+  $footerb = "<a title='footer-newsletter' href='".get_bloginfo('url')."'>
  	<img  style='border:0px' class='aligncenter size-full wp-image-3486' title='".get_bloginfo('url')."' src='".$plugin_directory."images/footer-email.png' alt='' width='600' />
  	</a>
  	<p>Caso você não tenha solicitado este email, favor desconsiderar esta mensagem.</p>
@@ -111,19 +116,17 @@ require_once("PHPMailer/class.phpmailer.php");
  
 
  
-     //instancia a classe
-     $mail = new PHPMailer();
+      //instancia a classe
+      $mail = new PHPMailer();
  
      
       $smtpDebug = get_option('smtpDebugWPSHOP'); 
-     
       if($smtpDebug =="Y"){
-      // enables SMTP debug information (for testing)
       $mail->SMTPDebug  = 1;    
       }else{
        $mail->SMTPDebug  = 0;    
       }
-      
+   
       
       
      $smtpAtivo = get_option('smtpAtivoWPSHOP'); 
@@ -135,10 +138,7 @@ require_once("PHPMailer/class.phpmailer.php");
      $mail->SMTPAuth = true;  
      };
      
-     
-     
-     
-
+  
      
      //altera a porta de envio
      $mail->Port = $smtpPort; //465 OR 25 OR 587
@@ -149,13 +149,16 @@ require_once("PHPMailer/class.phpmailer.php");
      //Define o nome do usuário
      $mail->Username = "$smtpUser";
      
-     //define a senha o usuário
-     $mail->Password = "$smtpPass";
-     //Informa o email e nome de quem está enviado
-      $mail->SetFrom(  "$smtpFrom" , "".get_bloginfo('name')."" );
+     //define a senha o usuário     
+     
+     $mail->Password = "$smtpPass";   
+     
+     //Informa o email e nome de quem está enviado     
+     
+      $mail->SetFrom(  "$smtpFrom" , "".get_bloginfo('name')  );
      //Informa o email e nome de quem irá receber o email
      
-     $mail->AddAddress( $mailTo, utf8_decode( $nome ) );
+     $mail->AddAddress( $mailTo, utf8_decode($nome) );
  
      //REPLY TO
    //  $mail->AddReplyTo( $mail_destino, utf8_decode($nome) );
@@ -168,7 +171,7 @@ require_once("PHPMailer/class.phpmailer.php");
      
        $emailInc = '';
        
-     if($mail->Send()){
+     if($mail->Send() && $mailSubject2 !="" ){
                   $emailInc = 'Send';   
         //echo intval($user->ID);
         // echo 10;
@@ -179,7 +182,7 @@ require_once("PHPMailer/class.phpmailer.php");
            $mail->MsgHTML(utf8_decode($mailBody2));
            $mail->ClearAllRecipients( );
            
-             if( $emailWpAdmin !=""){
+             if( $emailWpAdmin !="" ){
                 $mail->AddAddress( $emailWpAdmin  , utf8_decode("".get_bloginfo('name')."") );
                };
              if($emailSiteAdmin !=""){

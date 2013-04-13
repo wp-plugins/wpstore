@@ -40,7 +40,30 @@ $idPaginaCheckout = 0;
                
                                   $smtpDebug = trim($_POST['smtpDebug']); 
                                         add_option('smtpDebugWPSHOP',$smtpDebug ,'','yes'); 
-                                        update_option('smtpDebugWPSHOP',$smtpDebug); 
+                                        update_option('smtpDebugWPSHOP',$smtpDebug);   
+                                        
+                                        
+                                        
+        $emailSend =  trim($_POST['emailSend']);         
+                                 
+        $plugin_directory = str_replace('layout/','',plugin_dir_url( __FILE__ )); 
+        	                                
+        if($emailSend !="") {    
+            
+                  echo "<p>Enviando Email test to : ".$emailSend." </p>";    
+                  echo "</br>";         
+                   
+                  $user_email= $emailSend;   
+                  $nome = "Test Name";
+                  $assuntoEmail =   " Email Test: ".get_bloginfo('name');
+                  $mensagemEmail = " <h1>Hello,  </h1><p>This is a test! </p>";
+                  
+                  include("../wp-content/plugins/wpstore/includes/functions/email.php");      
+                   
+                  echo "</br></br></br>";         
+        };
+        
+        
    };
 
 
@@ -297,7 +320,30 @@ $smtpDebug= get_option('smtpDebugWPSHOP');
                                                                              </div><!-- .bloco -->
                                                                             
                                                                     
+                                                                     
              
+             
+                                                                             <div class="bloco">      
+
+                                                                        			<h3>7 ) SEND EMAIL TEST</h3>
+
+                                                                        			<span class="seta" rel='emailSend'></span>
+                                                                        			<div class="texto" id='emailSend'>
+
+
+                                                                                                     <label for="valorFreteValor6">Defina o email a receber o email  </label>
+                                                                                                         <br/>
+                                                                                                         <input type="text" id="emailSend" name="emailSend" value="<?php echo $emailSend; ?>"   style="width:40%" />
+                                                                                                        <br/>
+                                                                                                
+                                                                                                        <br/>
+                                                                                                        <input type="submit"  name="submit" value="Salvar"   />   
+                                                                                                         <br/>
+                                                                                     </div>
+                                                                                     </div><!-- .bloco -->
+                                                                                     
+                                                                                     
+                                                                                     
 
        
 
