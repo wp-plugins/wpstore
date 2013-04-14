@@ -200,10 +200,15 @@ if($freteGratis == false){
 };
 
 
+ 
+ 
+   $sessionValue = '';
+   $blogid = intval(get_current_blog_id()); 
+ if($blogid>1){   $sessionValue =  $_SESSION['carrinho'.$blogid];         }else{   $sessionValue = $_SESSION['carrinho'];        }; 
 
 
 
-if($salvar==true && $_SESSION['carrinho'] !="" ){     
+if($salvar==true && $sessionValue !="" ){     
     
      $emailInc = "";      
      include('saveOrder.php');

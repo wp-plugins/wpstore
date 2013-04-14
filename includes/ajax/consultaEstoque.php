@@ -50,7 +50,12 @@ if( $qtdStock > 0 ){
    $incluso = false;
    
    
-   $arrayCarrinho = $_SESSION['carrinho']; 
+   $arrayCarrinho ="";  
+   
+   $blogid = intval(get_current_blog_id());  
+   		if($blogid>1){$arrayCarrinho = $_SESSION['carrinho'.$blogid];}else{  $arrayCarrinho = $_SESSION['carrinho'];  };
+   
+   
 
    if($arrayCarrinho==""){ $arrayCarrinho = array(); };
    
@@ -89,7 +94,10 @@ if( $qtdStock > 0 ){
                  $arrayCarrinho[$key]['prodString'] = trim($postID.$variacaoCor);
                  $arrayCarrinho[$key]['variacaoProduto'] = $variacaoCor;
                  $arrayCarrinho[$key]['qtdProduto'] =  $qtdPrd;
-                 $_SESSION['carrinho'] = $arrayCarrinho;
+                 $blogid = intval(get_current_blog_id()); 
+                 if($blogid>1){     $_SESSION['carrinho'.$blogid] = $arrayCarrinho;           }else{       $_SESSION['carrinho'] = $arrayCarrinho;          }; 
+                 
+                 
                 // echo ''.$precoAdd.'<span style="color:red">'.$qtdPrd.' - Este produto   foi adicionado recentemente a sua lista.</span><br/><br/><a href="'.get_bloginfo('url').'/checkout/" class="btGO">Seguir para Pagamento</a>  <br/><br/>  <a href="'.get_bloginfo('url').'/carrinho/" class="btGO" >Ver Carrinho</a>';
                 echo verifyURL( get_permalink( get_idPaginaCheckout() ) ); 
     }else{
@@ -98,7 +106,13 @@ if( $qtdStock > 0 ){
              $arrayCarrinho[$countA]['prodString'] = trim($postID.$variacaoCor);
              $arrayCarrinho[$countA]['variacaoProduto'] = $variacaoCor;
              $arrayCarrinho[$countA]['qtdProduto'] =  $qtdProduto;
-             $_SESSION['carrinho'] = $arrayCarrinho;
+           
+             
+ 
+               $blogid = intval(get_current_blog_id()); 
+             if($blogid>1){     $_SESSION['carrinho'.$blogid] = $arrayCarrinho;           }else{       $_SESSION['carrinho'] = $arrayCarrinho;          }; 
+
+
               //echo ''.$precoAdd.'<span style="color:green">Adicionado com sucesso!</span> <br/><br/><a href="'.get_bloginfo('url').'/checkout/" class="btGO" >Seguir para Pagamento</a> <br/><br/> <a href="'.get_bloginfo('url').'/carrinho/" class="btGO">Ver Carrinho</a>';
               echo verifyURL( get_permalink( get_idPaginaCheckout() ) );  
     };

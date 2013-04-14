@@ -153,8 +153,10 @@ global $post, $meta_boxes_produtos, $key;
   save_stock_produto($post_id );
  
 foreach( $meta_boxes_produtos as $meta_box ) {
+  
   $varUp = $_POST[ $meta_box[ 'name' ] ];
-  if($varUp != "" || $meta_box[ 'name' ]=="banner"){
+  
+  if($varUp != ""  ){
       
       if($meta_box[ 'name' ]=='price'){ 
           $priceCompare =   str_replace('.','', $varUp);
@@ -169,7 +171,8 @@ foreach( $meta_boxes_produtos as $meta_box ) {
         } 
       
       
-  update_post_meta( $post_id, $meta_box[ 'name' ] , $varUp );
+  update_post_meta( $post_id, $meta_box[ 'name' ] , $varUp );   
+  
   };  
   
 }

@@ -10,7 +10,17 @@
 
 <?php 
 
-   $arrayCarrinho = $_SESSION['carrinho']; 
+  $arrayCarrinho ='';   
+
+	    $blogid = intval(get_current_blog_id());  
+    	 if($blogid>1){
+    	       $arrayCarrinho = $_SESSION['carrinho'.$blogid];
+    	 }else{
+    	       $arrayCarrinho =  $_SESSION['carrinho'];  
+       };
+  
+   
+   
    $act = $_GET['act'];
    $idp = $_GET['idp'];
    $remove = $_GET['removeAll'];
@@ -19,7 +29,17 @@
         $esvaziarCarrinho=true;
     }
     if($esvaziarCarrinho==true){
-       $_SESSION['carrinho'] = array();
+  
+      
+    	    $blogid = intval(get_current_blog_id());  
+         	 if($blogid>1){
+         	          $_SESSION['carrinho'.$blogid] = array();     
+         	 }else{
+         	          $_SESSION['carrinho'] = array();      
+            };
+       
+       
+       
     };
    
   
@@ -36,7 +56,13 @@
     
     if($act=='remove'){
              unset($arrayCarrinho[$idp]);
-             $_SESSION['carrinho'] = $arrayCarrinho;
+          
+          
+                     $blogid = intval(get_current_blog_id());  
+          				if($blogid>1){$arrayCarrinho = $_SESSION['carrinho'.$blogid] = $arrayCarrinho;   }else{      $_SESSION['carrinho'] = $arrayCarrinho;    }
+          
+          
+          
              	//wp_redirect(verifyURL(get_bloginfo('url')).'/carrinho/');
              		  echo "<script>window.location='".verifyURL($urlRedirect)."'</script>";
     }

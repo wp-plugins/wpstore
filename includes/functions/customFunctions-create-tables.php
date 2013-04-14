@@ -10,11 +10,10 @@
    function shopPlugin_update_db_check() {
        global $wpstore_version;
        if (get_option('wpstore_version') != $wpstore_version) {
- 
            update_option("wpstore_version", $wpstore_version);
-           
            wpstore_createTable();
-       }   wpstore_createTable();       
+       }   
+       wpstore_createTable();       
    }
          
    

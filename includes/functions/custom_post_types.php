@@ -18,7 +18,10 @@
    		 		'supports' => array( 'title','excerpt','editor','author','thumbnail','revisions' )
 
    		)
-   	);
+   	); 
+   	
+   	flush_rewrite_rules();    
+
    }
 
 
@@ -27,15 +30,13 @@
        	function my_custom_produtos_init() {
        		add_post_type_support( 'produtos', 'custom-fields' );
        		register_taxonomy_for_object_type('category', 'produtos');
-               register_taxonomy_for_object_type('post_tag', 'produtos');
+            register_taxonomy_for_object_type('post_tag', 'produtos');
        	};
-
-
+  
    //final criar tipo de post personalizado ------------post types ( produtos )
 
    include('customFunctions-add-metaboxes_produtos.php');
 
 
- 
      
 ?>

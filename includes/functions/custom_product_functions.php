@@ -291,9 +291,18 @@ function custom_get_stock_reservaUsuario($postID,$variacaoCor){
     
     if( $variacaoCor=="" || $variacaoCor=="-" ){ $variacaoCor=$postID; };
     
-     $arrayCarrinho =  $_SESSION['carrinho'];
+     $arrayCarrinho =  ''; 
+    
+     $blogid = intval(get_current_blog_id());  
+  	 if($blogid>1){
+  	       $arrayCarrinho = $_SESSION['carrinho'.$blogid];
+  	 }else{
+  	       $arrayCarrinho =  $_SESSION['carrinho'];  
+     };
+
+ 	
          
-     if($_SESSION['carrinho'] ==""){ $arrayCarrinho = array(); };
+     
 
      foreach($arrayCarrinho as $item){
           if( $item['prodString'] == trim($postID.$variacaoCor) ){
@@ -337,7 +346,11 @@ function get_cart_Table($print=true){
 
 function  custom_get_qtd_items_Cart(){
 
-    $arrayCart = $_SESSION['carrinho']; 
+    $arrayCart = ''; 
+    $blogid = intval(get_current_blog_id());  
+ 		if($blogid>1){$arrayCart = $_SESSION['carrinho'.$blogid];}else{  $arrayCart =  $_SESSION['carrinho'];   };
+
+	
     if($arrayCart==""){
         $arrayCart = array();
     }
@@ -536,7 +549,19 @@ function 	custom_product_relation_single(){
  
  
  function  get_weight_cart(){
-       $arrayCarrinho = $_SESSION['carrinho'];
+      
+      
+      $arrayCarrinho ='';   
+
+   	    $blogid = intval(get_current_blog_id());  
+        	 if($blogid>1){
+        	       $arrayCarrinho = $_SESSION['carrinho'.$blogid];
+        	 }else{
+        	       $arrayCarrinho =  $_SESSION['carrinho'];  
+           };
+      
+   	
+   	
        if($arrayCarrinho==""){ $arrayCarrinho = array(); };
        $pesoTotal = 0;
        foreach( $arrayCarrinho as $key=>$item ){
@@ -685,7 +710,16 @@ function 	custom_product_relation_single(){
 
 function custom_get_total_price_session_order(){
     
-      $arrayCarrinho = $_SESSION['carrinho']; 
+    $arrayCarrinho ='';   
+
+ 	    $blogid = intval(get_current_blog_id());  
+      	 if($blogid>1){
+      	       $arrayCarrinho = $_SESSION['carrinho'.$blogid];
+      	 }else{
+      	       $arrayCarrinho =  $_SESSION['carrinho'];  
+         };
+ 
+  	
      
       if($arrayCarrinho==""){ $arrayCarrinho = array(); };
       
@@ -837,7 +871,16 @@ function custom_get_total_price_session_order(){
              
              $tabela .=  "wpstore_orders_products";
               
-             $arrayCarrinho = $_SESSION['carrinho']; 
+             $arrayCarrinho ='';   
+
+          	    $blogid = intval(get_current_blog_id());  
+               	 if($blogid>1){
+               	       $arrayCarrinho = $_SESSION['carrinho'.$blogid];
+               	 }else{
+               	       $arrayCarrinho =  $_SESSION['carrinho'];  
+                  };
+       
+         	
 
                  if($arrayCarrinho==""){ $arrayCarrinho = array(); };
 
@@ -1161,7 +1204,15 @@ function custom_get_total_products_in_order($idPedido){
     function get_subtotal(){
         
         
-        $arrayCarrinho = $_SESSION['carrinho']; 
+        $arrayCarrinho ='';   
+ 
+    	    $blogid = intval(get_current_blog_id());  
+         	 if($blogid>1){
+         	       $arrayCarrinho = $_SESSION['carrinho'.$blogid];
+         	 }else{
+         	       $arrayCarrinho =  $_SESSION['carrinho'];  
+            };
+            
 
         if($arrayCarrinho==""){ $arrayCarrinho = array(); };
 
@@ -1609,7 +1660,7 @@ function custom_get_total_products_in_order($idPedido){
     global $wpdb;
     $shortcode = '[get_cart_Table]';
     $query = "SELECT `ID`  FROM `$wpdb->posts` WHERE `post_content` LIKE '$shortcode' AND `post_type` = 'page' LIMIT 0,1";
-     $idPagina   = $wpdb->get_var($query);
+    $idPagina   = $wpdb->get_var($query);
     
     };
     return intval($idPagina);
@@ -1637,16 +1688,18 @@ function custom_get_total_products_in_order($idPedido){
    
     //FIND IDPAGE pedido------------------------------
     function get_idPaginaPedido(){
+        
     $idPagina   =  intval(trim(get_option('idPaginaPedidoWPSHOP')));
     
     if(  $idPagina <= 0 ){
     global $wpdb;
     $shortcode = '[custom_get_order_user]';
     $query = "SELECT `ID`  FROM `$wpdb->posts` WHERE `post_content` LIKE '$shortcode' AND `post_type` = 'page' LIMIT 0,1";
-     $idPagina   = $wpdb->get_var($query);
-    
+    $idPagina   = $wpdb->get_var($query);  
+    echo "ID-$idPagina-DI";
     };
-    return intval($idPagina);
+    return intval($idPagina);    
+    
     };
     //END FIND IDPAGE pedido-----------------------------
     

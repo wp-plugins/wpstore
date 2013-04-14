@@ -29,7 +29,16 @@ $htmlVar .="<div class='pagamento'>
     ";
 	
 	
-	$arrayCarrinho = $_SESSION['carrinho']; 
+    $arrayCarrinho ='';   
+
+ 	    $blogid = intval(get_current_blog_id());  
+      	 if($blogid>1){
+      	       $arrayCarrinho = $_SESSION['carrinho'.$blogid];
+      	 }else{
+      	       $arrayCarrinho =  $_SESSION['carrinho'];  
+         };
+
+    
     
       foreach($arrayCarrinho as $key=>$item){ 
           

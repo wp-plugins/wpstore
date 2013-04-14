@@ -99,9 +99,9 @@
            
            $msg =   $msg."||".$pedidoID;
            
-           
-            unset($_SESSION['carrinho']);
-           
+      
+               $blogid = intval(get_current_blog_id());  
+           		if($blogid>1){  unset($_SESSION['carrinho'.$blogid]);   }else{   unset($_SESSION['carrinho']);  }; 
           
           
                 $user_info = get_userdata($idUser);

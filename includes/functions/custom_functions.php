@@ -327,9 +327,7 @@ function custom_get_category_id($blog_ID=1,$catName){
      
     $page = get_page_by_title( 'Carrinho' );
     if(intval($page->ID)<=0){
-     
-  
-     // Create post object
+      // Create post object
      $my_post = array(
      'post_title' => 'Carrinho',
      'post_content' => '[get_cart_Table]',
@@ -338,7 +336,10 @@ function custom_get_category_id($blog_ID=1,$catName){
      'post_author' => $idUser
      );
      $the_page_id = wp_insert_post( $my_post);
-     
+       
+     add_option('idPaginaCarrinhoWPSHOP',$the_page_id,'','yes'); 
+     update_option('idPaginaCarrinhoWPSHOP',$the_page_id);
+                    
   };
   
   
@@ -353,7 +354,10 @@ function custom_get_category_id($blog_ID=1,$catName){
       'post_status' => 'publish',
       'post_author' => $idUser
       );
-      $the_page_id = wp_insert_post( $my_post);
+      $the_page_id = wp_insert_post( $my_post);   
+      
+      add_option('idPaginaCheckoutWPSHOP',$the_page_id,'','yes'); 
+       update_option('idPaginaCheckoutWPSHOP',$the_page_id);
                     	      
    };
    
@@ -371,7 +375,8 @@ function custom_get_category_id($blog_ID=1,$catName){
          );
         
         $the_page_id = wp_insert_post($my_post);
-                              	      
+         add_option('idPaginaPagtoWPSHOP',$the_page_id,'','yes'); 
+         update_option('idPaginaPagtoWPSHOP',$the_page_id);                       	      
                               	      
   };
                
@@ -389,7 +394,9 @@ function custom_get_category_id($blog_ID=1,$catName){
            'post_author' => $idUser
            );
            $the_page_id =wp_insert_post( $my_post );   
-                                        	      
+           add_option('idPaginaPedidosWPSHOP',$the_page_id,'','yes'); 
+           update_option('idPaginaPedidosWPSHOP',$the_page_id);
+                                         	      
    };
                  
                  
@@ -405,7 +412,9 @@ function custom_get_category_id($blog_ID=1,$catName){
              'post_status' => 'publish',
              'post_author' => $idUser
              );
-             $the_page_id = wp_insert_post($my_post);
+            $the_page_id= wp_insert_post($my_post); 
+            add_option('idPaginaPedidoWPSHOP',$the_page_id,'','yes'); 
+            update_option('idPaginaPedidoWPSHOP',$the_page_id);
                                                           	      
     };
     
@@ -422,7 +431,9 @@ function custom_get_category_id($blog_ID=1,$catName){
                'post_status' => 'publish',
                'post_author' => $idUser);
               $the_page_id =  wp_insert_post($my_post);
-                                                                                	      
+              add_option('idPaginaPerfilWPSHOP',$the_page_id,'','yes'); 
+              update_option('idPaginaPerfilWPSHOP',$the_page_id);
+                                                                                          	      
      };
     
      $page = get_page_by_title( 'Login' );
@@ -437,11 +448,11 @@ function custom_get_category_id($blog_ID=1,$catName){
                  'post_author' => $idUser
                   );
                   $the_page_id = wp_insert_post($my_post);
-                                                                                              	      
-                     };
-                                                                           	      
-                                                                                	      
-                                                                                	                                                           	                    	      
+                 add_option('idPaginaLoginWPSHOP',$the_page_id,'','yes'); 
+                 update_option('idPaginaLoginWPSHOP',$the_page_id);                                                                        	      
+                                                                            	      
+                 };
+                                                                  	                                                           	                    	      
       	};
 	
 	

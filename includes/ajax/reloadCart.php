@@ -19,7 +19,13 @@ $qtdCarrinho =  custom_get_qtd_items_Cart();
  $cor = $variacaoNome;
  };
  
- $arrayCarrinho = $_SESSION['carrinho']; 
+ $arrayCarrinho = ""; 
+ 
+ 
+   $blogid = intval(get_current_blog_id());  
+		if($blogid>1){$arrayCarrinho = $_SESSION['carrinho'.$blogid];}else{  $arrayCarrinho = $_SESSION['carrinho'];  };
+ 
+ 
  
  //print_r($arrayCarrinho);
  $postID = $arrayCarrinho[$key]['idPost'];
@@ -107,7 +113,14 @@ if( $qtdStock > 0 || $operacao=="setaDown" ){
                     unset($arrayCarrinho[$chave]);
                 }
                  
-                 $_SESSION['carrinho'] = $arrayCarrinho;
+                   
+                 
+                      $sessionValue = '';
+                   $blogid = intval(get_current_blog_id()); 
+                 if($blogid>1){   $_SESSION['carrinho'.$blogid]] = $arrayCarrinho;           }else{   $_SESSION['carrinho'] = $arrayCarrinho;        }; 
+
+                 
+                 
                  //echo ''.$precoAdd.'<span style="color:red">'.$qtdPrd.' - Este produto   foi adicionado recentemente a sua lista.</span> <a href="'.get_bloginfo('url').'/carrinho/">Ver Carrinho</a>';
                  echo $qtdPrd;
     };
