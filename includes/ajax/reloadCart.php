@@ -20,8 +20,7 @@ $qtdCarrinho =  custom_get_qtd_items_Cart();
  };
  
  $arrayCarrinho = ""; 
- 
- 
+   
    $blogid = intval(get_current_blog_id());  
 		if($blogid>1){$arrayCarrinho = $_SESSION['carrinho'.$blogid];}else{  $arrayCarrinho = $_SESSION['carrinho'];  };
  
@@ -115,9 +114,9 @@ if( $qtdStock > 0 || $operacao=="setaDown" ){
                  
                    
                  
-                      $sessionValue = '';
-                   $blogid = intval(get_current_blog_id()); 
-                 if($blogid>1){   $_SESSION['carrinho'.$blogid]] = $arrayCarrinho;           }else{   $_SESSION['carrinho'] = $arrayCarrinho;        }; 
+                 $sessionValue = '';
+                 $blogid = intval(get_current_blog_id()); 
+                 if($blogid>1){   $_SESSION['carrinho'.$blogid] = $arrayCarrinho;   }else{   $_SESSION['carrinho'] = $arrayCarrinho;   }; 
 
                  
                  
