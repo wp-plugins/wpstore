@@ -251,13 +251,13 @@ $Array[] = array();
                    $_SESSION['parc'] = "01";
 
     
-    if(intval($totalCompra)>0 && $status_pagto!="APROVADO" && $status_pagto!="CANCELADO" ){
-      
-     $txtPrint .= " <div id='pagamento'>";
-      
-    include_once('pages/carrinho.php');
+                   if(intval($totalCompra)>0 && $status_pagto!="APROVADO" && $status_pagto!="CANCELADO" ){
 
-    $txtPrint .= " </div> ";        
-    };//IF VALOR >0
+                    $txtPrint .= " <div id='pagamento'>";
+
+                   include_once('pages/carrinho.php');
+
+                   $txtPrint .= " </div> ";        
+                   };//IF VALOR >0
       
    ?> 

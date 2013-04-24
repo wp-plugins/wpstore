@@ -48,7 +48,7 @@
                      <h3><?php echo $moedaCorrente; ?> <?php echo $preco ; ?> *Parcele em até <?php echo $totalParcelas; ?>x sem juros: </h3>
 
 
-				<p>Parcela Mínima de <?php echo $moedaCorrente; ?>10.00 por pedido.  *Somente para Cartões Cielo. </p>
+				<p>Parcela Mínima de <?php echo $moedaCorrente; ?>10.00 por pedido.  </p>
                 
              
 				<table id="tabelaParcelamento">

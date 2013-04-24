@@ -234,7 +234,7 @@ $Array[] = array();
 
 
   
-   	$txtPrint .= "<br/>
+   	$txtPrint .= "<br/>  betberbewrbwra
        <h3 style='width:92;background:#ddd;margin-left:5px;padding:20px;text-align:center;font-size:1.2em'  >Total a pagar: $moedaCorrente".getPriceFormat($totalCompra)." </h3>  $obs";  
  
     $_SESSION['vt']  =   $totalCompra;

@@ -107,9 +107,9 @@
      
      $id = get_current_blog_id();    
 
-     //if($id>1){
+     if($id>1){
             $image_url =   get_image_path($image_url);     
-     //};
+     };
 
        
   

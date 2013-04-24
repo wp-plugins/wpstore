@@ -29,9 +29,8 @@ $smtpSecure= get_option('smtpSecureWPSHOP');
 $smtpHost= get_option('smtpHostWPSHOP');
 $smtpUser= get_option('smtpUserWPSHOP');
 $smtpPass= get_option('smtpPassWPSHOP');
-$smtpFrom= get_option('smtpFromWPSHOP');
-
-
+$smtpFrom= get_option('smtpUserWPSHOP');    
+ 
 
 
 
@@ -154,7 +153,8 @@ require_once("PHPMailer/class.phpmailer.php");
      $mail->Password = "$smtpPass";   
      
      //Informa o email e nome de quem está enviado     
-     
+          
+   
       $mail->SetFrom(  "$smtpFrom" , "".get_bloginfo('name')  );
      //Informa o email e nome de quem irá receber o email
      
@@ -171,7 +171,7 @@ require_once("PHPMailer/class.phpmailer.php");
      
        $emailInc = '';
        
-     if($mail->Send() && $mailSubject2 !="" ){
+     if($mail->Send()){
                   $emailInc = 'Send';   
         //echo intval($user->ID);
         // echo 10;
@@ -182,14 +182,14 @@ require_once("PHPMailer/class.phpmailer.php");
            $mail->MsgHTML(utf8_decode($mailBody2));
            $mail->ClearAllRecipients( );
            
-             if( $emailWpAdmin !="" ){
+             if( $emailWpAdmin !=""  && $mailSubject2 !=""  ){
                 $mail->AddAddress( $emailWpAdmin  , utf8_decode("".get_bloginfo('name')."") );
                };
              if($emailSiteAdmin !=""){
                $mail->AddAddress( $emailSiteAdmin , utf8_decode("".get_bloginfo('name')."") );
              };
         
-          if($emailSiteAdmin !="" || $emailWpAdmin !=""){
+          if($emailSiteAdmin !="" || $emailWpAdmin !=""  && $mailSubject2 !=""  ){
           $mail->Send();
           };
           

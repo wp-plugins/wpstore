@@ -9,7 +9,9 @@ require("../../../../../wp-load.php");
 	$nome = $_REQUEST['nome'];
 	
 	$checkout = $_REQUEST['checkout'];
-
+    $receba  = $_REQUEST['receba'];      
+    
+    
 	$user_login = sanitize_user( $email);
 	$user_email = apply_filters( 'user_registration_email', $email );
 	
@@ -44,7 +46,7 @@ require("../../../../../wp-load.php");
 	     add_user_meta($user_id,'first_name',$nome,true) OR update_user_meta($user_id, 'first_name',$nome);   
 	     add_user_meta($user_id,'display_name',$nome,true) OR  update_user_meta($user_id,'display_name', $nome);
 
-  
+     
 		
 		 //LOGIN----------------------
             $creds = array();
@@ -62,7 +64,17 @@ require("../../../../../wp-load.php");
          	$user = wp_signon( $creds, false );
            //END LOGIN----------------------
            
+                  
            
+               if($receba !=""){
+
+                    //UPDATE NEWSLETTER FORM --------------
+                     if (function_exists('registerNewsletterMail')) {
+                          registerNewsletterMail($nome,$user_email, "1***",'nao');   
+                     };
+
+                }
+                
            	
 		
 		if ( is_wp_error($user) ){

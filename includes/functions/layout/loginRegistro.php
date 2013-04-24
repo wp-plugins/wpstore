@@ -209,11 +209,24 @@
            
            <br/>
            
-           	    	<p class='recebaNews'>
-						<input type='checkbox' class='receba' id='receba' />
+           	    	<p class='recebaNews'>  ";
+           	    	
+           	    	
+           	
+           	    	
+           	    	 if (function_exists('registerNewsletterMail')) {  
+           	    	     
+           	    	
+                   	    	 $htmlVar .= "  
+     
+						<input type='checkbox' class='receba' name='receba' id='receba' value='1' CHECKED/>
 						<label for='receba'>Receba nossa newsletter e fique por dentro dos nossos lançamentos, dicas e matérias.</label>
-						<br/><br/>
-						<input type='radio' class='termos' id='termos' CHECKED />
+						<br/><br/> ";
+						
+					     
+					   }; 
+						
+					 $htmlVar .=    "   <input type='radio' class='termos' id='termos' CHECKED />
 						<label for='termos'>Estou ciente de que ao me cadastrar , concordo  com os termos de uso  e políticas do site.</label>
 					</p>
            

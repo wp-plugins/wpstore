@@ -811,7 +811,7 @@
                                  
                                     if(parseInt(data)){
                                         
-                                        msg = "<strong style='color:green'>Pedido de nova senha realizado com  sucesso! Você receberá um email nos próximos 5 minutos.  </strong>";
+                                        msg = "<strong style='color:green'>Pedido de nova senha realizado com  sucesso! Você receberá um email nos próximos 5 minutos. Caso demore, verifique também em seu filtro de SPAM e assine nosso email  como confiável.  </strong>";
                                         jQuery(".msg").html(msg);
                                         jQuery(".msg").fadeIn();  
                                         
@@ -932,13 +932,16 @@
                                           var emailc= ""+jQuery('#emailc').val();
                     			          var passc = ""+jQuery('#passc').val();
                     			          var pass2c = ""+jQuery('#passc2').val();
-                    			           var checkoutV = ""+jQuery('#checkout').val();
-
+                    			          var checkoutV = ""+jQuery('#checkout').val();
+                                          var recebaV = "";   
+                                          var boxes = jQuery('input[name=receba]:checked');
+                                          jQuery(boxes).each(function(){ recebaV = 1; });
+                                           
                                                  jQuery('.carregando').fadeIn();     jQuery(".msg").html("");    jQuery(".msg").fadeOut();  
 
                                                  url= baseUrl+"editCriarLoginAjax.php";
 
-                                                 jQuery.post(url, { emp:emailc, pwp:  passc , pw2p: pass2c  , nome: name,checkout:checkoutV  } , function(data) {
+                                                 jQuery.post(url, { emp:emailc, pwp:  passc , pw2p: pass2c  , nome: name,checkout:checkoutV,receba:recebaV  } , function(data) {
 
                                                  jQuery('.carregando').fadeOut();
 
