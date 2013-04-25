@@ -101,7 +101,7 @@
 
 #janela .popup .loading { background:url("images/ajax-loader2.gif") no-repeat top left;   z-index:9999; height:60px; }
 
-#janela .popup .loading span { font-size:1.5em; text-transform:uppercase; display:block;  padding-left:70px; padding-top:20px; }
+#janela .popup .loading span  font-size:0.9em; text-transform:uppercase; display:block;  padding-left:70px; padding-top:20px; }
    
    
    
@@ -374,7 +374,7 @@ ul.pedidos li {
 
         #janela .popup .loading { background:url("images/ajax-loader2.gif") no-repeat top left;   z-index:9999; height:60px; }
 
-        #janela .popup .loading span { font-size:1.6em; text-transform:uppercase; display:block;  padding-left:70px; padding-top:20px; }
+        #janela .popup .loading span { font-size:0.9em; text-transform:uppercase; display:block;  padding-left:70px; padding-top:20px; }
 
 
         .resumo { min-height:276px; padding:10px; margin:20px 45px 20px 0;  border:1px dotted #dedede; }
