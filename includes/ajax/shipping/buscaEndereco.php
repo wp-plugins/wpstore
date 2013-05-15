@@ -120,4 +120,5 @@ if( trim( $dados['cidade'] ) =="" || trim( $dados['cidade'] ) =="null" ){
  
 die(json_encode($dados));
 
-};
+};  
+?>
