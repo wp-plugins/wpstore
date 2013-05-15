@@ -553,11 +553,11 @@
                function goCheckout(radioFreteV,commentOrder,cidade,varSelect ){
                    
                         jQuery('.btSeguir3').text('Salvando Pedido...');
- 
+                                                 alert(radioFreteV);
                                     jQuery.post(baseUrl+"shipping/checkoutAJAX.php", { radioFrete:radioFreteV , commentOrderV:commentOrder,cidadeV:cidade,varSelectV:varSelect  } ,
                                                function(data) { 
                                                    
-                                                         //  alert(data);
+                                                       alert(data);
                                                             
                                                             arrDat = data.split("-"); 
                                                             arrDat2 = data.split("****"); 
