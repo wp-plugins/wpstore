@@ -8,8 +8,8 @@ Author URI: http://profiles.wordpress.org/jmorettoni/
 Author: jmorettoni
 Requires at least: 3.4
 Tested up to: 3.5
-Stable tag: 1.1.7
-Version: 1.1.7   
+Stable tag: 1.1.8
+Version: 1.1.8   
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html   
 Donate link: http://wpstore.com.br/download   
@@ -134,7 +134,10 @@ Upgrade notices :
 				  - Google Analytics Ecommerce
 					
 1.1.4 : 
-			      - FIXED ERROR CEP / ZIPCODE
+			      - FIXED ERROR CEP / ZIPCODE      
+			
+1.1.8 : 
+				  - FIXED ERROR PROMO ZIPCODE
 			    
 
 1.2 : SOON
