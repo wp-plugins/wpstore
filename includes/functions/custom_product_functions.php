@@ -301,9 +301,7 @@ function custom_get_stock_reservaUsuario($postID,$variacaoCor){
      };
 
  	
-         
-     
-
+     if(count($arrayCarrinho)>0){
      foreach($arrayCarrinho as $item){
           if( $item['prodString'] == trim($postID.$variacaoCor) ){
               $qtdItem =  $item['qtdProduto'];
@@ -311,6 +309,7 @@ function custom_get_stock_reservaUsuario($postID,$variacaoCor){
                   $reserva = intval($qtdItem);
                   return $reserva;
           } 
+     };
      };
        return 0;  
 }

@@ -344,5 +344,10 @@ $htmlVar .="<section class='checkout'>
 
  $htmlVar .="</div>"; //div pagamento 
  
+   
+ $googleConversaoCheckout=  get_option('googleConversaoCheckout'); 
+  $googleConversaoCheckout= str_replace('\"','"',$googleConversaoCheckout);
+      
+ $htmlVar .=$googleConversaoCheckout;
  
  ?>

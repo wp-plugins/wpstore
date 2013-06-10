@@ -170,5 +170,11 @@ if($moedaCorrente==""){
        if($idUser<=0){
           echo  "<p>Você precisa estar logado para acessar seus dados.</p>";
        }
-  
+      
+       
+       
+       $googleConversaoPagto =  get_option('googleConversaoPagto'); 
+       $googleConversaoPagto = str_replace('\"','"',$googleConversaoPagto );
+       echo   $googleConversaoPagto;
+       
 ?>

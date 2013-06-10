@@ -83,9 +83,24 @@ $idPaginaCheckout = 0;
                                         add_option('codigoAnalytics',$codigoAnalytics,'','yes'); 
                                         update_option('codigoAnalytics',$codigoAnalytics);
                                                                                                                                                                 
-                                                                                                                                                      $googleCategorias = trim($_POST['googleCategorias']); 
-                                                                                                                                                                    add_option('googleCategorias',$googleCategorias,'','yes'); 
-                                                                                                                                                                    update_option('googleCategorias',$googleCategorias);
+  $googleCategorias = trim($_POST['googleCategorias']); 
+add_option('googleCategorias',$googleCategorias,'','yes');   
+
+  $googleCategorias = trim($_POST['googleCategorias']); 
+add_option('googleCategorias',$googleCategorias,'','yes');
+
+$googleConversaoCheckout= trim($_POST['googleConversaoCheckout']); 
+ add_option('googleConversaoCheckout',$googleConversaoCheckout,'','yes');
+ 
+  $googleConversaoPagto= trim($_POST['googleConversaoPagto']); 
+   add_option('googleConversaoPagto',$googleConversaoPagto,'','yes');
+
+ 
+                                  
+                                  
+                                  
+                                                                                                                                                                 
+                                                                                                                                                                                                                                                                                                     update_option('googleCategorias',$googleCategorias);
                                                                                                                                                                                                                     
                                                               
                                           if (isset( $_POST['ativarssl'] )) {
@@ -129,7 +144,11 @@ $totalParcela = get_totalParcela();
         
  $googleMarca  =  get_option('googleMarca'); 
  $googleCategorias  =  get_option('googleCategorias'); 
-  $codigoAnalytics  =  get_option('codigoAnalytics');  
+  $codigoAnalytics  =  get_option('codigoAnalytics'); 
+  
+  
+    $googleConversaoCheckout=  get_option('googleConversaoCheckout');      
+    $googleConversaoPagto =  get_option('googleConversaoPagto');     
 ?>    
 
 
@@ -524,7 +543,27 @@ $totalParcela = get_totalParcela();
                                             <input type="text" id="googleCategorias" name="googleCategorias" value="<?php echo $googleCategorias; ?>" style="width:20%"/>
                                          </p>
 
-                                         <br/>
+                                         <br/>  <br/>    
+                                         
+                                         
+                                         
+                                              <h4>CONVERSÕES - CHECKOUT</h4>
+                                              <p>Insira seu código de conversões Checkout do Google :     
+                                               <br/>   <br/> 
+                                                 <textarea    id="googleConversaoCheckout" name="googleConversaoCheckout"  ><?php echo $googleConversaoCheckout; ?></textarea>
+                                                 
+                                              </p>
+                                             
+                                             
+                                             
+                                                    <h4>CONVERSÕES - PAGAMENTO</h4>
+                                                    <p>Insira seu código de conversões para pagamentos do Google :      
+                                                     <br/>   <br/> 
+                                                     <textarea    id="googleConversaoPagto" name="googleConversaoPagto"  ><?php echo $googleConversaoPagto; ?></textarea>
+                                                     </p>
+                                                    
+                                                     
+                                              
 
                                       <input type="submit"  name="submit" value="Salvar"   />
                                       
