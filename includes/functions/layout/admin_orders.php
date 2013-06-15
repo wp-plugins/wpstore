@@ -352,7 +352,7 @@ for ($i=0; $i<=count($_POST['list']);$i++) {
        	
        	    <div class="bloco" style="background:<?php echo $cor; ?>;padding:10px;margin-bottom:5px;"  >      
 
-    		<h3> <input type='checkbox' id='check_<?php echo $orderCount ?>'  name='list[]' value='<?php echo $idPedido; ?>'/>  <?php echo $idPedido; ?></h3>
+    		<h3> <input type='checkbox' id='check_<?php echo $orderCount ?>'  name='list[]' value='<?php echo $idPedido; ?>'/>  <?php echo $idPedido; ?> |  <?php echo  $nome; ?></h3>
 
     		<span class="seta" rel='box_<?php echo $orderCount ?>'></span>     
     		

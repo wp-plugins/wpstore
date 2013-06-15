@@ -78,43 +78,7 @@ unset($dados['cidade/uf']);
 
 if( trim( $dados['cidade'] ) =="" || trim( $dados['cidade'] ) =="null" ){
     
-    $resultado_busca = busca_cep($cep); 
-    
-   // print_r($resultado_busca); 
-    
-    $cidade = utf8_encode($resultado_busca['cidade']);
-
-     switch($resultado_busca['resultado']){
-    
-       case '2': //cidades com cep unico
- 
-         $dados2 = array(
-	              'logradouro'=> trim($resultado_busca['tipo_logradouro']." ".$resultado_busca['logradouro']),
-	              'bairro'=> trim($resultado_busca['bairro']),
-	              'cidade'=> "$cidade",
-	              'uf'=> trim($resultado_busca['uf']),
-	              'cep'=> trim($cep)
-                	);
- 
-       die(json_encode($dados2));
-       
-       break;
- 
-       case '1': //cidades normais
- 
-       $dados1 = array(
-	              'logradouro'=> trim($resultado_busca['tipo_logradouro']." ".$resultado_busca['logradouro']),
-	              'bairro'=> trim($resultado_busca['bairro']),
-      	          'cidade'=> "$cidade",
-      	          'uf'=> trim($resultado_busca['uf']),
-      	          'cep'=> trim($cep)
-              	 );
- 
-         die(json_encode($dados1));
-         
-         break;
-      
-    };
+     //------------------------------------------------------------------
  
 }else{
  

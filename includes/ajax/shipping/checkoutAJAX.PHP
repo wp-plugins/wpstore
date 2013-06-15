@@ -63,19 +63,7 @@ function simple_curl($url,$post=array(),$get=array()){
 	return curl_exec ($ch);
 }
 
-//////////////////////////////////////////////////////////////
-
  
-function busca_cep($cep){
-$resultado = @file_get_contents('http://republicavirtual.com.br/web_cep.php?cep='.urlencode($cep).'&formato=query_string');
-if(!$resultado){
-$resultado = "&resultado=0&resultado_txt=erro+ao+buscar+cep";
-}
-parse_str($resultado, $retorno);
-return $retorno;
-}
- 
- //////////////////////////////////////////////////////////////
 
 $cidadeB = $cidade;
 
@@ -108,10 +96,12 @@ $dados['cidade/uf'] = explode('/',$dados['cidade/uf']);
 $dados['cidade'] = trim($dados['cidade/uf'][0]);
 $dados['uf'] = trim($dados['cidade/uf'][1]);
 unset($dados['cidade/uf']);
+          
      
-$resultado_busca = busca_cep($cep);  
+ 
   
-$cidade = utf8_encode($resultado_busca['cidade']);
+$cidade = utf8_encode($dados['cidade']);
+$estado = utf8_encode($dados['estado']);  
 //CONSULTA CEP BAIRRO ----------------------------------------------------------------
     
  
@@ -130,8 +120,8 @@ $arrayEstadosCidades = explode(',',$cidadesFreteGratis);
 
 foreach($arrayEstadosCidades as $item=>$value){
     $arrayValue = explode('**',$value);
-    $arrayEstados = trim($arrayValue[0]);
-    $arrayCidades = trim($arrayValue[1]); 
+    $arrayEstados[] = trim($arrayValue[0]);
+    $arrayCidades[] = trim($arrayValue[1]); 
     
     
     if(strtolower($arrayValue[1]) == strtolower($cidade)){   
