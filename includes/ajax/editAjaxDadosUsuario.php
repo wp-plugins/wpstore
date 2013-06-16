@@ -82,27 +82,27 @@
                           };
                           
                           
-                          if($enderecoUsuario2 !="" && $enderecoUsuario2  !="undefined"){
+                         //if($enderecoUsuario2 !="" && $enderecoUsuario2  !="undefined"){
                               update_user_meta($current_user->ID,'userEndereco2', $enderecoUsuario2);
-                           };
-                         if($enderecoUsuarioNumero2 !="" && $enderecoUsuarioNumero2 !="undefined"){
+                         //};
+                        // if($enderecoUsuarioNumero2 !="" && $enderecoUsuarioNumero2 !="undefined"){
                              update_user_meta($current_user->ID,'userEnderecoNumero2', $enderecoUsuarioNumero2);
-                          };
-                          if($complementoUsuario2 !="" && $complementoUsuario2 !="undefined"){
+                         // };
+                         // if($complementoUsuario2 !="" && $complementoUsuario2 !="undefined"){
                              update_user_meta($current_user->ID,'userComplemento2', $complementoUsuario2);
-                          };
-                          if($bairroUsuario2 !="" && $bairroUsuario2 !="undefined"){
+                         // };
+                         // if($bairroUsuario2 !="" && $bairroUsuario2 !="undefined"){
                              update_user_meta($current_user->ID,'userBairro2', $bairroUsuario2);
-                          };
-                          if($cidadeUsuario2 !="" && $cidadeUsuario2 !="undefined"){
+                         // };
+                         // if($cidadeUsuario2 !="" && $cidadeUsuario2 !="undefined"){
                              update_user_meta($current_user->ID,'userCidade2', $cidadeUsuario2);
-                          };
-                          if(trim($estadoUsuario2) !="" && $estadoUsuario2!="undefined"){
+                         // };
+                         // if(trim($estadoUsuario2) !="" && $estadoUsuario2!="undefined"){
                              update_user_meta($current_user->ID,'userEstado2', $estadoUsuario2);
-                          };
-                           if($cepUsuario2 !="" && $cepUsuario2 !="undefined"){
+                         // };
+                         //  if($cepUsuario2 !="" && $cepUsuario2 !="undefined"){
                                update_user_meta($current_user->ID,'userCep2', $cepUsuario2);
-                            };
+                         //   };
                             
                             
                             

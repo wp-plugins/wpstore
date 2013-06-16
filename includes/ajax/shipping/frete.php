@@ -8,6 +8,20 @@ $tipoFrete = get_option('tipoFrete');
 $correios = $_POST['correios'];
 
 $cidade =   $_REQUEST['cityUser'];      
+
+
+$destinoCep = trim($_REQUEST['CepDestinoR']);    
+
+  
+
+//Pegando cidade com base no CEP --------------------------------------------- 
+     $caputurar = true;
+     //include('buscaEndereco.php');
+//Pegando cidade com base no CEP --------------------------------------------- 
+
+
+
+ 
 $freteGratis = false;
 
 
@@ -26,13 +40,13 @@ $arrayEstados = array();
 $arrayEstadosCidades = explode(',',$cidadesFreteGratis);
 foreach($arrayEstadosCidades as $item=>$value){
     $arrayValue = explode('**',$value);
-    $arrayEstados = trim($arrayValue[0]);
-    $arrayCidades = trim($arrayValue[1]); 
+    $arrayEstados[] = trim($arrayValue[0]);
+    $arrayCidades[] = trim($arrayValue[1]); 
     
     $cidadeUser = str_replace(' ','',$arrayValue[1] ); 
-    $cidadPromocao = str_replace(' ','',$cidade );
+    $cidadePromocao = str_replace(' ','',$cidade );
     
-    if(  modificaAcento(strtolower($cidadeUser)) == modificaAcento(strtolower($cidadPromocao)) ){   
+    if(  modificaAcento(strtolower($cidadeUser)) == modificaAcento(strtolower($cidadePromocao)) ){   
     $freteGratis = true; 
     };
     
@@ -42,7 +56,9 @@ foreach($arrayEstadosCidades as $item=>$value){
 if(trim($cidade) ==""){
 	$freteGratis = false;
 }       
-
+ 
+  
+  
 $msgFreteGratis=""; 
 
 $valorPedido = custom_get_total_price_session_order();

@@ -63,9 +63,17 @@ $origemCep =  get_option('cepOrigemCorreios');
 
 global $current_user;
 get_currentuserinfo();
-$idUser = $current_user->ID;
+$idUser = $current_user->ID;  
+
 $destinoCep = trim(get_user_meta($idUser,'userCep2',true)); 
-$destinoCep = str_replace(' ','',$destinoCep);
+$destinoCep = str_replace(' ','',$destinoCep); 
+
+
+if($destinoCep==""){
+    $destinoCep = trim(get_user_meta($idUser,'userCep',true)); 
+    $destinoCep = str_replace(' ','',$destinoCep);
+}
+
 
 $userCidade2 = $_POST['cidadeV'];
 $tipoPagto = $_POST['varSelectV'];
@@ -75,6 +83,10 @@ $tipoPagto = $_POST['varSelectV'];
 
 if($userCidade2 ==""){
 $userCidade2 = trim(get_user_meta($idUser,'userCidade2',true)); 
+}; 
+
+if($userCidade2 ==""){
+$userCidade2 = trim(get_user_meta($idUser,'userCidade',true)); 
 };
 
 $peso = $_SESSION['pesoCheckout']; 

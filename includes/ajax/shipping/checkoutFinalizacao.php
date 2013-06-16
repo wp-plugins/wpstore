@@ -26,10 +26,10 @@ $valorFreteEnviado = $_POST['radioFrete'];
 $comentario = $_POST['commentOrderV'];
 
 
+    $cidade=  trim(get_user_meta($idUser,'userCidade2',true));   
 
-$cidade =   trim(get_user_meta($idUser,'userCidade',true));
 if($cidade==""){
-    $cidade=  trim(get_user_meta($idUser,'userCidade2',true)); 
+   $cidade =   trim(get_user_meta($idUser,'userCidade',true));   
 };
 
 

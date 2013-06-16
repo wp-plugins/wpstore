@@ -2,8 +2,9 @@
 
 
 
- 
+if( $caputurar ==true){ }else{
 session_start();
+};
  
 
 
@@ -11,6 +12,7 @@ include('phpQuery-onefile.php');
 
 
 ////////////////////////////////////////////////////////
+ 
 
 function simple_curl($url,$post=array(),$get=array()){
 	$url = explode('?',$url,2);
@@ -41,14 +43,16 @@ return $retorno;
 }
  
  //////////////////////////////////////////////////////////////
-
-
-
-
-
  
 
-$cep = $_REQUEST['cep'];
+$cep = $_REQUEST['cep']; 
+
+       
+ 
+  if( $caputurar ==true){   
+        $cep = $destinoCep;   
+  };
+  
 
 if($cep !="Digite seu Cep"){
      $_SESSION['cepUser'] = $cep;
@@ -77,12 +81,18 @@ unset($dados['cidade/uf']);
 //Vamos buscar o CEP
 
 if( trim( $dados['cidade'] ) =="" || trim( $dados['cidade'] ) =="null" ){
-    
+       
      //------------------------------------------------------------------
  
 }else{
- 
-die(json_encode($dados));
+
+     if( $caputurar ==true){    
+         
+           $cidade =   $dados['cidade'];  
+       
+     }else{  
+          die(json_encode($dados)); 
+     };
 
 };  
 ?>

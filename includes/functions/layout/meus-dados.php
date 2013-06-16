@@ -191,10 +191,20 @@
  			
  				<div class='form-inline'> 
  				<br/>
- 					<h2>Seu Endereço</h2>";
+ 					<h2>Endereço</h2>";
  					
  					
- 					      	  $htmlVar .= "
+ 					      	  $htmlVar .= " 
+ 					      	  
+ 					      	  
+ 					      	  
+ 					      	     	<p class='clearfix'> <label for='cepUsuario' class='floatDados'>Cep:</label>
+                                  	<input type='text' class='required  geral userData paisC campoCep' value='$userCep' id='cepUsuario' /> </p>
+                                
+                                       <div class='clear'></div>
+                                         <div class='carregaCep hide'></div> 
+
+                              
  					      	  
                                     <p class='clearfix'> <label for='enderecoUsuario' class='floatDados' >Endereço:</label>
                                 	<input type='text' class='required  geral userData endC' value='$userEndereco' id='enderecoUsuario'  name='enderecoUsuario'   /></p>
@@ -202,10 +212,10 @@
                                 	<input type='text' class='required geral userData numeroC' value='$userEnderecoNumero' id='enderecoUsuarioNumero'   name='enderecoUsuarioNumero' /></p>
 	                                <p class='clearfix'> <label for='complementoUsuario' class='floatDados'>Complemento:</label>
                                 	<input type='text' class='userData complC' value=' $userComplemento'  id='complementoUsuario'  name='complementoUsuario' /></p>
-                                    <p class='clearfix'> <label for='bairroUsuario' class='floatDados'>Bairro:</label>
+                                    <p class='clearfix'> <label for='bairroUsuario' class='floatDados'>Bairro:</label> 
                                 	<input type='text' class='required  userData bairroC' value='$userBairro'  id='bairroUsuario' name='bairroUsuario' /></p>
 
-                                	<p class='clearfix'><label for='cidadeUsuario' class='floatDados'> Cidade:</label>
+                                	<p class='clearfix'><label for='cidadeUsuario' class='floatDados'> Cidade:</label>     
                                 	<input type='text' class='required  geral userData cidadeC' value='$userCidade'  id='cidadeUsuario'   name='cidadeUsuario' /></p>
                                 	<p class='clearfix'> <label for='estadoUsuario' class='floatDados'>Estado:</label><br/>  "; 
                                 	
@@ -280,12 +290,7 @@
                                                         
                                                         
                                      	     $htmlVar .=  " </select>    </p>
-                                	<p class='clearfix'> <label for='cepUsuario' class='floatDados'>Cep:</label>
-                                	<input type='text' class='required  geral userData paisC' value='$userCep' id='cepUsuario' /></p>
-                                	<div class='clear'></div>
-
-                             
-
+ 
 
                                 	<div class='clear'></div>
 
@@ -323,20 +328,38 @@
          				<br/>
 
 
-             			   <h2>Endereço para Entrega</h2>";
+             			   <h2>Endereço alternativo para Entrega</h2>
+             			   
+             			   
+             			     <p class='clearfix'><input type='checkbox' id='abrirEnderecoEntrega'  /><label for='abrirEnderecoEntrega'>Selecione se desejar escolher um endereço diferente do acima.   </label></p>
+                              <br/> <br/>
+             			   
+             			   
+             			   ";
+             			   
+             			   
+             		      
              			   
              			   
              			   
              			   
-             			   
-             			   
-             			   
-             			   
-             			   	  $htmlVar .= "       
+             			   	  $htmlVar .= "    <div class='contentDadosEntrega'> 
+             			   	    
                                                  <p class='clearfix'><input type='checkbox' id='copiarEndereco'  /><label for='copiarEndereco'>Importar dados cadastrados acima.   </label></p>
             
                                                      
-                                                     <div class='clear'></div>
+                                                     <div class='clear'></div> 
+                                                     
+                                                     
+                                                     
+                                                   <p class='clearfix'> <label for='cepUsuario2' class='floatDados'>Cep:</label>
+                                                  	<input type='text' class='required geral userData paisC campoCep2' value='$userCep2'  id='cepUsuario2' name='cepUsuario2' /> </p>
+                                               
+                                                  	<div class='clear'></div>
+                                                         <div class='carregaCep hide'></div> 
+                                                     
+                                                     
+                                                     
  
                                                      <p class='clearfix'><label for='enderecoUsuario2' class='floatDados'> Endereço:</label>
                                                  	<input type='text' class='required  geral userData endC' value='$userEndereco2' id='enderecoUsuario2' name='enderecoUsuario2'   /></p>
@@ -422,17 +445,14 @@
                                                                     
                                                                     
                                                  	     $htmlVar .=  " </select>      </p>    
-                                                 	      <p class='clearfix'> <label for='cepUsuario2' class='floatDados'>Cep:</label>
-                                                 	<input type='text' class='required geral userData paisC' value='$userCep2'  id='cepUsuario2' name='cepUsuario2' /></p>
-                                                 	<div class='clear'></div>
-                                            
-
+                                                 	   
+                                                                       
 
 
                                    	<div class='clear'></div>
 
                                    	<hr/>
-
+                                       </div>
 
                                         ";
                                         

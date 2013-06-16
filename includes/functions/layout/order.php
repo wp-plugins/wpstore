@@ -258,7 +258,7 @@ if($moedaCorrente==""){
                   
     
                 	 $orderPrint .= "    
-                	 	<h2>Endereço de pagamento</h2>
+                	 	<h2>Endereço </h2>
                 	 
                   	        
                              <div class='pagamento'>
@@ -389,7 +389,7 @@ if($moedaCorrente==""){
                 
                 
                             	 $orderPrint .= "    
-                                 <h2>Endereço para entrega</h2>
+                                 <h2>Endereço alternativo para entrega</h2>
                             	 
 
 								 

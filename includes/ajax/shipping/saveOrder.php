@@ -32,13 +32,13 @@
       
        $userTelefone = trim(get_user_meta($idUser,'userTelefone',true));if($userTelefone==""){$userTelefone="";};
  
-       $userEndereco2 = trim(get_user_meta($idUser,'userEndereco2',true));if($userEndereco2==""){$userEndereco2="";};
-       $userEnderecoNumero2 = trim(get_user_meta($idUser,'userEnderecoNumero2',true));if($userEnderecoNumero2==""){$userEnderecoNumero2="";};
-       $userComplemento2 = trim(get_user_meta($idUser,'userComplemento2',true));if($userComplemento2==""){$userComplemento2="";};
-       $userCidade2 = trim(get_user_meta($idUser,'userCidade2',true));if($userCidade2==""){$userCidade2="";};
-       $userBairro2 = trim(get_user_meta($idUser,'userBairro2',true));if($userBairro2==""){$userBairro2="";};
-       $userEstado2 = trim(get_user_meta($idUser,'userEstado2',true));if($userEstado2==""){$userEstado2="";};
-       $userCep2 = trim(get_user_meta($idUser,'userCep2',true));if($userCep2==""){$userCep2="";};
+       $userEndereco2 = trim(get_user_meta($idUser,'userEndereco2',true));if($userEndereco2==""){$userEndereco2= $userEndereco ;};
+       $userEnderecoNumero2 = trim(get_user_meta($idUser,'userEnderecoNumero2',true));if($userEnderecoNumero2==""){$userEnderecoNumero2= $userEnderecoNumero;};
+       $userComplemento2 = trim(get_user_meta($idUser,'userComplemento2',true));if($userComplemento2==""){$userComplemento2= $userComplemento;};
+       $userCidade2 = trim(get_user_meta($idUser,'userCidade2',true));if($userCidade2==""){$userCidade2= $userCidade;};
+       $userBairro2 = trim(get_user_meta($idUser,'userBairro2',true));if($userBairro2==""){$userBairro2= $userBairro;};
+       $userEstado2 = trim(get_user_meta($idUser,'userEstado2',true));if($userEstado2==""){$userEstado2= $userEstado;};
+       $userCep2 = trim(get_user_meta($idUser,'userCep2',true));if($userCep2==""){$userCep2= $userCep;};
        
  
        $valor = custom_get_total_price_session_order(); 

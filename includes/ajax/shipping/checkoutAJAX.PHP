@@ -27,12 +27,36 @@ $comentario = $_POST['commentOrderV'];
 
 
 
-$cidade =   trim(get_user_meta($idUser,'userCidade',true));
-if($cidade==""){
-    $cidade=  trim(get_user_meta($idUser,'userCidade2',true)); 
-};
+ $destinoCep = trim(get_user_meta($idUser,'userCep2',true)); 
+ $destinoCep = str_replace(' ','',$destinoCep);     
 
-           
+ if($destinoCep==""){
+     $destinoCep = trim(get_user_meta($idUser,'userCep',true)); 
+     $destinoCep = str_replace(' ','',$destinoCep);
+ }
+
+
+ $cep = $destinoCep;   
+
+
+   $cidade= "";
+
+ //Pegando cidade com base no CEP --------------------------------------------- 
+      $caputurar = true;
+      //include('buscaEndereco.php');
+ //Pegando cidade com base no CEP --------------------------------------------- 
+        
+
+
+  
+ if($cidade==""){   
+ $cidade=  trim(get_user_meta($idUser,'userCidade2',true)); 
+ }; 
+ if($cidade==""){
+    $cidade =   trim(get_user_meta($idUser,'userCidade',true));
+ };
+
+
 
 
 
@@ -65,13 +89,9 @@ function simple_curl($url,$post=array(),$get=array()){
 
  
 
-$cidadeB = $cidade;
-
-$destinoCep = trim(get_user_meta($idUser,'userCep2',true)); 
-$destinoCep = str_replace(' ','',$destinoCep);
 
 
-$cep = $destinoCep;
+
 
 if($cep !="Digite seu Cep"){
      $_SESSION['cepUser'] = $cep;
@@ -181,14 +201,7 @@ $valorPedido = custom_get_total_price_session_order();
  }
  
  
- 
- 
- 
- 
- 
-
- 
-
+    
 if($freteGratis == false){ 
  
 
@@ -295,7 +308,7 @@ if($salvar==true && $sessionValue !="" ){
      include('saveOrderAjax.php');
      $idPage = get_idPaginaPagamento();
      $page  = get_permalink($idPage);
-      echo "<script>window.location='$page' </script>"; 
+     echo "<script>window.location='$page' </script>"; 
      echo " $msgF".'****'.$page;
 };
 

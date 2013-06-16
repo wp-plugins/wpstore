@@ -194,7 +194,14 @@
          				<br/>
 
 
-             			   <h2>Endereço para Entrega</h2>";
+             			   <h2>Endereço para Entrega</h2>
+             			   
+             			   
+             			   		     <p class='clearfix'><input type='checkbox' id='abrirEnderecoEntrega'  /><label for='abrirEnderecoEntrega'> Selecione se desejar escolher um endereço diferente do acima .     </label></p>
+                                         <br/> <br/>
+                           
+                           
+                           ";
              			   
              			   
              			   
@@ -203,7 +210,10 @@
              			   
              			   
              			   
-             			   	  $htmlVar .= "       
+             			   	  $htmlVar .= "
+             			   	  
+             			   	      <div class='contentDadosEntrega'> 
+                                   
                                                  <p><label for='copiarEndereco'>Importar dados cadastrados acima.   </label><input type='checkbox' id='copiarEndereco'  /></p>
             
                                                      
@@ -225,15 +235,12 @@
                                                  	<span style='float:left'> <label for='cepUsuario2'>Cep:</label></span>
                                                  	<input type='text' class='required geral userData paisC' value='$userCep2'  id='cepUsuario2' name='cepUsuario2' />
                                                  	<div class='clear'></div>
-                                            
-
-
-
+                              
                                    	<div class='clear'></div>
 
                                    	<hr/>
 
-
+                                     </div>
                                         ";
                                         
                                         

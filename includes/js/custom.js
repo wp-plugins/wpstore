@@ -323,18 +323,14 @@
             
        
              function getEndereco() { 
-  
                         var cepDestino = ""+jQuery('input.cep').val();
                         var bairro = "";
                         var cidade = "";
                         var estado = "";
-                        
-                    	// Se o campo CEP não estiver vazio
+                        // Se o campo CEP não estiver vazio
                       	if(cepDestino != ""){  
-         
-                      	    jQuery.getJSON(baseUrl+'shipping/buscaEndereco.php?cep='+cepDestino+'', function(data) {
-                      	     
-                                           jQuery.each(data, function(key, val) {
+                             jQuery.getJSON(baseUrl+'shipping/buscaEndereco.php?cep='+cepDestino+'', function(data) {
+                      	                  jQuery.each(data, function(key, val) {
                                                  if(key=='logradouro'){  rua = ""+val; };
                                                  if(key=='bairro'){  bairro = ""+val; };
                                                  if(key=='cidade'){  cidade = ""+val; };
@@ -348,22 +344,101 @@
                                        edereco = "<span>Referência:   "+rua+" "+bairro+" "+cidade+" "+estado+"</span>";
                                        jQuery(".endereco").html(edereco);
                                        };
-                                       
-                                     
-                            });
-                        
-                        };
-          
-             }
+                              });
+                          };
+               }
+            
+            
+            
+            
+            
+            
+            
+            
+            
              
              
+            var loadCep = false;
+            jQuery('input.campoCep').focusout(function() {
+                   
+                     var cepDestino = ""+jQuery(this).val();
+                     var bairro = "";
+                     var cidade = "";
+                     var estado = "";
+                     var rua = ""; 
+                     // Se o campo CEP não estiver vazio
+                   	if(cepDestino != "" &&  loadCep ==false ){      
+                   	                         loadCep = true;
+                   	      jQuery('.carregaCep').fadeIn();
+                   	    
+                          jQuery.getJSON(baseUrl+'shipping/buscaEndereco.php?cep='+cepDestino+'', function(data) {
+                   	                  jQuery.each(data, function(key, val) {
+                                              if(key=='logradouro'){  rua = ""+val; };
+                                              if(key=='bairro'){  bairro = ""+val; };
+                                              if(key=='cidade'){  cidade = ""+val; };
+                                              if(key=='uf'){  estado = ""+val; };  
+                                               jQuery('.carregaCep').fadeOut(); 
+                                       });
+                                    loadCep = false;
+                                    jQuery('input#enderecoUsuario').val(rua);
+                                    jQuery('input#cidadeUsuario').val(cidade);
+                                    jQuery('input#bairroUsuario').val(bairro);
+                                     jQuery("select#estadoUsuario option").filter(function() { return jQuery(this).val() == estado; }).prop('selected', true);
+                                    
+                                  
+                           });
+                       };
+                       
+                       
+             });
+           
              
-         
+              jQuery('input.campoCep2').focusout(function() {
+
+                          var cepDestino = ""+jQuery(this).val();
+                          var bairro = "";
+                          var cidade = "";
+                          var estado = "";
+                          var rua = ""; 
+                          // Se o campo CEP não estiver vazio
+                        	if(cepDestino != "" &&  loadCep ==false ){      
+                        	                         loadCep = true;
+                        	      jQuery('.carregaCep').fadeIn();
+
+                               jQuery.getJSON(baseUrl+'shipping/buscaEndereco.php?cep='+cepDestino+'', function(data) {
+                        	                  jQuery.each(data, function(key, val) {
+                                                   if(key=='logradouro'){  rua = ""+val; };
+                                                   if(key=='bairro'){  bairro = ""+val; };
+                                                   if(key=='cidade'){  cidade = ""+val; };
+                                                   if(key=='uf'){  estado = ""+val; };  
+                                                    jQuery('.carregaCep').fadeOut(); 
+                                            });
+                                         loadCep = false;
+                                         jQuery('input#enderecoUsuario2').val(rua);
+                                         jQuery('input#cidadeUsuario2').val(cidade);
+                                         jQuery('input#bairroUsuario2').val(bairro);
+                                          jQuery("select#estadoUsuario2 option").filter(function() { return jQuery(this).val() == estado; }).prop('selected', true);
+                                         
+                                });
+                            };
+
+
+                  });
+                  
+                  
+                  
              
              
              function calculaFrete(){
-
+                                       
                          var cepDestino = ""+jQuery('input.cep').val();
+                         if(cepDestino=="" || cepDestino=="undefined" ){
+                             cepDestino = ""+jQuery('input#cepUsuario2').val(); 
+                                 if(cepDestino=="" || cepDestino=="unefined" ){
+                                    cepDestino = ""+jQuery('input#cepUsuario').val();  
+                                 }
+                         }    
+                         
                          var peso = ""+jQuery('input.peso').val();
                          var cityUserE = ""+jQuery('input.cityEntrega').val();
                          var idPrdV  =   ""+jQuery('input.idPrd').val();   
@@ -439,51 +514,7 @@
                      
                      
 
-             /*
-             
-             
-             jQuery('.btSeguir1').click(function() {
-                 
-                     salvarDados();
-                 
-                     jQuery(this).text('Aguarde...');
-                 
-                     jQuery.post(baseUrl+"verificaDadosEndereco.php", { } ,
-                                 function(data) { 
-                                  
-                                    var formVerifica = data;
-                         
-                                    if(parseInt(formVerifica) > 0){
-
-                                       var Self = jQuery('div.block-content').eq(1);
-                                       irpara = parseInt(jQuery('.checkout').offset().top);
-                                       jQuery('html, body').animate({ scrollTop: irpara }, 1000);
-
-                                        //if(jQuery('.checkout .block .block-content:visible').is(Self)) return;
-
-                                        jQuery('.checkout .block .block-content:visible').slideUp(300);
-                        			    Self.slideDown(300);
-                                        jQuery('.msg').html('');  
-                                     
-                    			     }else{
-                    		
-                    			        jQuery('.msg').html('<p class="red">'+data+'</p>');  
-                    			       
-                    			     };
-                    		 
-                                     jQuery('.btSeguir1').text('Continuar');
-                                       
-                                   
-                                      return data;
-                                   
-                      });
-                      
-                      jQuery('.carregando').hide(); 
-                      jQuery('.msgP').hide(); 
-  
-              });
-              
-              */
+           
             
             
             
@@ -508,7 +539,7 @@
                  			     Self.slideDown(300);
                                  jQuery('.msg').html('');
                      
-                                     jQuery('html, body').animate({ scrollTop: irpara }, 1000);
+                                 jQuery('html, body').animate({ scrollTop: irpara }, 1000);
                                  
                 });
             
@@ -534,7 +565,7 @@
                   
                   
             
-                  function redirectCheckout(radioFreteV,commentOrder,cidade,varSelect ){
+               function redirectCheckout(radioFreteV,commentOrder,cidade,varSelect ){
 
                               jQuery('.btSeguir3').text('Salvando Pedido...');
                               
@@ -553,13 +584,12 @@
                function goCheckout(radioFreteV,commentOrder,cidade,varSelect ){
                    
                         jQuery('.btSeguir3').text('Salvando Pedido...');
-                                                 //alert(radioFreteV);
+                                                //alert(""+radioFreteV);
                                     jQuery.post(baseUrl+"shipping/checkoutAJAX.php", { radioFrete:radioFreteV , commentOrderV:commentOrder,cidadeV:cidade,varSelectV:varSelect  } ,
                                                function(data) { 
                                                    
-                                                       //alert(data);
-                                                            
-                                                            arrDat = data.split("-"); 
+                                                            // alert(data);
+                                                           arrDat = data.split("-"); 
                                                             arrDat2 = data.split("****"); 
                                                             r = parseInt(""+arrDat[0]);
                                                             m = ""+arrDat2[0];
@@ -1071,7 +1101,10 @@
                                 arrayData[id+"V"] = text;  
                             }); 
                      
-                                   arrayData["sexoUsuarioV"]  =  ""+jQuery("select[name=sexoUsuario] option:selected").val();
+                                   arrayData["sexoUsuarioV"]  =  ""+jQuery("select[name=sexoUsuario] option:selected").val();  
+                                   
+                                    
+                                      
           
                                    var nomeUsuarioV = ""+arrayData['nomeUsuarioV'];
                                    var nascimentoUsuarioV =  ""+arrayData['nascimentoUsuarioV'];
@@ -1092,17 +1125,40 @@
                                    var telefoneUsuarioV= ""+arrayData['telefoneUsuarioV'];
                                    var dddUsuarioCelV =  ""+arrayData['dddUsuarioCelV'];
                                    var telefoneUsuarioCelV= ""+arrayData['telefoneUsuarioCelV'];
+                                         
                                    
-                                      var enderecoUsuario2V  = ""+arrayData['enderecoUsuario2V'];
-                                      var enderecoUsuarioNumero2V  = ""+arrayData['enderecoUsuarioNumero2V'];
-                                      var complementoUsuario2V =  ""+arrayData['complementoUsuario2V'];
-                                      var bairroUsuario2V = ""+arrayData['bairroUsuario2V'];
-                                      var cidadeUsuario2V = ""+arrayData['cidadeUsuario2V'];
-                                      //var estadoUsuario2V = ""+arrayData['estadoUsuario2V']; 
+                                  
+                                        var enderecoUsuario2V  = "";
+                                        var enderecoUsuarioNumero2V  = "";
+                                        var complementoUsuario2V =  "";
+                                        var bairroUsuario2V = "";
+                                        var cidadeUsuario2V = "";
+                                        var estadoUsuario2V = "";  
+                                        var estadoUsuario2V  =  ""; 
+                                        var cepUsuario2V =  "";
                                       
-                                      var estadoUsuario2V  =  ""+jQuery("#estadoUsuario2 option:selected").val(); 
+                                       statusCheck =  jQuery('#abrirEnderecoEntrega').attr('checked');
+                                       
+                                       if(statusCheck =="checked"){ 
+                                                 var enderecoUsuario2V  = ""+arrayData['enderecoUsuario2V'];
+                                                 var enderecoUsuarioNumero2V  = ""+arrayData['enderecoUsuarioNumero2V'];
+                                                 var complementoUsuario2V =  ""+arrayData['complementoUsuario2V'];
+                                                 var bairroUsuario2V = ""+arrayData['bairroUsuario2V'];
+                                                 var cidadeUsuario2V = ""+arrayData['cidadeUsuario2V'];
+                                                 var estadoUsuario2V  =  ""+jQuery("#estadoUsuario2 option:selected").val(); 
+                                                 var cepUsuario2V =  ""+arrayData['cepUsuario2V'];
+                                       }else{
+                                                var enderecoUsuario2V  = ""+enderecoUsuarioV ;
+                                                var enderecoUsuarioNumero2V  = ""+enderecoUsuarioNumeroV;
+                                                var complementoUsuario2V =  ""+complementoUsuarioV;
+                                                var bairroUsuario2V = ""+bairroUsuarioV;
+                                                var cidadeUsuario2V = ""+cidadeUsuarioV;
+                                                var estadoUsuario2V =  ""+estadoUsuarioV;
+                                                var cepUsuario2V =  ""+cepUsuarioV;
+                                       };
+                                       
                                       
-                                      var cepUsuario2V =  ""+arrayData['cepUsuario2V'];
+                                     
                                       
 
                                    salvarForm(nomeUsuarioV,nascimentoUsuarioV,sexoUsuarioV,enderecoUsuarioV,enderecoUsuarioNumeroV,complementoUsuarioV,bairroUsuarioV,cidadeUsuarioV,estadoUsuarioV,cepUsuarioV,enderecoUsuario2V,enderecoUsuarioNumero2V,complementoUsuario2V,bairroUsuario2V,cidadeUsuario2V,estadoUsuario2V,cepUsuario2V,dddUsuarioV,telefoneUsuarioV,dddUsuarioCelV,telefoneUsuarioCelV,userCpfV);
@@ -1139,7 +1195,8 @@
                                
                                     var checkout = jQuery('#checkout').val();
           		         
-          		                        if(checkout=='TRUE'){
+          		                        if(checkout=='TRUE'){  
+          		                                  calculaFrete();
           		                                  var Self = jQuery('div.block-content').eq(1);
                                                   var irpara = parseInt(jQuery('.checkout').offset().top);
                                                   jQuery('html, body').animate({ scrollTop: irpara }, 1000);
@@ -1212,6 +1269,29 @@
                       };
                });
             
+                
+             
+               jQuery('#abrirEnderecoEntrega').change(function() {
+                         var statusCheck = jQuery(this).attr('checked');
+                         if(statusCheck =="checked"){      
+                              //jQuery('#enderecoUsuario2').val( '' );
+                             // jQuery('#enderecoUsuarioNumero2').val('');
+                             // jQuery('#complementoUsuario2').val( '');
+                              //jQuery('#bairroUsuario2').val( '');
+                              //jQuery('#cidadeUsuario2').val( '' );
+                              //jQuery('#estadoUsuario2').val( '');
+                             // jQuery('#cepUsuario2').val( '' );
+                                                
+                                        
+                              jQuery('.contentDadosEntrega').fadeIn(); 
+                         }else{
+                             jQuery('.contentDadosEntrega').hide();   
+                         }
+                  });
+                  
+                  
+
+
 
 
             //CHECKOUT ---------------------------------------------------

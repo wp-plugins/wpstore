@@ -66,26 +66,50 @@ global $current_user;
 get_currentuserinfo();
 $idUser = $current_user->ID;
  
-$userCidade2 = $_POST['cidadeV'];
+$userCidade2 = $_POST['cidadeV']; 
+if($userCidade2 ==""){
+    $userCidade2 =$cidade;
+}
 $tipoPagto = $_POST['varSelectV'];
 
  
-$destinoCep = trim($_REQUEST['CepDestinoR']);
+$destinoCep = trim($_REQUEST['CepDestinoR']);   
+
 if($destinoCep==""){
 $destinoCep = trim(get_user_meta($idUser,'userCep2',true));
 }   
+
+if($destinoCep==""){
+$destinoCep = trim(get_user_meta($idUser,'userCep',true));
+}
 
 $destinoCep = str_replace(' ','',$destinoCep);
 
 $valorFreteEnviado = $_POST['radioFrete'];
 $comentario = $_POST['commentOrderV'];
 
+ $cidade = "";  
+ //Pegando cidade com base no CEP --------------------------------------------- 
+     $caputurar = true;
+     include('buscaEndereco.php');
+//Pegando cidade com base no CEP --------------------------------------------- 
+       
 
+$userCidade2 = $cidade;  
 
 if($userCidade2 ==""){
 $userCidade2 = trim(get_user_meta($idUser,'userCidade2',true)); 
+};  
+
+
+
+if($userCidade2 ==""){
+$userCidade2 = trim(get_user_meta($idUser,'userCidade',true)); 
 };
 
+
+
+$userCidade2 = $cidade;
 
 $peso = floatval($_REQUEST['PesoR']);
 if($peso<=0){
