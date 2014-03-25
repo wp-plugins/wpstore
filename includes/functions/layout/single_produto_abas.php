@@ -50,7 +50,7 @@
                      <h3><?php echo $moedaCorrente; ?> <?php echo $preco ; ?> *Parcele em até <?php echo $totalParcelas; ?> <?php echo $txtParcelamentoJuros; ?> </h3>
 
 
-				<p>Parcela Mínima de <?php echo $moedaCorrente; ?>10.00 por pedido.  </p>
+				<p>Parcela Mínima de <?php echo $moedaCorrente; ?><?php echo $parcelaMinima; ?> por pedido.  </p>
                 
              
 				<table id="tabelaParcelamento">
