@@ -42,10 +42,12 @@
                           if($specialPrice > 0){
                             $preco =   $specialPrice; 
                           };
+						  
+						  $txtParcelamentoJuros = get_option('txtParcelamentoJurosWPSHOP');  
              
              ?>
 
-                     <h3><?php echo $moedaCorrente; ?> <?php echo $preco ; ?> *Parcele em até <?php echo $totalParcelas; ?>x sem juros: </h3>
+                     <h3><?php echo $moedaCorrente; ?> <?php echo $preco ; ?> *Parcele em até <?php echo $totalParcelas; ?> <?php echo $txtParcelamentoJuros; ?> </h3>
 
 
 				<p>Parcela Mínima de <?php echo $moedaCorrente; ?>10.00 por pedido.  </p>
