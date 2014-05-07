@@ -1,6 +1,6 @@
 === WP STORE ===
 
-Contributors: jmorettoni,ruddycavalcanti
+Contributors: jmorettoni
 Plugin Name:Wp Store
 Plugin URI:http://wpstore.com.br 
 Tags:  shopping,loja,shop,e-commerce,loja virtual,loja online
@@ -8,8 +8,8 @@ Author URI: http://profiles.wordpress.org/jmorettoni/
 Author: jmorettoni
 Requires at least: 3.4
 Tested up to: 3.5
-Stable tag: 1.1.8
-Version: 1.1.8   
+Stable tag: 1.1.9
+Version: 1.1.9   
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html   
 Donate link: http://wpstore.com.br/download   
