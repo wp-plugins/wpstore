@@ -7,9 +7,9 @@ Tags:  shopping,loja,shop,e-commerce,loja virtual,loja online
 Author URI: http://profiles.wordpress.org/jmorettoni/
 Author: jmorettoni
 Requires at least: 3.4
-Tested up to: 3.5
-Stable tag: 1.1.9
-Version: 1.1.9   
+Tested up to: 4.2.2
+Stable tag: 4.2.2
+Version: 1.2  
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html   
 Donate link: http://wpstore.com.br/download   
