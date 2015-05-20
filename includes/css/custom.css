@@ -1,0 +1,62 @@
+
+    .abas { margin:20px 0; min-height:276px;  background:#f8f8f8; border:1px solid #d3d3d3;  }
+
+         .abas ul {   font-size:0.9em; }
+         .abas ul li { cursor:pointer; background:#fff; font-size:1.1em; font-weight:bold; padding:5px 15px; border-bottom:1px solid #d3d3d3;border-right:1px solid #d3d3d3;  height:24px; line-height:24px;  text-align:center; float:left; margin-right:1px;  }
+         .abas ul li.ativo {  background:#f8f8f8; color:#000; border-bottom:none;}
+          .abas ul li:hover {  background:#f8f8f8; color:#000; }
+
+          .abas ul li.inativo {  background:#fff;  }
+
+          .abas h3 {   font-size:1.4em; line-height:1.4em;  margin-bottom:10px; }
+          .abas h3 strong {  }
+
+         .abas hr { height:10px; border:none; background:url(images/borderProdutoDir.jpg) repeat-x; padding-bottom:10px;  }
+
+
+          .abas div {   padding:10px; }
+         .abas div p { margin-top:10px; }
+
+         .abas div.ativo { display:block; }
+        .abas div.inativo { display:none; }
+
+
+		#content #page .produtosRelacionados { border:1px solid #d3d3d3; }
+		#content #page .produtosRelacionados h3.subtitulo { font-size:1.1em; color:#fff; text-transform:uppercase; margin-top:0;padding-bottom:10px; border-bottom:1px solid #d3d3d3; }
+
+		
+		#content #page .produtoDir .preco { float:left; width:230px; }
+		
+		
+		#content #page .produtoDir .quantidade { float:right; width:150px; font-size:0.8em; }
+		
+		#content #page .produtoDir .quantidade  label { float:left; line-height:28px; margin-right:3px; }
+		
+		#content #page .produtoDir .parc { clear:both;}
+		
+		#content #page .produtoDir .addCarrinho  { display:block; border:1px solid #d3d3d3; color:#666;  text-align:center;  padding:0 5px; background:#fbfbfb url(../images/button-bg.png) repeat-x 0 -24px; width:135px; margin-left:220px; margin-bottom:10px;height:23px; line-height:23px;  font-size:0.9em;
+border-radius: 5px;
+		-moz-border-radius: 5px;
+		-webkit-border-radius: 5px;}
+		#content #page .produtoDir .addCarrinho:hover { background-position:0 0; color:#fff;}
+
+		
+			#content #page .produtoDir .comprar  {border:1px solid #d3d3d3; color:#666; display:block;  text-align:center; padding:0 5px;  background:#fbfbfb url(../images/button-bg.png) repeat-x 0 -24px; width:75px; margin-left:280px; height:23px; line-height:23px;  font-size:0.9em;
+border-radius: 5px;
+		-moz-border-radius: 5px;
+		-webkit-border-radius: 5px;
+		}
+		#content #page .produtoDir .comprar:hover { background-position:0 0; color:#fff;}
+
+		#content #page .produtoDir p.msg { border-bottom:1px solid #d3d3d3; }
+		
+
+
+
+
+		.produtoDir .comprar{ display:none;}
+		#content #page .produtoDir .comprar{display:none;}
+		
+		
+		/* Line 817 */
+		.btEditarPedido { font-size:1.2em;color:#fff;background:#E32A29;	margin-top:5px; }
