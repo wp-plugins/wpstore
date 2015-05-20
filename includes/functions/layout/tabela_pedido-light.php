@@ -48,7 +48,7 @@
 
                 foreach ( $fivesdrafts as $item=>$fivesdraft ){
                       	 	 	 	 	
-                     
+                                 $lastid = $fivesdraft->id;
                                  $id_produto = $fivesdraft->id_produto;
                                  $preco = $fivesdraft->preco;
                                  $variacao = $fivesdraft->variacao;
@@ -61,8 +61,20 @@
                 $postID = intval( $id_produto);
                 
                 if($postID>0){
-                    
+					
+					
+					
+					
+	   		     $precoLargura = get_user_meta( $idUser, 'precoLargura'.$lastid, true);
+	   		     $precoAltura =  get_user_meta( $idUser,'precoAltura'.$lastid, true);
+	   		     $obs=  get_user_meta( $idUser, 'obs'.$lastid, true );
+				 
+	   		     $precoLargura = intval($precoLargura);
+	   		     $precoAltura = intval($precoAltura);
+	   		    
                    
+				   
+				   
                     if($variacao==""){
                         $variacao="-";
                     }
@@ -93,6 +105,34 @@
                      };   
           
                    $qtd = intval($qtdProd);
+				   
+				   
+				   
+	  			 //PRECO VARIAVEL ------------
+	          $variacaoPrecoVariavel = "";
+	  		    $variacaoPrecoVariavel = "";
+	  		   if($precoLargura > 0 ){
+	  		   $variacaoPrecoVariavel = " Largura : $precoLargura <br/>  Altura : $precoAltura |  $obs";	
+		   
+	  		   $variacao = floatval( $precoLargura)*floatval($precoAltura );
+	  		   $variacao = $variacao / 10000;
+	  
+	  		   $precoMetro = $preco;
+	   
+	  		   $valor =  $variacao * $precoMetro;
+	   
+	             $preco =  number_format($valor,2,'.','');
+		
+	  		   $precoSoma =  floatval($preco);
+			   
+			   $variacaoPrecoVariavel = " Largura : $precoLargura <br/>  Altura : $precoAltura |  $obs";	
+			   
+		   
+	  	        }
+   
+	              //PRECO VARIAVEL ------------
+				  
+				  
                    
                    
                    $precoLinha =    getPriceFormat($qtd*$precoSoma) ;
@@ -115,11 +155,26 @@
 
 
                 foreach((get_the_category($postID)) as $category) { 
-                    $categories .= "<span style='font-size:10px'>".$category->cat_name.", </span>"; 
+                    $categories .= "<span style='font-size:10px'>".$category->cat_name.", </span><br/><br/>"; 
                 }
 
 
 
+
+		         $idped = str_replace('.','',$idPedido);
+		         $id = "1$postID$idped";
+			     $pic =  trim(get_user_meta($idUser,$id,true));  
+                 if($pic !=""){
+				    $categories.="Link Download 1: <a href='' target='_blank'><img src='$pic' width='45' />Download  aqui</a> <br/>";
+                 }
+		         $id = "2$postID$idped";
+			     $pic =  trim(get_user_meta($idUser,$id,true));  
+                 if($pic !=""){
+				    $categories .="Link Download 1:  <a href='' target='_blank'> <img src='$pic' width='45' /> Download aqui</a> <br/>";
+                 }
+		
+		       
+		
 
                 $orderPrint .="
 
@@ -129,7 +184,7 @@
          <tr>
          	<td width='1' class='ta-center hide-phone'><a href='".get_permalink($postID)."'>".custom_get_image($postID,50,50,true,false)."</a></td>
              <td><a href='".get_permalink($postID)."'>".get_the_title($postID)."</a> ($categories ) </td>
-             <td class='hide-phone'>".$variacao."  </td>
+             <td class='hide-phone'>".$variacao." $variacaoPrecoVariavel</td>
              <td>
              $qtdProd 
              </td>

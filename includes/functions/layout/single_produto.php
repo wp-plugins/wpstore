@@ -28,6 +28,21 @@
             ?>
        
 			<div class="clear"></div>
+			
+			
+			<?php
+			$download = get_post_meta($post->ID,'download',true);
+			
+		    $txtDownload = get_option('txtDownloadWPSHOP');
+			if($txtDownload==""){
+				$txtDownload = "Fazer Download";
+			}
+	 
+	 
+			if($download !=''){
+				echo "<a class='downloadBtWPS' href='$download' target='_blank'>$txtDownload</a>";
+			};
+			?>
 				
 			
         </div><!-- .produtoDir -->

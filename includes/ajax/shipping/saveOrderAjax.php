@@ -81,6 +81,14 @@
 
      
               
+			  
+									   
+			 if(    intval($valorFreteEnviado) == 0   && $fgratis ==false  ){
+					 	$tipoFrete =  "S/FRETE";
+			 };
+			 
+	 
+			  
        if( $idUser > 0){
        $pedidoID = gerarPedido($idUser,$valor,$tipoFrete,$tipoPagto,'PENDENTE',$comentario);
        };

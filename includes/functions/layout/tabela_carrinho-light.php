@@ -113,6 +113,16 @@ $tabelaVar .= "
                 $postID = intval($item['idPost']);
                 
                 if($postID>0){
+					
+					
+					
+ 				   $precoLargura = intval($item['precoLargura']);
+ 				   $precoAltura = intval($item['precoAltura']);
+ 				   $obs=  $item['obs'];
+   
+					
+					
+			
                     
                     $tabelaVariacao = $item['variacaoProduto'];
                     if($tabelaVariacao==""){
@@ -164,6 +174,35 @@ $tabelaVar .= "
                      };   
                     
                    $qtd = intval($item['qtdProduto']);
+				   
+				   
+				   
+				   
+				   
+				   
+				   
+				 //PRECO VARIAVEL ------------
+		       
+			    $variacaoPrecoVariavel = "";
+			   if($precoLargura > 0 ){
+			   $variacaoPrecoVariavel = " Largura : $precoLargura <br/>  Altura : $precoAltura |  $obs";	
+			   
+			   $variacao = floatval( $precoLargura)*floatval($precoAltura );
+			   $variacao = $variacao / 10000;
+		  
+			   $precoMetro = $preco;
+		   
+			   $valor =  $variacao * $precoMetro;
+		   
+	           $preco =  number_format($valor,2,'.','');
+			
+			   $precoSoma =  floatval($preco);
+			   
+		        }
+	   
+	            //PRECO VARIAVEL ------------
+					 
+					 
                    
                    
                    $precoLinha =    getPriceFormat($qtd*$precoSoma) ;
@@ -181,7 +220,7 @@ $tabelaVar .= "
                 <tr>
                 	<td width='1' class='ta-center hide-phone'><a href='".get_permalink($postID)."'>".custom_get_image($postID,50,50,true,false)."</a></td>
                     <td><a href='".get_permalink($postID)."'>".get_the_title($postID)."</a> (<span class='removeProdCart' ><a href='".get_permalink( $idPaginaCarrinho)."?act=remove&idp=$key'>remover</a></span>)</td>
-                    <td class='hide-phone'>$tabelaVariacao $precoAdd </td>
+                    <td class='hide-phone'>$tabelaVariacao $precoAdd   <br/> $variacaoPrecoVariavel  </td>
                     <td>
                     
                     <input class='qtdProdInput' rel='$key' rev='$tabelaVariacao'   type='text' size='2' value='$qtd' 	readonly='readonly' />
@@ -299,6 +338,15 @@ $tabelaVar .= "
         ?>
  
 		 
+		 <?php   
+	     $esconderFreteCarrinho  = get_option('esconderFreteCarrinhoWPSTORE');  
+
+		 
+		 if($esconderFreteCarrinho=='sim'  ){ }else{
+			 
+			   ?>
+			 
+			 
             <?php  include('box-frete.php'); ?>
 
 
@@ -306,6 +354,10 @@ $tabelaVar .= "
      			
       
      		<?php include('box-desconto.php'); ?>
+			
+			
+			
+			<?php }; ?>
      		
      		
            	<?php  $tabelaVar .= "<div class='clear'></div>"; ?>

@@ -19,6 +19,7 @@
             
             
             <div class="maisdet ">
+				<br/><br/>
             	<h3><strong>Mais informações do produto </strong> <?php the_title(); ?> </h3>
             	 
 				
@@ -46,7 +47,7 @@
 						  $txtParcelamentoJuros = get_option('txtParcelamentoJurosWPSHOP');  
              
              ?>
-
+	         <br/><br/><br/>
                      <h3><?php echo $moedaCorrente; ?> <?php echo $preco ; ?> *Parcele em até <?php echo $totalParcelas; ?> <?php echo $txtParcelamentoJuros; ?> </h3>
 
 
@@ -106,7 +107,7 @@
             
             <div class="garantia inativo">
             
-            
+              <br/><br/><br/>
             	<h3><strong>Garantia e Assistência:</strong> <?php the_title(); ?></h3>
                 
                 
