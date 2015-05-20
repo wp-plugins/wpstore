@@ -1,5 +1,8 @@
 <?php
 $moedaCorrente  =  get_option('moedaCorrenteWPSHOP');
+
+$sequencialPedido = get_sequencialPedidos();
+
 if($moedaCorrente==""){
   $moedaCorrente = "R$" ; 
 }
@@ -98,6 +101,20 @@ for ($i=0; $i<=count($_POST['list']);$i++) {
      if(trim($oid) != ''){
          $oid = trim($oid);
          $sql = "SELECT *FROM `$tabela`  WHERE `id_pedido`='$oid' ORDER BY `ID` DESC";
+		 
+		 
+		 $sequencialPedido = get_sequencialPedidos();  
+		 $idPedidoShow = $idPedido;
+		 if($sequencialPedido=='sim'){
+		    $idPedidoShow  =   $idOrd;
+            $sql = "SELECT *FROM `$tabela`  WHERE `id_pedido`='$oid' OR `id`='$oid'  ORDER BY `ID` DESC";
+		 
+		 
+		 }; 
+
+		 
+		 
+		 
       }
  
 
@@ -164,7 +181,7 @@ for ($i=0; $i<=count($_POST['list']);$i++) {
        	<form action="<?php echo verifyURL(get_option( 'siteurl' ))  ."/wp-admin/admin.php?page=lista_pedidos";?>"  method="post" >
 
             <p>Pesquise por :</p>
-     		<label>Nnumero do pedido : </label>
+     		<label>Numero do pedido : </label>
      		<input type="text"  name="oid" value="<?php echo $oid; ?>"/>  <br/>
      		<label>ou pelo E-mail do cliente : </label>
      		<input type="text"  name="oemail" value="<?php echo $oemail; ?>"/> 
@@ -346,13 +363,19 @@ for ($i=0; $i<=count($_POST['list']);$i++) {
                            }elseif($tipo_pagto=="Cielo"){
                                $imgPagto = "".$plugin_directory."images/cielo.png"; 
                            }
+						   
+						   
+						   $idPedidoShow = $idPedido;
+						   if($sequencialPedido=='sim'){
+						    $idPedidoShow  =  $id;
+						   };
                         	?>    
              
  
        	
        	    <div class="bloco" style="background:<?php echo $cor; ?>;padding:10px;margin-bottom:5px;"  >      
 
-    		<h3> <input type='checkbox' id='check_<?php echo $orderCount ?>'  name='list[]' value='<?php echo $idPedido; ?>'/>  <?php echo $idPedido; ?> |  <?php echo  $nome; ?></h3>
+    		<h3> <input type='checkbox' id='check_<?php echo $orderCount ?>'  name='list[]' value='<?php echo $idPedido; ?>'/> <span class='spanPedidoId'><?php echo $idPedidoShow; ?>  |  <?php echo  $nome; ?> </span> </h3>
 
     		<span class="seta" rel='box_<?php echo $orderCount ?>'></span>     
     		
@@ -365,7 +388,7 @@ for ($i=0; $i<=count($_POST['list']);$i++) {
        	
                <div>
                	      
-                       <br/><strong>ID do pedido:</strong> <?php echo $idPedido; ?>
+                       <br/><strong>ID do pedido:</strong> <?php echo $idPedidoShow; ?>
                        <br/><strong>Cliente : </strong>  <?php echo  $nome; ?> 
                        <br/><strong>Data:</strong> <?php echo $dataArray[4]; ?>/<?php echo $dataArray[3]; ?>/<?php echo $dataArray[2]; ?> 
                        <br/><strong>Tipo de Pagamento:</strong><img src='<?php echo $imgPagto; ?>' />  <?php echo $tipo_pagto; ?> 

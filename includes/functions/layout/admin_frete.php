@@ -84,6 +84,23 @@ if($moedaCorrente==""){
                                  add_option('valorFreteGratis',$valorFreteGratis,'','yes'); 
                                  update_option('valorFreteGratis',$valorFreteGratis);              
  
+ 
+ 
+ 
+ 
+				  	           $retirarLoja= trim($_POST['retirarLoja']);
+				  				if($retirarLoja=='retirarLoja'){
+				  	            	add_option('retirarLoja',$retirarLoja,'','yes'); 
+				  	            	update_option('retirarLoja',$retirarLoja);
+				  			    }else{
+				  		            add_option('retirarLoja','N','','yes'); 
+				  		            update_option('retirarLoja','N');
+				  			    }
+					
+					
+					
+					
+					
        };
  
 $valorFreteGratis = get_option('valorFreteGratis'); 
@@ -126,6 +143,10 @@ if(intval($larguraEmbalagemCorreios)<=0){
 if(intval($comprimentoEmbalagemCorreios)<=0){
   $comprimentoEmbalagemCorreios  = 9;  
 }
+
+
+
+$retirarLoja =get_option('retirarLoja');
 
 ?>  
 
@@ -438,7 +459,7 @@ if(intval($comprimentoEmbalagemCorreios)<=0){
 
                                     <div class="bloco"> 
 
-                               		<h3>   6) PROMOÇÕES DE FRETE </h3>
+                               		<h3>   7) PROMOÇÕES DE FRETE </h3>
 
                                	              <span class="seta" rel='promoFrete'></span>
                                				   	 <div class="texto" id='promoFrete'>
@@ -468,6 +489,40 @@ if(intval($comprimentoEmbalagemCorreios)<=0){
                                			</div><!-- .bloco -->
                                			
                                			
+										
+										
+										
+										
+										
+										
+									
+									
+									
+
+	
+
+								        <div class="bloco"> 
+										 
+										<h3> <input type="checkbox" name="retirarLoja" value="retirarLoja" <?php 
+											if($retirarLoja=='retirarLoja'){ echo "CHECKED"; }; ?>  /> Extra)  Permitir que usuário retire os produtos na loja </h3>
+
+									              <span class="seta" rel='retirarLoja'></span>
+												   	 <div class="texto" id='retirarLoja'>
+		 
+		 
+		 
+								                         <p>Selecione acima para possibilitar que o usuário retire a mercadoria direto na loja </p>
+
+								                  <input type="submit"  name="submit" value="Salvar"   />      
+										   </div><!-- .texto -->
+											</div><!-- .bloco -->
+				
+				
+				
+				
+								                  <input type="submit"  name="submit" value="Salvar"   />      		
+										
+										
                                			
  
  

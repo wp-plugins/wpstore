@@ -578,7 +578,7 @@ $meuPinMoip = get_option('meuPinMoip');
 
 
                  				<h3> 6 )<input type="checkbox" name="ativaRetirada" value="ativaRetirada"  <?php  if($ativaRetirada=='ativaRetirada'){ echo "CHECKED"; }; ?> />    
-                 				 <img src='<?php echo $plugin_directory."images/retirada.png "; ?>' /> Retirar na Loja </h3>
+                 				 <img src='<?php echo $plugin_directory."images/retirada.png "; ?>' /> Pagar na Loja</h3>
 
                  			              <span class="seta" rel='retirada'></span>
                  						   	 <div class="texto" id='retirada'>

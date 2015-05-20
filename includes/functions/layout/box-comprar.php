@@ -357,7 +357,7 @@ if($txtEscolhaCorProduto==""){
  	         
 
 
-                      <p class="preco"  ><?php if($precoS >0) { echo "<span style='font-size:0.8em'>De: </span>"; }; ?><?php echo $moedaCorrente; ?> <span <?php if($precoS >0) { echo "style='text-decoration:line-through;font-size:1.3em'"; }; ?> ><?php echo $preco; ?></span></p>
+                      <p class="preco"  ><?php if($precoS >0) { echo "<span style='font-size:0.8em'>De: </span>"; }; ?><?php echo $moedaCorrente; ?> <span <?php if($precoS >0) { echo "style='text-decoration:line-through;font-size:1.3em'"; }; ?>      <?php if($precoS >0) { }else{ ?>  class='precoV' rel='<?php echo $preco; ?>' <?php }; ?>><?php echo $preco; ?></span></p>
 
 
 
@@ -367,7 +367,7 @@ if($txtEscolhaCorProduto==""){
 
                                                  if($precoS>0){ ?>
 
-                                     			 <p class="preco"   ><span style='font-size:0.8em'>Por:</span> <span style='color:red;font-size:1em'><?php echo $moedaCorrente; ?></span> <span  style='color:red;font-size:1.7em;' ><?php echo $precoS; ?></span></p>
+                                     			 <p class="preco"   ><span style='font-size:0.8em'>Por:</span> <span style='color:red;font-size:1em'><?php echo $moedaCorrente; ?></span> <span  style='color:red;font-size:1.7em;'   <?php if($precoS >0) {  ?>  class='precoV' rel='<?php echo $precoS; ?>' <?php }; ?>><?php echo $precoS; ?></span></p>
 
 
                                            <?php }; ?>
@@ -397,10 +397,9 @@ if($txtEscolhaCorProduto==""){
 
 
                                         <div class="clear"></div>
-  
-
-                     
-                     <a class="addCarrinho btComprar" href="<?php the_permalink(); ?>"><?php echo $txtAdicionarBtProduto; ?></a>
+										
+						
+                     <a class="addCarrinho" href="<?php the_permalink(); ?>"><?php echo $txtAdicionarBtProduto; ?></a>
                      <a class="comprar btComprar" href="<?php the_permalink(); ?>"><?php echo $txtComprarBtProduto; ?></a>
 							
 							
@@ -418,13 +417,16 @@ if($txtEscolhaCorProduto==""){
         	             
         	             
         	             
+						   
+			
+							<?php include('precoEspecial.php'); ?>
         	             
         	             
         	                   	<div class="clear"></div>
 
 
 
-                                     <p class="preco"  ><?php if($precoS >0) { echo "<span style='font-size:0.8em'>De: </span>"; }; ?><?php echo $moedaCorrente; ?> <span <?php if($precoS >0) { echo "style='text-decoration:line-through;font-size:1.3em'"; }; ?> ><?php echo $preco; ?></span></p>
+                                     <p class="preco"  ><?php if($precoS >0) { echo "<span style='font-size:0.8em'>De: </span>"; }; ?><?php echo $moedaCorrente; ?> <span <?php if($precoS >0) { echo "style='text-decoration:line-through;font-size:1.3em'"; }; ?>  <?php if($precoS >0) { }else{ ?>  class='precoV' rel='<?php echo $preco; ?>' <?php }; ?>><?php echo $preco; ?></span></p>
 
 
                                                                 <?php
@@ -432,7 +434,7 @@ if($txtEscolhaCorProduto==""){
 
                                                                        if($precoS>0){ ?>
 
-                                                           			 <p class="preco"  ><span style='font-size:0.8em'>Por:</span> <span style='color:red;font-size:1em'><?php echo $moedaCorrente; ?></span> <span  style='color:red;font-size:1.7em;' ><?php echo $precoS; ?></span></p>
+                                                           			 <p class="preco"  ><span style='font-size:0.8em'>Por:</span> <span style='color:red;font-size:1em'><?php echo $moedaCorrente; ?></span> <span  style='color:red;font-size:1.7em;'   <?php if($precoS >0) {  ?>  class='precoV' rel='<?php echo $precoS; ?>' <?php }; ?>><?php echo $precoS; ?></span></p>
 
 
                                                                  <?php }; ?>
@@ -460,10 +462,12 @@ if($txtEscolhaCorProduto==""){
 
 
                                                        <div class="clear"></div>
+													   
+												
 
                                        <div id='boxComprar'></div>
 
-                                    <a class="addCarrinho btComprar" href="<?php the_permalink(); ?>"><?php echo   $txtAdicionarBtProduto    ; ?> </a>   
+                                    <a class="addCarrinho " href="<?php the_permalink(); ?>" rel='addCarrinho'><?php echo   $txtAdicionarBtProduto    ; ?> </a>   
                                     
                                     <a class="comprar btComprar" href="<?php the_permalink(); ?>"><?php echo  $txtComprarBtProduto    ; ?></a>
 

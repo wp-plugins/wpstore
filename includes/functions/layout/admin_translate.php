@@ -64,7 +64,28 @@ $idPaginaCheckout = 0;
                        $txtEntrega = trim($_POST['txtEntrega']); 
                             add_option('txtEntregaWPSHOP',$txtEntrega ,'','yes'); 
                             update_option('txtEntregaWPSHOP',$txtEntrega);  
+							
+							
+							
+							
+	                        $txtDownload= trim($_POST['txtDownload']); 
+	                             add_option('txtDownloadWPSHOP',$txtDownload ,'','yes'); 
+	                             update_option('txtDownloadWPSHOP',$txtDownload);  
+								 
+	 	                        $txtPagtoPagseguro= trim($_POST['txtPagtoPagseguro']); 
+	 	                             add_option('txtPagtoPagseguroWPSHOP',$txtPagtoPagseguro ,'','yes'); 
+	 	                             update_option('txtPagtoPagseguroWPSHOP',$txtPagtoPagseguro);  							 
                              
+							 
+							 
+							 
+	 	 	                        $txtEnviarUpload= trim($_POST['txtEnviarUpload']); 
+	 	 	                             add_option('txtEnviarUploadWPSHOP',$txtEnviarUpload ,'','yes'); 
+	 	 	                             update_option('txtEnviarUploadWPSHOP',$txtEnviarUpload); 
+											 
+											 
+											 
+											 
   };
 
 $txtParcelamentoJuros = get_option('txtParcelamentoJurosWPSHOP'); 
@@ -86,6 +107,14 @@ $txtEscolhaTamanhoProduto = get_option('txtEscolhaTamanhoProdutoWPSHOP');
  $txtProdutosRelacionados   = get_option('txtProdutosRelacionadosWPSHOP');   
 
  $txtEntrega   = get_option('txtEntregaWPSHOP');
+ 
+ $txtDownload = get_option('txtDownloadWPSHOP');
+ 
+ 
+ $txtPagtoPagseguro = get_option('txtPagtoPagseguroWPSHOP');
+	
+	 $txtEnviarUpload = get_option('txtEnviarUploadWPSHOP');
+	  
 ?>
  
  
@@ -329,20 +358,115 @@ $txtEscolhaTamanhoProduto = get_option('txtEscolhaTamanhoProdutoWPSHOP');
                              <br/>
 
                             <br/> <br/>
+							
+							
+							
+							
+                               <h4>Fazer Download</h4>
+
+                             <label for="txtDownload"> </label>
+                                default :  <strong>Fazer Download </strong>
+                               <br/>
+                               Substituir por :  <input type="text" id="txtDownload" name="txtDownload" value="<?php echo $txtDownload  ; ?>"  style="width:40%"  />
+                             <br/>
+
+                            <br/> <br/>
+							
+							
+							
                                
+        	
+        	
+  
+                       <input type="submit"  name="submit" value="Salvar"   />
                                  
 
 
             
         		</div>
         	</div><!-- .bloco -->
-         	
-         	
-         	
-         	
-   
-                        <input type="submit"  name="submit" value="Salvar"   />
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+    	    
+    	    
+    	    <div class="bloco">  
+    	    
+    	    
+    	        
+
+        		<h3>2) PAGAMENTO </h3>
+
+        		<span class="seta" rel='pagamento'></span>
+        		<div class="texto" id='pagamento'>
+
+        		  
+				  
+				  
+      		  
+        		    <h4> Mensagem DOWNLOAD : </h4>
+
+                      <label for="txtDownload"> </label>
+                         default : <strong> Fazer Download</strong>
+                        <br/>
+                        Substituir por : <input type="text" id="txtDownload" name="txtDownload" value="<?php echo $txtDownload; ?>"  style="width:40%"  />
+                      <br/>
+       
+                     <br/> <br/>  
+				  
+				  
+      		  
+      		    <h4> Mensagem UPLOAD: </h4>
+
+                    <label for="txtPagtotxtEnviarUpload"> </label>
+                       default : <strong> Envie abaixo, os arquivos para personalização de seu produto e em seguida siga para pagamento.</strong>
+                      <br/>
+                      Substituir por : <input type="text" id="txtEnviarUpload" name="txtEnviarUpload" value="<?php echo $txtEnviarUpload; ?>"  style="width:40%"  />
+                    <br/>
+       
+                   <br/> <br/>  
+				  
+				  
+				  
+				  
+				  
+        		  
+        		    <h4> Mensagem Pagamento Pagseguro: </h4>
+
+                      <label for="txtPagtoPagseguro"> </label>
+                         default : <strong> Pedido Finalizado . Para concluir clique no botão acima e efetue o pagamento via Pagseguro.</strong>
+                        <br/>
+                        Substituir por : <input type="text" id="txtPagtoPagseguro" name="txtPagtoPagseguro" value="<?php echo $txtPagtoPagseguro; ?>"  style="width:40%"  />
+                      <br/>
+         
+                     <br/> <br/>  
+
+
  
+
+
+
+            <input type="submit"  name="submit" value="Salvar"   />
+            
+        		</div>
+        	</div><!-- .bloco -->
+			
+			
+			
+			
+         	
+         	
+         	
 
 
  

@@ -1,3 +1,6 @@
+
+
+
 <?php
 
 $idPaginaCarrinho = 0;
@@ -39,7 +42,16 @@ $idPaginaCheckout = 0;
                 add_option('idPaginaPedidoWPSHOP',$idPaginaPedido,'','yes'); 
                 update_option('idPaginaPedidoWPSHOP',$idPaginaPedido); 
                 
-                
+           
+	            $idPaginaArquivos  = trim($_POST['idPaginaArquivos']); 
+	                add_option('idPaginaArquivosWPSHOP',$idPaginaArquivos,'','yes'); 
+	                update_option('idPaginaArquivosWPSHOP',$idPaginaArquivos);                
+				
+				
+					
+					
+					
+					
                   $idPaginaPedidos = trim($_POST['idPaginaPedidos']); 
                         add_option('idPaginaPedidosWPSHOP',$idPaginaPedidos,'','yes'); 
                         update_option('idPaginaPedidosWPSHOP',$idPaginaPedidos);
@@ -112,14 +124,94 @@ $googleConversaoCheckout= trim($_POST['googleConversaoCheckout']);
                                               add_option('ativarsslWPSHOP',$ativarssl,'','yes'); 
                                               update_option('ativarsslWPSHOP',$ativarssl);
                                           }      
+										  
+										  
+						
+						
+	 
+										  
+                                          if (isset( $_POST['ativarPrecoRelativo'] )) {
+                                                    $ativarPrecoRelativo= "sim"; 
+                                                    add_option('ativarPrecoRelativoWPSHOP',$ativarPrecoRelativo,'','yes'); 
+                                                    update_option('ativarPrecoRelativoWPSHOP',$ativarPrecoRelativo);
+                                          }else{
+                                              $ativarPrecoRelativo= "não"; 
+                                              add_option('ativarPrecoRelativoWPSHOP',$ativarPrecoRelativo,'','yes'); 
+                                              update_option('ativarPrecoRelativoWPSHOP',$ativarPrecoRelativo);
+                                          }      
+										  
+									
+									
+	
+										 
+											  
+									      $ativarIdCatPrecoRelativo = trim($_POST['ativarIdCatPrecoRelativo']); 
+									      add_option('ativarIdCatPrecoRelativoWPSHOP',$ativarIdCatPrecoRelativo,'','yes'); 
+									      update_option('ativarIdCatPrecoRelativoWPSHOP',$ativarIdCatPrecoRelativo);    
+										  
+										  	  
+
+									
+										  
+										  
+                                          if (isset( $_POST['ativaruploadForm'] )) {
+                                                    $ativaruploadForm = "sim"; 
+                                                    add_option('ativaruploadFormWPSHOP',$ativaruploadForm,'','yes'); 
+                                                    update_option('ativaruploadFormWPSHOP',$ativaruploadForm);
+                                          }else{
+                                              $ativaruploadForm= "não"; 
+                                              add_option('ativaruploadFormWPSHOP',$ativaruploadForm,'','yes'); 
+                                              update_option('ativaruploadFormWPSHOP',$ativaruploadForm);
+                                          }      
                                           
                                            
                      
                                           
                                           
-                                          
-                                      
-               
+								  	    $idPaginaRetiradaLoja= trim($_POST['idPaginaRetiradaLoja']); 
+								  	    $iidPaginaRetiradaLojaS  =  get_option('idPaginaRetiradaLojaWPSHOP');
+										
+										
+								  	    if($idPaginaRetiradaLojaS !=$idPaginaRetiradaLoja){  
+								  	 	 add_option('idPaginaRetiradaLojaWPSHOP',$idPaginaRetiradaLoja,'','yes'); 
+								  	      update_option('idPaginaRetiradaLojaWPSHOP',$idPaginaRetiradaLoja);                   
+								  	    };     
+		
+        
+	   
+ if ( isset( $_POST['idSequencialPedidos'] )) {
+	
+	$idSequencialPedidos = "sim"; 
+	add_option('idSequencialPedidosWPSHOP',$idSequencialPedidos,'','yes'); 
+	update_option('idSequencialPedidosWPSHOP',$idSequencialPedidos);
+											  
+ }else{
+    
+	$idSequencialPedidos = "não"; 
+	add_option('idSequencialPedidosWPSHOP',$idSequencialPedidos,'','yes'); 
+	update_option('idSequencialPedidosWPSHOP',$idSequencialPedidos);
+ };    
+										
+										
+		
+		
+		
+ if ( isset( $_POST['graficaPers'] )) {
+	
+	$graficaPers = "sim"; 
+	add_option('graficaPers',$graficaPers,'','yes'); 
+	update_option('graficaPers',$graficaPers);
+											  
+ }else{
+    
+	$graficaPers = "não"; 
+	add_option('graficaPers',$graficaPers,'','yes'); 
+	update_option('graficaPers',$graficaPers);
+ };    
+ 
+ 
+								              
+            
     };
 
 $emailAdmin =  get_option('emailAdminWPSHOP');
@@ -136,6 +228,19 @@ $idPaginaCheckout  =  get_option('idPaginaCheckoutWPSHOP');
 $idPaginaCarrinho  =  get_option('idPaginaCarrinhoWPSHOP'); 
 $idPaginaPagto =  get_option('idPaginaPagtoWPSHOP'); 
 $ativarssl  =  get_option('ativarsslWPSHOP'); 
+
+$idPaginaArquivos =  get_option('idPaginaArquivosWPSHOP'); 
+
+
+	
+$ativarPrecoRelativo =  get_option('ativarPrecoRelativoWPSHOP'); 
+$ativarIdCatPrecoRelativo =  get_option('ativarIdCatPrecoRelativoWPSHOP'); 
+
+					
+		
+		
+$ativaruploadForm=  get_option('ativaruploadFormWPSHOP'); 
+	
 $parcelaMinima=  get_parcelaMinima(); 
 $totalParcela = get_totalParcela();
  
@@ -148,8 +253,25 @@ $totalParcela = get_totalParcela();
   
   
     $googleConversaoCheckout=  get_option('googleConversaoCheckout');      
-    $googleConversaoPagto =  get_option('googleConversaoPagto');     
+    $googleConversaoPagto =  get_option('googleConversaoPagto'); 
+	
+	
+	
+    $idPaginaRetiradaLoja=  get_option('idPaginaRetiradaLojaWPSHOP'); 
+ 
+	
+ 
+	
+  $ativarPrecoRelativo =  get_option('ativarPrecoRelativoWPSHOP'); 
+  $ativarIdCatPrecoRelativo=  get_option('ativarIdCatPrecoRelativoWPSHOP');		 
+  					  
+	    $idSequencialPedidos   =  get_option('idSequencialPedidosWPSHOP'); 
+			
+			
+			$grafica = get_option('graficaPers');
 ?>    
+
+
 
 
   
@@ -313,6 +435,42 @@ $totalParcela = get_totalParcela();
                            no content da pagina no wordpress.</span>
                            </p><br/>  <br/> 
 
+
+
+
+
+
+
+                           <br/> <br/> 
+                           
+                           <h4>Pagina Lojas e Pontos de Retirada :</h4>
+                           <p>Selecione a   pagina que informa os detalhes e localização das lojas e pontos para retirada de mercadorias :   <br/>
+                           <?php wp_dropdown_pages("show_option_none=---&id=idPaginaRetiradaLoja&name=idPaginaRetiradaLoja&selected=$idPaginaRetiradaLoja"); ?>  
+                           <br/>
+                         
+                           </p>
+
+                           <br/> <br/> 
+						   
+						   
+						   
+						   
+
+						                              <h4>Pagina Arquivos:</h4>
+						                              <p>Selecione a pagina que será inserido o formulário de arquivos.... :   <br/>
+						                               <?php wp_dropdown_pages("show_option_none=---&id=idPaginaArquivos&name=idPaginaArquivos&selected=$idPaginaArquivos"); ?>  
+						                              <br/>
+						                              <span style="font-size:11px">Selecione a pagina  ou deixe em branco para não adicionar automáticamente. Neste caso insira  a expressão <strong>[get_arquivos_form] </strong> 
+						                              no content da pagina no wordpress.</span>
+						                              </p><br/>  <br/> 
+
+
+
+
+
+						   
+						   
+						   
 
 
                             <input type="submit"  name="submit" value="Salvar"   />
@@ -574,6 +732,83 @@ $totalParcela = get_totalParcela();
  						
  						
  						
+						
+						
+						
+						
+						
+		
+		
+ 		               <div class="bloco">
+  							<h3>9.Produtos Personalizaveis</h3>
+
+  						        <span class="seta" rel='produtosPersonalizaveis'></span>
+         							<div class="texto" id='produtosPersonalizaveis'>
+ 							   
+ 							 
+					 	                <p><input type="checkbox" name="ativaruploadForm"  <?php if($ativaruploadForm=="sim"){ echo "CHECKED"; }; ?> /> Selecione para ativar  opção de upload para cada produto de um pedido. Perfeito para lojas que vendem produtos personalizados. </p>
+					                     <br/> 
+                                           <br/>  <br/>
+ 							
+  							     
+				                           <h2>Preço RELATIVO em categoria de produto </h2>      
+
+
+					 	                <p><input type="checkbox" name="ativarPrecoRelativo"  <?php if($ativarPrecoRelativo=="sim"){ echo "CHECKED"; }; ?> /> Ativar Preço Relativo </p>
+					                     <br/> 
+										 
+					 
+				                            <h3>ID DA CATEGORIA</h3>  
+				                           <p>Selecione a  categoria das publicações  QUE TERÃO PREÇO RELATIVO<br/>
+				                              <?php wp_dropdown_categories("show_option_none=---&id=idCatSlide2&name=ativarIdCatPrecoRelativo&selected=$ativarIdCatPrecoRelativo&orderby=name&order=asc"); ?> 
+				                             <br/>
+				                             <span style="font-size:11px">Escolha uma categoria acima.</span>
+				                           </p>  
+										   
+											  
+											  
+											  
+                                       <input type="submit"  name="submit" value="Salvar"   />
+                                      
+                                      
+                                      
+  							</div><!-- .texto -->
+  						</div><!-- .bloco -->
+				 		
+						
+						
+		
+  	   <div class="bloco">
+   				  
+			 <h3>10. Opções Extra</h3>
+
+   				 <span class="seta" rel='optExtra'></span>
+				  
+          		 <div class="texto" id='optExtra'>
+ 							   
+ 				 <h2>Ativar ID sequencial para pedidos :  </h2>      
+
+      <p><input type="checkbox" name="idSequencialPedidos"  <?php if($idSequencialPedidos=="sim"){ echo "CHECKED"; }; ?> />Ativar identificação sequencial de pedidos</p>
+			        
+				  <br/>
+					
+					 
+		 				 <h2>Personalização de pedidos :  </h2>      
+
+		      <p><input type="checkbox" name="graficaPers"  <?php if($graficaPers=="sim"){ echo "CHECKED"; }; ?> />Habilitar personalização de pedidos. Enviar arquivosd para impressão de produtos exclusivos.</p>
+			        
+						  <br/>
+							
+							
+											  
+				  <input type="submit"  name="submit" value="Salvar"   />
+                                      
+               </div><!-- .texto -->
+   	   </div><!-- .bloco -->
+						
+						
+						
+			 		
 		     
 		
 	</div>  
