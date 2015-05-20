@@ -23,14 +23,24 @@ $enderecoRetirada = get_option('enderecoRetirada');
    <h3 style='width:92;background:#ddd;margin-left:5px;padding:20px;text-align:center;font-size:1.2em'  >Total a pagar: $moedaCorrente".getPriceFormat( $totalPagto)." </h3> $obs ";  
 ?>
 
-<?php  $txtPrint .= "
+<?php 
+
+$sequencialPedido = get_sequencialPedidos();  
+$idPedidoShow = $idPedido;
+if($sequencialPedido=='sim'){
+   $idPedidoShow  =   $idOrd;
+}; 
+
+
+
+ $txtPrint .= "
  <br/>
 
 <h4>Pedido Concluído</h4>
 <p> Seu pedido foi concluído com sucesso e ficará reservado para  retirada em nossa loja nos próximos 5 dias. </p>
 <p> Para retirar seu pedido visite  nossa loja , realize o pagamento e retire seu pedido. </p>
 <p>Nosso Endereço : $enderecoRetirada </p> 
-<p> Numero de seu pedido :  <strong> $idPedido </strong></p>
+<p> Numero de seu pedido :  <strong>$idPedidoShow </strong></p>
 
 <br/>";
 

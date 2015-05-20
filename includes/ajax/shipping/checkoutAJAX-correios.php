@@ -146,22 +146,31 @@ if($freteGratis == false){
    
 
 
-   $tipoFrete = "";$tipoFreteR = "";
+   $tipoFrete = "";
+   $tipoFreteR = "";
  
    
-  if($valorFreteEnviado==$valorSedex){
+  if($valorFreteEnviado==$valorSedex && intval($valorFreteEnviado)> 0 ){
+	  
      $tipoFreteR = "SEDEX";
      $tipoFrete = "SEDEX ($moedaCorrente$valorSedex)"; 
      $salvar = true;    
      $msg = '1-Cadastrado com Sucesso!';
+	 
   }elseif($valorFreteEnviado==$valorPac ){
+	  
      $tipoFreteR = "PAC";
      $tipoFrete = "PAC  ($moedaCorrente$valorPac)";  
      $salvar = true;    
      $msg = '2-Cadastrado com Sucesso!';
+	 
   }else{
-     $msg = "0-Erro no Frete!V1:$valorFreteEnviado - $valorSedex - $valorPac ";  
-     echo "$msg";
+	  
+	  if($valorFreteEnviado=='0.00'){
+         //$msg = "0-Erro no Frete!V1:$valorFreteEnviado - $valorSedex - $valorPac ";  
+         //echo "$msg";
+	  };
+	  
   };
  
 

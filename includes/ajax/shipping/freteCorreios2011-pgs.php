@@ -13,8 +13,11 @@
  // ZERANDO VALORES
  $valorFrete = 0.0;
  // CALCULANDO O FRETE
+ 
+ //echo "AAAAAAAAAA $CEP_ORIGEM, $PESO, $VALOR, $CEP_DESTINO<br/>";
+ 
  $valorFrete = $frete->gerar($CEP_ORIGEM, $PESO, $VALOR, $CEP_DESTINO);
-  
+ 
   if(is_array($valorFrete)) {
         
         $valorSedex = $valorFrete["Sedex"];

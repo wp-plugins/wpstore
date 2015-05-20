@@ -168,6 +168,35 @@
                                      $content = $content.$tabela;  return $content;
                                  }
                           
+						  
+						  
+                          
+	                             //------------------------------------------------
+	                                   $find = false;
+
+	                                   $pos = strpos($content,'[get_arquivos_form]');
+
+	                                   if($pos == true) {
+	                                   $find = true;
+	                                   }
+
+	                                   $tabela = get_arquivos_form(false);
+
+	                                   if($find==true){
+	                                        $content = str_replace('[get_arquivos_form]',$tabela,$content); return $content;
+	                                   }
+
+	                                   $idPaginaArquivos  =  get_option('idPaginaArquivosWPSHOP');
+                                 
+	                                   if($post->ID==$idPaginaArquivos&& $idPaginaArquivos !=""){
+                          
+	                                       $content = $content.$tabela;  return $content;
+	                                   }
+                          
+						  
+						  
+						  
+						  
                           
                                 
               return $content;                  

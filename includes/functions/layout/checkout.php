@@ -15,16 +15,22 @@
       $plugin_directory = str_replace('functions/layout/','',plugin_dir_url( __FILE__ ));
 
  
-$htmlVar .="<div class='pagamento'>
+$htmlVar .="<div class='pagamento'>";
 
-	<div class='title3'>
+
+
+if ( is_user_logged_in() ) { 
+	
+	
+
+$htmlVar .="<div class='title3'>
 			Confirme o Pedido  
 		
 		<span>Total : ".$moedaCorrente."".custom_get_total_price_session_order()."</span>
 	</div>
 	
 	
-	<p><a href='".verifyURL(get_permalink( get_idPaginaCarrinho() ))."' >Clique aqui se deseja  editar seu pedido</a></p>
+	<p><a href='".verifyURL(get_permalink( get_idPaginaCarrinho() ))."'  class='btEditarPedido' >Clique aqui se deseja  editar seu pedido</a></p>
     
     ";
 	
@@ -43,11 +49,20 @@ $htmlVar .="<div class='pagamento'>
       foreach($arrayCarrinho as $key=>$item){ 
           
            $postID = intval($item['idPost']);
+		   
+		   
+	
+		   
+   
               
                if($postID>0){
                    
                         
-                        
+				   $precoLargura = intval($item['precoLargura']);
+				   $precoAltura = intval($item['precoAltura']);
+				   $obs=  $item['obs'];
+				   
+				   
                           $tabelaVariacao = $item['variacaoProduto'];
                             if($tabelaVariacao==""){
                                 $tabelaVariacao="-";
@@ -55,7 +70,7 @@ $htmlVar .="<div class='pagamento'>
 
                         
                         
-                                $preco =  custom_get_price( $postID );
+                                   $preco =  custom_get_price( $postID );
                                    $specialPrice =  custom_get_specialprice( $postID );
                                    $pesoTotal += get_weight_product($postID );
 
@@ -93,7 +108,32 @@ $htmlVar .="<div class='pagamento'>
                                      $precoSoma = $precoSoma +  $precoAddFSoma;    
                                      };   
 
-                                   $qtd = intval($item['qtdProduto']);
+                                     $qtd = intval($item['qtdProduto']);
+									 
+									 
+									 
+									 
+									 //PRECO VARIAVEL ------------
+			  				       
+								    $variacaoPrecoVariavel = "";
+								   if($precoLargura > 0 ){
+								   $variacaoPrecoVariavel = " Largura : $precoLargura <br/>  Altura : $precoAltura |  $obs";	
+								   
+								   $variacao = floatval( $precoLargura)*floatval($precoAltura );
+								   $variacao = $variacao / 10000;
+							  
+								   $precoMetro = $preco;
+							   
+								   $valor =  $variacao * $precoMetro;
+							   
+						           $preco =  number_format($valor,2,'.','');
+								
+								   $precoSoma =  floatval($preco);
+								   
+							        }
+						   
+						            //PRECO VARIAVEL ------------
+										 
 
 
                                    $precoLinha =    getPriceFormat($qtd*$precoSoma) ;
@@ -115,7 +155,11 @@ $htmlVar .="<div class='pagamento'>
                                  foreach((get_the_category($postID)) as $category) { 
                                      $categories .= "<span style='font-size:10px'>".$category->cat_name.", </span>"; 
                                  }
-                                 
+                             
+							 
+                        
+								
+								
 	
                    $htmlVar .="	<div class='fotosC'>
 	                            ".custom_get_image($postID,150,150,true,false)."
@@ -124,7 +168,7 @@ $htmlVar .="<div class='pagamento'>
 	                            <div class='unidC'>
 		                        <span> <strong> $qtd $textoUnidade </strong>  </span>
 		                        <br/>
-		                       <span>  $tabelaVariacao </span><br/>
+		                       <span>  $tabelaVariacao    $variacaoPrecoVariavel</span><br/>
 								<span> $precoAdd   </span>
 								  <br/>
 						         $categories 
@@ -135,18 +179,22 @@ $htmlVar .="<div class='pagamento'>
 	                           	 <div class='clear'></div>
 	                            <hr/>
 	                            
-	                            <p><a href='".verifyURL(get_permalink( get_idPaginaCarrinho() ))."' >Clique aqui se deseja  editar seu pedido</a></p>
+	                            <p><a href='".verifyURL(get_permalink( get_idPaginaCarrinho() ))."' class='btEditarPedido' >Clique aqui se deseja  editar seu pedido</a></p>
                                 
                                 
                                 ";
 	              };
 
         };
+		
+		
+		
+	}; //IF LOGIN
           
 $htmlVar .="<section class='checkout'>
 
 	<div class='block'>
-    	<div class='block-head title'>Etapa 1: Confirme Seus Dados</div>
+    	<div class='block-head title'>Etapa 1: Confirme Seus Dados[+]</div>
         <div class='block-content'>
  
             <!-- Your dialog markup -->
@@ -186,12 +234,12 @@ $htmlVar .="<section class='checkout'>
     </div>
  
     <div class='block'>
-    	<div class='$blockHead title2'>Etapa 2: Escolha o tipo de Entrega</div>
+    	<div class='$blockHead title2'>Etapa 2: Escolha o tipo de Entrega[+]</div>
         <div class='block-content'>
             <div class='content form-inline'>
             
    
-             <p>Por favor selecione o tipo de entrega de sua preferência para realizar esta compra.</p>";
+             <p>Por favor selecione o tipo de entrega de sua preferência para realizar esta compra. Para voltar e editar seu endereço de entrega , clique na etapa 1, localizada logo acima.</p>";
              
            
            
@@ -243,7 +291,7 @@ $htmlVar .="<section class='checkout'>
        
        $htmlVar .="   
     <div class='block'>
-    	<div class='$blockHead title3'>Etapa 3: Selecione a  forma Pagamento </div>
+    	<div class='$blockHead title3'>Etapa 3: Selecione a  forma Pagamento [+]</div>
         <div class='block-content'>
             <div class='content form-inline'>
                 <p>Por favor selecione o   método de pagamento de sua preferência para realizar esta compra.</p>";
@@ -280,7 +328,7 @@ $htmlVar .="<section class='checkout'>
                */
              
             if($ativaPagseguro=="ativaPagseguro"){    
-		  	$htmlVar .="<br/><hr/><div class='field'><input type='radio' class='tipoPagto'  name='tipoPagto' value='Pagseguro'> <img src='".$plugin_directory."images/pagseguro.png' > &nbsp; Pagseguro <img src='".$plugin_directory."images/pagseguro2.png' > 
+		  	$htmlVar .="<br/><hr/><div class='field'><input type='radio' class='tipoPagto'  name='tipoPagto' value='Pagseguro' checked='checked' > <img src='".$plugin_directory."images/pagseguro.png' > &nbsp; Pagseguro <img src='".$plugin_directory."images/pagseguro2.png' > 
 				   <br/><span style='font-size:10px'>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;Função Crédito , Débito e Boleto</span> 
 				   </div>";
 				   
@@ -315,12 +363,17 @@ $htmlVar .="<section class='checkout'>
 		     	};
 			
 			
-		    if($ativaDeposito=="ativaDeposito"){  	   
-				   $htmlVar .="
+			
+			  $ativaRetirada= get_option('ativaRetirada');  
+							
+			   $linkLojas = get_permalink(get_option('idPaginaRetiradaLojaWPSHOP')); 
+			
+			 
+		    if( $ativaRetirada =="ativaRetirada"){  	   
+				   $htmlVar .="$ativaRetirada
 		
-			<br/><hr/>	<div class='field'><input type='radio' class='tipoPagto'  name='tipoPagto' value='Retirar na Loja'> <img src='".$plugin_directory."images/retirada.png' > &nbsp;   	Retirada na Loja . 
-			<span style='font-size:10px'>( <strong style='color:red'>ATENÇÃO </strong>: Retiradas somente no RJ,  em nossa Loja no endereço : 
-				 $enderecoRetirada . )</span></div>";
+			<br/><hr/>	<div class='field'><input type='radio' class='tipoPagto'  name='tipoPagto' value='Retirar na Loja'> <img src='".$plugin_directory."images/retirada.png' > &nbsp;  PAGAR  na Loja . 
+			<span style='font-size:10px'>( <strong style='color:red'>ATENÇÃO </strong>: Retiradas somente no RJ,  em nossas Lojas : Confira a lista.  <a href='".$linkLojas."' target='_blank'>Consulte lojas </a> )</span></div>";
 				};
 				 
 				 

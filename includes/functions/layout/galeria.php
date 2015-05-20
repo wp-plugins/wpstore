@@ -26,11 +26,14 @@
 							   $totalGaleria  +=1;
 
 
-
+							   $pos = strpos($image_url, '.zip');
+ 
+						       if($pos === false && $image_url !='') {
+							   
 					?>
 
        
-      <li>
+            <li>
         <a href="<?php echo $image_url;   ?>" class='imageBig' >  
         
             <?php
@@ -45,7 +48,12 @@
 
 
 					<?php 
+					
+	
 						$count +=1;
+						
+			
+                    };
 
 				    			}
 							}

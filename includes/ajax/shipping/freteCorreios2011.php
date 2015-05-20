@@ -30,20 +30,25 @@
        $largura= $larguraS;  
      }
 
-     if(intval($comprimentoS)>0){
+     if(intval($comprimentoS)>0 && intval($comprimentoS) >16){
       $comprimento =  $comprimentoS;  
+     }else{
+      $comprimento =  $comprimentoS; 	
      }
 
 
 
 
      $correios = "http://ws.correios.com.br/calculador/CalcPrecoPrazo.aspx?nCdEmpresa=&sDsSenha=&sCepOrigem=".$cep_origem."&sCepDestino=".$cep_destino."&nVlPeso=".$peso."&nCdFormato=1&nVlComprimento=".$comprimento."&nVlAltura=".$altura."&nVlLargura=".$largura."&sCdMaoPropria=n&nVlValorDeclarado=".$valor_declarado."&sCdAvisoRecebimento=s&nCdServico=".$cod_servico."&nVlDiametro=10&StrRetorno=xml";
+	 
      $xml = simplexml_load_file($correios);
      if($xml->cServico->Erro == '0')
          return $xml->cServico->Valor;
      else
          return false;
  };
+
+
 /*
 echo "<br><Br>Cálculo de FRETE PAC: ". 
 calculaFrete('41106','24340000','24340160','4')."<br>";
@@ -56,7 +61,7 @@ calculaFrete('40045','24340000','24340160','4')."<br>";
 
 echo "<br><Br>Cálculo de FRETE SEDEX 10: ". 
 calculaFrete('40215','24340000','24340160','4')."<br>";
-*/
+/**/
 
 
 $origemCep =  get_option('cepOrigemCorreios');
@@ -164,25 +169,47 @@ $salvar = false;
 if($freteGratis == false){ 
   
        //echo "$origemCep  ****  $destinoCep **** $peso";
-       
-       //$valorSedex = "".calculaFrete('40010',''.$origemCep.'',''.$destinoCep.'',''.$peso.'')."";     
-       //$valorPac =  "".calculaFrete('41106',''.$origemCep.'',''.$destinoCep.'',''.$peso.'')."";   
+       /*
+        $valorSedex = "".calculaFrete('40010',''.$origemCep.'',''.$destinoCep.'',''.$peso.'')."";     
+       $valorPac =  "".calculaFrete('41106',''.$origemCep.'',''.$destinoCep.'',''.$peso.'')."";   
+	   */
        $valorSedex = 0.00;     
        $valorPac =  0.00;
-          
+	   
+    
        if(floatval($valorSedex)<1 || floatval($valorPac)<1){
-            require_once('freteCorreios2011-pgs.php');
+          require_once('freteCorreios2011-pgs.php');
        }
 
-    
-    
-    
+	 
+	   if(empty($valorFrete )){
+	   		  include('../freteCorreiosNew.php');
+	   }
+
 
     $PAC = "<input type='radio' name='radioFrete'  class='radioFrete'    rel='Pac'  id='Pac' value='".$valorPac."' /> PAC :  $moedaCorrente <span  class='red' id='valorFretePAC' >".$valorPac."</span>";   
 
-    $SEDEX = " <input type='radio'  name='radioFrete' class='radioFrete'  checked='checked'  rel='Sedex' id='Sedex' value='".$valorSedex."' />  SEDEX : $moedaCorrente <span  class='red'  id='valorFreteSEDEX' >".$valorSedex."</span>";     
+    $SEDEX = " <input type='radio'  name='radioFrete' class='radioFrete'    rel='Sedex' id='Sedex' value='".$valorSedex."' checked='checked'  />  SEDEX : $moedaCorrente <span  class='red'  id='valorFreteSEDEX' >".$valorSedex."</span>";     
  
-	echo'<div id="retorno" style="font-size:16px">'.$SEDEX.'<div style="padding-top:5px">'.$PAC.'</div><br/></div>';
+	echo'<div id="retorno" style="font-size:16px">';
+		
+	
+ 
+ 
+    $retirarLoja =get_option('retirarLoja');
+   $linkLojas = get_permalink(get_option('idPaginaRetiradaLojaWPSHOP')); 
+
+   echo'<div id="retorno" style="font-size:16px">';
+ 
+    if($retirarLoja=='retirarLoja'){
+   	 echo "<div style='padding-top:5px'><input type='radio'  name='radioFrete' class='radioFrete'  rel='retirarLoja' id='retirarLoja' value='0.00' />Retirar na Loja
+   	 <span class='green' style='font-size:0.7em'>** Vou retirar a mercadoria na loja (Sem frete):  <a href='".$linkLojas."' target='_blank'>Consulte lojas </a></span><br/> <hr/></div>";
+    };
+ 
+ 
+ 	
+		
+		echo ''.$SEDEX.'<div style="padding-top:5px">'.$PAC.'</div><br/></div>';
 
 	
 }else{ 

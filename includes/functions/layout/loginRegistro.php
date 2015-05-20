@@ -7,22 +7,28 @@
     <div class='carregando'></div>
     <div class='msg msgRed'  ></div>
     
-    <div class='clear'></div>
-    
-    
-	<div class='divDir'>
+    <div class='clear'></div>";
 	
 	
-	
-   
-   	 <p class='facebook_connect facebook_connect2 '></p>
-   
-	
-	
-			<h2>já sou cadastrado</h2>
+
+
+    $htmlVar .="<div class='loginButton'>";
+ $htmlVar .="<a href='#' rel='nofollow' class='fblogin-button' onClick='javascript:CallAfterLogin();return false;'>Login with Facebook</a>";
+   $htmlVar .="</div> OU ";
+
+
+
 	
     
-    ";
+    
+	  $htmlVar .="<br/><br/><br/>
+	
+	
+	<div class='divDir'> ";
+	
+	 
+	
+    $htmlVar .="<h2>Login Cadastro Loja</h2>";
     
     ?>
     
@@ -175,13 +181,17 @@
      $htmlVar .= "
 
 
-	<div class='divEsq'>
+	<div class='divEsq'>";
 	
-	 <p class='facebook_connect'></p>
-	
-	  <h2>cria uma conta</h2>
 
-      <div id='novoRegistroForm' >
+ 
+	    $htmlVar .= "  <h2>Faça o Cadastro Loja</h2>";
+	  
+	  
+	  
+   
+
+       $htmlVar .= " <div id='novoRegistroForm' >
  
           <form id='formCadastro' class='cadastro' method='post'>
  

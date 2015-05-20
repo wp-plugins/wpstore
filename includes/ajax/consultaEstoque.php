@@ -10,6 +10,13 @@ require("../../../../../wp-load.php");
  $tamanho = trim($_POST['variacaoTamanho']); 
  $cor = trim($_POST['variacaoCor']);
  $qtdProduto = intval($_POST['qtdProduto']);
+ 
+  
+    $precoLargura = intval($_POST['precoLargura']);
+    $precoAltura  = intval($_POST['precoAltura']);
+	$obs =  "".$_POST['obs'];
+	
+	
  if($qtdProduto<=0){
      $qtdProduto = 1;
  }  
@@ -94,12 +101,27 @@ if( $qtdStock > 0 ){
                  $arrayCarrinho[$key]['prodString'] = trim($postID.$variacaoCor);
                  $arrayCarrinho[$key]['variacaoProduto'] = $variacaoCor;
                  $arrayCarrinho[$key]['qtdProduto'] =  $qtdPrd;
+				 
+				 
+				 if($precoLargura >0){
+				  $arrayCarrinho[$key]['precoLargura'] =  $precoLargura ;
+				  $arrayCarrinho[$key]['precoAltura'] = $precoAltura;
+				  $arrayCarrinho[$key]['obs'] =  $obs;
+			      };
+				 
+			 
+					 
+					 
                  $blogid = intval(get_current_blog_id()); 
                  if($blogid>1){     $_SESSION['carrinho'.$blogid] = $arrayCarrinho;           }else{       $_SESSION['carrinho'] = $arrayCarrinho;          }; 
                  
                  
                 // echo ''.$precoAdd.'<span style="color:red">'.$qtdPrd.' - Este produto   foi adicionado recentemente a sua lista.</span><br/><br/><a href="'.get_bloginfo('url').'/checkout/" class="btGO">Seguir para Pagamento</a>  <br/><br/>  <a href="'.get_bloginfo('url').'/carrinho/" class="btGO" >Ver Carrinho</a>';
-                echo verifyURL( get_permalink( get_idPaginaCheckout() ) ); 
+            
+                echo verifyURL( get_permalink( get_idPaginaCheckout() ) )."***".verifyURL( get_permalink( get_idPaginaCarrinho() ) );  
+			  
+			  
+			  
     }else{
              $countA = $qtdCarrinho+1;
              $arrayCarrinho[$countA]['idPost'] = $postID;
@@ -107,14 +129,20 @@ if( $qtdStock > 0 ){
              $arrayCarrinho[$countA]['variacaoProduto'] = $variacaoCor;
              $arrayCarrinho[$countA]['qtdProduto'] =  $qtdProduto;
            
-             
+              if($precoLargura >0){
+		        $arrayCarrinho[$countA]['precoLargura'] =  $precoLargura ;
+		        $arrayCarrinho[$countA]['precoAltura'] = $precoAltura;
+		        $arrayCarrinho[$countA]['obs'] =  $obs;
+			  };
  
                $blogid = intval(get_current_blog_id()); 
              if($blogid>1){     $_SESSION['carrinho'.$blogid] = $arrayCarrinho;           }else{       $_SESSION['carrinho'] = $arrayCarrinho;          }; 
 
 
               //echo ''.$precoAdd.'<span style="color:green">Adicionado com sucesso!</span> <br/><br/><a href="'.get_bloginfo('url').'/checkout/" class="btGO" >Seguir para Pagamento</a> <br/><br/> <a href="'.get_bloginfo('url').'/carrinho/" class="btGO">Ver Carrinho</a>';
-              echo verifyURL( get_permalink( get_idPaginaCheckout() ) );  
+              echo verifyURL( get_permalink( get_idPaginaCheckout() ) )."***".verifyURL( get_permalink( get_idPaginaCarrinho() ) );  
+			  
+			  
     };
     
     

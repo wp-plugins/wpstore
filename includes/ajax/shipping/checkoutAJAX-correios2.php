@@ -125,7 +125,7 @@ $idUser = $current_user->ID;
 $destinoCep = trim(get_user_meta($idUser,'userCep2',true));if($userCep2==""){$userCep2="";};
 
 if($destinoCep ==""){
-$destinoCep  = = trim(get_user_meta($idUser,'userCep',true));if($userCep==""){$userCep="";};                              
+$destinoCep  = trim(get_user_meta($idUser,'userCep',true));if($userCep==""){$userCep="";};                              
 };   
 
 $userCidade2 = $_POST['cidadeV'];
@@ -201,7 +201,7 @@ if($freteGratis == false){
    
    $tipoFrete = "";
  
-   if($valorFreteEnviado== $valorSedex){
+   if($valorFreteEnviado== $valorSedex    && intval($valorFreteEnviado)> 0 ){
        $tipoFreteR = "SEDEX";
        $tipoFrete = "$destinoCep ($peso kg):  SEDEX ($moedaCorrente$SEDEX)"; 
        $salvar = true;   

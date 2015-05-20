@@ -86,6 +86,15 @@ if($moedaCorrente==""){
  
                  <?php
                  
+				 
+				
+			   $sequencialPedido = get_sequencialPedidos();  
+			   $idPedidoShow = $idPedido;
+			   if($sequencialPedido=='sim'){
+			      $idPedidoShow  =   $idOrd;
+			   }; 
+			   
+			   
                  if(intval($totalPagto)>0){ ?>
 					
 				<?php	$txtPrint .= "	
@@ -99,7 +108,7 @@ if($moedaCorrente==""){
 		 
 				<p>	Anote e informe o código de identificação do pedido  no momento da comprovação. </p>
 				
-				<p><strong>Código de identificação do pedido  :  $idPedido  </strong> </p>
+				<p><strong>Código de identificação do pedido  :   $idPedidoShow  </strong> </p>
 				
 				
 				

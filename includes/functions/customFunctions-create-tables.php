@@ -21,6 +21,7 @@
  
    function wpstore_createTable(){
 
+	   if(  is_home() || is_page()  || is_single() ){
         //create table ---------------------------------------------
 
           global $wpdb;
@@ -89,7 +90,7 @@
                    	   PRIMARY KEY  (`id`)
                    	) AUTO_INCREMENT=1 ;";
 
-                   dbDelta($sql3);
+                  dbDelta($sql3);
                    
                    
                    
@@ -134,7 +135,7 @@
                             	  PRIMARY KEY  (`id`) 
                            	)  AUTO_INCREMENT=1 ;";
 
-                          dbDelta($sql5);
+                        dbDelta($sql5);
 
 
 
@@ -169,9 +170,10 @@
                                   	  PRIMARY KEY  (`id`) 
                                  	)  AUTO_INCREMENT=1 ;";
 
-                               dbDelta($sql7);
+                            dbDelta($sql7);
 
         
+		   };
    };
    
     

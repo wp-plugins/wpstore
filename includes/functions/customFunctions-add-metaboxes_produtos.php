@@ -137,6 +137,12 @@ $meta_boxes_produtos = array(
  "description" => "separe o ID de cada post por virgula. .Ex: 1030,1020 "),
  
  
+ 
+ "download" => array(
+ "name" => "download",
+  "title" => "URL de arquivo para download",
+ "description" => "Envie o arquivo  que deseja disponibilizar para download e cole a url acima. Você pode enviar o arquivo através do botão adicionar Midia, ou do link Midia de seu painel wordpress.")
+ 
 );
 
 
@@ -156,7 +162,7 @@ foreach( $meta_boxes_produtos as $meta_box ) {
   
   $varUp = $_POST[ $meta_box[ 'name' ] ];
   
-  if($varUp != ""  ){
+  if($varUp != ""  ||  $meta_box[ 'name' ] =='download' ){
       
       if($meta_box[ 'name' ]=='price'){ 
           $priceCompare =   str_replace('.','', $varUp);

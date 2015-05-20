@@ -331,7 +331,7 @@
              			   <h2>Endereço alternativo para Entrega</h2>
              			   
              			   
-             			     <p class='clearfix'><input type='checkbox' id='abrirEnderecoEntrega'  /><label for='abrirEnderecoEntrega'>Selecione se desejar escolher um endereço diferente do acima.   </label></p>
+             			     <p class='clearfix btAbrirEntrega'><input type='checkbox' id='abrirEnderecoEntrega'  /><label for='abrirEnderecoEntrega'>Selecione se desejar escolher um endereço de entrega  diferente do cadastrado  acima.   </label></p>
                               <br/> <br/>
              			   
              			   

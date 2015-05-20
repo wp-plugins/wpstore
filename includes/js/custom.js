@@ -206,11 +206,23 @@
          
          
           //BT COMPRAR--------------------------
-             jQuery('.btComprar').click(function(){
+             jQuery('.btComprar , .addCarrinho ').click(function(){
             
+			
+			     tipo = ""+jQuery(this).attr('rel');
                  jQuery('p.msg').html(''); jQuery('p.msg').hide();
                   
-          
+				  larg = jQuery('#larguraProduto').val();
+				  alt = jQuery('#alturaProduto').val();
+				  obsV =  jQuery('#obsProduto').val();
+				   
+			      precoLarguraV = parseFloat(larg);
+				  
+			      precoAlturaV = parseFloat(alt);
+				 
+				
+				 
+				  
                   var variacaoCorP = "";
                   var variacaoTamanhoP = "";
                   
@@ -256,13 +268,15 @@
                 
                   if(msg ==""){ ed = true;   };
                   
-                  
+ 
                   if(ed ==true){
                        jQuery('.carreg').fadeIn(); 
-                       jQuery.post(baseUrl+"consultaEstoque.php", { postID:postIDP, variacaoCor: variacaoCorP , variacaoTamanho:variacaoTamanhoP , qtdProduto:qtdProdutoV  },
+                       jQuery.post(baseUrl+"consultaEstoque.php", {   postID:postIDP, variacaoCor: variacaoCorP , variacaoTamanho:variacaoTamanhoP , qtdProduto:qtdProdutoV , precoLargura: precoLarguraV,precoAltura: precoAlturaV,obs: obsV },
                                function(data) { 
-                                   
-                                  // alert(data);
+                                 
+								   arrDt = data.split("***");
+                                  
+								  
                                 
                                     var preEstoque = ""+data;   
                                     jQuery('.carreg').hide(); 
@@ -274,7 +288,12 @@
                                          reloadQtdItems();
                                          //jQuery('p.msg').html(data);
                                          //jQuery('p.msg').fadeIn();
-                                          window.location = ""+data; 
+										 
+										 if( tipo=='addCarrinho'){
+                                          window.location = ""+arrDt[1]; 
+									      }else{
+									      window.location = ""+arrDt[0]; 	
+									      }
                                      };
                        });  
                        
@@ -328,8 +347,14 @@
                         var cidade = "";
                         var estado = "";
                         // Se o campo CEP não estiver vazio
-                      	if(cepDestino != ""){  
+                      	if(cepDestino != "" && cepDestino !=undefined  && cepDestino !="undefined"  ){  
                              jQuery.getJSON(baseUrl+'shipping/buscaEndereco.php?cep='+cepDestino+'', function(data) {
+					 
+                                if(data==null    ){ 
+							      alert("Cep não encontrado na base de dados do correios. Por favor, consulte.");
+							    };
+                                 
+								 
                       	                  jQuery.each(data, function(key, val) {
                                                  if(key=='logradouro'){  rua = ""+val; };
                                                  if(key=='bairro'){  bairro = ""+val; };
@@ -406,6 +431,10 @@
                         	      jQuery('.carregaCep').fadeIn();
 
                                jQuery.getJSON(baseUrl+'shipping/buscaEndereco.php?cep='+cepDestino+'', function(data) {
+							 
+                                 
+								 
+								 
                         	                  jQuery.each(data, function(key, val) {
                                                    if(key=='logradouro'){  rua = ""+val; };
                                                    if(key=='bairro'){  bairro = ""+val; };
@@ -413,11 +442,13 @@
                                                    if(key=='uf'){  estado = ""+val; };  
                                                     jQuery('.carregaCep').fadeOut(); 
                                             });
+											
+	                                      
                                          loadCep = false;
                                          jQuery('input#enderecoUsuario2').val(rua);
                                          jQuery('input#cidadeUsuario2').val(cidade);
                                          jQuery('input#bairroUsuario2').val(bairro);
-                                          jQuery("select#estadoUsuario2 option").filter(function() { return jQuery(this).val() == estado; }).prop('selected', true);
+                                         jQuery("select#estadoUsuario2 option").filter(function() { return jQuery(this).val() == estado; }).prop('selected', true);
                                          
                                 });
                             };
@@ -443,7 +474,10 @@
                          var cityUserE = ""+jQuery('input.cityEntrega').val();
                          var idPrdV  =   ""+jQuery('input.idPrd').val();   
                            
-                         //alert(cepDestino);  alert(peso);  alert(cityUserE);  alert(idPrdV);  
+                         //alert(cepDestino);  
+						 //alert(peso);  
+						 //alert(cityUserE);  
+						 //alert(idPrdV);  
 
                         if(cepDestino != ""+jQuery('input.cep').attr('title') ){
 
@@ -452,7 +486,7 @@
                          jQuery.post(baseUrl+"shipping/frete.php", {CepDestinoR:''+cepDestino+'' ,PesoR:''+peso+'' ,cityUser:''+cityUserE+'',idPrd:idPrdV} ,
                                     function(data) { 
                                         
-                                       // alert(data);
+                                        //alert(data);
                                         jQuery('p.resultFrete').html(data);
                                         jQuery('.btCalcularFrete').val('Consultar Frete');
                                         somaFrete();
@@ -554,7 +588,7 @@
                                     
                                     var cidade="";
                                     var commentOrder = ""+jQuery('#addComentOrder').val();
-                                    var radioFreteV = ""+jQuery('input[name=radioFrete]:checked').val();
+                                    var radioFreteV = ""+jQuery("input[name='radioFrete']:checked").val();
                                     var varSelect =    jQuery("input[name='tipoPagto']:checked").val();
                                     
                                       goCheckout( radioFreteV , commentOrder , cidade , varSelect );
@@ -588,7 +622,7 @@
                                     jQuery.post(baseUrl+"shipping/checkoutAJAX.php", { radioFrete:radioFreteV , commentOrderV:commentOrder,cidadeV:cidade,varSelectV:varSelect  } ,
                                                function(data) { 
                                                    
-                                                            // alert(data);
+                                                           //alert(data);
                                                            arrDat = data.split("-"); 
                                                             arrDat2 = data.split("****"); 
                                                             r = parseInt(""+arrDat[0]);
@@ -1481,21 +1515,50 @@
                             });
                             //SOMENTE NUMEROS FIELD ---------------------------- 
                             
-                            
-                               
-                             
-                           
-                   
-                   
-                           jQuery('.facebook_connect').click(function(){
-                                    showBigLoad();   
-                           }); 
-                        
-                        
-                           jQuery('.facebook_connect2').click(function(){
-                                         showBigLoad();   
-                            });
-                        
+                  
+							    jQuery(".calculaPreco").keydown(function (e) {
+							        if (e.shiftKey) e.preventDefault();
+							        else {
+							            var nKeyCode = e.keyCode;
+							            //Ignore Backspace and Tab keys
+							            if (nKeyCode == 8 || nKeyCode == 9) return;
+							            if (nKeyCode < 95) {
+							                if (nKeyCode < 48 || nKeyCode > 57) e.preventDefault();
+							            } else {
+							                if (nKeyCode < 96 || nKeyCode > 105) e.preventDefault();
+							            }
+							        }
+							    });
+							 
+						   
+							////////////////
+							 jQuery('input.calculaPreco').focusout(function() {
+								   msg= "";
+								   
+								   largura = parseFloat(jQuery('#larguraProduto').val());
+								   if( jQuery('#larguraProduto').val() =='' ||   jQuery('#larguraProduto').val() =='0' ){
+								   	msg="Digite a largura";
+								   }
+								   
+								   altura = parseFloat(jQuery('#alturaProduto').val());
+								   if(  jQuery('#alturaProduto').val() =='' || jQuery('#alturaProduto').val() =='0'){
+								   	  if(msg==''){
+										  msg="Digite a altura";
+									  }
+								   }
+								   
+								   variacao = largura*altura;
+								   variacao = variacao / 10000;
+								 
+								   precoMetro = parseFloat(jQuery('.precoV').attr('rel'));
+								   valor =  variacao * precoMetro;
+								   valor = valor.toFixed(2);
+								   if(msg!=""){
+								   	valor = msg;
+								   }
+						           jQuery('.precoV').text(valor);
+							});
+							///////////////
                               
                          
 

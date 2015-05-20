@@ -49,10 +49,12 @@ if($moedaCorrente==""){
     $tipoFrete = "";
     
     $idPedido=0;
+	$idOrd=0;
     
     foreach ( $fivesdrafts as $fivesdraft ){
         
-        $idPedido = $fivesdraft->id_pedido;
+        $idOrd= $fivesdraft->id;
+		$idPedido = $fivesdraft->id_pedido;
     	$valor_total = $fivesdraft->valor_total;
     	$frete = $fivesdraft->frete;
         $tipo_pagto = $fivesdraft->tipo_pagto;
@@ -106,10 +108,17 @@ if($moedaCorrente==""){
                    	$vtf = $vt+floatVal($frete)-$desconto ;
 
                    	$totalPagto = $vtf;
+					
+					
+				   $sequencialPedido = get_sequencialPedidos();  
+				   $idPedidoShow = $idPedido;
+				   if($sequencialPedido=='sim'){
+				      $idPedidoShow  =   $idOrd;
+				   }; 
 
  
   
-        $txtPrint .= "  <div style='float:left;background:#ddd;margin-left:5px;padding:10px;margin-top:5px'><strong>ID Pedido : ".$idPedido ."</strong></div>";
+        $txtPrint .= "  <div style='float:left;background:#ddd;margin-left:5px;padding:10px;margin-top:5px'><strong>ID Pedido : ". $idPedidoShow ."</strong></div>";
     	$txtPrint .= "<div style='float:left;background:#ddd;margin-left:5px;padding:10px;margin-top:5px'>Sub Total :  $moedaCorrente".$valor_total."</div>";
         $txtPrint .= "<div style='float:left;background:#ddd;margin-left:5px;padding:10px;margin-top:5px'>Frete : ($tipoFrete) $moedaCorrente".$frete."</div>";
     	
@@ -132,6 +141,7 @@ if($moedaCorrente==""){
 
         
     };
+	 
     
      
     if($tipo_pagto=="Redecard"){ // -----------------REDECARD ------------------------
@@ -165,6 +175,29 @@ if($moedaCorrente==""){
 
    }
     
+    
+
+
+	 
+$url = get_permalink(get_idPaginaArquivos());
+
+
+
+$grafica = get_option('graficaPers');
+if($grafica=="sim"){
+$txtPrint .= "<p class='btPaginaEnviar'><a href='$url?order=$idPedido' target='_blank'>Clique Aqui para enviar os arquivos personalizados para impressão  e 	if($grafica==true){</a></p>";
+};
+
+	
+
+
+	
+	
+	
+	
+	
+
+	
        $_SESSION['orderCC'] ="";   
        
        if($idUser<=0){
@@ -176,5 +209,10 @@ if($moedaCorrente==""){
        $googleConversaoPagto =  get_option('googleConversaoPagto'); 
        $googleConversaoPagto = str_replace('\"','"',$googleConversaoPagto );
        echo   $googleConversaoPagto;
+	   
+	   
+	
+
+	
        
 ?>

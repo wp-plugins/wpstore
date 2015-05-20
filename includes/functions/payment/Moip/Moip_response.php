@@ -59,7 +59,7 @@ $frete = "";
 
 
 $totalCompra = 0;
- 
+  $idOrd = "";
 // Incluindo o arquivo da biblioteca 	 Outras Informações
  
 $Array[] = array();        
@@ -76,7 +76,7 @@ $Array[] = array();
     foreach ( $fivesdraftCs as $item=>$fivesdraftC ){
         
        
-        
+        $idOrd = $fivesdraftC->id;
         $idPedido = $fivesdraftC->id_pedido;
         $idProduto = $fivesdraftC->id_produto;
      
@@ -132,8 +132,16 @@ $Array[] = array();
        $strNew =  str_replace($vowels,"-", $str_utf8 ) ;
         
  
+ 
+	   $sequencialPedido = get_sequencialPedidos();  
+	   $idPedidoShow =  $idPedido ;
+	   if($sequencialPedido=='sim'){
+	      $idPedidoShow  =  $idOrd;
+	   }; 
+	   
+ 
 	   $produtosCheck .= " _gaq.push(['_addItem',
-            '$idPedido',           // order ID - required
+            '$idPedidoShow',           // order ID - required
             '".$idProduto."',           // SKU/code - required
             '".$strNew."',        // product name
             '".$peso."',   // category or variation

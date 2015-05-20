@@ -102,7 +102,7 @@ if($freteGratis == false){
 
     if($tipoFrete=='correios' && $correios=="2"){
     
-       include('freteCorreios2011-2.php');
+      // include('freteCorreios2011-2.php');
     
     }elseif($tipoFrete=='correios'){
     

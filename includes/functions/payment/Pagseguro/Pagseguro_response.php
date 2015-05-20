@@ -12,6 +12,13 @@ if($moedaCorrente==""){
 $emailVendedor =  get_option('emailPagseguro');
 
 $idPedido = $idPedido;
+
+
+$sequencialPedido = get_sequencialPedidos();  
+$idPedidoShow = $idPedido;
+if($sequencialPedido=='sim'){
+   $idPedidoShow  =   $idOrd;
+}; 
  
 
 if(trim($tipoFrete)=="SEDEX"){	
@@ -87,7 +94,7 @@ $txtPrint .= '
 	  <input type="hidden" name="email_cobranca" value="'.$emailVendedor.'"  />
 	  <input type="hidden" name="encoding" value="UTF-8"  />
 	  <input type="hidden" name="tipo_frete" value="'.$tipoFrete.'"  />
-	  <input type="hidden" name="ref_transacao" value="'.$idPedido.'"  />
+	  <input type="hidden" name="ref_transacao" value="'.$idPedidoShow.'"  />
 	  <input type="hidden" name="extras" value="'.$extras.'"  />
 	  <input type="hidden" name="tipo" value="CP"  />
 	  <input type="hidden" name="moeda" value="BRL"  />
@@ -103,7 +110,7 @@ $pgs=new pgs(array(
   'email_cobranca'=>''.$emailVendedor.'',
   'encoding'=>'UTF-8',
   'tipo_frete'=>''.$tipoFrete.'',
-  'ref_transacao'=>'Id do Pedido:'.$idPedido.'',
+  'ref_transacao'=>'Id do Pedido:'.$idPedidoShow.'',
   'extras'=>''.$extras.''
 
 
@@ -161,7 +168,7 @@ $Array[] = array();
       $peso = floatval($var);
  
       
-      $str_utf8 = get_the_title($idProduto)." - ".$variacao." | Pedido : $idPedido";    
+      $str_utf8 = get_the_title($idProduto)." - ".$variacao." | Pedido : $idPedidoShow";    
       
       //tirar os acentos de uma string! pode ser adaptadas para outras coisas
 
@@ -212,7 +219,7 @@ $Array[] = array();
 	
 	
 	   $produtosCheck .= " _gaq.push(['_addItem',
-            '$idPedido',           // order ID - required
+            '$idPedidoShow',           // order ID - required
             '".$idProduto."',           // SKU/code - required
             '".$strNew."',        // product name
             '".$peso."',   // category or variation
@@ -328,15 +335,17 @@ $estado = $userEstado;
 
 
 
-       
-       
+        $txtPagtoPagseguro = get_option('txtPagtoPagseguroWPSHOP');
+		if($txtPagtoPagseguro==""){
+		$txtPagtoPagseguro = "Pedido Finalizado . Para concluir clique no botão acima  e efetue o pagamento via Pagseguro.";
+        };
 $txtPrint .= " <center> <input type='image' src='https://p.simg.uol.com.br/out/pagseguro/i/botoes/carrinhoproprio/btnFinalizaBR.jpg'  name='submit' alt='Pague com o PagSeguro - &eacute; r&aacute;pido, gr&aacute;tis e seguro!' /></form>
 
 
 
     		<div class='clearfix container_message'>
            <br/>
-           <center><h4 class='head2'>Pedido Finalizado . Para concluir clique no botão acima  e efetue o pagamento via Pagseguro.</h4></center>
+           <center><h4 class='head2'>$txtPagtoPagseguro</h4></center>
 
     <center>				
              </div>
@@ -361,7 +370,7 @@ $txtPrint .= " <center> <input type='image' src='https://p.simg.uol.com.br/out/p
 	
     <script type='text/javascript'>
     pageTracker._addTrans(
-          '$idPedido', // required
+          '$idPedidoShow', // required
           '".get_bloginfo('name')."',
           '$totalCompra',
           '0.00',
@@ -372,7 +381,7 @@ $txtPrint .= " <center> <input type='image' src='https://p.simg.uol.com.br/out/p
     ); 
 
     pageTracker._addItem(
-          '$idPedido', // required
+          '$idPedidoShow', // required
           'prod2011',
           '".get_bloginfo('name')."',
           'produto',
@@ -396,7 +405,7 @@ $txtPrint .= " <center> <input type='image' src='https://p.simg.uol.com.br/out/p
            _gaq.push(['_setAccount', '$codigoAnalytics']);
            _gaq.push(['_trackPageview']);
            _gaq.push(['_addTrans',
-             '$idPedido',           // order ID - required
+             '$idPedidoShow',           // order ID - required
              '".get_bloginfo('name')."',  // affiliation or store name
              '$totalCompra',          // total - required
              '0.00',           // tax

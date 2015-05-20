@@ -96,7 +96,7 @@ if($freteGratis == false){
 
     $PAC = "<input type='radio' name='radioFrete'  class='radioFrete'    rel='Pac'  id='Pac' value='".$valorPac."' /> PAC :  $moedaCorrente <span  class='red' id='valorFretePAC' >".$valorPac."</span>";   
 
-    $SEDEX = " <input type='radio'  name='radioFrete' class='radioFrete'  checked='checked'  rel='Sedex' id='Sedex' value='".$valorSedex."' />  SEDEX : $moedaCorrente <span  class='red'  id='valorFreteSEDEX' >".$valorSedex."</span>";     
+    $SEDEX = " <input type='radio'  name='radioFrete' class='radioFrete'     rel='Sedex' id='Sedex' value='".$valorSedex."' />  SEDEX : $moedaCorrente <span  class='red'  id='valorFreteSEDEX' >".$valorSedex."</span>";     
  
 	echo'<div id="retorno" style="font-size:16px">'.$SEDEX.'<div style="padding-top:5px">'.$PAC.'</div><br/></div>';
 

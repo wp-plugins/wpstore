@@ -1,13 +1,9 @@
 <?php 
       
       //LOGIN FACEBOOK FUNCTIONS ----------------------------------------------------------------------
-      include('custom_loginFacebook.php');    
+      include('custom_loginFacebook_2014.php');    
       
-      
-      
-      
-      
-      
+       
       //função que remove acentos
       # @nome diegoSubistitui
       # @autor diegoSubistitui
@@ -533,6 +529,54 @@ function custom_get_category_id($blog_ID=1,$catName){
       };          
       };
         add_action( 'after_setup_theme', 'rssgoogleShop' );   
-        
+		
+		
+		
+		
+		
+		//upload_image_button
+		
+	
+		add_action('wp_head', 'my_admin_scripts');
+ 
+		function my_admin_scripts() {
+		   // if (isset($_GET['page']) && $_GET['page'] == 'my_plugin_page') {
+			   
+			   
+			 
+			   
+		 	  $contributor = get_role('subscriber');
+		      $contributor->add_cap('upload_files');
+		  
+		   
+		        wp_enqueue_media();
+		 
+		       // wp_register_script('my-admin-js', WP_PLUGIN_URL.'wpstore/my-admin.js', array('jquery'));
+		      //  wp_enqueue_script('my-admin-js');
+		  //  }
+		}
+		
+ 
+ 
+		add_filter( 'posts_where', 'devplus_wpquery_where' );
+		function devplus_wpquery_where( $where ){
+		    global $current_user;
+
+		    if( is_user_logged_in() ){
+		         // logged in user, but ware we viewing the library?
+		         if( isset( $_POST['action'] ) && ( $_POST['action'] == 'query-attachments' ) ){
+		            // here you can add some extra logic if you'd want to.
+		            $where .= ' AND post_author='.$current_user->data->ID;
+		        }
+		    }
+
+		    return $where;
+		}
+
+			
+		function get_sequencialPedidos(){
+			 $idSequencialPedidos   =  get_option('idSequencialPedidosWPSHOP');
+		     return  $idSequencialPedidos;
+	   };
          
 ?>

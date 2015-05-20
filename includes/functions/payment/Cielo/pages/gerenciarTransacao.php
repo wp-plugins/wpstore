@@ -25,8 +25,8 @@
 				<td>Loja</td>
 				<td>
 					<select name="numeroLoja">
-						<option value="1006993069">1006993069 (cartão na Loja)</option>
-						<option value="1001734898">1001734898 (cartão na Cielo)</option>
+						<option value=""> (cartão na Loja)</option>
+						<option value=""> (cartão na Cielo)</option>
 						<option value="1010111100">1010111100 (loja inexistente)</option>
 					</select>
 				</td>				

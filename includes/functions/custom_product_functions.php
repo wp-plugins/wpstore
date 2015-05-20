@@ -599,6 +599,37 @@ function 	custom_product_relation_single(){
  }
  
  
+ 
+ 
+ 
+ 
+ 
+ 
+ function  get_arquivos_form($print=true){
+     
+      $idPagina = get_idPaginaArquivos();
+      
+	  $idUser =   get_current_id_user();
+       $txtPrint  = "";
+ 
+       include('layout/upload-arquivos.php');
+
+       if($print ==true){
+           echo   $txtPrint ;
+       }else{
+           return   $txtPrint ;
+       };
+       
+       
+     
+ }
+ 
+ 
+ 
+ 
+ 
+ 
+ 
  function  get_edit_form_perfil($print=true){
      
      
@@ -727,6 +758,16 @@ function custom_get_total_price_session_order(){
         foreach( $arrayCarrinho as $key=>$item ){
             
              $postID = intval($item['idPost']);
+			 
+			 
+			
+		   $precoLargura = intval($item['precoLargura']);
+		   $precoAltura = intval($item['precoAltura']);
+		   $obs=  $item['obs'];
+			 
+			 
+			 
+			 
              
               $variacao = $item['variacaoProduto'];
                  if($variacao==""){
@@ -773,6 +814,31 @@ function custom_get_total_price_session_order(){
                   };   
        
                 $qtd = intval($item['qtdProduto']);
+				
+				
+				
+				
+			   
+			 //PRECO VARIAVEL ------------
+	       
+		    $variacaoPrecoVariavel = "";
+		   if($precoLargura > 0 ){
+		   $variacaoPrecoVariavel = " Largura : $precoLargura <br/>  Altura : $precoAltura |  $obs";	
+		   
+		   $variacao = floatval( $precoLargura)*floatval($precoAltura );
+		   $variacao = $variacao / 10000;
+	  
+		   $precoMetro = $preco;
+	   
+		   $valor =  $variacao * $precoMetro;
+	   
+           $preco =  number_format($valor,2,'.','');
+		
+		   $precoSoma =  floatval($preco);
+		   
+	        }
+   
+            //PRECO VARIAVEL ------------
                 
                 
                 $precoLinha =    getPriceFormat($qtd*$precoSoma) ;
@@ -890,6 +956,12 @@ function custom_get_total_price_session_order(){
                               $postID = intval($item['idPost']);
 
                               if($postID>0){
+								  
+								  
+					   		  
+			 
+			 
+			 
 
                                   $variacao = $item['variacaoProduto'];
                                   if($variacao==""){
@@ -919,7 +991,16 @@ function custom_get_total_price_session_order(){
                               ";
 
                              $resultQuery = $wpdb->query($sql);
-                             
+                             $lastid = $wpdb->insert_id;
+							 
+				   		     $precoLargura = intval($item['precoLargura']);
+				   		     $precoAltura = intval($item['precoAltura']);
+				   		     $obs=  $item['obs'];
+							 
+				add_user_meta( $idUser, 'precoLargura'.$lastid, $precoLargura, true );
+				add_user_meta( $idUser, 'precoAltura'.$lastid,$precoAltura, true );
+				add_user_meta( $idUser, 'obs'.$lastid,$obs, true );
+						   
                              };   
                              
                        };
@@ -1718,6 +1799,25 @@ function custom_get_total_products_in_order($idPedido){
       return intval($idPagina);
       };
       //END FIND IDPAGE pedidos-----------------------------
+   
+   
+   
+      //FIND IDPAGE pedidos------------------------------
+        function get_idPaginaArquivos(){
+        $idPagina   =  intval(trim(get_option('idPaginaArquivosWPSHOP')));
+
+        if(  $idPagina <= 0 ){
+        global $wpdb;
+        $shortcode = '[get_arquivos_form]';
+        $query = "SELECT `ID`  FROM `$wpdb->posts` WHERE `post_content` LIKE '$shortcode' AND `post_type` = 'page' LIMIT 0,1";
+         $idPagina   = $wpdb->get_var($query);
+
+        };
+        return intval($idPagina);
+        };
+        //END FIND IDPAGE pedidos-----------------------------
+   
+   
    
    
 

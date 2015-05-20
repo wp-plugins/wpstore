@@ -89,7 +89,9 @@ if($moedaCorrente==""){
 
             foreach ( $fivesdrafts as $fivesdraft ){
 
-                $idPedido = $fivesdraft->id_pedido;
+                $idOrd = $fivesdraft->id;
+				
+				$idPedido = $fivesdraft->id_pedido;
             	$valor_total = $fivesdraft->valor_total;    
                         
             	$frete = $fivesdraft->frete;
@@ -191,7 +193,12 @@ if($moedaCorrente==""){
                                     ";
                     
                                */
-                    
+							 
+						   $sequencialPedido = get_sequencialPedidos();  
+   						   $idPedidoShow = $order;
+   						   if($sequencialPedido=='sim'){
+   						      $idPedidoShow  =  $idOrd;
+   						   }; 
                     
                       	 $orderPrint .= "    
 
@@ -213,7 +220,7 @@ if($moedaCorrente==""){
 										</tr>
 										
 										<tr>
-											<td>$order</td>
+											<td>  <span class='spanPedidoId'> $idPedidoShow </td>
 											<td>$tipo_pagto</td>
 											<td>$status_pagto</td>
 											<td>".$dataArray[4] ."/ ".$dataArray[3]." / ".$dataArray[2]."</td>

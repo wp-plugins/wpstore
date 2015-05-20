@@ -98,8 +98,9 @@ class PgsFrete
           $valores['Sedex']=$result[3];
           $valores['PAC']=$result[4];
         }else{
-          die($result[1]);
+         // die($result[1]);
         }
         return $valores;
     }
 }
+?>

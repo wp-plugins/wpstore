@@ -26,7 +26,7 @@ $frete="EN";
 
 
 $totalCompra = 0;
- 
+   $idOrd = "";
 // Incluindo o arquivo da biblioteca 	 Outras Informações
  
 $Array[] = array();        
@@ -40,8 +40,8 @@ $Array[] = array();
  
     foreach ( $fivesdraftCs as $item=>$fivesdraftC ){
         
-       
-        
+ 	 
+        $idOrd = $fivesdraftC->id;
         $idPedido = $fivesdraftC->id_pedido;
         $idProduto = $fivesdraftC->id_produto;
      
@@ -97,8 +97,15 @@ $Array[] = array();
        $strNew =  str_replace($vowels,"-", $str_utf8 ) ;
         
  
+ 
+ 	   $sequencialPedido = get_sequencialPedidos();  
+ 	   $idPedidoShow = $idPedido;
+ 	   if($sequencialPedido=='sim'){
+ 	      $idPedidoShow  =  $idOrd;
+ 	   }; 
+	   
 	   $produtosCheck .= " _gaq.push(['_addItem',
-            '$idPedido',           // order ID - required
+            '$idPedidoShow',           // order ID - required
             '".$idProduto."',           // SKU/code - required
             '".$strNew."',        // product name
             '".$peso."',   // category or variation
@@ -330,7 +337,7 @@ $Array[] = array();
         		<h3> Pedido Concluído :  (<?php echo $dataCi; ?>)</h3>
 
  
-                <p>Número pedido : <?php echo $idPedido; ?></p>
+                <p>Número pedido : <?php echo $idPedidoShow; ?></p>
  			    <p>Sucesso : <?php echo $finalizacao ? "sim" : "não"; ?></p>
  				<p>Transação:<?php echo $tid; ?></th>
  				<p>Status transação: <span style="color: red;"><?php echo $status; ?> </span></p>
