@@ -22,6 +22,11 @@
             update_option('exibeQtdProd',$exibeQtdProd);
            
          
+           
+            $esconderFreteCarrinho = trim($_POST['esconderFreteCarrinho']);
+           add_option('esconderFreteCarrinhoWPSTORE',$esconderFreteCarrinho,'','yes'); 
+            update_option('esconderFreteCarrinhoWPSTORE',$esconderFreteCarrinho);
+			
          
          
          
@@ -100,6 +105,9 @@ $exibirTabela =  get_option('exibirTabelaWPSHOP');
    $listagemPRelOrderby   = get_option('listagemPRelOrderby');  
    
    $excludeCatsProdRel  = get_option('excludeCatsProdRel');  
+
+    $esconderFreteCarrinho  = get_option('esconderFreteCarrinhoWPSTORE');  
+
 
 ?>
 
@@ -226,6 +234,35 @@ $exibirTabela =  get_option('exibirTabelaWPSHOP');
 		
 		
 		
+
+                 <div class="bloco">      
+			
+			<h3>3.1) Esconder Frete Carrinho </h3>
+			
+			<span class="seta" rel='esconderFreteCarrinho'></span>
+			<div class="texto" id='esconderFreteCarrinho'>
+			 
+			
+	           
+               <p>SIM : 
+               <input type="radio" name="esconderFreteCarrinho" value="sim"  <?php  if($esconderFreteCarrinho=='sim'  ){ echo "CHECKED"; }; ?> />
+               </p>
+
+               <p>NÃO: 
+               <input type="radio" name="esconderFreteCarrinho" value="não"  <?php  if($esconderFreteCarrinho=='não' ||$esconderFreteCarrinho=='' ){ echo "CHECKED"; }; ?> />
+               </p>
+			                  <input type="submit"  name="submit" value="Salvar"   />      
+			</div>
+		</div><!-- .bloco -->
+		
+		
+		
+		
+		
+		
+		
+		
+		
  
  
                  <div class="bloco">      
@@ -250,7 +287,12 @@ $exibirTabela =  get_option('exibirTabelaWPSHOP');
 
 
 
- 
+
+
+		
+		
+		
+
 
 
          <div class="bloco">      
