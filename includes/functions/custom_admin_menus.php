@@ -345,6 +345,26 @@
 
 
 
-      
+
+
+                                                                 //criar MENU PERSONALIZADO  ------------- Tools
+
+                                                              add_action('admin_menu', 'criarPageTools');
+
+					function criarPageTools() {
+                                                                 add_submenu_page('wpstore', __('Ferramentas','menu-lista-tools'), __('Ferramentas','menu-lista-tools'), 'edit_posts',  'lista-tools', 'custom_criar_pagina_admin_tools');
+ };
+  function custom_criar_pagina_admin_tools() {
+
+                                                                            include('layout/panel/panel-header.php');
+
+                                                                             include('layout/admin_page_tools.php');  
+
+                                                                            include('layout/panel/panel-footer.php');
+};
+
+ // FINAL criar MENU PERSONALIZADO  -------------PERGUNTAS
+																											 
+	    
      
 ?>
