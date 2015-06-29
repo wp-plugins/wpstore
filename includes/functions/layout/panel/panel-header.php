@@ -28,6 +28,7 @@
 			  $wpstoreAtivo = "";
 			  $impostosAtivo = "";
 			  $traducaoAtivo = "";
+				$ferramentaslista = "";
 			   
 			  if($ativo=="wpstore"){
 			     $wpstoreAtivo = 'current';
@@ -51,7 +52,9 @@
        			 $impostosAtivo = 'current'; 
        		  }elseif($ativo=="lista_translate"){
             	 $traducaoAtivo = 'current'; 
-              }
+        		  }elseif($ativo=="lista-tools"){
+             	$ferramentaslista = 'current'; 
+               }
 			?>
 			
 			<ul class='menu'>
@@ -67,8 +70,11 @@
 				<li><a href='admin.php?page=lista_smtp' class="<?php echo $smtpAtivo; ?>">Opções de SMTP</a></li>
 				<li><a href='admin.php?page=lista_impostos' class="<?php echo $impostosAtivo; ?>">Opções de Impostos</a></li>
 				<li><a href='admin.php?page=lista_translate' class="<?php echo $traducaoAtivo; ?>">Opções de texto e tradução</a></li>
+				
+					<li><a href='admin.php?page=lista-tools' class="<?php echo $ferramentaslista; ?>">Ferramentas</a></li>
+					
 			</ul>
-			
+
 		</div><!-- #lateral -->
 		
 		<div id="opcoes">   
